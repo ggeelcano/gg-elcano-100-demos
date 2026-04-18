@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Restaurante Aretxondo · Hostelería en Galdakao</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{overflow-x:hidden;background:linear-gradient(180deg,#2d1b0e,#1a0f08);color:#ffffff;font-family:'Inter',sans-serif;min-height:100vh}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 42px;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.5);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.08)}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;letter-spacing:-0.5px;display:flex;align-items:center;gap:10px}
+.logo-dot{width:10px;height:10px;background:#f59e0b;border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:0.6}}
+.nav-cta{background:#f59e0b;color:#fff;padding:10px 22px;border-radius:40px;font-weight:600;text-decoration:none;font-size:14px;transition:all 0.2s}
+.nav-cta:hover{transform:translateY(-1px);filter:brightness(1.1)}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 42px 80px;overflow:hidden}
+#hero-canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%}
+.trust{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:40px;font-size:13px;margin-bottom:28px}
+.trust .dot{width:6px;height:6px;background:#22c55e;border-radius:50%;box-shadow:0 0 12px #22c55e}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(44px,7vw,92px);font-weight:700;line-height:0.95;letter-spacing:-3px;margin-bottom:28px;max-width:900px}
+h1 i{color:#f59e0b;font-style:italic;font-weight:500}
+.hero-sub{font-size:19px;line-height:1.55;opacity:0.7;max-width:600px;margin-bottom:40px}
+.ctas{display:flex;gap:14px;margin-bottom:56px;flex-wrap:wrap}
+.btn-p{background:#f59e0b;color:#fff;padding:17px 32px;border-radius:40px;font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;gap:10px;align-items:center;transition:all 0.25s;border:none;cursor:pointer}
+.btn-p:hover{transform:translateY(-2px);filter:brightness(1.1);box-shadow:0 15px 35px #f59e0b66}
+.btn-g{background:transparent;color:#ffffff;padding:17px 28px;border-radius:40px;font-weight:500;font-size:15px;text-decoration:none;border:1px solid rgba(255,255,255,0.08);transition:all 0.25s}
+.btn-g:hover{background:rgba(255,255,255,0.03)}
+.hero-stats{display:flex;gap:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.08);flex-wrap:wrap}
+.stat-num{font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;line-height:1;margin-bottom:6px}
+.stat-num b{color:#f59e0b}
+.stat-label{font-size:13px;opacity:0.55}
+section{padding:120px 42px;position:relative}
+.container{max-width:1200px;margin:0 auto}
+.section-label{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;color:#f59e0b;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px}
+.section-label::before{content:'';width:30px;height:1px;background:#f59e0b}
+h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,5vw,62px);font-weight:700;line-height:1.05;letter-spacing:-1.5px;margin-bottom:24px;max-width:900px}
+h2 i{color:#f59e0b;font-style:italic;font-weight:500}
+.section-sub{font-size:18px;opacity:0.65;max-width:640px;line-height:1.55;margin-bottom:60px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{padding:30px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:20px;transition:all 0.3s}
+.card:hover{transform:translateY(-4px);border-color:#f59e0b66}
+.card .num{font-family:'Space Grotesk',sans-serif;font-size:13px;color:#f59e0b;margin-bottom:16px;letter-spacing:1px;font-weight:600}
+.card h3{font-family:'Space Grotesk',sans-serif;font-size:22px;margin-bottom:12px;letter-spacing:-0.5px;font-weight:600}
+.card p{opacity:0.7;line-height:1.55;font-size:15px}
+.contact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:40px}
+.contact-item{padding:24px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:16px}
+.contact-item .label{font-size:12px;opacity:0.5;margin-bottom:6px;text-transform:uppercase;letter-spacing:1px}
+.contact-item .value{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:500;color:#ffffff}
+.contact-item a{color:#ffffff;text-decoration:none}
+.contact-item a:hover{color:#f59e0b}
+footer{padding:48px 42px;text-align:center;border-top:1px solid rgba(255,255,255,0.08);opacity:0.5;font-size:13px}
+footer a{color:#ffffff;text-decoration:none}
+.cta-final{text-align:center;padding:140px 42px}
+.cta-final h2{margin:0 auto 24px}
+.cta-final .section-sub{margin:0 auto 40px}
+.cta-big{display:inline-flex;align-items:center;gap:14px;background:#f59e0b;color:#fff;padding:22px 44px;border-radius:60px;font-size:17px;font-weight:600;text-decoration:none;transition:all 0.3s;box-shadow:0 20px 50px #f59e0b55}
+.cta-big:hover{transform:translateY(-3px) scale(1.02);filter:brightness(1.1)}
+.reveal{opacity:0;transform:translateY(40px)}
+@media(max-width:900px){nav{padding:16px 20px}section{padding:70px 20px}.hero{padding:100px 20px 60px}.hero-stats{gap:24px}}
+</style>
+</head>
+<body>
+<nav>
+  <div class="logo"><span class="logo-dot"></span>Restaurante Aretxondo</div>
+  <a href="#contacto" class="nav-cta">Contactar</a>
+</nav>
+
+<section class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-content">
+    <div class="trust reveal"><span class="dot"></span>🍽️ Hostelería en Galdakao · ⭐ 4.4 (1054 reseñas)</div>
+    <h1 class="reveal">El <i>sabor</i> de tu casa, online.</h1>
+    <p class="hero-sub reveal">Reservas, carta digital, fotos que abren el apetito. Tu negocio trabaja hasta cuando descansas.</p>
+    <div class="ctas reveal">
+      
+      <a href="#contacto" class="btn-g">Ver contacto</a>
+    </div>
+    <div class="hero-stats reveal">
+      <div><div class="stat-num"><b>4.4</b>⭐</div><div class="stat-label">Valoración Google</div></div>
+      <div><div class="stat-num"><b>1054</b>+</div><div class="stat-label">Reseñas reales</div></div>
+      <div><div class="stat-num"><b>24</b>/7</div><div class="stat-label">Tu web siempre abierta</div></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-label">Lo que te ofrecemos</div>
+    <h2 class="reveal">Una web <i>hecha para tu negocio</i>, no un molde genérico.</h2>
+    <p class="section-sub reveal">Personalizada con tus datos reales, tus fotos, tu tono. Lista en 48 horas sin que muevas un dedo.</p>
+    <div class="cards">
+      <div class="card reveal"><div class="num">01</div><h3>Diseño Hostelería</h3><p>Adaptada a tu sector con animaciones y colores que encajan. No una plantilla de WordPress más.</p></div>
+      <div class="card reveal"><div class="num">02</div><h3>Tus datos reales</h3><p>Incluimos tu teléfono, tus reseñas de Google, tu ubicación. Nada inventado, nada stock.</p></div>
+      <div class="card reveal"><div class="num">03</div><h3>SEO local</h3><p>Optimizada para que te encuentren cuando alguien busque hostelería en Galdakao.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="container">
+    <div class="section-label">Contacto</div>
+    <h2 class="reveal">Tus datos, <i>tal como están hoy</i>.</h2>
+    <p class="section-sub reveal">Esto es lo que ya sabemos de ti. En la web final se verá así de claro para tus clientes.</p>
+    <div class="contact-grid">
+      
+      <div class="contact-item reveal"><div class="label">Email</div><div class="value"><a href="mailto:aretxondo@aretxondo.com">aretxondo@aretxondo.com</a></div></div>
+      
+      <div class="contact-item reveal"><div class="label">Ciudad</div><div class="value">Galdakao</div></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <div class="section-label" style="justify-content:center">🍽️ Restaurante Aretxondo</div>
+    <h2 class="reveal">¿Quieres <i>esta web</i> de verdad?</h2>
+    <p class="section-sub reveal">Podemos tenerla lista y en marcha en 7 días con dominio, hosting y tus textos reales.</p>
+    <a href="mailto:info@ggelcano.com?subject=Quiero la web de Restaurante%20Aretxondo" class="cta-big reveal">Hablemos — info@ggelcano.com</a>
+  </div>
+</section>
+
+<footer>
+  Demo creada por <a href="https://github.com/ggeelcano">G&G Elcano</a> para Restaurante Aretxondo · Galdakao · 2026
+</footer>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const animHooks = [];
+(() => {
+  const canvas = document.getElementById('hero-canvas');
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(55, window.innerWidth/window.innerHeight, 0.1, 200);
+  camera.position.z = 22;
+  const renderer = new THREE.WebGLRenderer({canvas, alpha: true, antialias: true});
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setSize(window.innerWidth, window.innerHeight);
+  
+      // Platos flotantes + velas + humo
+      const plates = [];
+      for(let i=0;i<8;i++){
+        const plate = new THREE.Mesh(
+          new THREE.CylinderGeometry(1, 1, 0.08, 32),
+          new THREE.MeshStandardMaterial({color: 0xfff5e6, metalness:0.2, roughness:0.5})
+        );
+        const food = new THREE.Mesh(
+          new THREE.SphereGeometry(0.5, 16, 16),
+          new THREE.MeshStandardMaterial({color: [0xf59e0b, 0xdc2626, 0x10b981, 0xf59e0b][i%4], roughness:0.7})
+        );
+        food.position.y = 0.15; food.scale.y = 0.5;
+        const g = new THREE.Group(); g.add(plate); g.add(food);
+        g.position.set((Math.random()-0.5)*25, (Math.random()-0.5)*14, -Math.random()*12);
+        g.userData = {baseY: g.position.y, phase: Math.random()*6, rotSpeed: (Math.random()-0.5)*0.005};
+        scene.add(g); plates.push(g);
+      }
+      // Sparks/humo
+      const sparkCount = 80;
+      const sparkPos = new Float32Array(sparkCount*3);
+      for(let i=0;i<sparkCount;i++){sparkPos[i*3]=(Math.random()-0.5)*30;sparkPos[i*3+1]=-10+Math.random()*5;sparkPos[i*3+2]=(Math.random()-0.5)*15;}
+      const sparkGeo = new THREE.BufferGeometry();
+      sparkGeo.setAttribute('position', new THREE.BufferAttribute(sparkPos,3));
+      const sparks = new THREE.Points(sparkGeo, new THREE.PointsMaterial({color:0xfbbf24,size:0.15,transparent:true,opacity:0.8,blending:THREE.AdditiveBlending}));
+      scene.add(sparks);
+      scene.add(new THREE.AmbientLight(0xffffff,0.5));
+      const pl = new THREE.PointLight(0xf59e0b, 3, 30); pl.position.set(0,5,5); scene.add(pl);
+      animHooks.push((t)=>{
+        plates.forEach(p=>{p.position.y = p.userData.baseY + Math.sin(t+p.userData.phase)*0.6; p.rotation.y += p.userData.rotSpeed;});
+        const spos = sparkGeo.attributes.position.array;
+        for(let i=0;i<sparkCount;i++){spos[i*3+1]+=0.03; if(spos[i*3+1]>10) spos[i*3+1]=-10;}
+        sparkGeo.attributes.position.needsUpdate = true;
+      });
+    
+  const mouse = {x:0, y:0};
+  window.addEventListener('mousemove', e => {mouse.x=(e.clientX/window.innerWidth-0.5)*2; mouse.y=-(e.clientY/window.innerHeight-0.5)*2;});
+  let t=0;
+  function loop(){
+    requestAnimationFrame(loop);
+    t += 0.015;
+    animHooks.forEach(h => h(t));
+    camera.position.x += (mouse.x*1.5 - camera.position.x)*0.03;
+    camera.position.y += (mouse.y*1 - camera.position.y)*0.03;
+    camera.lookAt(0,0,0);
+    renderer.render(scene, camera);
+  }
+  loop();
+  window.addEventListener('resize', () => {
+    camera.aspect = window.innerWidth/window.innerHeight;
+    camera.updateProjectionMatrix();
+    renderer.setSize(window.innerWidth, window.innerHeight);
+  });
+})();
+gsap.utils.toArray('.reveal').forEach(el => {
+  gsap.to(el, {opacity:1, y:0, duration:1, ease:'power3.out', scrollTrigger:{trigger:el, start:'top 88%', once:true}});
+});
+gsap.timeline().to('.hero .reveal', {opacity:1, y:0, duration:0.9, stagger:0.1, ease:'power3.out', delay:0.3});
+</script>
+</body>
+</html>

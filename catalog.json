@@ -1,0 +1,802 @@
+[
+  {
+    "slug": "administracion-fincas-henares-dd3016",
+    "nombre": "Administración Fincas Henares",
+    "sector": "Servicios",
+    "ciudad": "Azuqueca de Henares",
+    "tel": "608662373",
+    "rating": null
+  },
+  {
+    "slug": "academia-loleo-9678a2",
+    "nombre": "Academia Loleo",
+    "sector": "Educación",
+    "ciudad": "Villanueva de la Torre",
+    "tel": "648468194",
+    "rating": null
+  },
+  {
+    "slug": "m35-shop-74fc61",
+    "nombre": "M35 Shop",
+    "sector": "Comercio",
+    "ciudad": "Laguardia",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "taller-gng-c2db1e",
+    "nombre": "Taller GnG",
+    "sector": "Taller",
+    "ciudad": "Galdakao",
+    "tel": "607232595",
+    "rating": 4.7
+  },
+  {
+    "slug": "floren-victor-peluqueria-0a4735",
+    "nombre": "Floren-Victor Peluquería",
+    "sector": "Peluquería",
+    "ciudad": "Bilbao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "basa-take-away-bbb45c",
+    "nombre": "Basa Take Away",
+    "sector": "Hostelería",
+    "ciudad": "Durango",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "el-buen-tapeo-86c720",
+    "nombre": "El Buen Tapeo",
+    "sector": "Hostelería",
+    "ciudad": "Ourense",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "bar-entre-canas-y-barros-e45102",
+    "nombre": "Bar Entre Cañas y Barros",
+    "sector": "Hostelería",
+    "ciudad": "Ansoáin",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "copisteria-biart-b9562e",
+    "nombre": "Copistería Biart",
+    "sector": "Comercio",
+    "ciudad": "Ansoáin",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "centro-sueskun-fisioterapia-0bf4b4",
+    "nombre": "Centro Sueskun Fisioterapia",
+    "sector": "Salud",
+    "ciudad": "Villava",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "psicologo-aser-sesma-d83d75",
+    "nombre": "Psicólogo Aser Sesma",
+    "sector": "Salud",
+    "ciudad": "Villava",
+    "tel": "693770321",
+    "rating": null
+  },
+  {
+    "slug": "ukimen-fisioterapia-b71da7",
+    "nombre": "Ukimen Fisioterapia",
+    "sector": "Salud",
+    "ciudad": "Ansoáin",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "aitor-arrazola-nutricion-2e8951",
+    "nombre": "Aitor Arrazola Nutrición",
+    "sector": "Salud",
+    "ciudad": "Ansoáin",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "academia-tony-cocera-595694",
+    "nombre": "Academia Tony Cocera",
+    "sector": "Educación",
+    "ciudad": "Burlada",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "kamakura-bilbao-29a65d",
+    "nombre": "Kamakura Bilbao",
+    "sector": "Comercio",
+    "ciudad": "Bilbao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "orekatmejora-16f925",
+    "nombre": "OrekaTmejora",
+    "sector": "Salud",
+    "ciudad": "Ansoáin",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "ferreteria-el-candado-a2f749",
+    "nombre": "Ferretería El Candado",
+    "sector": "Comercio",
+    "ciudad": "Villanueva del Ariscal",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "casa-rural-los-cipreses-f5ebe9",
+    "nombre": "Casa Rural Los Cipreses",
+    "sector": "Hostelería",
+    "ciudad": "Mesones",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "pescaderia-olaverri-4decae",
+    "nombre": "Pescadería Olaverri",
+    "sector": "Comercio",
+    "ciudad": "Villava",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "pinturas-bengoetxea-8e9b33",
+    "nombre": "Pinturas Bengoetxea",
+    "sector": "Servicios",
+    "ciudad": "Berriozar",
+    "tel": "620353935",
+    "rating": null
+  },
+  {
+    "slug": "papos-men-c04774",
+    "nombre": "Papos Men",
+    "sector": "Comercio",
+    "ciudad": "Durango",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "merceria-osinaga-dae0fd",
+    "nombre": "Mercería Osinaga",
+    "sector": "Comercio",
+    "ciudad": "Ansoáin",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "restaurante-aretxondo-1df990",
+    "nombre": "Restaurante Aretxondo",
+    "sector": "Hostelería",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": 4.4
+  },
+  {
+    "slug": "el-korner-134677",
+    "nombre": "El Korner",
+    "sector": "Hostelería",
+    "ciudad": "Durango",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "tintacartuchos-ansoain-139012",
+    "nombre": "Tintacartuchos Ansoáin",
+    "sector": "Comercio",
+    "ciudad": "Ansoáin",
+    "tel": "641175491",
+    "rating": null
+  },
+  {
+    "slug": "ecotienda-orgiva-c098a0",
+    "nombre": "Ecotienda Órgiva",
+    "sector": "Comercio",
+    "ciudad": "Órgiva",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "galdakao-futbol-eskola-lead_1",
+    "nombre": "Galdakao Futbol Eskola",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "suministros-industriales-errekalde-lead_1",
+    "nombre": "Suministros Industriales Errekalde",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "pinturas-nabartu-lead_1",
+    "nombre": "Pinturas Nabartu",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "residencia-san-andres-ii-lead_1",
+    "nombre": "Residencia San Andres II",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "residencia-san-andres-i-lead_1",
+    "nombre": "Residencia San Andres I",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "cristaleria-galdakao-lead_1",
+    "nombre": "Cristaleria Galdakao",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "hiper-del-mueble-lead_1",
+    "nombre": "Hiper del Mueble",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "funeraria-galarza-lead_1",
+    "nombre": "Funeraria Galarza",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "galdakauto-lead_1",
+    "nombre": "Galdakauto",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "autoreparaciones-artola-lead_1",
+    "nombre": "Autoreparaciones Artola",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "tecnymas-lead_1",
+    "nombre": "Tecnymas",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "clinicas-plus-dental-galdakao-lead_1",
+    "nombre": "Clinicas Plus Dental Galdakao",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "clinica-dental-loan-lead_1",
+    "nombre": "Clinica Dental LOAN",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "escuela-de-hosteleria-galdakao-lead_1",
+    "nombre": "Escuela de Hosteleria Galdakao",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "estudio-3-galdakao-s-l-lead_1",
+    "nombre": "Estudio 3 Galdakao S.L.",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "natrus-s-l-lead_1",
+    "nombre": "Natrus S.L.",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "dediego-s-l-lead_1",
+    "nombre": "Dediego S.L.",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "maxam-ueb-s-l-lead_1",
+    "nombre": "MAXAM UEB S.L.",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "ali-transformados-metalicos-s-l-lead_1",
+    "nombre": "ALI Transformados Metalicos S.L.",
+    "sector": "Profesional",
+    "ciudad": "Galdakao",
+    "tel": "",
+    "rating": null
+  },
+  {
+    "slug": "angeles-martin-lopez-angele",
+    "nombre": "Ángeles Martín López",
+    "sector": "Veterinaria",
+    "ciudad": "Motril",
+    "tel": "685 52 63 18",
+    "rating": 3.6
+  },
+  {
+    "slug": "centro-veterinario-velez-centro",
+    "nombre": "CENTRO VETERINARIO VÉLEZ",
+    "sector": "Veterinaria",
+    "ciudad": "Motril",
+    "tel": "634 41 93 35",
+    "rating": 4.1
+  },
+  {
+    "slug": "clinica-veterinaria-talisman-clinic",
+    "nombre": "Clínica Veterinaria Talismán",
+    "sector": "Veterinaria",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.6
+  },
+  {
+    "slug": "clinica-veterinaria-taoro-clinic",
+    "nombre": "Clinica Veterinaria Taoro",
+    "sector": "Veterinaria",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.3
+  },
+  {
+    "slug": "clinica-veterinaria-canisur-clinic",
+    "nombre": "Clinica Veterinaria Canisur",
+    "sector": "Veterinaria",
+    "ciudad": "Motril",
+    "tel": "610 79 00 79",
+    "rating": 4.5
+  },
+  {
+    "slug": "clinica-veterinaria-animal-s-clinic",
+    "nombre": "Clínica Veterinaria Animal's",
+    "sector": "Veterinaria",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.6
+  },
+  {
+    "slug": "clinica-veterinaria-motril-clinic",
+    "nombre": "Clínica Veterinaria Motril",
+    "sector": "Veterinaria",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.5
+  },
+  {
+    "slug": "stradivarius-stradi",
+    "nombre": "Stradivarius",
+    "sector": "Tienda de Ropa",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.2
+  },
+  {
+    "slug": "el-encanto-de-encarni-el-enc",
+    "nombre": "El Encanto de Encarni",
+    "sector": "Tienda de Ropa",
+    "ciudad": "Motril",
+    "tel": "658 05 96 73",
+    "rating": 4.5
+  },
+  {
+    "slug": "paula-fuentes-paula-",
+    "nombre": "Paula Fuentes",
+    "sector": "Tienda de Ropa",
+    "ciudad": "Motril",
+    "tel": "673 68 37 44",
+    "rating": 5
+  },
+  {
+    "slug": "bogoos-bogoos",
+    "nombre": "BOGOOS",
+    "sector": "Tienda de Ropa",
+    "ciudad": "Motril",
+    "tel": "858 81 34 70",
+    "rating": 4.9
+  },
+  {
+    "slug": "maria-galiano-moda-femenina-maria-",
+    "nombre": "María Galiano Moda femenina",
+    "sector": "Tienda de Ropa",
+    "ciudad": "Motril",
+    "tel": "610 60 28 75",
+    "rating": 5
+  },
+  {
+    "slug": "menfis-boutique-menfis",
+    "nombre": "MENFIS BOUTIQUE",
+    "sector": "Tienda de Ropa",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.8
+  },
+  {
+    "slug": "pepe-almendros-moda-pepe-a",
+    "nombre": "Pepe Almendros Moda",
+    "sector": "Tienda de Ropa",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.9
+  },
+  {
+    "slug": "fashion-art-fashio",
+    "nombre": "Fashion Art",
+    "sector": "Tienda de Ropa",
+    "ciudad": "Motril",
+    "tel": "673 22 47 78",
+    "rating": 4.9
+  },
+  {
+    "slug": "lola-ruiz-lola-r",
+    "nombre": "Lola Ruiz",
+    "sector": "Tienda de Ropa",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.5
+  },
+  {
+    "slug": "boutique-glamglam-by-carmen-filip-boutiq",
+    "nombre": "Boutique Glamglam by Carmen Filip",
+    "sector": "Tienda de Ropa",
+    "ciudad": "Motril",
+    "tel": "692 54 26 42",
+    "rating": 5
+  },
+  {
+    "slug": "taller-mecanica-mariano-taller",
+    "nombre": "Taller Mecánica MARIANO",
+    "sector": "Taller Mecánico",
+    "ciudad": "Motril",
+    "tel": "858 89 06 06",
+    "rating": 4.5
+  },
+  {
+    "slug": "tecnicar-motril-tecnic",
+    "nombre": "TECNICAR Motril",
+    "sector": "Taller Mecánico",
+    "ciudad": "Motril",
+    "tel": "688 92 17 77",
+    "rating": 4.9
+  },
+  {
+    "slug": "arlauto-arlaut",
+    "nombre": "Arlauto",
+    "sector": "Taller Mecánico",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.7
+  },
+  {
+    "slug": "center-s-auto-motril-center",
+    "nombre": "Center´s Auto Motril",
+    "sector": "Taller Mecánico",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.4
+  },
+  {
+    "slug": "taller-de-automocion-auto-gratusa-s-l-taller",
+    "nombre": "Taller De Automoción Auto Gratusa S.L.",
+    "sector": "Taller Mecánico",
+    "ciudad": "Motril",
+    "tel": "648 72 10 36",
+    "rating": 4.7
+  },
+  {
+    "slug": "taller-martin-cars-raya-palacios-y-otros-s-l-taller",
+    "nombre": "TALLER MARTIN CARS ( RAYA PALACIOS Y OTROS S.L.)",
+    "sector": "Taller Mecánico",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.8
+  },
+  {
+    "slug": "auto-taller-de-servicio-rapido-auto-t",
+    "nombre": "Auto Taller de Servicio Rápido",
+    "sector": "Taller Mecánico",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.2
+  },
+  {
+    "slug": "taller-mario-taller",
+    "nombre": "TALLER MARIO",
+    "sector": "Taller Mecánico",
+    "ciudad": "Motril",
+    "tel": "642 98 00 01",
+    "rating": 4.8
+  },
+  {
+    "slug": "car-gonzalez-e-hijos-car-go",
+    "nombre": "Car González E Hijos",
+    "sector": "Taller Mecánico",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.3
+  },
+  {
+    "slug": "dr-garage-dr-gar",
+    "nombre": "DR.GARAGE",
+    "sector": "Taller Mecánico",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.7
+  },
+  {
+    "slug": "bambu-beach-motril-bambu-",
+    "nombre": "Bambú Beach | Motril",
+    "sector": "Restaurante",
+    "ciudad": "Motril",
+    "tel": "858 99 02 21",
+    "rating": 4.2
+  },
+  {
+    "slug": "restaurante-marelli-restau",
+    "nombre": "Restaurante Marelli",
+    "sector": "Restaurante",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.4
+  },
+  {
+    "slug": "restaurante-estrella-del-mar-restau",
+    "nombre": "Restaurante Estrella Del Mar",
+    "sector": "Restaurante",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.3
+  },
+  {
+    "slug": "pura-vida-motril-pura-v",
+    "nombre": "Pura vida Motril",
+    "sector": "Restaurante",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.5
+  },
+  {
+    "slug": "restaurante-juan-garcia-restau",
+    "nombre": "Restaurante Juan Garcia",
+    "sector": "Restaurante",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.3
+  },
+  {
+    "slug": "maison-mareame-maison",
+    "nombre": "Maison Maréame",
+    "sector": "Restaurante",
+    "ciudad": "Motril",
+    "tel": "614 09 72 24",
+    "rating": 5
+  },
+  {
+    "slug": "restaurante-la-espicha-restau",
+    "nombre": "Restaurante La Espichá",
+    "sector": "Restaurante",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.4
+  },
+  {
+    "slug": "restaurante-el-candelon-restau",
+    "nombre": "Restaurante \"El Candelón\"",
+    "sector": "Restaurante",
+    "ciudad": "Motril",
+    "tel": "647 66 54 76",
+    "rating": 4.6
+  },
+  {
+    "slug": "restaurante-la-ballena-azul-restau",
+    "nombre": "Restaurante La Ballena Azul",
+    "sector": "Restaurante",
+    "ciudad": "Motril",
+    "tel": "656 82 55 80",
+    "rating": 4.7
+  },
+  {
+    "slug": "restaurante-los-moriscos-restau",
+    "nombre": "Restaurante Los Moriscos",
+    "sector": "Restaurante",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.1
+  },
+  {
+    "slug": "blau-peluqueros-blau-p",
+    "nombre": "Blau peluqueros",
+    "sector": "Peluquería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.8
+  },
+  {
+    "slug": "peluqueria-encarni-bustos-peluqu",
+    "nombre": "Peluquería Encarni Bustos",
+    "sector": "Peluquería",
+    "ciudad": "Motril",
+    "tel": "657 07 62 55",
+    "rating": 5
+  },
+  {
+    "slug": "peluqueria-kedhara-hair-studio-balayage-en-motril-peluqu",
+    "nombre": "Peluquería Kedhara Hair Studio - Balayage en Motril",
+    "sector": "Peluquería",
+    "ciudad": "Motril",
+    "tel": "600 58 32 84",
+    "rating": 4.9
+  },
+  {
+    "slug": "magda-peluqueria-centro-motril-magda-",
+    "nombre": "Magda Peluqueria Centro Motril",
+    "sector": "Peluquería",
+    "ciudad": "Motril",
+    "tel": "609 16 03 84",
+    "rating": 4.9
+  },
+  {
+    "slug": "marytorres-salon-de-belleza-peluqueria-maryto",
+    "nombre": "MaryTorres Salón de Belleza & Peluquería",
+    "sector": "Peluquería",
+    "ciudad": "Motril",
+    "tel": "627 44 51 86",
+    "rating": 4.8
+  },
+  {
+    "slug": "c-c-peluqueros-peluqueria-en-motril-c-c-pe",
+    "nombre": "C&C Peluqueros | Peluquería en Motril",
+    "sector": "Peluquería",
+    "ciudad": "Motril",
+    "tel": "858 99 55 54",
+    "rating": 5
+  },
+  {
+    "slug": "isabel-martin-peluqueria-isabel",
+    "nombre": "Isabel Martín Peluquería",
+    "sector": "Peluquería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.8
+  },
+  {
+    "slug": "doble-v-estilistas-doble-",
+    "nombre": "Doble V Estilistas",
+    "sector": "Peluquería",
+    "ciudad": "Motril",
+    "tel": "858 81 23 14",
+    "rating": 4.8
+  },
+  {
+    "slug": "peluqueria-y-estetica-bellezza10-peluqu",
+    "nombre": "Peluquería y estética Bellezza10",
+    "sector": "Peluquería",
+    "ciudad": "Motril",
+    "tel": "664 74 40 49",
+    "rating": 4.6
+  },
+  {
+    "slug": "peluqueria-estetica-cristina-peluqu",
+    "nombre": "Peluquería & Estética Cristina",
+    "sector": "Peluquería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.6
+  },
+  {
+    "slug": "pasteleria-videras-pastel",
+    "nombre": "Pastelería Videras",
+    "sector": "Pastelería & Panadería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.6
+  },
+  {
+    "slug": "panaderia-espiga-dorada-panade",
+    "nombre": "Panadería Espiga Dorada",
+    "sector": "Pastelería & Panadería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.5
+  },
+  {
+    "slug": "panaderia-el-molino-panade",
+    "nombre": "Panadería el molino",
+    "sector": "Pastelería & Panadería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 2.9
+  },
+  {
+    "slug": "panaderia-confiteria-molino-panade",
+    "nombre": "Panadería confitería Molino",
+    "sector": "Pastelería & Panadería",
+    "ciudad": "Motril",
+    "tel": "654 63 09 60",
+    "rating": 3.6
+  },
+  {
+    "slug": "panaderia-kome-kalla-panade",
+    "nombre": "Panadería Kome & Kalla",
+    "sector": "Pastelería & Panadería",
+    "ciudad": "Motril",
+    "tel": "687 13 20 15",
+    "rating": 4
+  },
+  {
+    "slug": "panaderia-molino-s-l-panade",
+    "nombre": "Panadería Molino S.L.",
+    "sector": "Pastelería & Panadería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 3.8
+  },
+  {
+    "slug": "panaderia-molino-panade",
+    "nombre": "Panadería Molino",
+    "sector": "Pastelería & Panadería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.2
+  },
+  {
+    "slug": "pasteleria-casa-palomares-motril-pastel",
+    "nombre": "Pastelería Casa Palomares | Motril |",
+    "sector": "Pastelería & Panadería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.6
+  }
+]
