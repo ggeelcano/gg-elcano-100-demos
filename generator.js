@@ -3,7 +3,8 @@ const fs = require('fs');
 const path = require('path');
 
 const OUT_DIR = __dirname;
-const leads = JSON.parse(fs.readFileSync(path.join(OUT_DIR, 'leads.json'), 'utf8')).leads;
+const INPUT = process.argv[2] || 'leads.json';
+const leads = JSON.parse(fs.readFileSync(path.join(OUT_DIR, INPUT), 'utf8')).leads;
 
 // Slugify
 const slugify = s => (s||'').toString().toLowerCase()
@@ -358,6 +359,300 @@ const SECTOR_ANIMS = {
         const p = lg.attributes.position.array;
         for(let i=0;i<letterCount;i++){p[i*3+1]+=0.02; if(p[i*3+1]>12) p[i*3+1]=-12;}
         lg.attributes.position.needsUpdate = true;
+      });
+    `
+  },
+
+  'clinica-dental': { inherits: 'salud', label: 'Clínica Dental', emoji: '🦷' },
+  'fisioterapia': { inherits: 'salud', label: 'Fisioterapia', emoji: '💆' },
+  'food-truck': { inherits: 'hosteleria', label: 'Food Truck', emoji: '🚚' },
+  'cerveceria': { inherits: 'hosteleria', label: 'Cervecería', emoji: '🍺', palette:{bg1:'#1a0f05',bg2:'#0a0502',accent:'#d97706',accent2:'#fbbf24'} },
+  'crossfit': { inherits: 'gimnasio', label: 'CrossFit', emoji: '🏋️' },
+
+  'gimnasio': {
+    label: 'Gimnasio', emoji: '💪',
+    palette: { bg1: '#0a0a0a', bg2: '#1a0000', accent: '#ef4444', accent2: '#fbbf24' },
+    headline: 'La <i>energía</i> de tu gimnasio, online.',
+    sub: 'Horarios de clases, entrenadores, suscripciones. Los que buscan ponerse en forma llegan primero a tu web.',
+    threeScene: `
+      // Pesas 3D flotantes + ondas de energía
+      const weights = [];
+      for(let i=0;i<6;i++){
+        const g = new THREE.Group();
+        const bar = new THREE.Mesh(new THREE.CylinderGeometry(0.08, 0.08, 2.5, 12), new THREE.MeshStandardMaterial({color:0x333333, metalness:0.9, roughness:0.2}));
+        bar.rotation.z = Math.PI/2; g.add(bar);
+        for(let side=-1; side<=1; side+=2){
+          const plate = new THREE.Mesh(new THREE.CylinderGeometry(0.5, 0.5, 0.2, 20), new THREE.MeshStandardMaterial({color:0xef4444, metalness:0.6, roughness:0.4}));
+          plate.rotation.z = Math.PI/2; plate.position.x = side*1.1; g.add(plate);
+        }
+        g.position.set((Math.random()-0.5)*25,(Math.random()-0.5)*14,-Math.random()*12);
+        g.userData = {baseY:g.position.y,phase:Math.random()*6,rz:(Math.random()-0.5)*0.02,ry:(Math.random()-0.5)*0.01};
+        scene.add(g); weights.push(g);
+      }
+      // Líneas de energía
+      const energyLines = [];
+      for(let i=0;i<40;i++){
+        const pts = [new THREE.Vector3(-3+Math.random()*6, Math.random()*8-4, -Math.random()*8),new THREE.Vector3(-3+Math.random()*6, Math.random()*8-4, -Math.random()*8)];
+        const geo = new THREE.BufferGeometry().setFromPoints(pts);
+        const line = new THREE.Line(geo, new THREE.LineBasicMaterial({color:0xef4444, transparent:true, opacity:0.3}));
+        line.userData = {phase:Math.random()*6};
+        scene.add(line); energyLines.push(line);
+      }
+      scene.add(new THREE.AmbientLight(0xffffff,0.4));
+      const pl = new THREE.PointLight(0xef4444, 3, 30); pl.position.set(0,0,10); scene.add(pl);
+      animHooks.push((t)=>{
+        weights.forEach(w=>{w.position.y=w.userData.baseY+Math.sin(t+w.userData.phase)*0.4; w.rotation.z+=w.userData.rz; w.rotation.y+=w.userData.ry;});
+        energyLines.forEach(l=>{l.material.opacity = 0.2+Math.abs(Math.sin(t*3+l.userData.phase))*0.6;});
+      });
+    `
+  },
+
+  'optica': {
+    label: 'Óptica', emoji: '👓',
+    palette: { bg1: '#eff6ff', bg2: '#dbeafe', accent: '#2563eb', accent2: '#7c3aed', textOnBg: '#0a1929' },
+    invertTheme: true,
+    headline: 'Tu <i>mirada</i>, con estilo profesional.',
+    sub: 'Catálogo de monturas, graduaciones online, citas directas. El cliente elige antes de entrar.',
+    threeScene: `
+      // Gafas 3D flotantes
+      const glassesList = [];
+      for(let i=0;i<8;i++){
+        const g = new THREE.Group();
+        // Lentes
+        for(let side=-1; side<=1; side+=2){
+          const lens = new THREE.Mesh(new THREE.TorusGeometry(0.5, 0.08, 8, 24), new THREE.MeshStandardMaterial({color:[0x2563eb,0x7c3aed,0x0a1929,0xff6b00][i%4], metalness:0.8, roughness:0.2}));
+          lens.position.x = side*0.6;
+          g.add(lens);
+          // Cristal transparente
+          const glass = new THREE.Mesh(new THREE.CircleGeometry(0.45, 24), new THREE.MeshPhysicalMaterial({color:0xffffff, transparent:true, opacity:0.15, roughness:0, transmission:0.9, ior:1.5}));
+          glass.position.x = side*0.6; g.add(glass);
+        }
+        // Puente
+        const bridge = new THREE.Mesh(new THREE.CylinderGeometry(0.04,0.04,0.25,8), new THREE.MeshStandardMaterial({color:0x2563eb,metalness:0.8}));
+        bridge.rotation.z = Math.PI/2; g.add(bridge);
+        // Patillas
+        for(let side=-1; side<=1; side+=2){
+          const arm = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.05, 0.05), new THREE.MeshStandardMaterial({color:0x2563eb,metalness:0.8}));
+          arm.position.set(side*1.3, 0, 0);
+          g.add(arm);
+        }
+        g.position.set((Math.random()-0.5)*25,(Math.random()-0.5)*14,-Math.random()*12);
+        g.userData = {baseY:g.position.y,phase:Math.random()*6,ry:(Math.random()-0.5)*0.01};
+        scene.add(g); glassesList.push(g);
+      }
+      scene.add(new THREE.AmbientLight(0xffffff,0.8));
+      const pl = new THREE.DirectionalLight(0x2563eb, 1.5); pl.position.set(5,10,5); scene.add(pl);
+      animHooks.push((t)=>{
+        glassesList.forEach(g=>{g.position.y=g.userData.baseY+Math.sin(t+g.userData.phase)*0.4; g.rotation.y+=g.userData.ry; g.rotation.z=Math.sin(t*0.5+g.userData.phase)*0.15;});
+      });
+    `
+  },
+
+  'inmobiliaria': {
+    label: 'Inmobiliaria', emoji: '🏠',
+    palette: { bg1: '#1e293b', bg2: '#0f172a', accent: '#f59e0b', accent2: '#fbbf24' },
+    headline: 'El <i>catálogo</i> que convierte visitas en firmas.',
+    sub: 'Tus propiedades online, filtros potentes, solicitud de visita en un click. Tu web vende mientras duermes.',
+    threeScene: `
+      // Casas/edificios 3D isométricos
+      const buildings = [];
+      for(let i=0;i<10;i++){
+        const g = new THREE.Group();
+        const h = 1 + Math.random()*2;
+        const base = new THREE.Mesh(new THREE.BoxGeometry(1, h, 1), new THREE.MeshStandardMaterial({color:[0xf59e0b,0xfbbf24,0xffffff,0x64748b][i%4],metalness:0.2,roughness:0.7}));
+        g.add(base);
+        // Tejado
+        const roof = new THREE.Mesh(new THREE.ConeGeometry(0.85, 0.6, 4), new THREE.MeshStandardMaterial({color:0xdc2626,metalness:0.3}));
+        roof.position.y = h/2+0.3; roof.rotation.y = Math.PI/4; g.add(roof);
+        // Ventanas (pequeños cuadrados)
+        for(let wy=0; wy<Math.floor(h); wy++){
+          for(let wx=-1; wx<=1; wx+=2){
+            const win = new THREE.Mesh(new THREE.PlaneGeometry(0.15,0.15), new THREE.MeshBasicMaterial({color:0xfbbf24}));
+            win.position.set(wx*0.3, -h/2+0.3+wy*0.5, 0.51);
+            g.add(win);
+          }
+        }
+        g.position.set((Math.random()-0.5)*25, -4+Math.random()*8, -Math.random()*12);
+        g.userData = {baseY:g.position.y, phase:Math.random()*6, ry:(Math.random()-0.5)*0.005};
+        scene.add(g); buildings.push(g);
+      }
+      // Grid suelo
+      const grid = new THREE.GridHelper(40,30,0xf59e0b,0x333);
+      grid.material.transparent=true; grid.material.opacity=0.25; grid.position.y=-7; scene.add(grid);
+      scene.add(new THREE.AmbientLight(0xffffff,0.6));
+      const pl = new THREE.DirectionalLight(0xfbbf24, 1.4); pl.position.set(5,10,5); scene.add(pl);
+      animHooks.push((t)=>{
+        buildings.forEach(b=>{b.position.y = b.userData.baseY + Math.sin(t*0.8 + b.userData.phase)*0.15; b.rotation.y += b.userData.ry;});
+      });
+    `
+  },
+
+  'floristeria': {
+    label: 'Floristería', emoji: '🌸',
+    palette: { bg1: '#fdf2f8', bg2: '#fce7f3', accent: '#db2777', accent2: '#ec4899', textOnBg: '#500724' },
+    invertTheme: true,
+    headline: 'Tus <i>flores</i>, a un click.',
+    sub: 'Encargos online, ramos para cada ocasión, entregas a domicilio. La web que florece tu negocio.',
+    threeScene: `
+      // Pétalos cayendo + flores 3D
+      const flowers = [];
+      for(let i=0;i<6;i++){
+        const g = new THREE.Group();
+        for(let p=0;p<8;p++){
+          const petal = new THREE.Mesh(new THREE.SphereGeometry(0.3, 8, 8), new THREE.MeshStandardMaterial({color:[0xec4899,0xdb2777,0xf0abfc,0xff6b9d,0xffffff][i%5],roughness:0.6}));
+          petal.scale.set(1,0.35,0.7);
+          const ang = (p/8)*Math.PI*2;
+          petal.position.set(Math.cos(ang)*0.5, 0, Math.sin(ang)*0.5);
+          petal.rotation.y = ang;
+          g.add(petal);
+        }
+        const center = new THREE.Mesh(new THREE.SphereGeometry(0.25,12,12), new THREE.MeshStandardMaterial({color:0xfbbf24}));
+        g.add(center);
+        g.position.set((Math.random()-0.5)*25,(Math.random()-0.5)*14,-Math.random()*12);
+        g.userData = {baseY:g.position.y,phase:Math.random()*6,ry:(Math.random()-0.5)*0.01};
+        scene.add(g); flowers.push(g);
+      }
+      // Pétalos flotantes
+      const petalCount = 80;
+      const pp = new Float32Array(petalCount*3);
+      const pv = [];
+      for(let i=0;i<petalCount;i++){
+        pp[i*3]=(Math.random()-0.5)*30; pp[i*3+1]=Math.random()*20-5; pp[i*3+2]=(Math.random()-0.5)*15;
+        pv.push({y:-0.02-Math.random()*0.03, x:(Math.random()-0.5)*0.02, phase: Math.random()*6});
+      }
+      const pg = new THREE.BufferGeometry(); pg.setAttribute('position', new THREE.BufferAttribute(pp,3));
+      const petals = new THREE.Points(pg, new THREE.PointsMaterial({color:0xec4899,size:0.18,transparent:true,opacity:0.8}));
+      scene.add(petals);
+      scene.add(new THREE.AmbientLight(0xffffff,0.7));
+      const pl = new THREE.DirectionalLight(0xdb2777, 1.2); pl.position.set(5,10,5); scene.add(pl);
+      animHooks.push((t)=>{
+        flowers.forEach(f=>{f.position.y=f.userData.baseY+Math.sin(t+f.userData.phase)*0.4; f.rotation.y+=f.userData.ry;});
+        const p = pg.attributes.position.array;
+        for(let i=0;i<petalCount;i++){
+          p[i*3+1] += pv[i].y; p[i*3] += Math.sin(t+pv[i].phase)*0.01;
+          if(p[i*3+1] < -12) p[i*3+1] = 15;
+        }
+        pg.attributes.position.needsUpdate = true;
+      });
+    `
+  },
+
+  'fontaneria': {
+    label: 'Fontanería', emoji: '🔧',
+    palette: { bg1: '#0c4a6e', bg2: '#082f49', accent: '#06b6d4', accent2: '#67e8f9' },
+    headline: 'Tu <i>teléfono</i> sonando sin parar.',
+    sub: 'Urgencias 24h, presupuestos rápidos, testimonios que generan confianza. La web que te trae clientes dormido.',
+    threeScene: `
+      // Gotas de agua + tuberías
+      const drops = [];
+      for(let i=0;i<60;i++){
+        const drop = new THREE.Mesh(new THREE.SphereGeometry(0.12+Math.random()*0.08, 8, 8), new THREE.MeshPhysicalMaterial({color:0x06b6d4, transparent:true, opacity:0.8, metalness:0.3, roughness:0.1, transmission:0.5}));
+        drop.scale.y = 1.5;
+        drop.position.set((Math.random()-0.5)*30, Math.random()*20-5, (Math.random()-0.5)*12);
+        drop.userData = {vy: -0.05-Math.random()*0.05, startY: drop.position.y};
+        scene.add(drop); drops.push(drop);
+      }
+      // Tuberías 3D
+      const pipes = [];
+      for(let i=0;i<5;i++){
+        const path = new THREE.CatmullRomCurve3([
+          new THREE.Vector3((Math.random()-0.5)*20, (Math.random()-0.5)*10, -5-Math.random()*5),
+          new THREE.Vector3((Math.random()-0.5)*20, (Math.random()-0.5)*10, -5-Math.random()*5),
+          new THREE.Vector3((Math.random()-0.5)*20, (Math.random()-0.5)*10, -5-Math.random()*5)
+        ]);
+        const geo = new THREE.TubeGeometry(path, 30, 0.2, 8, false);
+        const pipe = new THREE.Mesh(geo, new THREE.MeshStandardMaterial({color:0x64748b, metalness:0.9, roughness:0.3}));
+        scene.add(pipe); pipes.push(pipe);
+      }
+      scene.add(new THREE.AmbientLight(0xffffff,0.5));
+      const pl = new THREE.PointLight(0x06b6d4, 2.5, 30); pl.position.set(0,5,10); scene.add(pl);
+      animHooks.push((t)=>{
+        drops.forEach(d=>{
+          d.position.y += d.userData.vy;
+          if(d.position.y < -12) d.position.y = 12;
+        });
+      });
+    `
+  },
+
+  'ferreteria': {
+    label: 'Ferretería', emoji: '🔨',
+    palette: { bg1: '#1a1a1a', bg2: '#0a0a0a', accent: '#f97316', accent2: '#fbbf24' },
+    headline: 'Tu <i>catálogo</i> completo en casa del cliente.',
+    sub: 'Miles de productos, búsqueda por nombre, disponibilidad al momento. Tu tienda no cierra nunca.',
+    threeScene: `
+      // Herramientas 3D flotantes
+      const tools = [];
+      function makeHammer(){
+        const g = new THREE.Group();
+        const handle = new THREE.Mesh(new THREE.CylinderGeometry(0.1,0.1,1.5,8), new THREE.MeshStandardMaterial({color:0x78350f,roughness:0.8}));
+        g.add(handle);
+        const head = new THREE.Mesh(new THREE.BoxGeometry(0.6,0.3,0.25), new THREE.MeshStandardMaterial({color:0xf97316,metalness:0.9,roughness:0.2}));
+        head.position.y = 0.85; g.add(head);
+        return g;
+      }
+      function makeWrench(){
+        const g = new THREE.Group();
+        const body = new THREE.Mesh(new THREE.BoxGeometry(0.2,1.5,0.15), new THREE.MeshStandardMaterial({color:0x64748b,metalness:0.9}));
+        g.add(body);
+        const h1 = new THREE.Mesh(new THREE.TorusGeometry(0.3,0.1,8,16,Math.PI*1.5), new THREE.MeshStandardMaterial({color:0x64748b,metalness:0.9}));
+        h1.position.y = 0.8; h1.rotation.z = Math.PI/2; g.add(h1);
+        return g;
+      }
+      function makeScrew(){
+        const g = new THREE.Group();
+        const head = new THREE.Mesh(new THREE.CylinderGeometry(0.25,0.25,0.15,16), new THREE.MeshStandardMaterial({color:0xfbbf24,metalness:0.9}));
+        g.add(head);
+        const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.1,0.1,1,12), new THREE.MeshStandardMaterial({color:0xf97316,metalness:0.8}));
+        shaft.position.y = -0.6; g.add(shaft);
+        return g;
+      }
+      const makers = [makeHammer, makeWrench, makeScrew];
+      for(let i=0;i<10;i++){
+        const tool = makers[i%3]();
+        tool.position.set((Math.random()-0.5)*25,(Math.random()-0.5)*14,-Math.random()*12);
+        tool.rotation.set(Math.random()*Math.PI, Math.random()*Math.PI, Math.random()*Math.PI);
+        tool.userData = {baseY:tool.position.y,phase:Math.random()*6,rx:(Math.random()-0.5)*0.015,ry:(Math.random()-0.5)*0.02};
+        scene.add(tool); tools.push(tool);
+      }
+      scene.add(new THREE.AmbientLight(0xffffff,0.4));
+      const pl = new THREE.PointLight(0xf97316, 2.5, 30); pl.position.set(0,0,10); scene.add(pl);
+      animHooks.push((t)=>{
+        tools.forEach(t2=>{t2.position.y=t2.userData.baseY+Math.sin(t+t2.userData.phase)*0.4; t2.rotation.x+=t2.userData.rx; t2.rotation.y+=t2.userData.ry;});
+      });
+    `
+  },
+
+  'cerrajeria': {
+    label: 'Cerrajería', emoji: '🔑',
+    palette: { bg1: '#0a0a0a', bg2: '#1a1a1a', accent: '#eab308', accent2: '#fbbf24' },
+    headline: 'Cuando la <i>urgencia</i> llama, te encuentra.',
+    sub: 'Emergencias 24h visibles, testimonios reales, teléfono click-to-call. Estar primero en Google = facturar.',
+    threeScene: `
+      // Llaves 3D girando
+      const keys = [];
+      for(let i=0;i<8;i++){
+        const g = new THREE.Group();
+        // Cabeza
+        const head = new THREE.Mesh(new THREE.TorusGeometry(0.35,0.1,8,20), new THREE.MeshStandardMaterial({color:0xeab308,metalness:0.95,roughness:0.2}));
+        g.add(head);
+        // Vástago
+        const shaft = new THREE.Mesh(new THREE.CylinderGeometry(0.08,0.08,1.2,8), new THREE.MeshStandardMaterial({color:0xeab308,metalness:0.95}));
+        shaft.position.y = -0.75; g.add(shaft);
+        // Dientes
+        for(let d=0;d<3;d++){
+          const tooth = new THREE.Mesh(new THREE.BoxGeometry(0.2,0.15,0.1), new THREE.MeshStandardMaterial({color:0xeab308,metalness:0.95}));
+          tooth.position.set(0.13, -1.1+d*0.15, 0);
+          g.add(tooth);
+        }
+        g.position.set((Math.random()-0.5)*25,(Math.random()-0.5)*14,-Math.random()*12);
+        g.userData = {baseY:g.position.y,phase:Math.random()*6,rz:0.01+Math.random()*0.02};
+        scene.add(g); keys.push(g);
+      }
+      scene.add(new THREE.AmbientLight(0xffffff,0.3));
+      const pl = new THREE.PointLight(0xeab308, 3, 30); pl.position.set(0,0,10); scene.add(pl);
+      animHooks.push((t)=>{
+        keys.forEach(k=>{k.position.y=k.userData.baseY+Math.sin(t+k.userData.phase)*0.4; k.rotation.z+=k.userData.rz;});
       });
     `
   },

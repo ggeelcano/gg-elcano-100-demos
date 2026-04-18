@@ -5,7 +5,8 @@
     "sector": "Servicios",
     "ciudad": "Azuqueca de Henares",
     "tel": "608662373",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "academia-loleo-9678a2",
@@ -13,7 +14,8 @@
     "sector": "Educación",
     "ciudad": "Villanueva de la Torre",
     "tel": "648468194",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "m35-shop-74fc61",
@@ -21,7 +23,8 @@
     "sector": "Comercio",
     "ciudad": "Laguardia",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "taller-gng-c2db1e",
@@ -29,7 +32,8 @@
     "sector": "Taller",
     "ciudad": "Galdakao",
     "tel": "607232595",
-    "rating": 4.7
+    "rating": 4.7,
+    "batch": 1
   },
   {
     "slug": "floren-victor-peluqueria-0a4735",
@@ -37,7 +41,8 @@
     "sector": "Peluquería",
     "ciudad": "Bilbao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "basa-take-away-bbb45c",
@@ -45,7 +50,8 @@
     "sector": "Hostelería",
     "ciudad": "Durango",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "el-buen-tapeo-86c720",
@@ -53,7 +59,8 @@
     "sector": "Hostelería",
     "ciudad": "Ourense",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "bar-entre-canas-y-barros-e45102",
@@ -61,7 +68,8 @@
     "sector": "Hostelería",
     "ciudad": "Ansoáin",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "copisteria-biart-b9562e",
@@ -69,7 +77,8 @@
     "sector": "Comercio",
     "ciudad": "Ansoáin",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "centro-sueskun-fisioterapia-0bf4b4",
@@ -77,7 +86,8 @@
     "sector": "Salud",
     "ciudad": "Villava",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "psicologo-aser-sesma-d83d75",
@@ -85,7 +95,8 @@
     "sector": "Salud",
     "ciudad": "Villava",
     "tel": "693770321",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "ukimen-fisioterapia-b71da7",
@@ -93,7 +104,8 @@
     "sector": "Salud",
     "ciudad": "Ansoáin",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "aitor-arrazola-nutricion-2e8951",
@@ -101,7 +113,8 @@
     "sector": "Salud",
     "ciudad": "Ansoáin",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "academia-tony-cocera-595694",
@@ -109,7 +122,8 @@
     "sector": "Educación",
     "ciudad": "Burlada",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "kamakura-bilbao-29a65d",
@@ -117,7 +131,8 @@
     "sector": "Comercio",
     "ciudad": "Bilbao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "orekatmejora-16f925",
@@ -125,7 +140,8 @@
     "sector": "Salud",
     "ciudad": "Ansoáin",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "ferreteria-el-candado-a2f749",
@@ -133,7 +149,8 @@
     "sector": "Comercio",
     "ciudad": "Villanueva del Ariscal",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "casa-rural-los-cipreses-f5ebe9",
@@ -141,7 +158,8 @@
     "sector": "Hostelería",
     "ciudad": "Mesones",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "pescaderia-olaverri-4decae",
@@ -149,7 +167,8 @@
     "sector": "Comercio",
     "ciudad": "Villava",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "pinturas-bengoetxea-8e9b33",
@@ -157,7 +176,8 @@
     "sector": "Servicios",
     "ciudad": "Berriozar",
     "tel": "620353935",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "papos-men-c04774",
@@ -165,7 +185,8 @@
     "sector": "Comercio",
     "ciudad": "Durango",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "merceria-osinaga-dae0fd",
@@ -173,7 +194,8 @@
     "sector": "Comercio",
     "ciudad": "Ansoáin",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "restaurante-aretxondo-1df990",
@@ -181,7 +203,8 @@
     "sector": "Hostelería",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": 4.4
+    "rating": 4.4,
+    "batch": 1
   },
   {
     "slug": "el-korner-134677",
@@ -189,7 +212,8 @@
     "sector": "Hostelería",
     "ciudad": "Durango",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "tintacartuchos-ansoain-139012",
@@ -197,7 +221,8 @@
     "sector": "Comercio",
     "ciudad": "Ansoáin",
     "tel": "641175491",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "ecotienda-orgiva-c098a0",
@@ -205,7 +230,8 @@
     "sector": "Comercio",
     "ciudad": "Órgiva",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "galdakao-futbol-eskola-lead_1",
@@ -213,7 +239,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "suministros-industriales-errekalde-lead_1",
@@ -221,7 +248,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "pinturas-nabartu-lead_1",
@@ -229,7 +257,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "residencia-san-andres-ii-lead_1",
@@ -237,7 +266,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "residencia-san-andres-i-lead_1",
@@ -245,7 +275,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "cristaleria-galdakao-lead_1",
@@ -253,7 +284,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "hiper-del-mueble-lead_1",
@@ -261,7 +293,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "funeraria-galarza-lead_1",
@@ -269,7 +302,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "galdakauto-lead_1",
@@ -277,7 +311,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "autoreparaciones-artola-lead_1",
@@ -285,7 +320,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "tecnymas-lead_1",
@@ -293,7 +329,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "clinicas-plus-dental-galdakao-lead_1",
@@ -301,7 +338,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "clinica-dental-loan-lead_1",
@@ -309,7 +347,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "escuela-de-hosteleria-galdakao-lead_1",
@@ -317,7 +356,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "estudio-3-galdakao-s-l-lead_1",
@@ -325,7 +365,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "natrus-s-l-lead_1",
@@ -333,7 +374,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "dediego-s-l-lead_1",
@@ -341,7 +383,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "maxam-ueb-s-l-lead_1",
@@ -349,7 +392,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "ali-transformados-metalicos-s-l-lead_1",
@@ -357,7 +401,8 @@
     "sector": "Profesional",
     "ciudad": "Galdakao",
     "tel": "",
-    "rating": null
+    "rating": null,
+    "batch": 1
   },
   {
     "slug": "angeles-martin-lopez-angele",
@@ -365,7 +410,8 @@
     "sector": "Veterinaria",
     "ciudad": "Motril",
     "tel": "685 52 63 18",
-    "rating": 3.6
+    "rating": 3.6,
+    "batch": 1
   },
   {
     "slug": "centro-veterinario-velez-centro",
@@ -373,7 +419,8 @@
     "sector": "Veterinaria",
     "ciudad": "Motril",
     "tel": "634 41 93 35",
-    "rating": 4.1
+    "rating": 4.1,
+    "batch": 1
   },
   {
     "slug": "clinica-veterinaria-talisman-clinic",
@@ -381,7 +428,8 @@
     "sector": "Veterinaria",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.6
+    "rating": 4.6,
+    "batch": 1
   },
   {
     "slug": "clinica-veterinaria-taoro-clinic",
@@ -389,7 +437,8 @@
     "sector": "Veterinaria",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.3
+    "rating": 4.3,
+    "batch": 1
   },
   {
     "slug": "clinica-veterinaria-canisur-clinic",
@@ -397,7 +446,8 @@
     "sector": "Veterinaria",
     "ciudad": "Motril",
     "tel": "610 79 00 79",
-    "rating": 4.5
+    "rating": 4.5,
+    "batch": 1
   },
   {
     "slug": "clinica-veterinaria-animal-s-clinic",
@@ -405,7 +455,8 @@
     "sector": "Veterinaria",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.6
+    "rating": 4.6,
+    "batch": 1
   },
   {
     "slug": "clinica-veterinaria-motril-clinic",
@@ -413,7 +464,8 @@
     "sector": "Veterinaria",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.5
+    "rating": 4.5,
+    "batch": 1
   },
   {
     "slug": "stradivarius-stradi",
@@ -421,7 +473,8 @@
     "sector": "Tienda de Ropa",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.2
+    "rating": 4.2,
+    "batch": 1
   },
   {
     "slug": "el-encanto-de-encarni-el-enc",
@@ -429,7 +482,8 @@
     "sector": "Tienda de Ropa",
     "ciudad": "Motril",
     "tel": "658 05 96 73",
-    "rating": 4.5
+    "rating": 4.5,
+    "batch": 1
   },
   {
     "slug": "paula-fuentes-paula-",
@@ -437,7 +491,8 @@
     "sector": "Tienda de Ropa",
     "ciudad": "Motril",
     "tel": "673 68 37 44",
-    "rating": 5
+    "rating": 5,
+    "batch": 1
   },
   {
     "slug": "bogoos-bogoos",
@@ -445,7 +500,8 @@
     "sector": "Tienda de Ropa",
     "ciudad": "Motril",
     "tel": "858 81 34 70",
-    "rating": 4.9
+    "rating": 4.9,
+    "batch": 1
   },
   {
     "slug": "maria-galiano-moda-femenina-maria-",
@@ -453,7 +509,8 @@
     "sector": "Tienda de Ropa",
     "ciudad": "Motril",
     "tel": "610 60 28 75",
-    "rating": 5
+    "rating": 5,
+    "batch": 1
   },
   {
     "slug": "menfis-boutique-menfis",
@@ -461,7 +518,8 @@
     "sector": "Tienda de Ropa",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.8
+    "rating": 4.8,
+    "batch": 1
   },
   {
     "slug": "pepe-almendros-moda-pepe-a",
@@ -469,7 +527,8 @@
     "sector": "Tienda de Ropa",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.9
+    "rating": 4.9,
+    "batch": 1
   },
   {
     "slug": "fashion-art-fashio",
@@ -477,7 +536,8 @@
     "sector": "Tienda de Ropa",
     "ciudad": "Motril",
     "tel": "673 22 47 78",
-    "rating": 4.9
+    "rating": 4.9,
+    "batch": 1
   },
   {
     "slug": "lola-ruiz-lola-r",
@@ -485,7 +545,8 @@
     "sector": "Tienda de Ropa",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.5
+    "rating": 4.5,
+    "batch": 1
   },
   {
     "slug": "boutique-glamglam-by-carmen-filip-boutiq",
@@ -493,7 +554,8 @@
     "sector": "Tienda de Ropa",
     "ciudad": "Motril",
     "tel": "692 54 26 42",
-    "rating": 5
+    "rating": 5,
+    "batch": 1
   },
   {
     "slug": "taller-mecanica-mariano-taller",
@@ -501,7 +563,8 @@
     "sector": "Taller Mecánico",
     "ciudad": "Motril",
     "tel": "858 89 06 06",
-    "rating": 4.5
+    "rating": 4.5,
+    "batch": 1
   },
   {
     "slug": "tecnicar-motril-tecnic",
@@ -509,7 +572,8 @@
     "sector": "Taller Mecánico",
     "ciudad": "Motril",
     "tel": "688 92 17 77",
-    "rating": 4.9
+    "rating": 4.9,
+    "batch": 1
   },
   {
     "slug": "arlauto-arlaut",
@@ -517,7 +581,8 @@
     "sector": "Taller Mecánico",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.7
+    "rating": 4.7,
+    "batch": 1
   },
   {
     "slug": "center-s-auto-motril-center",
@@ -525,7 +590,8 @@
     "sector": "Taller Mecánico",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.4
+    "rating": 4.4,
+    "batch": 1
   },
   {
     "slug": "taller-de-automocion-auto-gratusa-s-l-taller",
@@ -533,7 +599,8 @@
     "sector": "Taller Mecánico",
     "ciudad": "Motril",
     "tel": "648 72 10 36",
-    "rating": 4.7
+    "rating": 4.7,
+    "batch": 1
   },
   {
     "slug": "taller-martin-cars-raya-palacios-y-otros-s-l-taller",
@@ -541,7 +608,8 @@
     "sector": "Taller Mecánico",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.8
+    "rating": 4.8,
+    "batch": 1
   },
   {
     "slug": "auto-taller-de-servicio-rapido-auto-t",
@@ -549,7 +617,8 @@
     "sector": "Taller Mecánico",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.2
+    "rating": 4.2,
+    "batch": 1
   },
   {
     "slug": "taller-mario-taller",
@@ -557,7 +626,8 @@
     "sector": "Taller Mecánico",
     "ciudad": "Motril",
     "tel": "642 98 00 01",
-    "rating": 4.8
+    "rating": 4.8,
+    "batch": 1
   },
   {
     "slug": "car-gonzalez-e-hijos-car-go",
@@ -565,7 +635,8 @@
     "sector": "Taller Mecánico",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.3
+    "rating": 4.3,
+    "batch": 1
   },
   {
     "slug": "dr-garage-dr-gar",
@@ -573,7 +644,8 @@
     "sector": "Taller Mecánico",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.7
+    "rating": 4.7,
+    "batch": 1
   },
   {
     "slug": "bambu-beach-motril-bambu-",
@@ -581,7 +653,8 @@
     "sector": "Restaurante",
     "ciudad": "Motril",
     "tel": "858 99 02 21",
-    "rating": 4.2
+    "rating": 4.2,
+    "batch": 1
   },
   {
     "slug": "restaurante-marelli-restau",
@@ -589,7 +662,8 @@
     "sector": "Restaurante",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.4
+    "rating": 4.4,
+    "batch": 1
   },
   {
     "slug": "restaurante-estrella-del-mar-restau",
@@ -597,7 +671,8 @@
     "sector": "Restaurante",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.3
+    "rating": 4.3,
+    "batch": 1
   },
   {
     "slug": "pura-vida-motril-pura-v",
@@ -605,7 +680,8 @@
     "sector": "Restaurante",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.5
+    "rating": 4.5,
+    "batch": 1
   },
   {
     "slug": "restaurante-juan-garcia-restau",
@@ -613,7 +689,8 @@
     "sector": "Restaurante",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.3
+    "rating": 4.3,
+    "batch": 1
   },
   {
     "slug": "maison-mareame-maison",
@@ -621,7 +698,8 @@
     "sector": "Restaurante",
     "ciudad": "Motril",
     "tel": "614 09 72 24",
-    "rating": 5
+    "rating": 5,
+    "batch": 1
   },
   {
     "slug": "restaurante-la-espicha-restau",
@@ -629,7 +707,8 @@
     "sector": "Restaurante",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.4
+    "rating": 4.4,
+    "batch": 1
   },
   {
     "slug": "restaurante-el-candelon-restau",
@@ -637,7 +716,8 @@
     "sector": "Restaurante",
     "ciudad": "Motril",
     "tel": "647 66 54 76",
-    "rating": 4.6
+    "rating": 4.6,
+    "batch": 1
   },
   {
     "slug": "restaurante-la-ballena-azul-restau",
@@ -645,7 +725,8 @@
     "sector": "Restaurante",
     "ciudad": "Motril",
     "tel": "656 82 55 80",
-    "rating": 4.7
+    "rating": 4.7,
+    "batch": 1
   },
   {
     "slug": "restaurante-los-moriscos-restau",
@@ -653,7 +734,8 @@
     "sector": "Restaurante",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.1
+    "rating": 4.1,
+    "batch": 1
   },
   {
     "slug": "blau-peluqueros-blau-p",
@@ -661,7 +743,8 @@
     "sector": "Peluquería",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.8
+    "rating": 4.8,
+    "batch": 1
   },
   {
     "slug": "peluqueria-encarni-bustos-peluqu",
@@ -669,7 +752,8 @@
     "sector": "Peluquería",
     "ciudad": "Motril",
     "tel": "657 07 62 55",
-    "rating": 5
+    "rating": 5,
+    "batch": 1
   },
   {
     "slug": "peluqueria-kedhara-hair-studio-balayage-en-motril-peluqu",
@@ -677,7 +761,8 @@
     "sector": "Peluquería",
     "ciudad": "Motril",
     "tel": "600 58 32 84",
-    "rating": 4.9
+    "rating": 4.9,
+    "batch": 1
   },
   {
     "slug": "magda-peluqueria-centro-motril-magda-",
@@ -685,7 +770,8 @@
     "sector": "Peluquería",
     "ciudad": "Motril",
     "tel": "609 16 03 84",
-    "rating": 4.9
+    "rating": 4.9,
+    "batch": 1
   },
   {
     "slug": "marytorres-salon-de-belleza-peluqueria-maryto",
@@ -693,7 +779,8 @@
     "sector": "Peluquería",
     "ciudad": "Motril",
     "tel": "627 44 51 86",
-    "rating": 4.8
+    "rating": 4.8,
+    "batch": 1
   },
   {
     "slug": "c-c-peluqueros-peluqueria-en-motril-c-c-pe",
@@ -701,7 +788,8 @@
     "sector": "Peluquería",
     "ciudad": "Motril",
     "tel": "858 99 55 54",
-    "rating": 5
+    "rating": 5,
+    "batch": 1
   },
   {
     "slug": "isabel-martin-peluqueria-isabel",
@@ -709,7 +797,8 @@
     "sector": "Peluquería",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.8
+    "rating": 4.8,
+    "batch": 1
   },
   {
     "slug": "doble-v-estilistas-doble-",
@@ -717,7 +806,8 @@
     "sector": "Peluquería",
     "ciudad": "Motril",
     "tel": "858 81 23 14",
-    "rating": 4.8
+    "rating": 4.8,
+    "batch": 1
   },
   {
     "slug": "peluqueria-y-estetica-bellezza10-peluqu",
@@ -725,7 +815,8 @@
     "sector": "Peluquería",
     "ciudad": "Motril",
     "tel": "664 74 40 49",
-    "rating": 4.6
+    "rating": 4.6,
+    "batch": 1
   },
   {
     "slug": "peluqueria-estetica-cristina-peluqu",
@@ -733,7 +824,8 @@
     "sector": "Peluquería",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.6
+    "rating": 4.6,
+    "batch": 1
   },
   {
     "slug": "pasteleria-videras-pastel",
@@ -741,7 +833,8 @@
     "sector": "Pastelería & Panadería",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.6
+    "rating": 4.6,
+    "batch": 1
   },
   {
     "slug": "panaderia-espiga-dorada-panade",
@@ -749,7 +842,8 @@
     "sector": "Pastelería & Panadería",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.5
+    "rating": 4.5,
+    "batch": 1
   },
   {
     "slug": "panaderia-el-molino-panade",
@@ -757,7 +851,8 @@
     "sector": "Pastelería & Panadería",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 2.9
+    "rating": 2.9,
+    "batch": 1
   },
   {
     "slug": "panaderia-confiteria-molino-panade",
@@ -765,7 +860,8 @@
     "sector": "Pastelería & Panadería",
     "ciudad": "Motril",
     "tel": "654 63 09 60",
-    "rating": 3.6
+    "rating": 3.6,
+    "batch": 1
   },
   {
     "slug": "panaderia-kome-kalla-panade",
@@ -773,7 +869,8 @@
     "sector": "Pastelería & Panadería",
     "ciudad": "Motril",
     "tel": "687 13 20 15",
-    "rating": 4
+    "rating": 4,
+    "batch": 1
   },
   {
     "slug": "panaderia-molino-s-l-panade",
@@ -781,7 +878,8 @@
     "sector": "Pastelería & Panadería",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 3.8
+    "rating": 3.8,
+    "batch": 1
   },
   {
     "slug": "panaderia-molino-panade",
@@ -789,7 +887,8 @@
     "sector": "Pastelería & Panadería",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.2
+    "rating": 4.2,
+    "batch": 1
   },
   {
     "slug": "pasteleria-casa-palomares-motril-pastel",
@@ -797,6 +896,880 @@
     "sector": "Pastelería & Panadería",
     "ciudad": "Motril",
     "tel": "",
-    "rating": 4.6
+    "rating": 4.6,
+    "batch": 1
+  },
+  {
+    "slug": "panaderia-federico-jimenez-panade",
+    "nombre": "Panadería Federico Jiménez",
+    "sector": "Pastelería & Panadería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.8,
+    "batch": 2
+  },
+  {
+    "slug": "opticalia-motril-optica",
+    "nombre": "Opticalia Motril",
+    "sector": "Óptica",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "rk-lumar-inmobiliaria-rk-lum",
+    "nombre": "RK LUMAR Inmobiliaria",
+    "sector": "Inmobiliaria",
+    "ciudad": "Motril",
+    "tel": "633 97 14 01",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "basic-fit-basic-",
+    "nombre": "Basic-Fit",
+    "sector": "Gimnasio",
+    "ciudad": "Motril",
+    "tel": "851 96 04 67",
+    "rating": 4.8,
+    "batch": 2
+  },
+  {
+    "slug": "food-truck-espana-food-t",
+    "nombre": "Food Truck España",
+    "sector": "Food Truck",
+    "ciudad": "Motril",
+    "tel": "644 40 86 76",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "valsan-delegacion-motril-valsan",
+    "nombre": "VALSAN Delegación MOTRIL",
+    "sector": "Fontanería",
+    "ciudad": "Motril",
+    "tel": "858 12 82 96",
+    "rating": 4.8,
+    "batch": 2
+  },
+  {
+    "slug": "floristeria-monica-floris",
+    "nombre": "Floristería Monica",
+    "sector": "Floristería",
+    "ciudad": "Motril",
+    "tel": "657 31 97 80",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "sporthy-clinic-sporth",
+    "nombre": "Sporthy Clinic",
+    "sector": "Fisioterapia",
+    "ciudad": "Motril",
+    "tel": "601 60 58 97",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "leroy-merlin-compact-motril-leroy-",
+    "nombre": "Leroy Merlin Compact Motril",
+    "sector": "Ferretería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.6,
+    "batch": 2
+  },
+  {
+    "slug": "black-box-pro-black-",
+    "nombre": "Black Box Pro",
+    "sector": "CrossFit",
+    "ciudad": "Motril",
+    "tel": "621 28 77 72",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "clinica-dental-grupo-dental-clinics-motril-clinic",
+    "nombre": "Clínica Dental Grupo Dental Clinics Motril",
+    "sector": "Clínica Dental",
+    "ciudad": "Motril",
+    "tel": "620 56 37 30",
+    "rating": 4.9,
+    "batch": 2
+  },
+  {
+    "slug": "cerveceria-casa-belmonte-cervec",
+    "nombre": "Cervecería \" Casa Belmonte \"",
+    "sector": "Cervecería",
+    "ciudad": "Motril",
+    "tel": "645 57 24 44",
+    "rating": 4.3,
+    "batch": 2
+  },
+  {
+    "slug": "mister-minit-mister",
+    "nombre": "MISTER MINIT",
+    "sector": "Cerrajería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 2,
+    "batch": 2
+  },
+  {
+    "slug": "panaderia-motril-panade",
+    "nombre": "Panadería Motril",
+    "sector": "Pastelería & Panadería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.6,
+    "batch": 2
+  },
+  {
+    "slug": "opticas-mr-people-alcampo-motril-optica",
+    "nombre": "Ópticas Mr. People Alcampo Motril",
+    "sector": "Óptica",
+    "ciudad": "Motril",
+    "tel": "858 99 46 74",
+    "rating": 4.7,
+    "batch": 2
+  },
+  {
+    "slug": "jose-luis-escudero-jose-l",
+    "nombre": "Jose Luis Escudero",
+    "sector": "Inmobiliaria",
+    "ciudad": "Motril",
+    "tel": "610 37 07 57",
+    "rating": 4.9,
+    "batch": 2
+  },
+  {
+    "slug": "synergym-motril-sur-synerg",
+    "nombre": "Synergym Motril Sur",
+    "sector": "Gimnasio",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.6,
+    "batch": 2
+  },
+  {
+    "slug": "garden-food-trucks-bella-vista-garden",
+    "nombre": "Garden Food Trucks - Bella Vista",
+    "sector": "Food Truck",
+    "ciudad": "Motril",
+    "tel": "(829) 910-8353",
+    "rating": 4.5,
+    "batch": 2
+  },
+  {
+    "slug": "alvisa-multiservicios-alvisa",
+    "nombre": "Alvisa Multiservicios",
+    "sector": "Fontanería",
+    "ciudad": "Motril",
+    "tel": "660 02 29 84",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "floristeria-santaella-floris",
+    "nombre": "Floristeria Santaella",
+    "sector": "Floristería",
+    "ciudad": "Motril",
+    "tel": "635 98 84 92",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "vitalys-center-granada-clinica-de-fisioterapia-tecnologica-a-vitaly",
+    "nombre": "Vitalys Center Granada | Clínica de Fisioterapia Tecnológica Avanzada",
+    "sector": "Fisioterapia",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.7,
+    "batch": 2
+  },
+  {
+    "slug": "ferreteria-fabian-ferret",
+    "nombre": "Ferretería Fabián",
+    "sector": "Ferretería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.6,
+    "batch": 2
+  },
+  {
+    "slug": "devil-box-motril-devil-",
+    "nombre": "Devil Box Motril",
+    "sector": "CrossFit",
+    "ciudad": "Motril",
+    "tel": "689 44 84 85",
+    "rating": 4.8,
+    "batch": 2
+  },
+  {
+    "slug": "clinica-dental-mesa-roldan-clinic",
+    "nombre": "Clínica Dental Mesa Roldán",
+    "sector": "Clínica Dental",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "cerveceria-casa-luis-vallejo-cervec",
+    "nombre": "Cervecería Casa Luis Vallejo",
+    "sector": "Cervecería",
+    "ciudad": "Motril",
+    "tel": "622 25 98 72",
+    "rating": 4,
+    "batch": 2
+  },
+  {
+    "slug": "multiopticas-multio",
+    "nombre": "Multiópticas",
+    "sector": "Óptica",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.5,
+    "batch": 2
+  },
+  {
+    "slug": "tecnocasa-agencia-inmobiliaria-tecnoc",
+    "nombre": "Tecnocasa agencia inmobiliaria",
+    "sector": "Inmobiliaria",
+    "ciudad": "Motril",
+    "tel": "858 90 63 11",
+    "rating": 4.9,
+    "batch": 2
+  },
+  {
+    "slug": "up-motril-up-mot",
+    "nombre": "UP MOTRIL",
+    "sector": "Gimnasio",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.4,
+    "batch": 2
+  },
+  {
+    "slug": "food-truck-park-food-t",
+    "nombre": "Food Truck Park",
+    "sector": "Food Truck",
+    "ciudad": "Motril",
+    "tel": "(809) 449-2075",
+    "rating": 4.4,
+    "batch": 2
+  },
+  {
+    "slug": "garrido-avanza-garrid",
+    "nombre": "Garrido Avanza",
+    "sector": "Fontanería",
+    "ciudad": "Motril",
+    "tel": "603 46 69 49",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "floristeria-detalles-del-sur-floris",
+    "nombre": "Floristería Detalles Del Sur",
+    "sector": "Floristería",
+    "ciudad": "Motril",
+    "tel": "606 09 32 90",
+    "rating": 4.8,
+    "batch": 2
+  },
+  {
+    "slug": "fisioterapia-y-osteopatia-jose-ramon-alabarces-fisiot",
+    "nombre": "Fisioterapia y osteopatía José Ramón Alabarces",
+    "sector": "Fisioterapia",
+    "ciudad": "Motril",
+    "tel": "722 51 53 46",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "suministros-gerve-sumini",
+    "nombre": "Suministros Gerve",
+    "sector": "Ferretería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.5,
+    "batch": 2
+  },
+  {
+    "slug": "parkour-motril-parkou",
+    "nombre": "PARKOUR MOTRIL",
+    "sector": "CrossFit",
+    "ciudad": "Motril",
+    "tel": "610 33 39 87",
+    "rating": 0,
+    "batch": 2
+  },
+  {
+    "slug": "clinica-dental-fernandez-abarca-clinic",
+    "nombre": "Clinica Dental Fernández Abarca",
+    "sector": "Clínica Dental",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.9,
+    "batch": 2
+  },
+  {
+    "slug": "cerveceria-vinateria-el-trasiego-cervec",
+    "nombre": "Cervecería Vinatería El Trasiego",
+    "sector": "Cervecería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.4,
+    "batch": 2
+  },
+  {
+    "slug": "general-optica-vision-y-audicion-genera",
+    "nombre": "General Optica - Visión y Audición",
+    "sector": "Óptica",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.7,
+    "batch": 2
+  },
+  {
+    "slug": "incasa-motril-incasa",
+    "nombre": "Incasa Motril",
+    "sector": "Inmobiliaria",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.9,
+    "batch": 2
+  },
+  {
+    "slug": "time-centro-deportivo-time-c",
+    "nombre": "Time Centro Deportivo",
+    "sector": "Gimnasio",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.3,
+    "batch": 2
+  },
+  {
+    "slug": "sunahra-beach-club-sunahr",
+    "nombre": "Sunahra Beach Club",
+    "sector": "Food Truck",
+    "ciudad": "Motril",
+    "tel": "673 53 50 05",
+    "rating": 4.3,
+    "batch": 2
+  },
+  {
+    "slug": "sabis-mantenimiento-y-reparaciones-slu-sabis-",
+    "nombre": "Sabis mantenimiento y reparaciones SLU",
+    "sector": "Fontanería",
+    "ciudad": "Motril",
+    "tel": "744 47 54 15",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "floristeria-correa-floris",
+    "nombre": "FLORISTERÍA CORREA",
+    "sector": "Floristería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.7,
+    "batch": 2
+  },
+  {
+    "slug": "clinica-fisioterapia-camacho-clinic",
+    "nombre": "Clinica Fisioterapia Camacho",
+    "sector": "Fisioterapia",
+    "ciudad": "Motril",
+    "tel": "686 67 51 48",
+    "rating": 4.7,
+    "batch": 2
+  },
+  {
+    "slug": "comercial-mosabe-s-l-comerc",
+    "nombre": "Comercial Mosabe, S.L.",
+    "sector": "Ferretería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.9,
+    "batch": 2
+  },
+  {
+    "slug": "clinica-dental-cesadent-motril-clinic",
+    "nombre": "Clínica Dental CESADENT Motril",
+    "sector": "Clínica Dental",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.9,
+    "batch": 2
+  },
+  {
+    "slug": "optiprix-motril-optipr",
+    "nombre": "Optiprix Motril",
+    "sector": "Óptica",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.8,
+    "batch": 2
+  },
+  {
+    "slug": "inmobiliaria-rosales-inmobi",
+    "nombre": "Inmobiliaria Rosales",
+    "sector": "Inmobiliaria",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.7,
+    "batch": 2
+  },
+  {
+    "slug": "dosis-entrenamiento-personal-y-readaptacion-dosis-",
+    "nombre": "DOSIS | Entrenamiento Personal y Readaptación",
+    "sector": "Gimnasio",
+    "ciudad": "Motril",
+    "tel": "641 59 72 25",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "hoyo-19-beach-club-hoyo-1",
+    "nombre": "Hoyo 19 Beach Club",
+    "sector": "Food Truck",
+    "ciudad": "Motril",
+    "tel": "609 41 84 67",
+    "rating": 4.3,
+    "batch": 2
+  },
+  {
+    "slug": "fontaneria-jimenez-chica-c-b-fontan",
+    "nombre": "Fontanería Jiménez Chica C.B.",
+    "sector": "Fontanería",
+    "ciudad": "Motril",
+    "tel": "650 77 61 61",
+    "rating": 4.7,
+    "batch": 2
+  },
+  {
+    "slug": "palmira-casa-floral-palmir",
+    "nombre": "Palmira Casa Floral",
+    "sector": "Floristería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.8,
+    "batch": 2
+  },
+  {
+    "slug": "clinica-de-fisioterapia-motril-clinic",
+    "nombre": "Clínica de Fisioterapia Motril",
+    "sector": "Fisioterapia",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "teymo-teymo-",
+    "nombre": "Teymo",
+    "sector": "Ferretería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.6,
+    "batch": 2
+  },
+  {
+    "slug": "centro-de-diagnostico-motril-centro",
+    "nombre": "Centro de Diagnóstico Motril",
+    "sector": "Clínica Dental",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.8,
+    "batch": 2
+  },
+  {
+    "slug": "centro-carlos-salud-visual-y-auditiva-centro",
+    "nombre": "Centro Carlos: Salud Visual y Auditiva",
+    "sector": "Óptica",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "inversiones-decasol-s-l-invers",
+    "nombre": "Inversiones Decasol S.L.",
+    "sector": "Inmobiliaria",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.9,
+    "batch": 2
+  },
+  {
+    "slug": "degood-motril-degood",
+    "nombre": "DeGood Motril",
+    "sector": "Gimnasio",
+    "ciudad": "Motril",
+    "tel": "640 57 78 25",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "garden-food-trucks-garden",
+    "nombre": "Garden Food Trucks",
+    "sector": "Food Truck",
+    "ciudad": "Motril",
+    "tel": "(829) 910-8353",
+    "rating": 4.3,
+    "batch": 2
+  },
+  {
+    "slug": "suministros-pineda-almacen-de-fontaneria-sumini",
+    "nombre": "Suministros Pineda - Almacén de Fontanería",
+    "sector": "Fontanería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.6,
+    "batch": 2
+  },
+  {
+    "slug": "floristeria-tropical-floris",
+    "nombre": "Floristería Tropical.",
+    "sector": "Floristería",
+    "ciudad": "Motril",
+    "tel": "628 56 37 00",
+    "rating": 4.6,
+    "batch": 2
+  },
+  {
+    "slug": "clinica-fisioterapia-prometeo-clinic",
+    "nombre": "Clinica Fisioterapia Prometeo",
+    "sector": "Fisioterapia",
+    "ciudad": "Motril",
+    "tel": "609 43 22 73",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "ferreteria-saez-ferret",
+    "nombre": "Ferreteria Sáez",
+    "sector": "Ferretería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.5,
+    "batch": 2
+  },
+  {
+    "slug": "motril-dental-motril",
+    "nombre": "Motril Dental",
+    "sector": "Clínica Dental",
+    "ciudad": "Motril",
+    "tel": "613 01 33 33",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "centro-optico-soto-centro",
+    "nombre": "Centro Óptico Soto",
+    "sector": "Óptica",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "agencia-inmobiliaria-agrurbana-agenci",
+    "nombre": "Agencia Inmobiliaria Agrurbana",
+    "sector": "Inmobiliaria",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.8,
+    "batch": 2
+  },
+  {
+    "slug": "bullgym-centro-fitness-bullgy",
+    "nombre": "Bullgym Centro Fitness",
+    "sector": "Gimnasio",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.6,
+    "batch": 2
+  },
+  {
+    "slug": "restaurante-los-faroles-motril-restau",
+    "nombre": "Restaurante Los Faroles Motril",
+    "sector": "Food Truck",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.4,
+    "batch": 2
+  },
+  {
+    "slug": "tecnologias-y-desatranques-motril-s-l-tecnol",
+    "nombre": "Tecnologías y Desatranques Motril, S.L.",
+    "sector": "Fontanería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "flores-mundi-flores",
+    "nombre": "Flores Mundi",
+    "sector": "Floristería",
+    "ciudad": "Motril",
+    "tel": "659 72 72 78",
+    "rating": 4.1,
+    "batch": 2
+  },
+  {
+    "slug": "testa-fisioterapia-y-osteopatia-testa-",
+    "nombre": "TESTA. Fisioterapia y Osteopatía",
+    "sector": "Fisioterapia",
+    "ciudad": "Motril",
+    "tel": "633 79 59 01",
+    "rating": 4.8,
+    "batch": 2
+  },
+  {
+    "slug": "ferreteria-suministros-correa-ferret",
+    "nombre": "Ferretería Suministros Correa",
+    "sector": "Ferretería",
+    "ciudad": "Motril",
+    "tel": "858 95 12 58",
+    "rating": 4.1,
+    "batch": 2
+  },
+  {
+    "slug": "clinica-dental-fdez-de-mesa-dentista-en-motril-clinic",
+    "nombre": "Clínica Dental Fdez de Mesa - Dentista en Motril",
+    "sector": "Clínica Dental",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "nueva-optica-nueva-",
+    "nombre": "Nueva Óptica",
+    "sector": "Óptica",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "rential-inmobiliaria-rentia",
+    "nombre": "Rential Inmobiliaria",
+    "sector": "Inmobiliaria",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.9,
+    "batch": 2
+  },
+  {
+    "slug": "centro-deportivo-los-alamos-centro",
+    "nombre": "Centro Deportivo Los Álamos",
+    "sector": "Gimnasio",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.6,
+    "batch": 2
+  },
+  {
+    "slug": "gastrea-trucks-food-trucks-gastre",
+    "nombre": "Gastrea Trucks - Food Trucks",
+    "sector": "Food Truck",
+    "ciudad": "Motril",
+    "tel": "611 73 15 17",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "instalmara-fontaneria-y-gas-urgencias-hogar-instal",
+    "nombre": "Instalmara Fontanería y Gas urgencias Hogar",
+    "sector": "Fontanería",
+    "ciudad": "Motril",
+    "tel": "697 96 96 78",
+    "rating": 4.5,
+    "batch": 2
+  },
+  {
+    "slug": "rosas-bravo-rosas-",
+    "nombre": "Rosas Bravo",
+    "sector": "Floristería",
+    "ciudad": "Motril",
+    "tel": "637 47 65 45",
+    "rating": 0,
+    "batch": 2
+  },
+  {
+    "slug": "sport-salud-sport-",
+    "nombre": "Sport Salud",
+    "sector": "Fisioterapia",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.8,
+    "batch": 2
+  },
+  {
+    "slug": "cadena-88-cadena",
+    "nombre": "Cadena 88",
+    "sector": "Ferretería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.5,
+    "batch": 2
+  },
+  {
+    "slug": "clinica-dental-nueva-dental-dra-encarnacion-rodriguez-clinic",
+    "nombre": "Clínica Dental Nueva Dental Dra Encarnación Rodríguez",
+    "sector": "Clínica Dental",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.9,
+    "batch": 2
+  },
+  {
+    "slug": "optica-urbano-optica",
+    "nombre": "Óptica Urbano",
+    "sector": "Óptica",
+    "ciudad": "Motril",
+    "tel": "637 90 00 08",
+    "rating": 4.6,
+    "batch": 2
+  },
+  {
+    "slug": "tecnocasa-agencia-inmobiliaria-motril-tecnoc",
+    "nombre": "Tecnocasa agencia inmobiliaria Motril",
+    "sector": "Inmobiliaria",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.9,
+    "batch": 2
+  },
+  {
+    "slug": "gym-arnold-motril-gimnasio-gym-ar",
+    "nombre": "Gym Arnold Motril | Gimnasio",
+    "sector": "Gimnasio",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.8,
+    "batch": 2
+  },
+  {
+    "slug": "saturdays-foodtruck-saturd",
+    "nombre": "Saturdays Foodtruck",
+    "sector": "Food Truck",
+    "ciudad": "Motril",
+    "tel": "623 10 26 25",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "miguel-angel-melero-gonzalez-miguel",
+    "nombre": "Miguel Angel Melero González",
+    "sector": "Fontanería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "flores-calvente-flores",
+    "nombre": "Flores Calvente",
+    "sector": "Floristería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 0,
+    "batch": 2
+  },
+  {
+    "slug": "fisioterapia-galiano-slow-concept-fisiot",
+    "nombre": "▷ Fisioterapia Galiano | Slow Concept",
+    "sector": "Fisioterapia",
+    "ciudad": "Motril",
+    "tel": "611 66 92 70",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "clinica-dra-maria-martin-ruiz-clinic",
+    "nombre": "Clínica Dra. María Martin Ruiz",
+    "sector": "Clínica Dental",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 5,
+    "batch": 2
+  },
+  {
+    "slug": "optica-milan-optica",
+    "nombre": "Óptica Milán",
+    "sector": "Óptica",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.7,
+    "batch": 2
+  },
+  {
+    "slug": "motrilia-servicios-inmobiliarios-inmobiliaria-motril",
+    "nombre": "Motrilia servicios inmobiliarios - Inmobiliaria",
+    "sector": "Inmobiliaria",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.5,
+    "batch": 2
+  },
+  {
+    "slug": "gimnasio-tropical-gimnas",
+    "nombre": "Gimnasio Tropical",
+    "sector": "Gimnasio",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.3,
+    "batch": 2
+  },
+  {
+    "slug": "food-truck-los-jardines-food-t",
+    "nombre": "Food Truck Los Jardines",
+    "sector": "Food Truck",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.2,
+    "batch": 2
+  },
+  {
+    "slug": "multi-servicios-todo-bano-s-l-multi-",
+    "nombre": "Multi Servicios Todo Baño S L",
+    "sector": "Fontanería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4,
+    "batch": 2
+  },
+  {
+    "slug": "floristeria-motril-floris",
+    "nombre": "Floristería Motril",
+    "sector": "Floristería",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 0,
+    "batch": 2
+  },
+  {
+    "slug": "fisiomarcos-fisiom",
+    "nombre": "Fisiomarcos",
+    "sector": "Fisioterapia",
+    "ciudad": "Motril",
+    "tel": "616 96 36 04",
+    "rating": 4.9,
+    "batch": 2
+  },
+  {
+    "slug": "clinica-dental-j-j-garcia-jeronimo-clinic",
+    "nombre": "Clínica dental J&J García Jerónimo",
+    "sector": "Clínica Dental",
+    "ciudad": "Motril",
+    "tel": "",
+    "rating": 4.6,
+    "batch": 2
   }
 ]

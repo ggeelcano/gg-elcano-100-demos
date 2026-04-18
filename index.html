@@ -1,532 +1,263 @@
 <!DOCTYPE html>
 <html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
-<title>100 Demos · G&G Elcano</title>
+<title>197 Demos · G&G Elcano</title>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
-body{background:#0a0a0a;color:#fff;font-family:'Inter',sans-serif;padding:40px 20px}
+body{background:#0a0a0a;color:#fff;font-family:'Inter',sans-serif;padding:40px 20px;min-height:100vh}
 .container{max-width:1400px;margin:0 auto}
-h1{font-family:'Space Grotesk',sans-serif;font-size:56px;margin-bottom:8px;letter-spacing:-2px}
+h1{font-family:'Space Grotesk',sans-serif;font-size:56px;margin-bottom:8px;letter-spacing:-2px;line-height:1}
 h1 i{color:#ff3d00;font-style:italic}
-.sub{opacity:0.6;margin-bottom:40px;font-size:18px}
+.sub{opacity:0.6;margin-bottom:30px;font-size:18px}
+.filters{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:30px}
+.filter{padding:8px 14px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:20px;font-size:13px;cursor:pointer;transition:all 0.2s;color:#fff}
+.filter:hover,.filter.active{background:#ff3d00;border-color:#ff3d00}
+.search{padding:12px 18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:12px;color:#fff;font-size:15px;width:100%;max-width:400px;margin-bottom:24px;font-family:inherit}
 .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px}
-.card{padding:24px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;text-decoration:none;color:#fff;transition:all 0.25s;display:block}
+.card{padding:22px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:16px;text-decoration:none;color:#fff;transition:all 0.25s;display:block}
 .card:hover{transform:translateY(-3px);border-color:#ff3d00;background:rgba(255,61,0,0.08)}
-.sector{display:inline-block;padding:4px 12px;background:rgba(255,61,0,0.15);color:#ff3d00;border-radius:12px;font-size:11px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
-.card h3{font-family:'Space Grotesk',sans-serif;font-size:18px;letter-spacing:-0.5px;margin-bottom:4px;line-height:1.2}
-.card .meta{opacity:0.5;font-size:13px}
-.stats{display:flex;gap:40px;margin:20px 0 40px;padding:24px;background:rgba(255,255,255,0.03);border-radius:16px;flex-wrap:wrap}
+.sector{display:inline-block;padding:3px 10px;background:rgba(255,61,0,0.15);color:#ff3d00;border-radius:10px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px}
+.batch-tag{display:inline-block;padding:3px 10px;background:rgba(34,197,94,0.15);color:#22c55e;border-radius:10px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:10px;margin-left:6px}
+.card h3{font-family:'Space Grotesk',sans-serif;font-size:17px;letter-spacing:-0.5px;margin-bottom:4px;line-height:1.2}
+.card .meta{opacity:0.5;font-size:12px}
+.stats{display:flex;gap:30px;margin:20px 0 40px;padding:24px;background:rgba(255,255,255,0.03);border-radius:16px;flex-wrap:wrap}
 .stats div strong{font-family:'Space Grotesk',sans-serif;font-size:28px;color:#ff3d00;display:block}
-.stats div span{font-size:12px;opacity:0.5;text-transform:uppercase;letter-spacing:1px}
+.stats div span{font-size:11px;opacity:0.5;text-transform:uppercase;letter-spacing:1px}
+.hidden{display:none!important}
 </style></head><body>
 <div class="container">
-<h1><i>100 demos</i> generadas por G&G Elcano</h1>
-<p class="sub">Cada web tiene animaciones Three.js específicas para su sector + datos reales del negocio.</p>
+<h1><i>197 demos</i> generadas</h1>
+<p class="sub">Cada web tiene animaciones Three.js específicas para su sector + datos reales del CRM G&G Elcano.</p>
 <div class="stats">
-  <div><strong>100</strong><span>Webs generadas</span></div>
-  <div><strong>13</strong><span>Sectores distintos</span></div>
+  <div><strong>197</strong><span>Webs totales</span></div>
+  <div><strong>25</strong><span>Sectores distintos</span></div>
   <div><strong>15</strong><span>Ciudades</span></div>
 </div>
-<div class="grid">
-<a class="card" href="./demos/administracion-fincas-henares-dd3016/">
-  <div class="sector">Servicios</div>
-  <h3>Administración Fincas Henares</h3>
-  <div class="meta">Azuqueca de Henares</div>
-</a>
-<a class="card" href="./demos/academia-loleo-9678a2/">
-  <div class="sector">Educación</div>
-  <h3>Academia Loleo</h3>
-  <div class="meta">Villanueva de la Torre</div>
-</a>
-<a class="card" href="./demos/m35-shop-74fc61/">
-  <div class="sector">Comercio</div>
-  <h3>M35 Shop</h3>
-  <div class="meta">Laguardia</div>
-</a>
-<a class="card" href="./demos/taller-gng-c2db1e/">
-  <div class="sector">Taller</div>
-  <h3>Taller GnG</h3>
-  <div class="meta">Galdakao · ⭐ 4.7</div>
-</a>
-<a class="card" href="./demos/floren-victor-peluqueria-0a4735/">
-  <div class="sector">Peluquería</div>
-  <h3>Floren-Victor Peluquería</h3>
-  <div class="meta">Bilbao</div>
-</a>
-<a class="card" href="./demos/basa-take-away-bbb45c/">
-  <div class="sector">Hostelería</div>
-  <h3>Basa Take Away</h3>
-  <div class="meta">Durango</div>
-</a>
-<a class="card" href="./demos/el-buen-tapeo-86c720/">
-  <div class="sector">Hostelería</div>
-  <h3>El Buen Tapeo</h3>
-  <div class="meta">Ourense</div>
-</a>
-<a class="card" href="./demos/bar-entre-canas-y-barros-e45102/">
-  <div class="sector">Hostelería</div>
-  <h3>Bar Entre Cañas y Barros</h3>
-  <div class="meta">Ansoáin</div>
-</a>
-<a class="card" href="./demos/copisteria-biart-b9562e/">
-  <div class="sector">Comercio</div>
-  <h3>Copistería Biart</h3>
-  <div class="meta">Ansoáin</div>
-</a>
-<a class="card" href="./demos/centro-sueskun-fisioterapia-0bf4b4/">
-  <div class="sector">Salud</div>
-  <h3>Centro Sueskun Fisioterapia</h3>
-  <div class="meta">Villava</div>
-</a>
-<a class="card" href="./demos/psicologo-aser-sesma-d83d75/">
-  <div class="sector">Salud</div>
-  <h3>Psicólogo Aser Sesma</h3>
-  <div class="meta">Villava</div>
-</a>
-<a class="card" href="./demos/ukimen-fisioterapia-b71da7/">
-  <div class="sector">Salud</div>
-  <h3>Ukimen Fisioterapia</h3>
-  <div class="meta">Ansoáin</div>
-</a>
-<a class="card" href="./demos/aitor-arrazola-nutricion-2e8951/">
-  <div class="sector">Salud</div>
-  <h3>Aitor Arrazola Nutrición</h3>
-  <div class="meta">Ansoáin</div>
-</a>
-<a class="card" href="./demos/academia-tony-cocera-595694/">
-  <div class="sector">Educación</div>
-  <h3>Academia Tony Cocera</h3>
-  <div class="meta">Burlada</div>
-</a>
-<a class="card" href="./demos/kamakura-bilbao-29a65d/">
-  <div class="sector">Comercio</div>
-  <h3>Kamakura Bilbao</h3>
-  <div class="meta">Bilbao</div>
-</a>
-<a class="card" href="./demos/orekatmejora-16f925/">
-  <div class="sector">Salud</div>
-  <h3>OrekaTmejora</h3>
-  <div class="meta">Ansoáin</div>
-</a>
-<a class="card" href="./demos/ferreteria-el-candado-a2f749/">
-  <div class="sector">Comercio</div>
-  <h3>Ferretería El Candado</h3>
-  <div class="meta">Villanueva del Ariscal</div>
-</a>
-<a class="card" href="./demos/casa-rural-los-cipreses-f5ebe9/">
-  <div class="sector">Hostelería</div>
-  <h3>Casa Rural Los Cipreses</h3>
-  <div class="meta">Mesones</div>
-</a>
-<a class="card" href="./demos/pescaderia-olaverri-4decae/">
-  <div class="sector">Comercio</div>
-  <h3>Pescadería Olaverri</h3>
-  <div class="meta">Villava</div>
-</a>
-<a class="card" href="./demos/pinturas-bengoetxea-8e9b33/">
-  <div class="sector">Servicios</div>
-  <h3>Pinturas Bengoetxea</h3>
-  <div class="meta">Berriozar</div>
-</a>
-<a class="card" href="./demos/papos-men-c04774/">
-  <div class="sector">Comercio</div>
-  <h3>Papos Men</h3>
-  <div class="meta">Durango</div>
-</a>
-<a class="card" href="./demos/merceria-osinaga-dae0fd/">
-  <div class="sector">Comercio</div>
-  <h3>Mercería Osinaga</h3>
-  <div class="meta">Ansoáin</div>
-</a>
-<a class="card" href="./demos/restaurante-aretxondo-1df990/">
-  <div class="sector">Hostelería</div>
-  <h3>Restaurante Aretxondo</h3>
-  <div class="meta">Galdakao · ⭐ 4.4</div>
-</a>
-<a class="card" href="./demos/el-korner-134677/">
-  <div class="sector">Hostelería</div>
-  <h3>El Korner</h3>
-  <div class="meta">Durango</div>
-</a>
-<a class="card" href="./demos/tintacartuchos-ansoain-139012/">
-  <div class="sector">Comercio</div>
-  <h3>Tintacartuchos Ansoáin</h3>
-  <div class="meta">Ansoáin</div>
-</a>
-<a class="card" href="./demos/ecotienda-orgiva-c098a0/">
-  <div class="sector">Comercio</div>
-  <h3>Ecotienda Órgiva</h3>
-  <div class="meta">Órgiva</div>
-</a>
-<a class="card" href="./demos/galdakao-futbol-eskola-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Galdakao Futbol Eskola</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/suministros-industriales-errekalde-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Suministros Industriales Errekalde</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/pinturas-nabartu-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Pinturas Nabartu</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/residencia-san-andres-ii-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Residencia San Andres II</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/residencia-san-andres-i-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Residencia San Andres I</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/cristaleria-galdakao-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Cristaleria Galdakao</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/hiper-del-mueble-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Hiper del Mueble</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/funeraria-galarza-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Funeraria Galarza</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/galdakauto-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Galdakauto</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/autoreparaciones-artola-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Autoreparaciones Artola</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/tecnymas-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Tecnymas</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/clinicas-plus-dental-galdakao-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Clinicas Plus Dental Galdakao</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/clinica-dental-loan-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Clinica Dental LOAN</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/escuela-de-hosteleria-galdakao-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Escuela de Hosteleria Galdakao</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/estudio-3-galdakao-s-l-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Estudio 3 Galdakao S.L.</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/natrus-s-l-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Natrus S.L.</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/dediego-s-l-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>Dediego S.L.</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/maxam-ueb-s-l-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>MAXAM UEB S.L.</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/ali-transformados-metalicos-s-l-lead_1/">
-  <div class="sector">Profesional</div>
-  <h3>ALI Transformados Metalicos S.L.</h3>
-  <div class="meta">Galdakao</div>
-</a>
-<a class="card" href="./demos/angeles-martin-lopez-angele/">
-  <div class="sector">Veterinaria</div>
-  <h3>Ángeles Martín López</h3>
-  <div class="meta">Motril · ⭐ 3.6</div>
-</a>
-<a class="card" href="./demos/centro-veterinario-velez-centro/">
-  <div class="sector">Veterinaria</div>
-  <h3>CENTRO VETERINARIO VÉLEZ</h3>
-  <div class="meta">Motril · ⭐ 4.1</div>
-</a>
-<a class="card" href="./demos/clinica-veterinaria-talisman-clinic/">
-  <div class="sector">Veterinaria</div>
-  <h3>Clínica Veterinaria Talismán</h3>
-  <div class="meta">Motril · ⭐ 4.6</div>
-</a>
-<a class="card" href="./demos/clinica-veterinaria-taoro-clinic/">
-  <div class="sector">Veterinaria</div>
-  <h3>Clinica Veterinaria Taoro</h3>
-  <div class="meta">Motril · ⭐ 4.3</div>
-</a>
-<a class="card" href="./demos/clinica-veterinaria-canisur-clinic/">
-  <div class="sector">Veterinaria</div>
-  <h3>Clinica Veterinaria Canisur</h3>
-  <div class="meta">Motril · ⭐ 4.5</div>
-</a>
-<a class="card" href="./demos/clinica-veterinaria-animal-s-clinic/">
-  <div class="sector">Veterinaria</div>
-  <h3>Clínica Veterinaria Animal's</h3>
-  <div class="meta">Motril · ⭐ 4.6</div>
-</a>
-<a class="card" href="./demos/clinica-veterinaria-motril-clinic/">
-  <div class="sector">Veterinaria</div>
-  <h3>Clínica Veterinaria Motril</h3>
-  <div class="meta">Motril · ⭐ 4.5</div>
-</a>
-<a class="card" href="./demos/stradivarius-stradi/">
-  <div class="sector">Tienda de Ropa</div>
-  <h3>Stradivarius</h3>
-  <div class="meta">Motril · ⭐ 4.2</div>
-</a>
-<a class="card" href="./demos/el-encanto-de-encarni-el-enc/">
-  <div class="sector">Tienda de Ropa</div>
-  <h3>El Encanto de Encarni</h3>
-  <div class="meta">Motril · ⭐ 4.5</div>
-</a>
-<a class="card" href="./demos/paula-fuentes-paula-/">
-  <div class="sector">Tienda de Ropa</div>
-  <h3>Paula Fuentes</h3>
-  <div class="meta">Motril · ⭐ 5</div>
-</a>
-<a class="card" href="./demos/bogoos-bogoos/">
-  <div class="sector">Tienda de Ropa</div>
-  <h3>BOGOOS</h3>
-  <div class="meta">Motril · ⭐ 4.9</div>
-</a>
-<a class="card" href="./demos/maria-galiano-moda-femenina-maria-/">
-  <div class="sector">Tienda de Ropa</div>
-  <h3>María Galiano Moda femenina</h3>
-  <div class="meta">Motril · ⭐ 5</div>
-</a>
-<a class="card" href="./demos/menfis-boutique-menfis/">
-  <div class="sector">Tienda de Ropa</div>
-  <h3>MENFIS BOUTIQUE</h3>
-  <div class="meta">Motril · ⭐ 4.8</div>
-</a>
-<a class="card" href="./demos/pepe-almendros-moda-pepe-a/">
-  <div class="sector">Tienda de Ropa</div>
-  <h3>Pepe Almendros Moda</h3>
-  <div class="meta">Motril · ⭐ 4.9</div>
-</a>
-<a class="card" href="./demos/fashion-art-fashio/">
-  <div class="sector">Tienda de Ropa</div>
-  <h3>Fashion Art</h3>
-  <div class="meta">Motril · ⭐ 4.9</div>
-</a>
-<a class="card" href="./demos/lola-ruiz-lola-r/">
-  <div class="sector">Tienda de Ropa</div>
-  <h3>Lola Ruiz</h3>
-  <div class="meta">Motril · ⭐ 4.5</div>
-</a>
-<a class="card" href="./demos/boutique-glamglam-by-carmen-filip-boutiq/">
-  <div class="sector">Tienda de Ropa</div>
-  <h3>Boutique Glamglam by Carmen Filip</h3>
-  <div class="meta">Motril · ⭐ 5</div>
-</a>
-<a class="card" href="./demos/taller-mecanica-mariano-taller/">
-  <div class="sector">Taller Mecánico</div>
-  <h3>Taller Mecánica MARIANO</h3>
-  <div class="meta">Motril · ⭐ 4.5</div>
-</a>
-<a class="card" href="./demos/tecnicar-motril-tecnic/">
-  <div class="sector">Taller Mecánico</div>
-  <h3>TECNICAR Motril</h3>
-  <div class="meta">Motril · ⭐ 4.9</div>
-</a>
-<a class="card" href="./demos/arlauto-arlaut/">
-  <div class="sector">Taller Mecánico</div>
-  <h3>Arlauto</h3>
-  <div class="meta">Motril · ⭐ 4.7</div>
-</a>
-<a class="card" href="./demos/center-s-auto-motril-center/">
-  <div class="sector">Taller Mecánico</div>
-  <h3>Center´s Auto Motril</h3>
-  <div class="meta">Motril · ⭐ 4.4</div>
-</a>
-<a class="card" href="./demos/taller-de-automocion-auto-gratusa-s-l-taller/">
-  <div class="sector">Taller Mecánico</div>
-  <h3>Taller De Automoción Auto Gratusa S.L.</h3>
-  <div class="meta">Motril · ⭐ 4.7</div>
-</a>
-<a class="card" href="./demos/taller-martin-cars-raya-palacios-y-otros-s-l-taller/">
-  <div class="sector">Taller Mecánico</div>
-  <h3>TALLER MARTIN CARS ( RAYA PALACIOS Y OTROS S.L.)</h3>
-  <div class="meta">Motril · ⭐ 4.8</div>
-</a>
-<a class="card" href="./demos/auto-taller-de-servicio-rapido-auto-t/">
-  <div class="sector">Taller Mecánico</div>
-  <h3>Auto Taller de Servicio Rápido</h3>
-  <div class="meta">Motril · ⭐ 4.2</div>
-</a>
-<a class="card" href="./demos/taller-mario-taller/">
-  <div class="sector">Taller Mecánico</div>
-  <h3>TALLER MARIO</h3>
-  <div class="meta">Motril · ⭐ 4.8</div>
-</a>
-<a class="card" href="./demos/car-gonzalez-e-hijos-car-go/">
-  <div class="sector">Taller Mecánico</div>
-  <h3>Car González E Hijos</h3>
-  <div class="meta">Motril · ⭐ 4.3</div>
-</a>
-<a class="card" href="./demos/dr-garage-dr-gar/">
-  <div class="sector">Taller Mecánico</div>
-  <h3>DR.GARAGE</h3>
-  <div class="meta">Motril · ⭐ 4.7</div>
-</a>
-<a class="card" href="./demos/bambu-beach-motril-bambu-/">
-  <div class="sector">Restaurante</div>
-  <h3>Bambú Beach | Motril</h3>
-  <div class="meta">Motril · ⭐ 4.2</div>
-</a>
-<a class="card" href="./demos/restaurante-marelli-restau/">
-  <div class="sector">Restaurante</div>
-  <h3>Restaurante Marelli</h3>
-  <div class="meta">Motril · ⭐ 4.4</div>
-</a>
-<a class="card" href="./demos/restaurante-estrella-del-mar-restau/">
-  <div class="sector">Restaurante</div>
-  <h3>Restaurante Estrella Del Mar</h3>
-  <div class="meta">Motril · ⭐ 4.3</div>
-</a>
-<a class="card" href="./demos/pura-vida-motril-pura-v/">
-  <div class="sector">Restaurante</div>
-  <h3>Pura vida Motril</h3>
-  <div class="meta">Motril · ⭐ 4.5</div>
-</a>
-<a class="card" href="./demos/restaurante-juan-garcia-restau/">
-  <div class="sector">Restaurante</div>
-  <h3>Restaurante Juan Garcia</h3>
-  <div class="meta">Motril · ⭐ 4.3</div>
-</a>
-<a class="card" href="./demos/maison-mareame-maison/">
-  <div class="sector">Restaurante</div>
-  <h3>Maison Maréame</h3>
-  <div class="meta">Motril · ⭐ 5</div>
-</a>
-<a class="card" href="./demos/restaurante-la-espicha-restau/">
-  <div class="sector">Restaurante</div>
-  <h3>Restaurante La Espichá</h3>
-  <div class="meta">Motril · ⭐ 4.4</div>
-</a>
-<a class="card" href="./demos/restaurante-el-candelon-restau/">
-  <div class="sector">Restaurante</div>
-  <h3>Restaurante "El Candelón"</h3>
-  <div class="meta">Motril · ⭐ 4.6</div>
-</a>
-<a class="card" href="./demos/restaurante-la-ballena-azul-restau/">
-  <div class="sector">Restaurante</div>
-  <h3>Restaurante La Ballena Azul</h3>
-  <div class="meta">Motril · ⭐ 4.7</div>
-</a>
-<a class="card" href="./demos/restaurante-los-moriscos-restau/">
-  <div class="sector">Restaurante</div>
-  <h3>Restaurante Los Moriscos</h3>
-  <div class="meta">Motril · ⭐ 4.1</div>
-</a>
-<a class="card" href="./demos/blau-peluqueros-blau-p/">
-  <div class="sector">Peluquería</div>
-  <h3>Blau peluqueros</h3>
-  <div class="meta">Motril · ⭐ 4.8</div>
-</a>
-<a class="card" href="./demos/peluqueria-encarni-bustos-peluqu/">
-  <div class="sector">Peluquería</div>
-  <h3>Peluquería Encarni Bustos</h3>
-  <div class="meta">Motril · ⭐ 5</div>
-</a>
-<a class="card" href="./demos/peluqueria-kedhara-hair-studio-balayage-en-motril-peluqu/">
-  <div class="sector">Peluquería</div>
-  <h3>Peluquería Kedhara Hair Studio - Balayage en Motril</h3>
-  <div class="meta">Motril · ⭐ 4.9</div>
-</a>
-<a class="card" href="./demos/magda-peluqueria-centro-motril-magda-/">
-  <div class="sector">Peluquería</div>
-  <h3>Magda Peluqueria Centro Motril</h3>
-  <div class="meta">Motril · ⭐ 4.9</div>
-</a>
-<a class="card" href="./demos/marytorres-salon-de-belleza-peluqueria-maryto/">
-  <div class="sector">Peluquería</div>
-  <h3>MaryTorres Salón de Belleza & Peluquería</h3>
-  <div class="meta">Motril · ⭐ 4.8</div>
-</a>
-<a class="card" href="./demos/c-c-peluqueros-peluqueria-en-motril-c-c-pe/">
-  <div class="sector">Peluquería</div>
-  <h3>C&C Peluqueros | Peluquería en Motril</h3>
-  <div class="meta">Motril · ⭐ 5</div>
-</a>
-<a class="card" href="./demos/isabel-martin-peluqueria-isabel/">
-  <div class="sector">Peluquería</div>
-  <h3>Isabel Martín Peluquería</h3>
-  <div class="meta">Motril · ⭐ 4.8</div>
-</a>
-<a class="card" href="./demos/doble-v-estilistas-doble-/">
-  <div class="sector">Peluquería</div>
-  <h3>Doble V Estilistas</h3>
-  <div class="meta">Motril · ⭐ 4.8</div>
-</a>
-<a class="card" href="./demos/peluqueria-y-estetica-bellezza10-peluqu/">
-  <div class="sector">Peluquería</div>
-  <h3>Peluquería y estética Bellezza10</h3>
-  <div class="meta">Motril · ⭐ 4.6</div>
-</a>
-<a class="card" href="./demos/peluqueria-estetica-cristina-peluqu/">
-  <div class="sector">Peluquería</div>
-  <h3>Peluquería & Estética Cristina</h3>
-  <div class="meta">Motril · ⭐ 4.6</div>
-</a>
-<a class="card" href="./demos/pasteleria-videras-pastel/">
-  <div class="sector">Pastelería & Panadería</div>
-  <h3>Pastelería Videras</h3>
-  <div class="meta">Motril · ⭐ 4.6</div>
-</a>
-<a class="card" href="./demos/panaderia-espiga-dorada-panade/">
-  <div class="sector">Pastelería & Panadería</div>
-  <h3>Panadería Espiga Dorada</h3>
-  <div class="meta">Motril · ⭐ 4.5</div>
-</a>
-<a class="card" href="./demos/panaderia-el-molino-panade/">
-  <div class="sector">Pastelería & Panadería</div>
-  <h3>Panadería el molino</h3>
-  <div class="meta">Motril · ⭐ 2.9</div>
-</a>
-<a class="card" href="./demos/panaderia-confiteria-molino-panade/">
-  <div class="sector">Pastelería & Panadería</div>
-  <h3>Panadería confitería Molino</h3>
-  <div class="meta">Motril · ⭐ 3.6</div>
-</a>
-<a class="card" href="./demos/panaderia-kome-kalla-panade/">
-  <div class="sector">Pastelería & Panadería</div>
-  <h3>Panadería Kome & Kalla</h3>
-  <div class="meta">Motril · ⭐ 4</div>
-</a>
-<a class="card" href="./demos/panaderia-molino-s-l-panade/">
-  <div class="sector">Pastelería & Panadería</div>
-  <h3>Panadería Molino S.L.</h3>
-  <div class="meta">Motril · ⭐ 3.8</div>
-</a>
-<a class="card" href="./demos/panaderia-molino-panade/">
-  <div class="sector">Pastelería & Panadería</div>
-  <h3>Panadería Molino</h3>
-  <div class="meta">Motril · ⭐ 4.2</div>
-</a>
-<a class="card" href="./demos/pasteleria-casa-palomares-motril-pastel/">
-  <div class="sector">Pastelería & Panadería</div>
-  <h3>Pastelería Casa Palomares | Motril |</h3>
-  <div class="meta">Motril · ⭐ 4.6</div>
-</a>
+<input class="search" id="search" placeholder="Buscar por nombre o ciudad..." />
+<div class="filters" id="filters"><div class="filter active" data-f="">Todos</div></div>
+<div class="grid" id="grid">
+<a class="card" data-sector="Servicios" data-text="administración fincas henares azuqueca de henares" href="./demos/administracion-fincas-henares-dd3016/"><div class="sector">Servicios</div><h3>Administración Fincas Henares</h3><div class="meta">Azuqueca de Henares</div></a>
+<a class="card" data-sector="Educación" data-text="academia loleo villanueva de la torre" href="./demos/academia-loleo-9678a2/"><div class="sector">Educación</div><h3>Academia Loleo</h3><div class="meta">Villanueva de la Torre</div></a>
+<a class="card" data-sector="Comercio" data-text="m35 shop laguardia" href="./demos/m35-shop-74fc61/"><div class="sector">Comercio</div><h3>M35 Shop</h3><div class="meta">Laguardia</div></a>
+<a class="card" data-sector="Taller" data-text="taller gng galdakao" href="./demos/taller-gng-c2db1e/"><div class="sector">Taller</div><h3>Taller GnG</h3><div class="meta">Galdakao · ⭐ 4.7</div></a>
+<a class="card" data-sector="Peluquería" data-text="floren-victor peluquería bilbao" href="./demos/floren-victor-peluqueria-0a4735/"><div class="sector">Peluquería</div><h3>Floren-Victor Peluquería</h3><div class="meta">Bilbao</div></a>
+<a class="card" data-sector="Hostelería" data-text="basa take away durango" href="./demos/basa-take-away-bbb45c/"><div class="sector">Hostelería</div><h3>Basa Take Away</h3><div class="meta">Durango</div></a>
+<a class="card" data-sector="Hostelería" data-text="el buen tapeo ourense" href="./demos/el-buen-tapeo-86c720/"><div class="sector">Hostelería</div><h3>El Buen Tapeo</h3><div class="meta">Ourense</div></a>
+<a class="card" data-sector="Hostelería" data-text="bar entre cañas y barros ansoáin" href="./demos/bar-entre-canas-y-barros-e45102/"><div class="sector">Hostelería</div><h3>Bar Entre Cañas y Barros</h3><div class="meta">Ansoáin</div></a>
+<a class="card" data-sector="Comercio" data-text="copistería biart ansoáin" href="./demos/copisteria-biart-b9562e/"><div class="sector">Comercio</div><h3>Copistería Biart</h3><div class="meta">Ansoáin</div></a>
+<a class="card" data-sector="Salud" data-text="centro sueskun fisioterapia villava" href="./demos/centro-sueskun-fisioterapia-0bf4b4/"><div class="sector">Salud</div><h3>Centro Sueskun Fisioterapia</h3><div class="meta">Villava</div></a>
+<a class="card" data-sector="Salud" data-text="psicólogo aser sesma villava" href="./demos/psicologo-aser-sesma-d83d75/"><div class="sector">Salud</div><h3>Psicólogo Aser Sesma</h3><div class="meta">Villava</div></a>
+<a class="card" data-sector="Salud" data-text="ukimen fisioterapia ansoáin" href="./demos/ukimen-fisioterapia-b71da7/"><div class="sector">Salud</div><h3>Ukimen Fisioterapia</h3><div class="meta">Ansoáin</div></a>
+<a class="card" data-sector="Salud" data-text="aitor arrazola nutrición ansoáin" href="./demos/aitor-arrazola-nutricion-2e8951/"><div class="sector">Salud</div><h3>Aitor Arrazola Nutrición</h3><div class="meta">Ansoáin</div></a>
+<a class="card" data-sector="Educación" data-text="academia tony cocera burlada" href="./demos/academia-tony-cocera-595694/"><div class="sector">Educación</div><h3>Academia Tony Cocera</h3><div class="meta">Burlada</div></a>
+<a class="card" data-sector="Comercio" data-text="kamakura bilbao bilbao" href="./demos/kamakura-bilbao-29a65d/"><div class="sector">Comercio</div><h3>Kamakura Bilbao</h3><div class="meta">Bilbao</div></a>
+<a class="card" data-sector="Salud" data-text="orekatmejora ansoáin" href="./demos/orekatmejora-16f925/"><div class="sector">Salud</div><h3>OrekaTmejora</h3><div class="meta">Ansoáin</div></a>
+<a class="card" data-sector="Comercio" data-text="ferretería el candado villanueva del ariscal" href="./demos/ferreteria-el-candado-a2f749/"><div class="sector">Comercio</div><h3>Ferretería El Candado</h3><div class="meta">Villanueva del Ariscal</div></a>
+<a class="card" data-sector="Hostelería" data-text="casa rural los cipreses mesones" href="./demos/casa-rural-los-cipreses-f5ebe9/"><div class="sector">Hostelería</div><h3>Casa Rural Los Cipreses</h3><div class="meta">Mesones</div></a>
+<a class="card" data-sector="Comercio" data-text="pescadería olaverri villava" href="./demos/pescaderia-olaverri-4decae/"><div class="sector">Comercio</div><h3>Pescadería Olaverri</h3><div class="meta">Villava</div></a>
+<a class="card" data-sector="Servicios" data-text="pinturas bengoetxea berriozar" href="./demos/pinturas-bengoetxea-8e9b33/"><div class="sector">Servicios</div><h3>Pinturas Bengoetxea</h3><div class="meta">Berriozar</div></a>
+<a class="card" data-sector="Comercio" data-text="papos men durango" href="./demos/papos-men-c04774/"><div class="sector">Comercio</div><h3>Papos Men</h3><div class="meta">Durango</div></a>
+<a class="card" data-sector="Comercio" data-text="mercería osinaga ansoáin" href="./demos/merceria-osinaga-dae0fd/"><div class="sector">Comercio</div><h3>Mercería Osinaga</h3><div class="meta">Ansoáin</div></a>
+<a class="card" data-sector="Hostelería" data-text="restaurante aretxondo galdakao" href="./demos/restaurante-aretxondo-1df990/"><div class="sector">Hostelería</div><h3>Restaurante Aretxondo</h3><div class="meta">Galdakao · ⭐ 4.4</div></a>
+<a class="card" data-sector="Hostelería" data-text="el korner durango" href="./demos/el-korner-134677/"><div class="sector">Hostelería</div><h3>El Korner</h3><div class="meta">Durango</div></a>
+<a class="card" data-sector="Comercio" data-text="tintacartuchos ansoáin ansoáin" href="./demos/tintacartuchos-ansoain-139012/"><div class="sector">Comercio</div><h3>Tintacartuchos Ansoáin</h3><div class="meta">Ansoáin</div></a>
+<a class="card" data-sector="Comercio" data-text="ecotienda órgiva órgiva" href="./demos/ecotienda-orgiva-c098a0/"><div class="sector">Comercio</div><h3>Ecotienda Órgiva</h3><div class="meta">Órgiva</div></a>
+<a class="card" data-sector="Profesional" data-text="galdakao futbol eskola galdakao" href="./demos/galdakao-futbol-eskola-lead_1/"><div class="sector">Profesional</div><h3>Galdakao Futbol Eskola</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="suministros industriales errekalde galdakao" href="./demos/suministros-industriales-errekalde-lead_1/"><div class="sector">Profesional</div><h3>Suministros Industriales Errekalde</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="pinturas nabartu galdakao" href="./demos/pinturas-nabartu-lead_1/"><div class="sector">Profesional</div><h3>Pinturas Nabartu</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="residencia san andres ii galdakao" href="./demos/residencia-san-andres-ii-lead_1/"><div class="sector">Profesional</div><h3>Residencia San Andres II</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="residencia san andres i galdakao" href="./demos/residencia-san-andres-i-lead_1/"><div class="sector">Profesional</div><h3>Residencia San Andres I</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="cristaleria galdakao galdakao" href="./demos/cristaleria-galdakao-lead_1/"><div class="sector">Profesional</div><h3>Cristaleria Galdakao</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="hiper del mueble galdakao" href="./demos/hiper-del-mueble-lead_1/"><div class="sector">Profesional</div><h3>Hiper del Mueble</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="funeraria galarza galdakao" href="./demos/funeraria-galarza-lead_1/"><div class="sector">Profesional</div><h3>Funeraria Galarza</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="galdakauto galdakao" href="./demos/galdakauto-lead_1/"><div class="sector">Profesional</div><h3>Galdakauto</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="autoreparaciones artola galdakao" href="./demos/autoreparaciones-artola-lead_1/"><div class="sector">Profesional</div><h3>Autoreparaciones Artola</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="tecnymas galdakao" href="./demos/tecnymas-lead_1/"><div class="sector">Profesional</div><h3>Tecnymas</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="clinicas plus dental galdakao galdakao" href="./demos/clinicas-plus-dental-galdakao-lead_1/"><div class="sector">Profesional</div><h3>Clinicas Plus Dental Galdakao</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="clinica dental loan galdakao" href="./demos/clinica-dental-loan-lead_1/"><div class="sector">Profesional</div><h3>Clinica Dental LOAN</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="escuela de hosteleria galdakao galdakao" href="./demos/escuela-de-hosteleria-galdakao-lead_1/"><div class="sector">Profesional</div><h3>Escuela de Hosteleria Galdakao</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="estudio 3 galdakao s.l. galdakao" href="./demos/estudio-3-galdakao-s-l-lead_1/"><div class="sector">Profesional</div><h3>Estudio 3 Galdakao S.L.</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="natrus s.l. galdakao" href="./demos/natrus-s-l-lead_1/"><div class="sector">Profesional</div><h3>Natrus S.L.</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="dediego s.l. galdakao" href="./demos/dediego-s-l-lead_1/"><div class="sector">Profesional</div><h3>Dediego S.L.</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="maxam ueb s.l. galdakao" href="./demos/maxam-ueb-s-l-lead_1/"><div class="sector">Profesional</div><h3>MAXAM UEB S.L.</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Profesional" data-text="ali transformados metalicos s.l. galdakao" href="./demos/ali-transformados-metalicos-s-l-lead_1/"><div class="sector">Profesional</div><h3>ALI Transformados Metalicos S.L.</h3><div class="meta">Galdakao</div></a>
+<a class="card" data-sector="Veterinaria" data-text="ángeles martín lópez motril" href="./demos/angeles-martin-lopez-angele/"><div class="sector">Veterinaria</div><h3>Ángeles Martín López</h3><div class="meta">Motril · ⭐ 3.6</div></a>
+<a class="card" data-sector="Veterinaria" data-text="centro veterinario vélez motril" href="./demos/centro-veterinario-velez-centro/"><div class="sector">Veterinaria</div><h3>CENTRO VETERINARIO VÉLEZ</h3><div class="meta">Motril · ⭐ 4.1</div></a>
+<a class="card" data-sector="Veterinaria" data-text="clínica veterinaria talismán motril" href="./demos/clinica-veterinaria-talisman-clinic/"><div class="sector">Veterinaria</div><h3>Clínica Veterinaria Talismán</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="Veterinaria" data-text="clinica veterinaria taoro motril" href="./demos/clinica-veterinaria-taoro-clinic/"><div class="sector">Veterinaria</div><h3>Clinica Veterinaria Taoro</h3><div class="meta">Motril · ⭐ 4.3</div></a>
+<a class="card" data-sector="Veterinaria" data-text="clinica veterinaria canisur motril" href="./demos/clinica-veterinaria-canisur-clinic/"><div class="sector">Veterinaria</div><h3>Clinica Veterinaria Canisur</h3><div class="meta">Motril · ⭐ 4.5</div></a>
+<a class="card" data-sector="Veterinaria" data-text="clínica veterinaria animal's motril" href="./demos/clinica-veterinaria-animal-s-clinic/"><div class="sector">Veterinaria</div><h3>Clínica Veterinaria Animal's</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="Veterinaria" data-text="clínica veterinaria motril motril" href="./demos/clinica-veterinaria-motril-clinic/"><div class="sector">Veterinaria</div><h3>Clínica Veterinaria Motril</h3><div class="meta">Motril · ⭐ 4.5</div></a>
+<a class="card" data-sector="Tienda de Ropa" data-text="stradivarius motril" href="./demos/stradivarius-stradi/"><div class="sector">Tienda de Ropa</div><h3>Stradivarius</h3><div class="meta">Motril · ⭐ 4.2</div></a>
+<a class="card" data-sector="Tienda de Ropa" data-text="el encanto de encarni motril" href="./demos/el-encanto-de-encarni-el-enc/"><div class="sector">Tienda de Ropa</div><h3>El Encanto de Encarni</h3><div class="meta">Motril · ⭐ 4.5</div></a>
+<a class="card" data-sector="Tienda de Ropa" data-text="paula fuentes motril" href="./demos/paula-fuentes-paula-/"><div class="sector">Tienda de Ropa</div><h3>Paula Fuentes</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Tienda de Ropa" data-text="bogoos motril" href="./demos/bogoos-bogoos/"><div class="sector">Tienda de Ropa</div><h3>BOGOOS</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Tienda de Ropa" data-text="maría galiano moda femenina motril" href="./demos/maria-galiano-moda-femenina-maria-/"><div class="sector">Tienda de Ropa</div><h3>María Galiano Moda femenina</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Tienda de Ropa" data-text="menfis boutique motril" href="./demos/menfis-boutique-menfis/"><div class="sector">Tienda de Ropa</div><h3>MENFIS BOUTIQUE</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Tienda de Ropa" data-text="pepe almendros moda motril" href="./demos/pepe-almendros-moda-pepe-a/"><div class="sector">Tienda de Ropa</div><h3>Pepe Almendros Moda</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Tienda de Ropa" data-text="fashion art motril" href="./demos/fashion-art-fashio/"><div class="sector">Tienda de Ropa</div><h3>Fashion Art</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Tienda de Ropa" data-text="lola ruiz motril" href="./demos/lola-ruiz-lola-r/"><div class="sector">Tienda de Ropa</div><h3>Lola Ruiz</h3><div class="meta">Motril · ⭐ 4.5</div></a>
+<a class="card" data-sector="Tienda de Ropa" data-text="boutique glamglam by carmen filip motril" href="./demos/boutique-glamglam-by-carmen-filip-boutiq/"><div class="sector">Tienda de Ropa</div><h3>Boutique Glamglam by Carmen Filip</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Taller Mecánico" data-text="taller mecánica mariano motril" href="./demos/taller-mecanica-mariano-taller/"><div class="sector">Taller Mecánico</div><h3>Taller Mecánica MARIANO</h3><div class="meta">Motril · ⭐ 4.5</div></a>
+<a class="card" data-sector="Taller Mecánico" data-text="tecnicar motril motril" href="./demos/tecnicar-motril-tecnic/"><div class="sector">Taller Mecánico</div><h3>TECNICAR Motril</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Taller Mecánico" data-text="arlauto motril" href="./demos/arlauto-arlaut/"><div class="sector">Taller Mecánico</div><h3>Arlauto</h3><div class="meta">Motril · ⭐ 4.7</div></a>
+<a class="card" data-sector="Taller Mecánico" data-text="center´s auto motril motril" href="./demos/center-s-auto-motril-center/"><div class="sector">Taller Mecánico</div><h3>Center´s Auto Motril</h3><div class="meta">Motril · ⭐ 4.4</div></a>
+<a class="card" data-sector="Taller Mecánico" data-text="taller de automoción auto gratusa s.l. motril" href="./demos/taller-de-automocion-auto-gratusa-s-l-taller/"><div class="sector">Taller Mecánico</div><h3>Taller De Automoción Auto Gratusa S.L.</h3><div class="meta">Motril · ⭐ 4.7</div></a>
+<a class="card" data-sector="Taller Mecánico" data-text="taller martin cars ( raya palacios y otros s.l.) motril" href="./demos/taller-martin-cars-raya-palacios-y-otros-s-l-taller/"><div class="sector">Taller Mecánico</div><h3>TALLER MARTIN CARS ( RAYA PALACIOS Y OTROS S.L.)</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Taller Mecánico" data-text="auto taller de servicio rápido motril" href="./demos/auto-taller-de-servicio-rapido-auto-t/"><div class="sector">Taller Mecánico</div><h3>Auto Taller de Servicio Rápido</h3><div class="meta">Motril · ⭐ 4.2</div></a>
+<a class="card" data-sector="Taller Mecánico" data-text="taller mario motril" href="./demos/taller-mario-taller/"><div class="sector">Taller Mecánico</div><h3>TALLER MARIO</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Taller Mecánico" data-text="car gonzález e hijos motril" href="./demos/car-gonzalez-e-hijos-car-go/"><div class="sector">Taller Mecánico</div><h3>Car González E Hijos</h3><div class="meta">Motril · ⭐ 4.3</div></a>
+<a class="card" data-sector="Taller Mecánico" data-text="dr.garage motril" href="./demos/dr-garage-dr-gar/"><div class="sector">Taller Mecánico</div><h3>DR.GARAGE</h3><div class="meta">Motril · ⭐ 4.7</div></a>
+<a class="card" data-sector="Restaurante" data-text="bambú beach | motril motril" href="./demos/bambu-beach-motril-bambu-/"><div class="sector">Restaurante</div><h3>Bambú Beach | Motril</h3><div class="meta">Motril · ⭐ 4.2</div></a>
+<a class="card" data-sector="Restaurante" data-text="restaurante marelli motril" href="./demos/restaurante-marelli-restau/"><div class="sector">Restaurante</div><h3>Restaurante Marelli</h3><div class="meta">Motril · ⭐ 4.4</div></a>
+<a class="card" data-sector="Restaurante" data-text="restaurante estrella del mar motril" href="./demos/restaurante-estrella-del-mar-restau/"><div class="sector">Restaurante</div><h3>Restaurante Estrella Del Mar</h3><div class="meta">Motril · ⭐ 4.3</div></a>
+<a class="card" data-sector="Restaurante" data-text="pura vida motril motril" href="./demos/pura-vida-motril-pura-v/"><div class="sector">Restaurante</div><h3>Pura vida Motril</h3><div class="meta">Motril · ⭐ 4.5</div></a>
+<a class="card" data-sector="Restaurante" data-text="restaurante juan garcia motril" href="./demos/restaurante-juan-garcia-restau/"><div class="sector">Restaurante</div><h3>Restaurante Juan Garcia</h3><div class="meta">Motril · ⭐ 4.3</div></a>
+<a class="card" data-sector="Restaurante" data-text="maison maréame motril" href="./demos/maison-mareame-maison/"><div class="sector">Restaurante</div><h3>Maison Maréame</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Restaurante" data-text="restaurante la espichá motril" href="./demos/restaurante-la-espicha-restau/"><div class="sector">Restaurante</div><h3>Restaurante La Espichá</h3><div class="meta">Motril · ⭐ 4.4</div></a>
+<a class="card" data-sector="Restaurante" data-text="restaurante "el candelón" motril" href="./demos/restaurante-el-candelon-restau/"><div class="sector">Restaurante</div><h3>Restaurante "El Candelón"</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="Restaurante" data-text="restaurante la ballena azul motril" href="./demos/restaurante-la-ballena-azul-restau/"><div class="sector">Restaurante</div><h3>Restaurante La Ballena Azul</h3><div class="meta">Motril · ⭐ 4.7</div></a>
+<a class="card" data-sector="Restaurante" data-text="restaurante los moriscos motril" href="./demos/restaurante-los-moriscos-restau/"><div class="sector">Restaurante</div><h3>Restaurante Los Moriscos</h3><div class="meta">Motril · ⭐ 4.1</div></a>
+<a class="card" data-sector="Peluquería" data-text="blau peluqueros motril" href="./demos/blau-peluqueros-blau-p/"><div class="sector">Peluquería</div><h3>Blau peluqueros</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Peluquería" data-text="peluquería encarni bustos motril" href="./demos/peluqueria-encarni-bustos-peluqu/"><div class="sector">Peluquería</div><h3>Peluquería Encarni Bustos</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Peluquería" data-text="peluquería kedhara hair studio - balayage en motril motril" href="./demos/peluqueria-kedhara-hair-studio-balayage-en-motril-peluqu/"><div class="sector">Peluquería</div><h3>Peluquería Kedhara Hair Studio - Balayage en Motril</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Peluquería" data-text="magda peluqueria centro motril motril" href="./demos/magda-peluqueria-centro-motril-magda-/"><div class="sector">Peluquería</div><h3>Magda Peluqueria Centro Motril</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Peluquería" data-text="marytorres salón de belleza & peluquería motril" href="./demos/marytorres-salon-de-belleza-peluqueria-maryto/"><div class="sector">Peluquería</div><h3>MaryTorres Salón de Belleza & Peluquería</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Peluquería" data-text="c&c peluqueros | peluquería en motril motril" href="./demos/c-c-peluqueros-peluqueria-en-motril-c-c-pe/"><div class="sector">Peluquería</div><h3>C&C Peluqueros | Peluquería en Motril</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Peluquería" data-text="isabel martín peluquería motril" href="./demos/isabel-martin-peluqueria-isabel/"><div class="sector">Peluquería</div><h3>Isabel Martín Peluquería</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Peluquería" data-text="doble v estilistas motril" href="./demos/doble-v-estilistas-doble-/"><div class="sector">Peluquería</div><h3>Doble V Estilistas</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Peluquería" data-text="peluquería y estética bellezza10 motril" href="./demos/peluqueria-y-estetica-bellezza10-peluqu/"><div class="sector">Peluquería</div><h3>Peluquería y estética Bellezza10</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="Peluquería" data-text="peluquería & estética cristina motril" href="./demos/peluqueria-estetica-cristina-peluqu/"><div class="sector">Peluquería</div><h3>Peluquería & Estética Cristina</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="Pastelería & Panadería" data-text="pastelería videras motril" href="./demos/pasteleria-videras-pastel/"><div class="sector">Pastelería & Panadería</div><h3>Pastelería Videras</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="Pastelería & Panadería" data-text="panadería espiga dorada motril" href="./demos/panaderia-espiga-dorada-panade/"><div class="sector">Pastelería & Panadería</div><h3>Panadería Espiga Dorada</h3><div class="meta">Motril · ⭐ 4.5</div></a>
+<a class="card" data-sector="Pastelería & Panadería" data-text="panadería el molino motril" href="./demos/panaderia-el-molino-panade/"><div class="sector">Pastelería & Panadería</div><h3>Panadería el molino</h3><div class="meta">Motril · ⭐ 2.9</div></a>
+<a class="card" data-sector="Pastelería & Panadería" data-text="panadería confitería molino motril" href="./demos/panaderia-confiteria-molino-panade/"><div class="sector">Pastelería & Panadería</div><h3>Panadería confitería Molino</h3><div class="meta">Motril · ⭐ 3.6</div></a>
+<a class="card" data-sector="Pastelería & Panadería" data-text="panadería kome & kalla motril" href="./demos/panaderia-kome-kalla-panade/"><div class="sector">Pastelería & Panadería</div><h3>Panadería Kome & Kalla</h3><div class="meta">Motril · ⭐ 4</div></a>
+<a class="card" data-sector="Pastelería & Panadería" data-text="panadería molino s.l. motril" href="./demos/panaderia-molino-s-l-panade/"><div class="sector">Pastelería & Panadería</div><h3>Panadería Molino S.L.</h3><div class="meta">Motril · ⭐ 3.8</div></a>
+<a class="card" data-sector="Pastelería & Panadería" data-text="panadería molino motril" href="./demos/panaderia-molino-panade/"><div class="sector">Pastelería & Panadería</div><h3>Panadería Molino</h3><div class="meta">Motril · ⭐ 4.2</div></a>
+<a class="card" data-sector="Pastelería & Panadería" data-text="pastelería casa palomares | motril | motril" href="./demos/pasteleria-casa-palomares-motril-pastel/"><div class="sector">Pastelería & Panadería</div><h3>Pastelería Casa Palomares | Motril |</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="Pastelería & Panadería" data-text="panadería federico jiménez motril" href="./demos/panaderia-federico-jimenez-panade/"><div class="sector">Pastelería & Panadería</div><div class="batch-tag">NUEVO</div><h3>Panadería Federico Jiménez</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Óptica" data-text="opticalia motril motril" href="./demos/opticalia-motril-optica/"><div class="sector">Óptica</div><div class="batch-tag">NUEVO</div><h3>Opticalia Motril</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Inmobiliaria" data-text="rk lumar inmobiliaria motril" href="./demos/rk-lumar-inmobiliaria-rk-lum/"><div class="sector">Inmobiliaria</div><div class="batch-tag">NUEVO</div><h3>RK LUMAR Inmobiliaria</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Gimnasio" data-text="basic-fit motril" href="./demos/basic-fit-basic-/"><div class="sector">Gimnasio</div><div class="batch-tag">NUEVO</div><h3>Basic-Fit</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Food Truck" data-text="food truck españa motril" href="./demos/food-truck-espana-food-t/"><div class="sector">Food Truck</div><div class="batch-tag">NUEVO</div><h3>Food Truck España</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Fontanería" data-text="valsan delegación motril motril" href="./demos/valsan-delegacion-motril-valsan/"><div class="sector">Fontanería</div><div class="batch-tag">NUEVO</div><h3>VALSAN Delegación MOTRIL</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Floristería" data-text="floristería monica motril" href="./demos/floristeria-monica-floris/"><div class="sector">Floristería</div><div class="batch-tag">NUEVO</div><h3>Floristería Monica</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Fisioterapia" data-text="sporthy clinic motril" href="./demos/sporthy-clinic-sporth/"><div class="sector">Fisioterapia</div><div class="batch-tag">NUEVO</div><h3>Sporthy Clinic</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Ferretería" data-text="leroy merlin compact motril motril" href="./demos/leroy-merlin-compact-motril-leroy-/"><div class="sector">Ferretería</div><div class="batch-tag">NUEVO</div><h3>Leroy Merlin Compact Motril</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="CrossFit" data-text="black box pro motril" href="./demos/black-box-pro-black-/"><div class="sector">CrossFit</div><div class="batch-tag">NUEVO</div><h3>Black Box Pro</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Clínica Dental" data-text="clínica dental grupo dental clinics motril motril" href="./demos/clinica-dental-grupo-dental-clinics-motril-clinic/"><div class="sector">Clínica Dental</div><div class="batch-tag">NUEVO</div><h3>Clínica Dental Grupo Dental Clinics Motril</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Cervecería" data-text="cervecería " casa belmonte " motril" href="./demos/cerveceria-casa-belmonte-cervec/"><div class="sector">Cervecería</div><div class="batch-tag">NUEVO</div><h3>Cervecería " Casa Belmonte "</h3><div class="meta">Motril · ⭐ 4.3</div></a>
+<a class="card" data-sector="Cerrajería" data-text="mister minit motril" href="./demos/mister-minit-mister/"><div class="sector">Cerrajería</div><div class="batch-tag">NUEVO</div><h3>MISTER MINIT</h3><div class="meta">Motril · ⭐ 2</div></a>
+<a class="card" data-sector="Pastelería & Panadería" data-text="panadería motril motril" href="./demos/panaderia-motril-panade/"><div class="sector">Pastelería & Panadería</div><div class="batch-tag">NUEVO</div><h3>Panadería Motril</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="Óptica" data-text="ópticas mr. people alcampo motril motril" href="./demos/opticas-mr-people-alcampo-motril-optica/"><div class="sector">Óptica</div><div class="batch-tag">NUEVO</div><h3>Ópticas Mr. People Alcampo Motril</h3><div class="meta">Motril · ⭐ 4.7</div></a>
+<a class="card" data-sector="Inmobiliaria" data-text="jose luis escudero motril" href="./demos/jose-luis-escudero-jose-l/"><div class="sector">Inmobiliaria</div><div class="batch-tag">NUEVO</div><h3>Jose Luis Escudero</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Gimnasio" data-text="synergym motril sur motril" href="./demos/synergym-motril-sur-synerg/"><div class="sector">Gimnasio</div><div class="batch-tag">NUEVO</div><h3>Synergym Motril Sur</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="Food Truck" data-text="garden food trucks - bella vista motril" href="./demos/garden-food-trucks-bella-vista-garden/"><div class="sector">Food Truck</div><div class="batch-tag">NUEVO</div><h3>Garden Food Trucks - Bella Vista</h3><div class="meta">Motril · ⭐ 4.5</div></a>
+<a class="card" data-sector="Fontanería" data-text="alvisa multiservicios motril" href="./demos/alvisa-multiservicios-alvisa/"><div class="sector">Fontanería</div><div class="batch-tag">NUEVO</div><h3>Alvisa Multiservicios</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Floristería" data-text="floristeria santaella motril" href="./demos/floristeria-santaella-floris/"><div class="sector">Floristería</div><div class="batch-tag">NUEVO</div><h3>Floristeria Santaella</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Fisioterapia" data-text="vitalys center granada | clínica de fisioterapia tecnológica avanzada motril" href="./demos/vitalys-center-granada-clinica-de-fisioterapia-tecnologica-a-vitaly/"><div class="sector">Fisioterapia</div><div class="batch-tag">NUEVO</div><h3>Vitalys Center Granada | Clínica de Fisioterapia Tecnológica Avanzada</h3><div class="meta">Motril · ⭐ 4.7</div></a>
+<a class="card" data-sector="Ferretería" data-text="ferretería fabián motril" href="./demos/ferreteria-fabian-ferret/"><div class="sector">Ferretería</div><div class="batch-tag">NUEVO</div><h3>Ferretería Fabián</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="CrossFit" data-text="devil box motril motril" href="./demos/devil-box-motril-devil-/"><div class="sector">CrossFit</div><div class="batch-tag">NUEVO</div><h3>Devil Box Motril</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Clínica Dental" data-text="clínica dental mesa roldán motril" href="./demos/clinica-dental-mesa-roldan-clinic/"><div class="sector">Clínica Dental</div><div class="batch-tag">NUEVO</div><h3>Clínica Dental Mesa Roldán</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Cervecería" data-text="cervecería casa luis vallejo motril" href="./demos/cerveceria-casa-luis-vallejo-cervec/"><div class="sector">Cervecería</div><div class="batch-tag">NUEVO</div><h3>Cervecería Casa Luis Vallejo</h3><div class="meta">Motril · ⭐ 4</div></a>
+<a class="card" data-sector="Óptica" data-text="multiópticas motril" href="./demos/multiopticas-multio/"><div class="sector">Óptica</div><div class="batch-tag">NUEVO</div><h3>Multiópticas</h3><div class="meta">Motril · ⭐ 4.5</div></a>
+<a class="card" data-sector="Inmobiliaria" data-text="tecnocasa agencia inmobiliaria motril" href="./demos/tecnocasa-agencia-inmobiliaria-tecnoc/"><div class="sector">Inmobiliaria</div><div class="batch-tag">NUEVO</div><h3>Tecnocasa agencia inmobiliaria</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Gimnasio" data-text="up motril motril" href="./demos/up-motril-up-mot/"><div class="sector">Gimnasio</div><div class="batch-tag">NUEVO</div><h3>UP MOTRIL</h3><div class="meta">Motril · ⭐ 4.4</div></a>
+<a class="card" data-sector="Food Truck" data-text="food truck park motril" href="./demos/food-truck-park-food-t/"><div class="sector">Food Truck</div><div class="batch-tag">NUEVO</div><h3>Food Truck Park</h3><div class="meta">Motril · ⭐ 4.4</div></a>
+<a class="card" data-sector="Fontanería" data-text="garrido avanza motril" href="./demos/garrido-avanza-garrid/"><div class="sector">Fontanería</div><div class="batch-tag">NUEVO</div><h3>Garrido Avanza</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Floristería" data-text="floristería detalles del sur motril" href="./demos/floristeria-detalles-del-sur-floris/"><div class="sector">Floristería</div><div class="batch-tag">NUEVO</div><h3>Floristería Detalles Del Sur</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Fisioterapia" data-text="fisioterapia y osteopatía josé ramón alabarces motril" href="./demos/fisioterapia-y-osteopatia-jose-ramon-alabarces-fisiot/"><div class="sector">Fisioterapia</div><div class="batch-tag">NUEVO</div><h3>Fisioterapia y osteopatía José Ramón Alabarces</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Ferretería" data-text="suministros gerve motril" href="./demos/suministros-gerve-sumini/"><div class="sector">Ferretería</div><div class="batch-tag">NUEVO</div><h3>Suministros Gerve</h3><div class="meta">Motril · ⭐ 4.5</div></a>
+<a class="card" data-sector="CrossFit" data-text="parkour motril motril" href="./demos/parkour-motril-parkou/"><div class="sector">CrossFit</div><div class="batch-tag">NUEVO</div><h3>PARKOUR MOTRIL</h3><div class="meta">Motril</div></a>
+<a class="card" data-sector="Clínica Dental" data-text="clinica dental fernández abarca motril" href="./demos/clinica-dental-fernandez-abarca-clinic/"><div class="sector">Clínica Dental</div><div class="batch-tag">NUEVO</div><h3>Clinica Dental Fernández Abarca</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Cervecería" data-text="cervecería vinatería el trasiego motril" href="./demos/cerveceria-vinateria-el-trasiego-cervec/"><div class="sector">Cervecería</div><div class="batch-tag">NUEVO</div><h3>Cervecería Vinatería El Trasiego</h3><div class="meta">Motril · ⭐ 4.4</div></a>
+<a class="card" data-sector="Óptica" data-text="general optica - visión y audición motril" href="./demos/general-optica-vision-y-audicion-genera/"><div class="sector">Óptica</div><div class="batch-tag">NUEVO</div><h3>General Optica - Visión y Audición</h3><div class="meta">Motril · ⭐ 4.7</div></a>
+<a class="card" data-sector="Inmobiliaria" data-text="incasa motril motril" href="./demos/incasa-motril-incasa/"><div class="sector">Inmobiliaria</div><div class="batch-tag">NUEVO</div><h3>Incasa Motril</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Gimnasio" data-text="time centro deportivo motril" href="./demos/time-centro-deportivo-time-c/"><div class="sector">Gimnasio</div><div class="batch-tag">NUEVO</div><h3>Time Centro Deportivo</h3><div class="meta">Motril · ⭐ 4.3</div></a>
+<a class="card" data-sector="Food Truck" data-text="sunahra beach club motril" href="./demos/sunahra-beach-club-sunahr/"><div class="sector">Food Truck</div><div class="batch-tag">NUEVO</div><h3>Sunahra Beach Club</h3><div class="meta">Motril · ⭐ 4.3</div></a>
+<a class="card" data-sector="Fontanería" data-text="sabis mantenimiento y reparaciones slu motril" href="./demos/sabis-mantenimiento-y-reparaciones-slu-sabis-/"><div class="sector">Fontanería</div><div class="batch-tag">NUEVO</div><h3>Sabis mantenimiento y reparaciones SLU</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Floristería" data-text="floristería correa motril" href="./demos/floristeria-correa-floris/"><div class="sector">Floristería</div><div class="batch-tag">NUEVO</div><h3>FLORISTERÍA CORREA</h3><div class="meta">Motril · ⭐ 4.7</div></a>
+<a class="card" data-sector="Fisioterapia" data-text="clinica fisioterapia camacho motril" href="./demos/clinica-fisioterapia-camacho-clinic/"><div class="sector">Fisioterapia</div><div class="batch-tag">NUEVO</div><h3>Clinica Fisioterapia Camacho</h3><div class="meta">Motril · ⭐ 4.7</div></a>
+<a class="card" data-sector="Ferretería" data-text="comercial mosabe, s.l. motril" href="./demos/comercial-mosabe-s-l-comerc/"><div class="sector">Ferretería</div><div class="batch-tag">NUEVO</div><h3>Comercial Mosabe, S.L.</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Clínica Dental" data-text="clínica dental cesadent motril motril" href="./demos/clinica-dental-cesadent-motril-clinic/"><div class="sector">Clínica Dental</div><div class="batch-tag">NUEVO</div><h3>Clínica Dental CESADENT Motril</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Óptica" data-text="optiprix motril motril" href="./demos/optiprix-motril-optipr/"><div class="sector">Óptica</div><div class="batch-tag">NUEVO</div><h3>Optiprix Motril</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Inmobiliaria" data-text="inmobiliaria rosales motril" href="./demos/inmobiliaria-rosales-inmobi/"><div class="sector">Inmobiliaria</div><div class="batch-tag">NUEVO</div><h3>Inmobiliaria Rosales</h3><div class="meta">Motril · ⭐ 4.7</div></a>
+<a class="card" data-sector="Gimnasio" data-text="dosis | entrenamiento personal y readaptación motril" href="./demos/dosis-entrenamiento-personal-y-readaptacion-dosis-/"><div class="sector">Gimnasio</div><div class="batch-tag">NUEVO</div><h3>DOSIS | Entrenamiento Personal y Readaptación</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Food Truck" data-text="hoyo 19 beach club motril" href="./demos/hoyo-19-beach-club-hoyo-1/"><div class="sector">Food Truck</div><div class="batch-tag">NUEVO</div><h3>Hoyo 19 Beach Club</h3><div class="meta">Motril · ⭐ 4.3</div></a>
+<a class="card" data-sector="Fontanería" data-text="fontanería jiménez chica c.b. motril" href="./demos/fontaneria-jimenez-chica-c-b-fontan/"><div class="sector">Fontanería</div><div class="batch-tag">NUEVO</div><h3>Fontanería Jiménez Chica C.B.</h3><div class="meta">Motril · ⭐ 4.7</div></a>
+<a class="card" data-sector="Floristería" data-text="palmira casa floral motril" href="./demos/palmira-casa-floral-palmir/"><div class="sector">Floristería</div><div class="batch-tag">NUEVO</div><h3>Palmira Casa Floral</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Fisioterapia" data-text="clínica de fisioterapia motril motril" href="./demos/clinica-de-fisioterapia-motril-clinic/"><div class="sector">Fisioterapia</div><div class="batch-tag">NUEVO</div><h3>Clínica de Fisioterapia Motril</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Ferretería" data-text="teymo motril" href="./demos/teymo-teymo-/"><div class="sector">Ferretería</div><div class="batch-tag">NUEVO</div><h3>Teymo</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="Clínica Dental" data-text="centro de diagnóstico motril motril" href="./demos/centro-de-diagnostico-motril-centro/"><div class="sector">Clínica Dental</div><div class="batch-tag">NUEVO</div><h3>Centro de Diagnóstico Motril</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Óptica" data-text="centro carlos: salud visual y auditiva motril" href="./demos/centro-carlos-salud-visual-y-auditiva-centro/"><div class="sector">Óptica</div><div class="batch-tag">NUEVO</div><h3>Centro Carlos: Salud Visual y Auditiva</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Inmobiliaria" data-text="inversiones decasol s.l. motril" href="./demos/inversiones-decasol-s-l-invers/"><div class="sector">Inmobiliaria</div><div class="batch-tag">NUEVO</div><h3>Inversiones Decasol S.L.</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Gimnasio" data-text="degood motril motril" href="./demos/degood-motril-degood/"><div class="sector">Gimnasio</div><div class="batch-tag">NUEVO</div><h3>DeGood Motril</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Food Truck" data-text="garden food trucks motril" href="./demos/garden-food-trucks-garden/"><div class="sector">Food Truck</div><div class="batch-tag">NUEVO</div><h3>Garden Food Trucks</h3><div class="meta">Motril · ⭐ 4.3</div></a>
+<a class="card" data-sector="Fontanería" data-text="suministros pineda - almacén de fontanería motril" href="./demos/suministros-pineda-almacen-de-fontaneria-sumini/"><div class="sector">Fontanería</div><div class="batch-tag">NUEVO</div><h3>Suministros Pineda - Almacén de Fontanería</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="Floristería" data-text="floristería tropical. motril" href="./demos/floristeria-tropical-floris/"><div class="sector">Floristería</div><div class="batch-tag">NUEVO</div><h3>Floristería Tropical.</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="Fisioterapia" data-text="clinica fisioterapia prometeo motril" href="./demos/clinica-fisioterapia-prometeo-clinic/"><div class="sector">Fisioterapia</div><div class="batch-tag">NUEVO</div><h3>Clinica Fisioterapia Prometeo</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Ferretería" data-text="ferreteria sáez motril" href="./demos/ferreteria-saez-ferret/"><div class="sector">Ferretería</div><div class="batch-tag">NUEVO</div><h3>Ferreteria Sáez</h3><div class="meta">Motril · ⭐ 4.5</div></a>
+<a class="card" data-sector="Clínica Dental" data-text="motril dental motril" href="./demos/motril-dental-motril/"><div class="sector">Clínica Dental</div><div class="batch-tag">NUEVO</div><h3>Motril Dental</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Óptica" data-text="centro óptico soto motril" href="./demos/centro-optico-soto-centro/"><div class="sector">Óptica</div><div class="batch-tag">NUEVO</div><h3>Centro Óptico Soto</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Inmobiliaria" data-text="agencia inmobiliaria agrurbana motril" href="./demos/agencia-inmobiliaria-agrurbana-agenci/"><div class="sector">Inmobiliaria</div><div class="batch-tag">NUEVO</div><h3>Agencia Inmobiliaria Agrurbana</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Gimnasio" data-text="bullgym centro fitness motril" href="./demos/bullgym-centro-fitness-bullgy/"><div class="sector">Gimnasio</div><div class="batch-tag">NUEVO</div><h3>Bullgym Centro Fitness</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="Food Truck" data-text="restaurante los faroles motril motril" href="./demos/restaurante-los-faroles-motril-restau/"><div class="sector">Food Truck</div><div class="batch-tag">NUEVO</div><h3>Restaurante Los Faroles Motril</h3><div class="meta">Motril · ⭐ 4.4</div></a>
+<a class="card" data-sector="Fontanería" data-text="tecnologías y desatranques motril, s.l. motril" href="./demos/tecnologias-y-desatranques-motril-s-l-tecnol/"><div class="sector">Fontanería</div><div class="batch-tag">NUEVO</div><h3>Tecnologías y Desatranques Motril, S.L.</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Floristería" data-text="flores mundi motril" href="./demos/flores-mundi-flores/"><div class="sector">Floristería</div><div class="batch-tag">NUEVO</div><h3>Flores Mundi</h3><div class="meta">Motril · ⭐ 4.1</div></a>
+<a class="card" data-sector="Fisioterapia" data-text="testa. fisioterapia y osteopatía motril" href="./demos/testa-fisioterapia-y-osteopatia-testa-/"><div class="sector">Fisioterapia</div><div class="batch-tag">NUEVO</div><h3>TESTA. Fisioterapia y Osteopatía</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Ferretería" data-text="ferretería suministros correa motril" href="./demos/ferreteria-suministros-correa-ferret/"><div class="sector">Ferretería</div><div class="batch-tag">NUEVO</div><h3>Ferretería Suministros Correa</h3><div class="meta">Motril · ⭐ 4.1</div></a>
+<a class="card" data-sector="Clínica Dental" data-text="clínica dental fdez de mesa - dentista en motril motril" href="./demos/clinica-dental-fdez-de-mesa-dentista-en-motril-clinic/"><div class="sector">Clínica Dental</div><div class="batch-tag">NUEVO</div><h3>Clínica Dental Fdez de Mesa - Dentista en Motril</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Óptica" data-text="nueva óptica motril" href="./demos/nueva-optica-nueva-/"><div class="sector">Óptica</div><div class="batch-tag">NUEVO</div><h3>Nueva Óptica</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Inmobiliaria" data-text="rential inmobiliaria motril" href="./demos/rential-inmobiliaria-rentia/"><div class="sector">Inmobiliaria</div><div class="batch-tag">NUEVO</div><h3>Rential Inmobiliaria</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Gimnasio" data-text="centro deportivo los álamos motril" href="./demos/centro-deportivo-los-alamos-centro/"><div class="sector">Gimnasio</div><div class="batch-tag">NUEVO</div><h3>Centro Deportivo Los Álamos</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="Food Truck" data-text="gastrea trucks - food trucks motril" href="./demos/gastrea-trucks-food-trucks-gastre/"><div class="sector">Food Truck</div><div class="batch-tag">NUEVO</div><h3>Gastrea Trucks - Food Trucks</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Fontanería" data-text="instalmara fontanería y gas urgencias hogar motril" href="./demos/instalmara-fontaneria-y-gas-urgencias-hogar-instal/"><div class="sector">Fontanería</div><div class="batch-tag">NUEVO</div><h3>Instalmara Fontanería y Gas urgencias Hogar</h3><div class="meta">Motril · ⭐ 4.5</div></a>
+<a class="card" data-sector="Floristería" data-text="rosas bravo motril" href="./demos/rosas-bravo-rosas-/"><div class="sector">Floristería</div><div class="batch-tag">NUEVO</div><h3>Rosas Bravo</h3><div class="meta">Motril</div></a>
+<a class="card" data-sector="Fisioterapia" data-text="sport salud motril" href="./demos/sport-salud-sport-/"><div class="sector">Fisioterapia</div><div class="batch-tag">NUEVO</div><h3>Sport Salud</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Ferretería" data-text="cadena 88 motril" href="./demos/cadena-88-cadena/"><div class="sector">Ferretería</div><div class="batch-tag">NUEVO</div><h3>Cadena 88</h3><div class="meta">Motril · ⭐ 4.5</div></a>
+<a class="card" data-sector="Clínica Dental" data-text="clínica dental nueva dental dra encarnación rodríguez motril" href="./demos/clinica-dental-nueva-dental-dra-encarnacion-rodriguez-clinic/"><div class="sector">Clínica Dental</div><div class="batch-tag">NUEVO</div><h3>Clínica Dental Nueva Dental Dra Encarnación Rodríguez</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Óptica" data-text="óptica urbano motril" href="./demos/optica-urbano-optica/"><div class="sector">Óptica</div><div class="batch-tag">NUEVO</div><h3>Óptica Urbano</h3><div class="meta">Motril · ⭐ 4.6</div></a>
+<a class="card" data-sector="Inmobiliaria" data-text="tecnocasa agencia inmobiliaria motril motril" href="./demos/tecnocasa-agencia-inmobiliaria-motril-tecnoc/"><div class="sector">Inmobiliaria</div><div class="batch-tag">NUEVO</div><h3>Tecnocasa agencia inmobiliaria Motril</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Gimnasio" data-text="gym arnold motril | gimnasio motril" href="./demos/gym-arnold-motril-gimnasio-gym-ar/"><div class="sector">Gimnasio</div><div class="batch-tag">NUEVO</div><h3>Gym Arnold Motril | Gimnasio</h3><div class="meta">Motril · ⭐ 4.8</div></a>
+<a class="card" data-sector="Food Truck" data-text="saturdays foodtruck motril" href="./demos/saturdays-foodtruck-saturd/"><div class="sector">Food Truck</div><div class="batch-tag">NUEVO</div><h3>Saturdays Foodtruck</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Fontanería" data-text="miguel angel melero gonzález motril" href="./demos/miguel-angel-melero-gonzalez-miguel/"><div class="sector">Fontanería</div><div class="batch-tag">NUEVO</div><h3>Miguel Angel Melero González</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Floristería" data-text="flores calvente motril" href="./demos/flores-calvente-flores/"><div class="sector">Floristería</div><div class="batch-tag">NUEVO</div><h3>Flores Calvente</h3><div class="meta">Motril</div></a>
+<a class="card" data-sector="Fisioterapia" data-text="▷ fisioterapia galiano | slow concept motril" href="./demos/fisioterapia-galiano-slow-concept-fisiot/"><div class="sector">Fisioterapia</div><div class="batch-tag">NUEVO</div><h3>▷ Fisioterapia Galiano | Slow Concept</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Clínica Dental" data-text="clínica dra. maría martin ruiz motril" href="./demos/clinica-dra-maria-martin-ruiz-clinic/"><div class="sector">Clínica Dental</div><div class="batch-tag">NUEVO</div><h3>Clínica Dra. María Martin Ruiz</h3><div class="meta">Motril · ⭐ 5</div></a>
+<a class="card" data-sector="Óptica" data-text="óptica milán motril" href="./demos/optica-milan-optica/"><div class="sector">Óptica</div><div class="batch-tag">NUEVO</div><h3>Óptica Milán</h3><div class="meta">Motril · ⭐ 4.7</div></a>
+<a class="card" data-sector="Inmobiliaria" data-text="motrilia servicios inmobiliarios - inmobiliaria motril" href="./demos/motrilia-servicios-inmobiliarios-inmobiliaria-motril/"><div class="sector">Inmobiliaria</div><div class="batch-tag">NUEVO</div><h3>Motrilia servicios inmobiliarios - Inmobiliaria</h3><div class="meta">Motril · ⭐ 4.5</div></a>
+<a class="card" data-sector="Gimnasio" data-text="gimnasio tropical motril" href="./demos/gimnasio-tropical-gimnas/"><div class="sector">Gimnasio</div><div class="batch-tag">NUEVO</div><h3>Gimnasio Tropical</h3><div class="meta">Motril · ⭐ 4.3</div></a>
+<a class="card" data-sector="Food Truck" data-text="food truck los jardines motril" href="./demos/food-truck-los-jardines-food-t/"><div class="sector">Food Truck</div><div class="batch-tag">NUEVO</div><h3>Food Truck Los Jardines</h3><div class="meta">Motril · ⭐ 4.2</div></a>
+<a class="card" data-sector="Fontanería" data-text="multi servicios todo baño s l motril" href="./demos/multi-servicios-todo-bano-s-l-multi-/"><div class="sector">Fontanería</div><div class="batch-tag">NUEVO</div><h3>Multi Servicios Todo Baño S L</h3><div class="meta">Motril · ⭐ 4</div></a>
+<a class="card" data-sector="Floristería" data-text="floristería motril motril" href="./demos/floristeria-motril-floris/"><div class="sector">Floristería</div><div class="batch-tag">NUEVO</div><h3>Floristería Motril</h3><div class="meta">Motril</div></a>
+<a class="card" data-sector="Fisioterapia" data-text="fisiomarcos motril" href="./demos/fisiomarcos-fisiom/"><div class="sector">Fisioterapia</div><div class="batch-tag">NUEVO</div><h3>Fisiomarcos</h3><div class="meta">Motril · ⭐ 4.9</div></a>
+<a class="card" data-sector="Clínica Dental" data-text="clínica dental j&j garcía jerónimo motril" href="./demos/clinica-dental-j-j-garcia-jeronimo-clinic/"><div class="sector">Clínica Dental</div><div class="batch-tag">NUEVO</div><h3>Clínica dental J&J García Jerónimo</h3><div class="meta">Motril · ⭐ 4.6</div></a>
 </div>
-</div></body></html>
+</div>
+<script>
+const sectors = [...new Set([...document.querySelectorAll('.card')].map(c => c.dataset.sector))].sort();
+const filtersDiv = document.getElementById('filters');
+sectors.forEach(s => {
+  const btn = document.createElement('div');
+  btn.className = 'filter'; btn.textContent = s; btn.dataset.f = s;
+  filtersDiv.appendChild(btn);
+});
+let activeFilter = '';
+let searchTerm = '';
+function apply(){
+  document.querySelectorAll('.card').forEach(c => {
+    const matchFilter = !activeFilter || c.dataset.sector === activeFilter;
+    const matchSearch = !searchTerm || c.dataset.text.includes(searchTerm);
+    c.classList.toggle('hidden', !(matchFilter && matchSearch));
+  });
+}
+document.querySelectorAll('.filter').forEach(f => f.addEventListener('click', () => {
+  document.querySelectorAll('.filter').forEach(x => x.classList.remove('active'));
+  f.classList.add('active');
+  activeFilter = f.dataset.f;
+  apply();
+}));
+document.getElementById('search').addEventListener('input', e => { searchTerm = e.target.value.toLowerCase(); apply(); });
+</script>
+</body></html>
