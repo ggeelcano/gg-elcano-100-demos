@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Campaña 50 OSM · G&G Elcano Bizkaia</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;color:#fff;font-family:'Inter',sans-serif;padding:24px;line-height:1.5}
+.container{max-width:1100px;margin:0 auto}
+h1{font-family:'Space Grotesk',sans-serif;font-size:40px;letter-spacing:-1.5px;margin-bottom:8px}
+h1 i{color:#22c55e;font-style:italic}
+.sub{opacity:0.6;margin-bottom:20px;font-size:16px}
+.stats{display:flex;gap:28px;padding:18px;background:rgba(255,255,255,0.03);border-radius:12px;margin-bottom:24px;flex-wrap:wrap}
+.stats strong{font-family:'Space Grotesk',sans-serif;font-size:24px;color:#22c55e;display:block}
+.stats span{font-size:11px;opacity:0.5;text-transform:uppercase;letter-spacing:1px}
+.quick{position:sticky;top:0;background:linear-gradient(135deg,#0f2f1f,#1a0f2a);border:2px solid #22c55e;border-radius:16px;padding:20px;margin-bottom:24px;z-index:50;box-shadow:0 15px 40px rgba(34,197,94,0.2)}
+.quick-head{display:grid;grid-template-columns:1fr auto;gap:20px;margin-bottom:14px;align-items:center}
+.q-label{font-size:10px;color:#22c55e;font-weight:700;letter-spacing:2px;margin-bottom:4px}
+.q-title{font-family:'Space Grotesk',sans-serif;font-size:20px;letter-spacing:-0.5px}
+.q-meta{font-size:12px;opacity:0.6}
+.q-prog{text-align:right}
+.q-num{font-family:'Space Grotesk',sans-serif;font-size:26px;color:#22c55e;font-weight:700;line-height:1}
+.q-bar{width:150px;height:5px;background:rgba(255,255,255,0.1);border-radius:3px;margin-top:8px;overflow:hidden}
+.q-fill{height:100%;background:linear-gradient(90deg,#22c55e,#10b981);width:0%;transition:width 0.4s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:24px;font-weight:600;font-size:14px;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;color:#fff;font-family:inherit}
+.q-actions{display:flex;gap:8px;flex-wrap:wrap}
+.q-send{background:#22c55e;color:#000;flex:1;min-width:180px;padding:14px 22px;font-size:15px;font-weight:700}
+.q-send:hover{background:#16a34a}
+.q-skip{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:14px 18px}
+.q-reset{background:transparent;border:1px solid rgba(255,255,255,0.2);padding:14px 18px;font-size:12px}
+.q-hint{margin-top:12px;font-size:12px;opacity:0.7}
+.lead{padding:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;margin-bottom:12px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;transition:all 0.3s}
+.lead.current{border-color:#22c55e;box-shadow:0 0 30px rgba(34,197,94,0.25);background:rgba(34,197,94,0.04)}
+.lead.done{opacity:0.3;border-color:#22c55e}
+.lead.done::before{content:"✓ Enviado";display:inline-block;padding:2px 8px;background:#22c55e;color:#000;border-radius:8px;font-size:10px;font-weight:700;letter-spacing:1px;margin-bottom:6px}
+.lead-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.lead-num{font-family:'Space Grotesk',sans-serif;font-size:13px;color:#22c55e;font-weight:700}
+.sec{display:inline-block;padding:2px 8px;background:rgba(34,197,94,0.15);color:#22c55e;border-radius:8px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.lead h3{font-family:'Space Grotesk',sans-serif;font-size:18px;letter-spacing:-0.4px}
+.meta{opacity:0.55;font-size:12px;margin-bottom:10px}
+.actions{display:flex;flex-direction:column;gap:8px;min-width:180px}
+.btn-wa{background:#25d366;color:#000}
+.btn-demo{background:#ff3d00}
+.btn-copy{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12)}
+.btn-copy.copied{background:#22c55e;color:#000}
+.howto{padding:14px 18px;background:rgba(34,197,94,0.08);border-left:3px solid #22c55e;border-radius:6px;margin-bottom:24px;font-size:13px;opacity:0.9}
+@media(max-width:700px){.lead{grid-template-columns:1fr}.quick-head{grid-template-columns:1fr}}
+</style></head><body>
+<div class="container">
+<h1><i>50 nuevos</i> WhatsApp · Bizkaia OSM</h1>
+<p class="sub">Leads frescos (no en CRM) via OpenStreetMap, con demo personalizada. Modo rápido: pulsa espacio para enviar.</p>
+<div class="stats">
+  <div><strong>50</strong><span>Leads</span></div>
+  <div><strong>17</strong><span>Sectores</span></div>
+  <div><strong>28</strong><span>Hostelería</span></div>
+  <div><strong>6</strong><span>Estética/Pelu</span></div>
+</div>
+
+<div class="quick">
+  <div class="quick-head">
+    <div>
+      <div class="q-label">⚡ MODO RÁPIDO</div>
+      <div class="q-title" id="qc">Listo para empezar</div>
+      <div class="q-meta" id="qm">Barra espaciadora abre el siguiente WhatsApp con mensaje pre-redactado</div>
+    </div>
+    <div class="q-prog">
+      <div class="q-num"><span id="pd">0</span>/50</div>
+      <div class="q-bar"><div class="q-fill" id="pf"></div></div>
+    </div>
+  </div>
+  <div class="q-actions">
+    <button class="btn q-send" onclick="send()">🚀 ENVIAR AHORA</button>
+    <button class="btn q-skip" onclick="next()">⏭️ Saltar</button>
+    <button class="btn q-reset" onclick="reset()">🔄 Reset</button>
+  </div>
+  <div class="q-hint">💡 Espacio = enviar · S = saltar · El progreso se guarda automáticamente</div>
+</div>
+
+<div class="howto">Pulsa <b>ENVIAR AHORA</b> → abre pestaña de WhatsApp con mensaje redactado y número cargado → tú pulsas Enter → cierras → Espacio para siguiente.</div>
+
+<div class="lead" id="L0">
+  <div>
+    <div class="lead-head"><span class="lead-num">#1</span><span class="sec">cafeteria</span><h3>Cafetería El Gato</h3></div>
+    <div class="meta">📱 671 66 04 06 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34671660406?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Cafeter%C3%ADa%20El%20Gato%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fcafeteria-el-gato-732193%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20cafeter%C3%ADa%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cafeteria-el-gato-732193/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(0,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L1">
+  <div>
+    <div class="lead-head"><span class="lead-num">#2</span><span class="sec">restaurante</span><h3>Pizzerria Piccola Napoli Mia</h3></div>
+    <div class="meta">📱 669 05 48 31 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34669054831?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Pizzerria%20Piccola%20Napoli%20Mia%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fpizzerria-piccola-napoli-mia-756813%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20restaurante%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/pizzerria-piccola-napoli-mia-756813/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(1,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L2">
+  <div>
+    <div class="lead-head"><span class="lead-num">#3</span><span class="sec">fisioterapia</span><h3>Fisioteraida</h3></div>
+    <div class="meta">📱 611 40 93 99 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34611409399?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Fisioteraida%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Ffisioteraida-951358%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20cl%C3%ADnica%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/fisioteraida-951358/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(2,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L3">
+  <div>
+    <div class="lead-head"><span class="lead-num">#4</span><span class="sec">cafeteria</span><h3>Unbe</h3></div>
+    <div class="meta">📱 668 59 61 75 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34668596175?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Unbe%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Funbe-058808%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20cafeter%C3%ADa%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/unbe-058808/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(3,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L4">
+  <div>
+    <div class="lead-head"><span class="lead-num">#5</span><span class="sec">pasteleria-panaderia</span><h3>Confituras Silvia</h3></div>
+    <div class="meta">📱 685 72 82 54 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34685728254?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Confituras%20Silvia%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fconfituras-silvia-533754%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20panader%C3%ADa%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/confituras-silvia-533754/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(4,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L5">
+  <div>
+    <div class="lead-head"><span class="lead-num">#6</span><span class="sec">cafeteria</span><h3>Fer</h3></div>
+    <div class="meta">📱 665 83 02 29 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34665830229?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Fer%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Ffer-450715%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20cafeter%C3%ADa%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/fer-450715/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(5,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L6">
+  <div>
+    <div class="lead-head"><span class="lead-num">#7</span><span class="sec">restaurante</span><h3>Gastro Burguer Berango</h3></div>
+    <div class="meta">📱 681 95 55 36 · 📍 Berango</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34681955536?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Gastro%20Burguer%20Berango%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fgastro-burguer-berango-988877%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20restaurante%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/gastro-burguer-berango-988877/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(6,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L7">
+  <div>
+    <div class="lead-head"><span class="lead-num">#8</span><span class="sec">bar-de-tapas</span><h3>Batzoki</h3></div>
+    <div class="meta">📱 608 41 56 59 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34608415659?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Batzoki%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fbatzoki-530242%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20bar%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/batzoki-530242/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(7,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L8">
+  <div>
+    <div class="lead-head"><span class="lead-num">#9</span><span class="sec">taller-costura</span><h3>Marco</h3></div>
+    <div class="meta">📱 617 95 40 13 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34617954013?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Marco%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fmarco-681427%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20taller%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/marco-681427/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(8,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L9">
+  <div>
+    <div class="lead-head"><span class="lead-num">#10</span><span class="sec">bar-de-tapas</span><h3>Anaiak taberna</h3></div>
+    <div class="meta">📱 688 75 11 85 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34688751185?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Anaiak%20taberna%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fanaiak-taberna-994811%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20bar%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/anaiak-taberna-994811/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(9,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L10">
+  <div>
+    <div class="lead-head"><span class="lead-num">#11</span><span class="sec">bar-de-tapas</span><h3>Bar Atrio</h3></div>
+    <div class="meta">📱 617 42 90 01 · 📍 Getxo</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34617429001?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Bar%20Atrio%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fbar-atrio-690745%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20bar%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/bar-atrio-690745/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(10,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L11">
+  <div>
+    <div class="lead-head"><span class="lead-num">#12</span><span class="sec">bar-de-tapas</span><h3>Arantxa</h3></div>
+    <div class="meta">📱 671 91 60 52 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34671916052?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Arantxa%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Farantxa-061920%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20bar%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/arantxa-061920/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(11,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L12">
+  <div>
+    <div class="lead-head"><span class="lead-num">#13</span><span class="sec">peluqueria</span><h3>Valley's Barber</h3></div>
+    <div class="meta">📱 688 76 34 25 · 📍 Valle de Trápaga-Trapagaran</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34688763425?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Valley's%20Barber%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fvalley-s-barber-590436%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20peluquer%C3%ADa%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/valley-s-barber-590436/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(12,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L13">
+  <div>
+    <div class="lead-head"><span class="lead-num">#14</span><span class="sec">tienda-ropa</span><h3>Hiru</h3></div>
+    <div class="meta">📱 619 65 06 69 · 📍 Valle de Trápaga-Trapagaran</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34619650669?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Hiru%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fhiru-590463%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20tienda%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/hiru-590463/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(13,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L14">
+  <div>
+    <div class="lead-head"><span class="lead-num">#15</span><span class="sec">ferreteria</span><h3>Dia</h3></div>
+    <div class="meta">📱 696 70 26 08 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34696702608?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Dia%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fdia-353414%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20ferreter%C3%ADa%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/dia-353414/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(14,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L15">
+  <div>
+    <div class="lead-head"><span class="lead-num">#16</span><span class="sec">restaurante</span><h3>Charlotte</h3></div>
+    <div class="meta">📱 605 72 14 96 · 📍 Bilbao</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34605721496?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Charlotte%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fcharlotte-009090%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20restaurante%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/charlotte-009090/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(15,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L16">
+  <div>
+    <div class="lead-head"><span class="lead-num">#17</span><span class="sec">bar-de-tapas</span><h3>Niza barria</h3></div>
+    <div class="meta">📱 654 35 79 30 · 📍 Bilbao</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34654357930?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Niza%20barria%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fniza-barria-220646%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20bar%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/niza-barria-220646/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(16,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L17">
+  <div>
+    <div class="lead-head"><span class="lead-num">#18</span><span class="sec">bar-de-tapas</span><h3>Denda Berri</h3></div>
+    <div class="meta">📱 697 56 43 94 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34697564394?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Denda%20Berri%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fdenda-berri-737490%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20bar%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/denda-berri-737490/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(17,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L18">
+  <div>
+    <div class="lead-head"><span class="lead-num">#19</span><span class="sec">cerrajeria</span><h3>C&amp;J Cerrajeros</h3></div>
+    <div class="meta">📱 665 59 01 19 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34665590119?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20C%26J%20Cerrajeros%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fc-j-cerrajeros-602675%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20negocio%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/c-j-cerrajeros-602675/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(18,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L19">
+  <div>
+    <div class="lead-head"><span class="lead-num">#20</span><span class="sec">kebab</span><h3>Las Fritas</h3></div>
+    <div class="meta">📱 697 89 86 92 · 📍 Bilbao</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34697898692?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Las%20Fritas%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Flas-fritas-209421%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20local%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/las-fritas-209421/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(19,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L20">
+  <div>
+    <div class="lead-head"><span class="lead-num">#21</span><span class="sec">bar-de-tapas</span><h3>Manolita la Primera</h3></div>
+    <div class="meta">📱 661 77 31 00 · 📍 Bilbao</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34661773100?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Manolita%20la%20Primera%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fmanolita-la-primera-962385%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20bar%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/manolita-la-primera-962385/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(20,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L21">
+  <div>
+    <div class="lead-head"><span class="lead-num">#22</span><span class="sec">cafeteria</span><h3>Cinnamon</h3></div>
+    <div class="meta">📱 688 89 41 73 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34688894173?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Cinnamon%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fcinnamon-843292%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20cafeter%C3%ADa%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cinnamon-843292/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(21,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L22">
+  <div>
+    <div class="lead-head"><span class="lead-num">#23</span><span class="sec">fisioterapia</span><h3>Centro de Fisioterapia</h3></div>
+    <div class="meta">📱 657 81 46 44 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34657814644?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Centro%20de%20Fisioterapia%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fcentro-de-fisioterapia-870056%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20cl%C3%ADnica%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/centro-de-fisioterapia-870056/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(22,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L23">
+  <div>
+    <div class="lead-head"><span class="lead-num">#24</span><span class="sec">tienda-ropa</span><h3>Due</h3></div>
+    <div class="meta">📱 603 66 86 68 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34603668668?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Due%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fdue-408064%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20tienda%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/due-408064/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(23,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L24">
+  <div>
+    <div class="lead-head"><span class="lead-num">#25</span><span class="sec">bar-de-tapas</span><h3>El Laterío</h3></div>
+    <div class="meta">📱 655 94 86 96 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34655948696?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20El%20Later%C3%ADo%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fel-laterio-054188%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20bar%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/el-laterio-054188/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(24,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L25">
+  <div>
+    <div class="lead-head"><span class="lead-num">#26</span><span class="sec">centro-estetica</span><h3>Manos Bellas</h3></div>
+    <div class="meta">📱 615 94 45 85 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34615944585?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Manos%20Bellas%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fmanos-bellas-883709%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20centro%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/manos-bellas-883709/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(25,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L26">
+  <div>
+    <div class="lead-head"><span class="lead-num">#27</span><span class="sec">peluqueria</span><h3>Peluqueria Aminta</h3></div>
+    <div class="meta">📱 679 27 66 64 · 📍 Bilbao</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34679276664?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Peluqueria%20Aminta%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fpeluqueria-aminta-181498%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20peluquer%C3%ADa%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/peluqueria-aminta-181498/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(26,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L27">
+  <div>
+    <div class="lead-head"><span class="lead-num">#28</span><span class="sec">kebab</span><h3>Azhar</h3></div>
+    <div class="meta">📱 631 11 40 59 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34631114059?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Azhar%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fazhar-936722%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20local%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/azhar-936722/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(27,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L28">
+  <div>
+    <div class="lead-head"><span class="lead-num">#29</span><span class="sec">cafeteria</span><h3>Wall Street</h3></div>
+    <div class="meta">📱 633 33 86 65 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34633338665?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Wall%20Street%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fwall-street-151860%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20cafeter%C3%ADa%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/wall-street-151860/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(28,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L29">
+  <div>
+    <div class="lead-head"><span class="lead-num">#30</span><span class="sec">bar-de-tapas</span><h3>Sugoi</h3></div>
+    <div class="meta">📱 722 76 84 16 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34722768416?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Sugoi%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fsugoi-213328%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20bar%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/sugoi-213328/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(29,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L30">
+  <div>
+    <div class="lead-head"><span class="lead-num">#31</span><span class="sec">bar-de-tapas</span><h3>La Ley Seca</h3></div>
+    <div class="meta">📱 628 92 79 68 · 📍 Bilbo</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34628927968?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20La%20Ley%20Seca%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fla-ley-seca-531767%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20bar%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/la-ley-seca-531767/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(30,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L31">
+  <div>
+    <div class="lead-head"><span class="lead-num">#32</span><span class="sec">bar-de-tapas</span><h3>Cafe Teatro La Nube</h3></div>
+    <div class="meta">📱 626 80 20 26 · 📍 Bilbo</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34626802026?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Cafe%20Teatro%20La%20Nube%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fcafe-teatro-la-nube-327838%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20bar%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cafe-teatro-la-nube-327838/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(31,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L32">
+  <div>
+    <div class="lead-head"><span class="lead-num">#33</span><span class="sec">podologia</span><h3>AWR Psiquiatría</h3></div>
+    <div class="meta">📱 664 76 75 71 · 📍 Bilbo</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34664767571?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20AWR%20Psiquiatr%C3%ADa%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fawr-psiquiatria-378478%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20consulta%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/awr-psiquiatria-378478/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(32,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L33">
+  <div>
+    <div class="lead-head"><span class="lead-num">#34</span><span class="sec">restaurante</span><h3>Sustraiak Catering Vegano</h3></div>
+    <div class="meta">📱 645 04 60 05 · 📍 Bilbo</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34645046005?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Sustraiak%20Catering%20Vegano%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fsustraiak-catering-vegano-387522%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20restaurante%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/sustraiak-catering-vegano-387522/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(33,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L34">
+  <div>
+    <div class="lead-head"><span class="lead-num">#35</span><span class="sec">psicologia</span><h3>Alexis López</h3></div>
+    <div class="meta">📱 676 87 50 12 · 📍 Bilbao</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34676875012?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Alexis%20L%C3%B3pez%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Falexis-lopez-100121%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20consulta%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/alexis-lopez-100121/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(34,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L35">
+  <div>
+    <div class="lead-head"><span class="lead-num">#36</span><span class="sec">restaurante</span><h3>Unai Taberna</h3></div>
+    <div class="meta">📱 688 76 36 63 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34688763663?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Unai%20Taberna%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Funai-taberna-668601%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20restaurante%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/unai-taberna-668601/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(35,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L36">
+  <div>
+    <div class="lead-head"><span class="lead-num">#37</span><span class="sec">clinica-dental</span><h3>Cristina Gumuzio Irala</h3></div>
+    <div class="meta">📱 629 22 59 63 · 📍 Mungia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34629225963?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Cristina%20Gumuzio%20Irala%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fcristina-gumuzio-irala-646516%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20cl%C3%ADnica%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cristina-gumuzio-irala-646516/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(36,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L37">
+  <div>
+    <div class="lead-head"><span class="lead-num">#38</span><span class="sec">bar-de-tapas</span><h3>Bihotz</h3></div>
+    <div class="meta">📱 679 06 03 12 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34679060312?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Bihotz%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fbihotz-839509%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20bar%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/bihotz-839509/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(37,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L38">
+  <div>
+    <div class="lead-head"><span class="lead-num">#39</span><span class="sec">pasteleria-panaderia</span><h3>Abasotas</h3></div>
+    <div class="meta">📱 633 22 33 52 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34633223352?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Abasotas%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fabasotas-031585%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20panader%C3%ADa%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/abasotas-031585/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(38,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L39">
+  <div>
+    <div class="lead-head"><span class="lead-num">#40</span><span class="sec">bar-de-tapas</span><h3>Bar Rosi</h3></div>
+    <div class="meta">📱 620 45 36 26 · 📍 Lanestosa</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34620453626?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Bar%20Rosi%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fbar-rosi-128645%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20bar%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/bar-rosi-128645/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(39,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L40">
+  <div>
+    <div class="lead-head"><span class="lead-num">#41</span><span class="sec">peluqueria</span><h3>Zuzeu</h3></div>
+    <div class="meta">📱 695 47 01 57 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34695470157?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Zuzeu%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fzuzeu-524389%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20peluquer%C3%ADa%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/zuzeu-524389/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(40,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L41">
+  <div>
+    <div class="lead-head"><span class="lead-num">#42</span><span class="sec">centro-estetica</span><h3>Matt Tattoo Art</h3></div>
+    <div class="meta">📱 603 70 59 02 · 📍 Bermeo</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34603705902?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Matt%20Tattoo%20Art%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fmatt-tattoo-art-771799%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20centro%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/matt-tattoo-art-771799/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(41,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L42">
+  <div>
+    <div class="lead-head"><span class="lead-num">#43</span><span class="sec">bar-de-tapas</span><h3>Tegobi Bierhaus</h3></div>
+    <div class="meta">📱 688 74 50 94 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34688745094?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Tegobi%20Bierhaus%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Ftegobi-bierhaus-552385%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20bar%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/tegobi-bierhaus-552385/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(42,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L43">
+  <div>
+    <div class="lead-head"><span class="lead-num">#44</span><span class="sec">pasteleria-panaderia</span><h3>Misschocole</h3></div>
+    <div class="meta">📱 671 64 03 43 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34671640343?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Misschocole%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fmisschocole-897354%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20panader%C3%ADa%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/misschocole-897354/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(43,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L44">
+  <div>
+    <div class="lead-head"><span class="lead-num">#45</span><span class="sec">cafeteria</span><h3>Txuringo</h3></div>
+    <div class="meta">📱 615 75 37 71 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34615753771?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Txuringo%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Ftxuringo-201162%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20cafeter%C3%ADa%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/txuringo-201162/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(44,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L45">
+  <div>
+    <div class="lead-head"><span class="lead-num">#46</span><span class="sec">cerrajeria</span><h3>Cerrajería Bilbaina</h3></div>
+    <div class="meta">📱 688 87 79 07 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34688877907?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Cerrajer%C3%ADa%20Bilbaina%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fcerrajeria-bilbaina-768226%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20negocio%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cerrajeria-bilbaina-768226/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(45,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L46">
+  <div>
+    <div class="lead-head"><span class="lead-num">#47</span><span class="sec">inmobiliaria</span><h3>Larragest</h3></div>
+    <div class="meta">📱 697 25 89 66 · 📍 Eibar</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34697258966?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Larragest%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Flarragest-276281%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20inmobiliaria%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/larragest-276281/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(46,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L47">
+  <div>
+    <div class="lead-head"><span class="lead-num">#48</span><span class="sec">taller-bicicletas</span><h3>Zitibike</h3></div>
+    <div class="meta">📱 644 30 97 67 · 📍 Barakaldo</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34644309767?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Zitibike%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fzitibike-406385%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20taller%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/zitibike-406385/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(47,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L48">
+  <div>
+    <div class="lead-head"><span class="lead-num">#49</span><span class="sec">peluqueria</span><h3>Cris Barbershop</h3></div>
+    <div class="meta">📱 642 78 81 64 · 📍 Eibar</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34642788164?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20Cris%20Barbershop%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fcris-barbershop-847847%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestra%20peluquer%C3%ADa%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cris-barbershop-847847/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(48,this)">📋 Copiar</button>
+  </div>
+</div>
+<div class="lead" id="L49">
+  <div>
+    <div class="lead-head"><span class="lead-num">#50</span><span class="sec">bar-de-tapas</span><h3>La Vieja Tienda</h3></div>
+    <div class="meta">📱 645 97 01 91 · 📍 Bizkaia</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34645970191?text=%C2%A1Hola!%20%F0%9F%91%8B%0A%0ASoy%20Josu%20de%20G%26G%20Elcano.%20Os%20hemos%20preparado%20una%20web%20de%20muestra%20para%20La%20Vieja%20Tienda%2C%20totalmente%20gratis%20y%20sin%20ning%C3%BAn%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20tranquilamente%20cuando%20quer%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-v5%2Fla-vieja-tienda-013294%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20que%20vuestro%20bar%20la%20tenga%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo%20y%20feliz%20d%C3%ADa!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/la-vieja-tienda-013294/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(49,this)">📋 Copiar</button>
+  </div>
+</div>
+</div>
+<script>
+const leads = [{"nombre":"Cafetería El Gato","tel":"671 66 04 06","telClean":"34671660406","sector":"cafeteria","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cafeteria-el-gato-732193/"},{"nombre":"Pizzerria Piccola Napoli Mia","tel":"669 05 48 31","telClean":"34669054831","sector":"restaurante","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/pizzerria-piccola-napoli-mia-756813/"},{"nombre":"Fisioteraida","tel":"611 40 93 99","telClean":"34611409399","sector":"fisioterapia","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/fisioteraida-951358/"},{"nombre":"Unbe","tel":"668 59 61 75","telClean":"34668596175","sector":"cafeteria","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/unbe-058808/"},{"nombre":"Confituras Silvia","tel":"685 72 82 54","telClean":"34685728254","sector":"pasteleria-panaderia","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/confituras-silvia-533754/"},{"nombre":"Fer","tel":"665 83 02 29","telClean":"34665830229","sector":"cafeteria","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/fer-450715/"},{"nombre":"Gastro Burguer Berango","tel":"681 95 55 36","telClean":"34681955536","sector":"restaurante","ciudad":"Berango","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/gastro-burguer-berango-988877/"},{"nombre":"Batzoki","tel":"608 41 56 59","telClean":"34608415659","sector":"bar-de-tapas","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/batzoki-530242/"},{"nombre":"Marco","tel":"617 95 40 13","telClean":"34617954013","sector":"taller-costura","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/marco-681427/"},{"nombre":"Anaiak taberna","tel":"688 75 11 85","telClean":"34688751185","sector":"bar-de-tapas","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/anaiak-taberna-994811/"},{"nombre":"Bar Atrio","tel":"617 42 90 01","telClean":"34617429001","sector":"bar-de-tapas","ciudad":"Getxo","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/bar-atrio-690745/"},{"nombre":"Arantxa","tel":"671 91 60 52","telClean":"34671916052","sector":"bar-de-tapas","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/arantxa-061920/"},{"nombre":"Valley's Barber","tel":"688 76 34 25","telClean":"34688763425","sector":"peluqueria","ciudad":"Valle de Trápaga-Trapagaran","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/valley-s-barber-590436/"},{"nombre":"Hiru","tel":"619 65 06 69","telClean":"34619650669","sector":"tienda-ropa","ciudad":"Valle de Trápaga-Trapagaran","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/hiru-590463/"},{"nombre":"Dia","tel":"696 70 26 08","telClean":"34696702608","sector":"ferreteria","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/dia-353414/"},{"nombre":"Charlotte","tel":"605 72 14 96","telClean":"34605721496","sector":"restaurante","ciudad":"Bilbao","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/charlotte-009090/"},{"nombre":"Niza barria","tel":"654 35 79 30","telClean":"34654357930","sector":"bar-de-tapas","ciudad":"Bilbao","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/niza-barria-220646/"},{"nombre":"Denda Berri","tel":"697 56 43 94","telClean":"34697564394","sector":"bar-de-tapas","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/denda-berri-737490/"},{"nombre":"C&J Cerrajeros","tel":"665 59 01 19","telClean":"34665590119","sector":"cerrajeria","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/c-j-cerrajeros-602675/"},{"nombre":"Las Fritas","tel":"697 89 86 92","telClean":"34697898692","sector":"kebab","ciudad":"Bilbao","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/las-fritas-209421/"},{"nombre":"Manolita la Primera","tel":"661 77 31 00","telClean":"34661773100","sector":"bar-de-tapas","ciudad":"Bilbao","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/manolita-la-primera-962385/"},{"nombre":"Cinnamon","tel":"688 89 41 73","telClean":"34688894173","sector":"cafeteria","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cinnamon-843292/"},{"nombre":"Centro de Fisioterapia","tel":"657 81 46 44","telClean":"34657814644","sector":"fisioterapia","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/centro-de-fisioterapia-870056/"},{"nombre":"Due","tel":"603 66 86 68","telClean":"34603668668","sector":"tienda-ropa","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/due-408064/"},{"nombre":"El Laterío","tel":"655 94 86 96","telClean":"34655948696","sector":"bar-de-tapas","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/el-laterio-054188/"},{"nombre":"Manos Bellas","tel":"615 94 45 85","telClean":"34615944585","sector":"centro-estetica","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/manos-bellas-883709/"},{"nombre":"Peluqueria Aminta","tel":"679 27 66 64","telClean":"34679276664","sector":"peluqueria","ciudad":"Bilbao","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/peluqueria-aminta-181498/"},{"nombre":"Azhar","tel":"631 11 40 59","telClean":"34631114059","sector":"kebab","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/azhar-936722/"},{"nombre":"Wall Street","tel":"633 33 86 65","telClean":"34633338665","sector":"cafeteria","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/wall-street-151860/"},{"nombre":"Sugoi","tel":"722 76 84 16","telClean":"34722768416","sector":"bar-de-tapas","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/sugoi-213328/"},{"nombre":"La Ley Seca","tel":"628 92 79 68","telClean":"34628927968","sector":"bar-de-tapas","ciudad":"Bilbo","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/la-ley-seca-531767/"},{"nombre":"Cafe Teatro La Nube","tel":"626 80 20 26","telClean":"34626802026","sector":"bar-de-tapas","ciudad":"Bilbo","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cafe-teatro-la-nube-327838/"},{"nombre":"AWR Psiquiatría","tel":"664 76 75 71","telClean":"34664767571","sector":"podologia","ciudad":"Bilbo","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/awr-psiquiatria-378478/"},{"nombre":"Sustraiak Catering Vegano","tel":"645 04 60 05","telClean":"34645046005","sector":"restaurante","ciudad":"Bilbo","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/sustraiak-catering-vegano-387522/"},{"nombre":"Alexis López","tel":"676 87 50 12","telClean":"34676875012","sector":"psicologia","ciudad":"Bilbao","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/alexis-lopez-100121/"},{"nombre":"Unai Taberna","tel":"688 76 36 63","telClean":"34688763663","sector":"restaurante","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/unai-taberna-668601/"},{"nombre":"Cristina Gumuzio Irala","tel":"629 22 59 63","telClean":"34629225963","sector":"clinica-dental","ciudad":"Mungia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cristina-gumuzio-irala-646516/"},{"nombre":"Bihotz","tel":"679 06 03 12","telClean":"34679060312","sector":"bar-de-tapas","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/bihotz-839509/"},{"nombre":"Abasotas","tel":"633 22 33 52","telClean":"34633223352","sector":"pasteleria-panaderia","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/abasotas-031585/"},{"nombre":"Bar Rosi","tel":"620 45 36 26","telClean":"34620453626","sector":"bar-de-tapas","ciudad":"Lanestosa","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/bar-rosi-128645/"},{"nombre":"Zuzeu","tel":"695 47 01 57","telClean":"34695470157","sector":"peluqueria","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/zuzeu-524389/"},{"nombre":"Matt Tattoo Art","tel":"603 70 59 02","telClean":"34603705902","sector":"centro-estetica","ciudad":"Bermeo","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/matt-tattoo-art-771799/"},{"nombre":"Tegobi Bierhaus","tel":"688 74 50 94","telClean":"34688745094","sector":"bar-de-tapas","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/tegobi-bierhaus-552385/"},{"nombre":"Misschocole","tel":"671 64 03 43","telClean":"34671640343","sector":"pasteleria-panaderia","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/misschocole-897354/"},{"nombre":"Txuringo","tel":"615 75 37 71","telClean":"34615753771","sector":"cafeteria","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/txuringo-201162/"},{"nombre":"Cerrajería Bilbaina","tel":"688 87 79 07","telClean":"34688877907","sector":"cerrajeria","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cerrajeria-bilbaina-768226/"},{"nombre":"Larragest","tel":"697 25 89 66","telClean":"34697258966","sector":"inmobiliaria","ciudad":"Eibar","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/larragest-276281/"},{"nombre":"Zitibike","tel":"644 30 97 67","telClean":"34644309767","sector":"taller-bicicletas","ciudad":"Barakaldo","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/zitibike-406385/"},{"nombre":"Cris Barbershop","tel":"642 78 81 64","telClean":"34642788164","sector":"peluqueria","ciudad":"Eibar","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cris-barbershop-847847/"},{"nombre":"La Vieja Tienda","tel":"645 97 01 91","telClean":"34645970191","sector":"bar-de-tapas","ciudad":"Bizkaia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/la-vieja-tienda-013294/"}];
+const msgs = ["¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Cafetería El Gato, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cafeteria-el-gato-732193/\n\nSi os gusta cómo queda y queréis que vuestra cafetería la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Pizzerria Piccola Napoli Mia, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/pizzerria-piccola-napoli-mia-756813/\n\nSi os gusta cómo queda y queréis que vuestro restaurante la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Fisioteraida, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/fisioteraida-951358/\n\nSi os gusta cómo queda y queréis que vuestra clínica la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Unbe, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/unbe-058808/\n\nSi os gusta cómo queda y queréis que vuestra cafetería la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Confituras Silvia, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/confituras-silvia-533754/\n\nSi os gusta cómo queda y queréis que vuestra panadería la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Fer, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/fer-450715/\n\nSi os gusta cómo queda y queréis que vuestra cafetería la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Gastro Burguer Berango, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/gastro-burguer-berango-988877/\n\nSi os gusta cómo queda y queréis que vuestro restaurante la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Batzoki, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/batzoki-530242/\n\nSi os gusta cómo queda y queréis que vuestro bar la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Marco, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/marco-681427/\n\nSi os gusta cómo queda y queréis que vuestro taller la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Anaiak taberna, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/anaiak-taberna-994811/\n\nSi os gusta cómo queda y queréis que vuestro bar la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Bar Atrio, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/bar-atrio-690745/\n\nSi os gusta cómo queda y queréis que vuestro bar la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Arantxa, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/arantxa-061920/\n\nSi os gusta cómo queda y queréis que vuestro bar la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Valley's Barber, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/valley-s-barber-590436/\n\nSi os gusta cómo queda y queréis que vuestra peluquería la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Hiru, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/hiru-590463/\n\nSi os gusta cómo queda y queréis que vuestra tienda la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Dia, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/dia-353414/\n\nSi os gusta cómo queda y queréis que vuestra ferretería la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Charlotte, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/charlotte-009090/\n\nSi os gusta cómo queda y queréis que vuestro restaurante la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Niza barria, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/niza-barria-220646/\n\nSi os gusta cómo queda y queréis que vuestro bar la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Denda Berri, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/denda-berri-737490/\n\nSi os gusta cómo queda y queréis que vuestro bar la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para C&J Cerrajeros, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/c-j-cerrajeros-602675/\n\nSi os gusta cómo queda y queréis que vuestro negocio la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Las Fritas, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/las-fritas-209421/\n\nSi os gusta cómo queda y queréis que vuestro local la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Manolita la Primera, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/manolita-la-primera-962385/\n\nSi os gusta cómo queda y queréis que vuestro bar la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Cinnamon, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cinnamon-843292/\n\nSi os gusta cómo queda y queréis que vuestra cafetería la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Centro de Fisioterapia, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/centro-de-fisioterapia-870056/\n\nSi os gusta cómo queda y queréis que vuestra clínica la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Due, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/due-408064/\n\nSi os gusta cómo queda y queréis que vuestra tienda la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para El Laterío, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/el-laterio-054188/\n\nSi os gusta cómo queda y queréis que vuestro bar la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Manos Bellas, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/manos-bellas-883709/\n\nSi os gusta cómo queda y queréis que vuestro centro la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Peluqueria Aminta, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/peluqueria-aminta-181498/\n\nSi os gusta cómo queda y queréis que vuestra peluquería la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Azhar, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/azhar-936722/\n\nSi os gusta cómo queda y queréis que vuestro local la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Wall Street, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/wall-street-151860/\n\nSi os gusta cómo queda y queréis que vuestra cafetería la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Sugoi, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/sugoi-213328/\n\nSi os gusta cómo queda y queréis que vuestro bar la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para La Ley Seca, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/la-ley-seca-531767/\n\nSi os gusta cómo queda y queréis que vuestro bar la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Cafe Teatro La Nube, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cafe-teatro-la-nube-327838/\n\nSi os gusta cómo queda y queréis que vuestro bar la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para AWR Psiquiatría, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/awr-psiquiatria-378478/\n\nSi os gusta cómo queda y queréis que vuestra consulta la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Sustraiak Catering Vegano, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/sustraiak-catering-vegano-387522/\n\nSi os gusta cómo queda y queréis que vuestro restaurante la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Alexis López, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/alexis-lopez-100121/\n\nSi os gusta cómo queda y queréis que vuestra consulta la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Unai Taberna, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/unai-taberna-668601/\n\nSi os gusta cómo queda y queréis que vuestro restaurante la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Cristina Gumuzio Irala, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cristina-gumuzio-irala-646516/\n\nSi os gusta cómo queda y queréis que vuestra clínica la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Bihotz, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/bihotz-839509/\n\nSi os gusta cómo queda y queréis que vuestro bar la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Abasotas, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/abasotas-031585/\n\nSi os gusta cómo queda y queréis que vuestra panadería la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Bar Rosi, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/bar-rosi-128645/\n\nSi os gusta cómo queda y queréis que vuestro bar la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Zuzeu, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/zuzeu-524389/\n\nSi os gusta cómo queda y queréis que vuestra peluquería la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Matt Tattoo Art, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/matt-tattoo-art-771799/\n\nSi os gusta cómo queda y queréis que vuestro centro la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Tegobi Bierhaus, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/tegobi-bierhaus-552385/\n\nSi os gusta cómo queda y queréis que vuestro bar la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Misschocole, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/misschocole-897354/\n\nSi os gusta cómo queda y queréis que vuestra panadería la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Txuringo, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/txuringo-201162/\n\nSi os gusta cómo queda y queréis que vuestra cafetería la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Cerrajería Bilbaina, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cerrajeria-bilbaina-768226/\n\nSi os gusta cómo queda y queréis que vuestro negocio la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Larragest, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/larragest-276281/\n\nSi os gusta cómo queda y queréis que vuestra inmobiliaria la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Zitibike, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/zitibike-406385/\n\nSi os gusta cómo queda y queréis que vuestro taller la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para Cris Barbershop, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/cris-barbershop-847847/\n\nSi os gusta cómo queda y queréis que vuestra peluquería la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!","¡Hola! 👋\n\nSoy Josu de G&G Elcano. Os hemos preparado una web de muestra para La Vieja Tienda, totalmente gratis y sin ningún compromiso.\n\nOs dejo el enlace para que la veáis tranquilamente cuando queráis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-v5/la-vieja-tienda-013294/\n\nSi os gusta cómo queda y queréis que vuestro bar la tenga online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo y feliz día!"];
+const SK = 'gg_wa_osm50_v1';
+let st = JSON.parse(localStorage.getItem(SK)||'{"sent":[]}');
+function save(){localStorage.setItem(SK,JSON.stringify(st));}
+function idx(){for(let i=0;i<leads.length;i++)if(!st.sent.includes(i))return i;return -1;}
+function render(){
+  const i=idx(); const done=st.sent.length;
+  document.getElementById('pd').textContent=done;
+  document.getElementById('pf').style.width=(done/leads.length*100)+'%';
+  leads.forEach((_,k)=>{const e=document.getElementById('L'+k);e.classList.toggle('done',st.sent.includes(k));e.classList.toggle('current',k===i);});
+  if(i===-1){document.getElementById('qc').textContent='🎉 Todos enviados';document.getElementById('qm').textContent='Buena campaña, Ministro.';}
+  else{const l=leads[i];document.getElementById('qc').textContent='#'+(i+1)+' → '+l.nombre;document.getElementById('qm').textContent=l.sector+' · '+l.ciudad+' · 📱 '+l.tel;const e=document.getElementById('L'+i);if(e)e.scrollIntoView({behavior:'smooth',block:'center'});}
+}
+function send(){const i=idx();if(i===-1)return;const l=leads[i];window.open('https://wa.me/'+l.telClean+'?text='+encodeURIComponent(msgs[i]),'_blank');setTimeout(()=>{if(!st.sent.includes(i))st.sent.push(i);save();render();},300);}
+function next(){const i=idx();if(i===-1)return;if(!st.sent.includes(i))st.sent.push(i);save();render();}
+function reset(){if(confirm('Resetear progreso?')){st.sent=[];save();render();}}
+async function copy(i,btn){try{await navigator.clipboard.writeText(msgs[i]);btn.textContent='✓';btn.classList.add('copied');setTimeout(()=>{btn.textContent='📋 Copiar';btn.classList.remove('copied');},1500);}catch(e){}}
+document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;if(e.code==='Space'){e.preventDefault();send();}else if(e.key==='s'||e.key==='S'){e.preventDefault();next();}});
+render();
+</script>
+</body></html>
