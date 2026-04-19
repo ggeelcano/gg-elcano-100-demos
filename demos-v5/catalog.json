@@ -1,0 +1,502 @@
+[
+  {
+    "slug": "cafeteria-el-gato-732193",
+    "nombre": "Cafetería El Gato",
+    "sector": "cafeteria",
+    "sector_tpl": "cafeteria",
+    "ciudad": "Bizkaia",
+    "telefono": "671660406",
+    "rating": 4.7,
+    "place_id": "osm-node-1618732193"
+  },
+  {
+    "slug": "pizzerria-piccola-napoli-mia-756813",
+    "nombre": "Pizzerria Piccola Napoli Mia",
+    "sector": "restaurante",
+    "sector_tpl": "restaurante",
+    "ciudad": "Bizkaia",
+    "telefono": "669054831",
+    "rating": 4.7,
+    "place_id": "osm-node-2090756813"
+  },
+  {
+    "slug": "fisioteraida-951358",
+    "nombre": "Fisioteraida",
+    "sector": "fisioterapia",
+    "sector_tpl": "fisioterapia",
+    "ciudad": "Bizkaia",
+    "telefono": "611409399",
+    "rating": 4.7,
+    "place_id": "osm-node-2301951358"
+  },
+  {
+    "slug": "unbe-058808",
+    "nombre": "Unbe",
+    "sector": "cafeteria",
+    "sector_tpl": "cafeteria",
+    "ciudad": "Bizkaia",
+    "telefono": "668596175",
+    "rating": 4.7,
+    "place_id": "osm-node-2688058808"
+  },
+  {
+    "slug": "confituras-silvia-533754",
+    "nombre": "Confituras Silvia",
+    "sector": "pasteleria-panaderia",
+    "sector_tpl": "pasteleria-panaderia",
+    "ciudad": "Bizkaia",
+    "telefono": "685728254",
+    "rating": 4.7,
+    "place_id": "osm-node-2893533754"
+  },
+  {
+    "slug": "fer-450715",
+    "nombre": "Fer",
+    "sector": "cafeteria",
+    "sector_tpl": "cafeteria",
+    "ciudad": "Bizkaia",
+    "telefono": "665830229",
+    "rating": 4.7,
+    "place_id": "osm-node-2917450715"
+  },
+  {
+    "slug": "gastro-burguer-berango-988877",
+    "nombre": "Gastro Burguer Berango",
+    "sector": "restaurante",
+    "sector_tpl": "restaurante",
+    "ciudad": "Berango",
+    "telefono": "681955536",
+    "rating": 4.7,
+    "place_id": "osm-node-3009988877"
+  },
+  {
+    "slug": "batzoki-530242",
+    "nombre": "Batzoki",
+    "sector": "bar-de-tapas",
+    "sector_tpl": "bar-de-tapas",
+    "ciudad": "Bizkaia",
+    "telefono": "608415659",
+    "rating": 4.7,
+    "place_id": "osm-node-3060530242"
+  },
+  {
+    "slug": "marco-681427",
+    "nombre": "Marco",
+    "sector": "taller-costura",
+    "sector_tpl": "taller-costura",
+    "ciudad": "Bizkaia",
+    "telefono": "617954013",
+    "rating": 4.7,
+    "place_id": "osm-node-3060681427"
+  },
+  {
+    "slug": "anaiak-taberna-994811",
+    "nombre": "Anaiak taberna",
+    "sector": "bar-de-tapas",
+    "sector_tpl": "bar-de-tapas",
+    "ciudad": "Bizkaia",
+    "telefono": "688751185",
+    "rating": 4.7,
+    "place_id": "osm-node-3136994811"
+  },
+  {
+    "slug": "bar-atrio-690745",
+    "nombre": "Bar Atrio",
+    "sector": "bar-de-tapas",
+    "sector_tpl": "bar-de-tapas",
+    "ciudad": "Getxo",
+    "telefono": "617429001",
+    "rating": 4.7,
+    "place_id": "osm-node-3205690745"
+  },
+  {
+    "slug": "arantxa-061920",
+    "nombre": "Arantxa",
+    "sector": "bar-de-tapas",
+    "sector_tpl": "bar-de-tapas",
+    "ciudad": "Bizkaia",
+    "telefono": "671916052",
+    "rating": 4.7,
+    "place_id": "osm-node-3391061920"
+  },
+  {
+    "slug": "valley-s-barber-590436",
+    "nombre": "Valley's Barber",
+    "sector": "peluqueria",
+    "sector_tpl": "peluqueria",
+    "ciudad": "Valle de Trápaga-Trapagaran",
+    "telefono": "688763425",
+    "rating": 4.7,
+    "place_id": "osm-node-3399590436"
+  },
+  {
+    "slug": "hiru-590463",
+    "nombre": "Hiru",
+    "sector": "tienda-ropa",
+    "sector_tpl": "tienda-ropa",
+    "ciudad": "Valle de Trápaga-Trapagaran",
+    "telefono": "619650669",
+    "rating": 4.7,
+    "place_id": "osm-node-3399590463"
+  },
+  {
+    "slug": "dia-353414",
+    "nombre": "Dia",
+    "sector": "ferreteria",
+    "sector_tpl": "ferreteria",
+    "ciudad": "Bizkaia",
+    "telefono": "696702608",
+    "rating": 4.7,
+    "place_id": "osm-node-4020353414"
+  },
+  {
+    "slug": "charlotte-009090",
+    "nombre": "Charlotte",
+    "sector": "restaurante",
+    "sector_tpl": "restaurante",
+    "ciudad": "Bilbao",
+    "telefono": "605721496",
+    "rating": 4.7,
+    "place_id": "osm-node-4121009090"
+  },
+  {
+    "slug": "niza-barria-220646",
+    "nombre": "Niza barria",
+    "sector": "bar-de-tapas",
+    "sector_tpl": "bar-de-tapas",
+    "ciudad": "Bilbao",
+    "telefono": "654357930",
+    "rating": 4.7,
+    "place_id": "osm-node-4262220646"
+  },
+  {
+    "slug": "denda-berri-737490",
+    "nombre": "Denda Berri",
+    "sector": "bar-de-tapas",
+    "sector_tpl": "bar-de-tapas",
+    "ciudad": "Bizkaia",
+    "telefono": "697564394",
+    "rating": 4.7,
+    "place_id": "osm-node-4382737490"
+  },
+  {
+    "slug": "c-j-cerrajeros-602675",
+    "nombre": "C&J Cerrajeros",
+    "sector": "cerrajeria",
+    "sector_tpl": "cerrajeria",
+    "ciudad": "Bizkaia",
+    "telefono": "665590119",
+    "rating": 4.7,
+    "place_id": "osm-node-4424602675"
+  },
+  {
+    "slug": "las-fritas-209421",
+    "nombre": "Las Fritas",
+    "sector": "kebab",
+    "sector_tpl": "kebab",
+    "ciudad": "Bilbao",
+    "telefono": "697898692",
+    "rating": 4.7,
+    "place_id": "osm-node-4708209421"
+  },
+  {
+    "slug": "manolita-la-primera-962385",
+    "nombre": "Manolita la Primera",
+    "sector": "bar-de-tapas",
+    "sector_tpl": "bar-de-tapas",
+    "ciudad": "Bilbao",
+    "telefono": "661773100",
+    "rating": 4.7,
+    "place_id": "osm-node-4711962385"
+  },
+  {
+    "slug": "cinnamon-843292",
+    "nombre": "Cinnamon",
+    "sector": "cafeteria",
+    "sector_tpl": "cafeteria",
+    "ciudad": "Bizkaia",
+    "telefono": "688894173",
+    "rating": 4.7,
+    "place_id": "osm-node-4721843292"
+  },
+  {
+    "slug": "centro-de-fisioterapia-870056",
+    "nombre": "Centro de Fisioterapia",
+    "sector": "fisioterapia",
+    "sector_tpl": "fisioterapia",
+    "ciudad": "Bizkaia",
+    "telefono": "657814644",
+    "rating": 4.7,
+    "place_id": "osm-node-4723870056"
+  },
+  {
+    "slug": "due-408064",
+    "nombre": "Due",
+    "sector": "tienda-ropa",
+    "sector_tpl": "tienda-ropa",
+    "ciudad": "Bizkaia",
+    "telefono": "603668668",
+    "rating": 4.7,
+    "place_id": "osm-node-4736408064"
+  },
+  {
+    "slug": "el-laterio-054188",
+    "nombre": "El Laterío",
+    "sector": "bar-de-tapas",
+    "sector_tpl": "bar-de-tapas",
+    "ciudad": "Bizkaia",
+    "telefono": "655948696",
+    "rating": 4.7,
+    "place_id": "osm-node-4738054188"
+  },
+  {
+    "slug": "manos-bellas-883709",
+    "nombre": "Manos Bellas",
+    "sector": "centro-estetica",
+    "sector_tpl": "centro-estetica",
+    "ciudad": "Bizkaia",
+    "telefono": "615944585",
+    "rating": 4.7,
+    "place_id": "osm-node-4746883709"
+  },
+  {
+    "slug": "peluqueria-aminta-181498",
+    "nombre": "Peluqueria Aminta",
+    "sector": "peluqueria",
+    "sector_tpl": "peluqueria",
+    "ciudad": "Bilbao",
+    "telefono": "679276664",
+    "rating": 4.7,
+    "place_id": "osm-node-4747181498"
+  },
+  {
+    "slug": "azhar-936722",
+    "nombre": "Azhar",
+    "sector": "kebab",
+    "sector_tpl": "kebab",
+    "ciudad": "Bizkaia",
+    "telefono": "631114059",
+    "rating": 4.7,
+    "place_id": "osm-node-5017936722"
+  },
+  {
+    "slug": "wall-street-151860",
+    "nombre": "Wall Street",
+    "sector": "cafeteria",
+    "sector_tpl": "cafeteria",
+    "ciudad": "Bizkaia",
+    "telefono": "633338665",
+    "rating": 4.7,
+    "place_id": "osm-node-5026151860"
+  },
+  {
+    "slug": "sugoi-213328",
+    "nombre": "Sugoi",
+    "sector": "bar-de-tapas",
+    "sector_tpl": "bar-de-tapas",
+    "ciudad": "Bizkaia",
+    "telefono": "722768416",
+    "rating": 4.7,
+    "place_id": "osm-node-5026213328"
+  },
+  {
+    "slug": "la-ley-seca-531767",
+    "nombre": "La Ley Seca",
+    "sector": "bar-de-tapas",
+    "sector_tpl": "bar-de-tapas",
+    "ciudad": "Bilbo",
+    "telefono": "628927968",
+    "rating": 4.7,
+    "place_id": "osm-node-5055531767"
+  },
+  {
+    "slug": "cafe-teatro-la-nube-327838",
+    "nombre": "Cafe Teatro La Nube",
+    "sector": "bar-de-tapas",
+    "sector_tpl": "bar-de-tapas",
+    "ciudad": "Bilbo",
+    "telefono": "626802026",
+    "rating": 4.7,
+    "place_id": "osm-node-5056327838"
+  },
+  {
+    "slug": "awr-psiquiatria-378478",
+    "nombre": "AWR Psiquiatría",
+    "sector": "podologia",
+    "sector_tpl": "podologia",
+    "ciudad": "Bilbo",
+    "telefono": "664767571",
+    "rating": 4.7,
+    "place_id": "osm-node-5056378478"
+  },
+  {
+    "slug": "sustraiak-catering-vegano-387522",
+    "nombre": "Sustraiak Catering Vegano",
+    "sector": "restaurante",
+    "sector_tpl": "restaurante",
+    "ciudad": "Bilbo",
+    "telefono": "645046005",
+    "rating": 4.7,
+    "place_id": "osm-node-5056387522"
+  },
+  {
+    "slug": "alexis-lopez-100121",
+    "nombre": "Alexis López",
+    "sector": "psicologia",
+    "sector_tpl": "psicologia",
+    "ciudad": "Bilbao",
+    "telefono": "676875012",
+    "rating": 4.7,
+    "place_id": "osm-node-5155100121"
+  },
+  {
+    "slug": "unai-taberna-668601",
+    "nombre": "Unai Taberna",
+    "sector": "restaurante",
+    "sector_tpl": "restaurante",
+    "ciudad": "Bizkaia",
+    "telefono": "688763663",
+    "rating": 4.7,
+    "place_id": "osm-node-5273668601"
+  },
+  {
+    "slug": "cristina-gumuzio-irala-646516",
+    "nombre": "Cristina Gumuzio Irala",
+    "sector": "clinica-dental",
+    "sector_tpl": "clinica-dental",
+    "ciudad": "Mungia",
+    "telefono": "629225963",
+    "rating": 4.7,
+    "place_id": "osm-node-5393646516"
+  },
+  {
+    "slug": "bihotz-839509",
+    "nombre": "Bihotz",
+    "sector": "bar-de-tapas",
+    "sector_tpl": "bar-de-tapas",
+    "ciudad": "Bizkaia",
+    "telefono": "679060312",
+    "rating": 4.7,
+    "place_id": "osm-node-5643839509"
+  },
+  {
+    "slug": "abasotas-031585",
+    "nombre": "Abasotas",
+    "sector": "pasteleria-panaderia",
+    "sector_tpl": "pasteleria-panaderia",
+    "ciudad": "Bizkaia",
+    "telefono": "633223352",
+    "rating": 4.7,
+    "place_id": "osm-node-5954031585"
+  },
+  {
+    "slug": "bar-rosi-128645",
+    "nombre": "Bar Rosi",
+    "sector": "bar-de-tapas",
+    "sector_tpl": "bar-de-tapas",
+    "ciudad": "Lanestosa",
+    "telefono": "620453626",
+    "rating": 4.7,
+    "place_id": "osm-node-6039128645"
+  },
+  {
+    "slug": "zuzeu-524389",
+    "nombre": "Zuzeu",
+    "sector": "peluqueria",
+    "sector_tpl": "peluqueria",
+    "ciudad": "Bizkaia",
+    "telefono": "695470157",
+    "rating": 4.7,
+    "place_id": "osm-node-6125524389"
+  },
+  {
+    "slug": "matt-tattoo-art-771799",
+    "nombre": "Matt Tattoo Art",
+    "sector": "centro-estetica",
+    "sector_tpl": "centro-estetica",
+    "ciudad": "Bermeo",
+    "telefono": "603705902",
+    "rating": 4.7,
+    "place_id": "osm-node-6125771799"
+  },
+  {
+    "slug": "tegobi-bierhaus-552385",
+    "nombre": "Tegobi Bierhaus",
+    "sector": "bar-de-tapas",
+    "sector_tpl": "bar-de-tapas",
+    "ciudad": "Bizkaia",
+    "telefono": "688745094",
+    "rating": 4.7,
+    "place_id": "osm-node-6304552385"
+  },
+  {
+    "slug": "misschocole-897354",
+    "nombre": "Misschocole",
+    "sector": "pasteleria-panaderia",
+    "sector_tpl": "pasteleria-panaderia",
+    "ciudad": "Bizkaia",
+    "telefono": "671640343",
+    "rating": 4.7,
+    "place_id": "osm-node-6778897354"
+  },
+  {
+    "slug": "txuringo-201162",
+    "nombre": "Txuringo",
+    "sector": "cafeteria",
+    "sector_tpl": "cafeteria",
+    "ciudad": "Bizkaia",
+    "telefono": "615753771",
+    "rating": 4.7,
+    "place_id": "osm-node-7078201162"
+  },
+  {
+    "slug": "cerrajeria-bilbaina-768226",
+    "nombre": "Cerrajería Bilbaina",
+    "sector": "cerrajeria",
+    "sector_tpl": "cerrajeria",
+    "ciudad": "Bizkaia",
+    "telefono": "688877907",
+    "rating": 4.7,
+    "place_id": "osm-node-7206768226"
+  },
+  {
+    "slug": "larragest-276281",
+    "nombre": "Larragest",
+    "sector": "inmobiliaria",
+    "sector_tpl": "inmobiliaria",
+    "ciudad": "Eibar",
+    "telefono": "697258966",
+    "rating": 4.7,
+    "place_id": "osm-node-7372276281"
+  },
+  {
+    "slug": "zitibike-406385",
+    "nombre": "Zitibike",
+    "sector": "taller-bicicletas",
+    "sector_tpl": "taller-bicicletas",
+    "ciudad": "Barakaldo",
+    "telefono": "644309767",
+    "rating": 4.7,
+    "place_id": "osm-node-7466406385"
+  },
+  {
+    "slug": "cris-barbershop-847847",
+    "nombre": "Cris Barbershop",
+    "sector": "peluqueria",
+    "sector_tpl": "peluqueria",
+    "ciudad": "Eibar",
+    "telefono": "642788164",
+    "rating": 4.7,
+    "place_id": "osm-node-7604847847"
+  },
+  {
+    "slug": "la-vieja-tienda-013294",
+    "nombre": "La Vieja Tienda",
+    "sector": "bar-de-tapas",
+    "sector_tpl": "bar-de-tapas",
+    "ciudad": "Bizkaia",
+    "telefono": "645970191",
+    "rating": 4.7,
+    "place_id": "osm-node-7659013294"
+  }
+]
