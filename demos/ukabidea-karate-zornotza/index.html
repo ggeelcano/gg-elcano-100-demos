@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ukabidea Karate Klub · Zornotza | Karate tradicional en Amorebieta-Etxano</title>
+<meta name="description" content="Ukabidea Karate Klub en Zornotza (Amorebieta-Etxano). Clases de karate para niños, jóvenes y adultos. Técnica, kata, kumite y valores en un ambiente familiar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@400;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --rojo:#c8102e;
+  --rojo-dark:#8a0b20;
+  --negro:#0a0a0a;
+  --blanco:#ffffff;
+  --crema:#f5f1e8;
+  --gris:#6b6b6b;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--negro);background:var(--blanco);line-height:1.6;overflow-x:hidden}
+h1,h2,h3,h4{font-family:'Noto Serif JP',serif;font-weight:700;letter-spacing:-0.02em;line-height:1.15}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:1000;padding:18px 0;background:rgba(255,255,255,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(0,0,0,0.05);transition:all 0.3s}
+.nav-container{max-width:1280px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;font-family:'Noto Serif JP',serif;font-weight:900;font-size:1.15rem;color:var(--negro);text-decoration:none}
+.logo-kanji{width:44px;height:44px;background:var(--rojo);color:white;display:flex;align-items:center;justify-content:center;font-size:1.4rem;font-weight:900;border-radius:4px}
+.logo-text{display:flex;flex-direction:column;line-height:1.1}
+.logo-text small{font-size:0.7rem;color:var(--gris);font-weight:400;letter-spacing:0.15em;text-transform:uppercase;font-family:'Inter',sans-serif}
+.nav-links{display:flex;gap:36px;list-style:none}
+.nav-links a{color:var(--negro);text-decoration:none;font-weight:500;font-size:0.95rem;transition:color 0.2s}
+.nav-links a:hover{color:var(--rojo)}
+.nav-cta{background:var(--negro);color:white;padding:11px 22px;border-radius:4px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:all 0.2s}
+.nav-cta:hover{background:var(--rojo)}
+.menu-btn{display:none;background:none;border:0;font-size:1.5rem;cursor:pointer}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;position:relative;padding:120px 32px 80px;background:linear-gradient(135deg,#0a0a0a 0%,#1a1a1a 100%);color:white;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1555597673-b21d5c935865?w=1800&q=85');background-size:cover;background-position:center;opacity:0.45}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,10,10,0.92) 0%,rgba(10,10,10,0.75) 45%,rgba(10,10,10,0.35) 100%);z-index:1}
+.hero::after{content:'空';position:absolute;right:-80px;top:50%;transform:translateY(-50%);font-family:'Noto Serif JP',serif;font-size:38rem;color:var(--rojo);opacity:0.08;font-weight:900;line-height:1;pointer-events:none}
+.hero-container{max-width:1280px;margin:0 auto;width:100%;position:relative;z-index:2}
+.hero-content{max-width:640px}
+.hero-tag{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;background:rgba(200,16,46,0.15);border:1px solid rgba(200,16,46,0.3);border-radius:100px;font-size:0.8rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:28px;color:#ff6b7f}
+.hero-tag::before{content:'';width:8px;height:8px;background:var(--rojo);border-radius:50%;box-shadow:0 0 12px var(--rojo)}
+.hero h1{font-size:clamp(2.6rem,6vw,4.8rem);margin-bottom:28px;letter-spacing:-0.03em}
+.hero h1 .kanji{color:var(--rojo);font-size:1.1em;display:inline-block;margin-right:8px}
+.hero h1 em{font-style:normal;color:var(--rojo);position:relative}
+.hero h1 em::after{content:'';position:absolute;bottom:-6px;left:0;width:100%;height:4px;background:var(--rojo);opacity:0.4}
+.hero-sub{font-size:1.2rem;color:#c4c4c4;margin-bottom:40px;max-width:520px;line-height:1.7}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:48px}
+.btn{padding:16px 32px;border-radius:4px;text-decoration:none;font-weight:600;font-size:1rem;transition:all 0.2s;display:inline-flex;align-items:center;gap:10px;cursor:pointer;border:0}
+.btn-primary{background:var(--rojo);color:white}
+.btn-primary:hover{background:var(--rojo-dark);transform:translateY(-2px);box-shadow:0 10px 30px rgba(200,16,46,0.4)}
+.btn-outline{background:transparent;color:white;border:2px solid rgba(255,255,255,0.25)}
+.btn-outline:hover{border-color:white;background:rgba(255,255,255,0.05)}
+.hero-stats{display:flex;gap:48px;padding-top:40px;border-top:1px solid rgba(255,255,255,0.1)}
+.stat-num{font-family:'Noto Serif JP',serif;font-size:2.4rem;font-weight:900;color:var(--rojo);line-height:1}
+.stat-lbl{font-size:0.85rem;color:#999;margin-top:6px;letter-spacing:0.05em}
+
+/* SECTIONS */
+section{padding:110px 32px}
+.container{max-width:1280px;margin:0 auto}
+.section-head{text-align:center;max-width:700px;margin:0 auto 72px}
+.section-tag{display:inline-block;color:var(--rojo);font-weight:700;font-size:0.8rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:16px}
+.section-title{font-size:clamp(2rem,4.5vw,3.2rem);margin-bottom:20px}
+.section-sub{font-size:1.1rem;color:var(--gris);line-height:1.7}
+
+/* VALORES */
+.valores{background:var(--crema)}
+.valores-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:32px}
+.valor{text-align:center;padding:40px 24px;background:white;border-radius:8px;transition:all 0.3s;position:relative;overflow:hidden}
+.valor:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.08)}
+.valor::before{content:'';position:absolute;top:0;left:0;width:100%;height:3px;background:var(--rojo);transform:scaleX(0);transform-origin:left;transition:transform 0.4s}
+.valor:hover::before{transform:scaleX(1)}
+.valor-kanji{font-family:'Noto Serif JP',serif;font-size:3.6rem;color:var(--rojo);font-weight:900;line-height:1;margin-bottom:12px}
+.valor h3{font-size:1.3rem;margin-bottom:10px}
+.valor-jap{font-size:0.85rem;color:var(--gris);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:14px;font-weight:600}
+.valor p{color:var(--gris);font-size:0.95rem;line-height:1.65}
+
+/* CLASES */
+.clases-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:28px}
+.clase-card{background:white;border:1px solid #eee;border-radius:8px;overflow:hidden;transition:all 0.3s;display:flex;flex-direction:column}
+.clase-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.1);border-color:var(--rojo)}
+.clase-img{height:220px;background-size:cover;background-position:center;position:relative}
+.clase-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 40%,rgba(0,0,0,0.6))}
+.clase-edad{position:absolute;top:16px;left:16px;background:var(--rojo);color:white;padding:6px 14px;font-size:0.75rem;font-weight:700;border-radius:4px;letter-spacing:0.05em;z-index:2}
+.clase-body{padding:28px;flex:1;display:flex;flex-direction:column}
+.clase-body h3{font-size:1.4rem;margin-bottom:8px}
+.clase-horario{color:var(--rojo);font-weight:600;font-size:0.95rem;margin-bottom:16px}
+.clase-body p{color:var(--gris);font-size:0.95rem;margin-bottom:20px;flex:1}
+.clase-body ul{list-style:none;margin-bottom:24px}
+.clase-body li{padding:6px 0;font-size:0.9rem;color:var(--negro);padding-left:22px;position:relative}
+.clase-body li::before{content:'';position:absolute;left:0;top:14px;width:12px;height:2px;background:var(--rojo)}
+
+/* SOBRE */
+.sobre{background:var(--negro);color:white;position:relative;overflow:hidden}
+.sobre::before{content:'道';position:absolute;left:-50px;top:-50px;font-family:'Noto Serif JP',serif;font-size:30rem;color:var(--rojo);opacity:0.05;font-weight:900;line-height:1}
+.sobre-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;align-items:center;position:relative;z-index:2}
+.sobre-img{height:520px;background:url('https://images.unsplash.com/photo-1544717302-de2939b7ef71?w=1200&q=85') center/cover;border-radius:8px;position:relative}
+.sobre-img::before{content:'';position:absolute;inset:-2px;border:2px solid var(--rojo);border-radius:8px;transform:translate(16px,16px);z-index:-1}
+.sobre h2{color:white;margin-bottom:24px}
+.sobre-lead{font-size:1.2rem;color:#ccc;margin-bottom:28px;line-height:1.7}
+.sobre p{color:#a0a0a0;margin-bottom:18px;line-height:1.8}
+.sobre-firma{margin-top:36px;padding-top:28px;border-top:1px solid rgba(255,255,255,0.1)}
+.sobre-firma strong{display:block;font-family:'Noto Serif JP',serif;font-size:1.15rem;color:white}
+.sobre-firma small{color:var(--rojo);font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:600}
+
+/* HORARIOS */
+.horarios{background:var(--crema)}
+.horarios-table{background:white;border-radius:8px;overflow:hidden;box-shadow:0 10px 40px rgba(0,0,0,0.05)}
+.horarios-table table{width:100%;border-collapse:collapse}
+.horarios-table th{background:var(--negro);color:white;padding:18px;text-align:left;font-size:0.85rem;letter-spacing:0.1em;text-transform:uppercase;font-weight:600}
+.horarios-table td{padding:18px;border-bottom:1px solid #eee;font-size:0.95rem}
+.horarios-table tr:last-child td{border-bottom:0}
+.horarios-table tr:hover{background:#fafafa}
+.h-grupo{font-weight:700;color:var(--negro)}
+.h-edad{color:var(--gris);font-size:0.85rem}
+.h-dias{color:var(--rojo);font-weight:600}
+
+/* CTA */
+.cta{padding:100px 32px;background:linear-gradient(135deg,var(--rojo) 0%,var(--rojo-dark) 100%);color:white;text-align:center;position:relative;overflow:hidden}
+.cta::before{content:'拳';position:absolute;right:-40px;bottom:-80px;font-family:'Noto Serif JP',serif;font-size:24rem;opacity:0.08;font-weight:900;line-height:1}
+.cta-content{position:relative;z-index:2;max-width:720px;margin:0 auto}
+.cta h2{color:white;font-size:clamp(2rem,4vw,3rem);margin-bottom:20px}
+.cta p{font-size:1.15rem;opacity:0.9;margin-bottom:36px}
+.cta .btn-primary{background:white;color:var(--rojo)}
+.cta .btn-primary:hover{background:var(--negro);color:white}
+.cta .btn-outline{border-color:rgba(255,255,255,0.5);color:white}
+.cta .btn-outline:hover{background:white;color:var(--rojo);border-color:white}
+
+/* CONTACTO */
+.contacto-grid{display:grid;grid-template-columns:1fr 1fr;gap:60px}
+.contacto-info h2{margin-bottom:24px}
+.contacto-info p{color:var(--gris);margin-bottom:36px;font-size:1.05rem;line-height:1.7}
+.info-item{display:flex;gap:18px;padding:18px 0;border-bottom:1px solid #eee}
+.info-item:last-child{border-bottom:0}
+.info-icon{width:44px;height:44px;background:var(--crema);color:var(--rojo);display:flex;align-items:center;justify-content:center;border-radius:6px;flex-shrink:0;font-size:1.2rem}
+.info-item strong{display:block;font-size:0.95rem;margin-bottom:2px}
+.info-item span{color:var(--gris);font-size:0.95rem}
+.contact-form{background:var(--crema);padding:40px;border-radius:8px}
+.contact-form h3{margin-bottom:24px;font-size:1.5rem}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:0.85rem;font-weight:600;margin-bottom:6px;letter-spacing:0.05em}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:14px 16px;border:1px solid #ddd;border-radius:4px;font-family:inherit;font-size:0.95rem;background:white;transition:border-color 0.2s}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{outline:0;border-color:var(--rojo)}
+.form-group textarea{resize:vertical;min-height:100px}
+.form-submit{width:100%;background:var(--negro);color:white;padding:16px;border:0;border-radius:4px;font-weight:600;font-size:1rem;cursor:pointer;transition:all 0.2s}
+.form-submit:hover{background:var(--rojo)}
+
+/* FOOTER */
+.footer{background:var(--negro);color:white;padding:64px 32px 28px}
+.footer-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.footer-col h4{font-family:'Inter',sans-serif;font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;margin-bottom:18px;color:#999}
+.footer-col a,.footer-col p{color:#bbb;text-decoration:none;display:block;padding:4px 0;font-size:0.93rem;line-height:1.7}
+.footer-col a:hover{color:var(--rojo)}
+.footer-brand{display:flex;gap:14px;align-items:center;margin-bottom:18px}
+.footer-brand .logo-kanji{background:var(--rojo)}
+.footer-brand strong{font-family:'Noto Serif JP',serif;font-size:1.15rem}
+.footer-about{color:#999;font-size:0.93rem;line-height:1.7;max-width:340px}
+.footer-bottom{max-width:1280px;margin:0 auto;padding-top:28px;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;color:#777;font-size:0.85rem;flex-wrap:wrap;gap:12px}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .menu-btn{display:block}
+  .hero::before{width:100%;opacity:0.25}
+  .hero-stats{gap:28px}
+  .stat-num{font-size:1.8rem}
+  section{padding:72px 24px}
+  .sobre-grid,.contacto-grid{grid-template-columns:1fr;gap:40px}
+  .sobre-img{height:320px}
+  .footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .horarios-table{overflow-x:auto}
+  .horarios-table table{min-width:560px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-container">
+    <a href="#" class="logo">
+      <span class="logo-kanji">空</span>
+      <span class="logo-text">Ukabidea<small>Karate Klub · Zornotza</small></span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#valores">Filosofía</a></li>
+      <li><a href="#clases">Clases</a></li>
+      <li><a href="#sobre">Sobre nosotros</a></li>
+      <li><a href="#horarios">Horarios</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="#contacto" class="nav-cta">Clase de prueba gratis</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-overlay"></div>
+  <div class="hero-container">
+    <div class="hero-content">
+      <span class="hero-tag">Karate tradicional en Zornotza</span>
+      <h1><span class="kanji">拳</span>El camino<br>del <em>puño</em></h1>
+      <p class="hero-sub">"Ukabidea" significa <em>el camino del puño</em> en euskera. Somos un club de karate en Amorebieta-Etxano donde entrenamos técnica, forjamos carácter y formamos karatekas — dentro y fuera del tatami.</p>
+      <div class="hero-ctas">
+        <a href="#contacto" class="btn btn-primary">Reserva tu clase gratuita →</a>
+        <a href="#clases" class="btn btn-outline">Ver clases</a>
+      </div>
+      <div class="hero-stats">
+        <div><div class="stat-num">30+</div><div class="stat-lbl">Años en Zornotza</div></div>
+        <div><div class="stat-num">160</div><div class="stat-lbl">Karatekas activos</div></div>
+        <div><div class="stat-num">15</div><div class="stat-lbl">Campeones de Euskadi</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="valores" class="valores">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Nuestra filosofía</span>
+      <h2 class="section-title">Los valores del karate</h2>
+      <p class="section-sub">El karate no es solo un deporte. Es un camino — una forma de formar personas completas a través de la disciplina, el respeto y el esfuerzo. Estos son los pilares del Dojo Kun que vivimos cada día en el tatami.</p>
+    </div>
+    <div class="valores-grid">
+      <div class="valor">
+        <div class="valor-kanji">礼</div>
+        <div class="valor-jap">Rei</div>
+        <h3>Respeto</h3>
+        <p>Karate ni sente nashi — "en el karate no se ataca primero". Todo empieza y termina con un saludo. Respeto al maestro, al compañero y a uno mismo.</p>
+      </div>
+      <div class="valor">
+        <div class="valor-kanji">忍</div>
+        <div class="valor-jap">Nin</div>
+        <h3>Perseverancia</h3>
+        <p>Repetir el mismo kata mil veces. El carácter no se improvisa: se forja en cada entrenamiento, en cada kihon, en cada día.</p>
+      </div>
+      <div class="valor">
+        <div class="valor-kanji">誠</div>
+        <div class="valor-jap">Makoto</div>
+        <h3>Sinceridad</h3>
+        <p>Actuar con honestidad dentro y fuera del dojo. Ser coherente con lo que se enseña y con lo que se vive.</p>
+      </div>
+      <div class="valor">
+        <div class="valor-kanji">勇</div>
+        <div class="valor-jap">Yu</div>
+        <h3>Coraje</h3>
+        <p>Subir al tatami requiere valentía. Aprendemos a superar el miedo y a dar el paso, una y otra vez.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="clases" class="clases">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Clases</span>
+      <h2 class="section-title">Un grupo para cada edad</h2>
+      <p class="section-sub">Desde los 4 años hasta adultos. Grupos reducidos por nivel y edad para que cada karateka avance a su ritmo sin perder la exigencia técnica.</p>
+    </div>
+    <div class="clases-grid">
+
+      <div class="clase-card">
+        <div class="clase-img" style="background-image:url('https://images.unsplash.com/photo-1599591025739-08bae8a82e00?w=900&q=85')">
+          <span class="clase-edad">4 – 7 años</span>
+        </div>
+        <div class="clase-body">
+          <h3>Karate Txiki</h3>
+          <div class="clase-horario">Martes y jueves · 17:30 – 18:30</div>
+          <p>Iniciación lúdica al karate. Coordinación, psicomotricidad y primeros valores a través del juego y del kihon básico.</p>
+          <ul>
+            <li>Ratio máximo 12 niños por monitor</li>
+            <li>Trabajo sin contacto — enfoque en juego y técnica</li>
+            <li>Cinturones blanco-amarillo, blanco-naranja</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="clase-card">
+        <div class="clase-img" style="background-image:url('https://images.unsplash.com/photo-1555597673-b21d5c935865?w=900&q=85')">
+          <span class="clase-edad">8 – 13 años</span>
+        </div>
+        <div class="clase-body">
+          <h3>Karate Infantil</h3>
+          <div class="clase-horario">Lunes, miércoles y viernes · 18:30 – 19:45</div>
+          <p>Kihon, kata y kumite con protecciones. Preparamos a quienes quieren competir y a quienes entrenan por diversión.</p>
+          <ul>
+            <li>Técnica básica (kihon), formas (kata) y combate (kumite)</li>
+            <li>Participación voluntaria en torneos escolares de Bizkaia</li>
+            <li>Paso de cinturones cada trimestre</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="clase-card">
+        <div class="clase-img" style="background-image:url('https://images.unsplash.com/photo-1544717302-de2939b7ef71?w=900&q=85')">
+          <span class="clase-edad">14+ años</span>
+        </div>
+        <div class="clase-body">
+          <h3>Juvenil y Adultos</h3>
+          <div class="clase-horario">Lunes a jueves · 20:00 – 21:30</div>
+          <p>Karate de competición y karate recreativo. El mismo tatami, dos ritmos. Entrenamiento técnico, físico y kumite intenso.</p>
+          <ul>
+            <li>Preparación específica para Liga Vasca de Karate</li>
+            <li>Grupo adulto principiante para empezar de cero</li>
+            <li>Acceso libre al tatami los sábados por la mañana</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="sobre" class="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-img"></div>
+      <div>
+        <span class="section-tag">Nuestra historia</span>
+        <h2>Tres décadas<br>en Zornotza</h2>
+        <p class="sobre-lead">Ukabidea nació hace más de treinta años en Amorebieta-Etxano con una idea clara: enseñar karate de verdad — con técnica tradicional, disciplina y humanidad.</p>
+        <p>Hoy seguimos en la misma ciudad, con la misma filosofía y con generaciones de karatekas que han pasado por nuestro tatami. Muchos de nuestros alumnos de los 90 son ahora padres que traen a sus hijos al mismo dojo.</p>
+        <p>Formamos parte de la Federación Vasca de Karate y participamos en la Liga escolar de Bizkaia y en el circuito nacional. Pero por encima de medallas, nos importa una cosa: que cada niño y cada adulto que cruza la puerta salga mejor persona de la que entró.</p>
+        <div class="sobre-firma">
+          <strong>Sensei · 5º Dan</strong>
+          <small>Dirección técnica</small>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="horarios" class="horarios">
+  <div class="container">
+    <div class="section-head">
+      <span class="section-tag">Horarios</span>
+      <h2 class="section-title">Encuentra tu hueco</h2>
+      <p class="section-sub">Clases todos los días de la semana. Ven a probar una clase gratis antes de inscribirte.</p>
+    </div>
+    <div class="horarios-table">
+      <table>
+        <thead>
+          <tr>
+            <th>Grupo</th>
+            <th>Edad</th>
+            <th>Días</th>
+            <th>Horario</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="h-grupo">Karate Txiki</td>
+            <td class="h-edad">4 – 7 años</td>
+            <td class="h-dias">Martes y jueves</td>
+            <td>17:30 – 18:30</td>
+          </tr>
+          <tr>
+            <td class="h-grupo">Karate Infantil A</td>
+            <td class="h-edad">8 – 10 años</td>
+            <td class="h-dias">Lunes, miércoles, viernes</td>
+            <td>18:30 – 19:30</td>
+          </tr>
+          <tr>
+            <td class="h-grupo">Karate Infantil B</td>
+            <td class="h-edad">11 – 13 años</td>
+            <td class="h-dias">Lunes, miércoles, viernes</td>
+            <td>19:30 – 20:45</td>
+          </tr>
+          <tr>
+            <td class="h-grupo">Juvenil y Adulto</td>
+            <td class="h-edad">14 años en adelante</td>
+            <td class="h-dias">Lunes a jueves</td>
+            <td>20:00 – 21:30</td>
+          </tr>
+          <tr>
+            <td class="h-grupo">Tatami libre</td>
+            <td class="h-edad">Todos los niveles</td>
+            <td class="h-dias">Sábados</td>
+            <td>10:00 – 12:00</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <div class="cta-content">
+    <h2>Prueba una clase. Gratis. Sin compromiso.</h2>
+    <p>Solo tienes que traer ropa cómoda. El karategi te lo prestamos nosotros.</p>
+    <div class="hero-ctas" style="justify-content:center">
+      <a href="#contacto" class="btn btn-primary">Reservar mi clase →</a>
+      <a href="tel:+34946000000" class="btn btn-outline">946 00 00 00</a>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="container">
+    <div class="contacto-grid">
+      <div class="contacto-info">
+        <span class="section-tag">Contacto</span>
+        <h2>Ven a conocernos</h2>
+        <p>Pasa cualquier día por el dojo, llámanos o escríbenos. Contestamos en menos de 24 horas.</p>
+        <div class="info-item">
+          <div class="info-icon">📍</div>
+          <div><strong>Dirección</strong><span>Amorebieta-Etxano (Zornotza) · 48340 Bizkaia</span></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">📞</div>
+          <div><strong>Teléfono</strong><span>946 00 00 00</span></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">✉️</div>
+          <div><strong>Email</strong><span>info@ukabidea.eus</span></div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon">⏰</div>
+          <div><strong>Oficina</strong><span>Lunes a viernes · 17:00 – 21:30</span></div>
+        </div>
+      </div>
+      <form class="contact-form" onsubmit="event.preventDefault();alert('Mensaje enviado. Te contactamos en menos de 24h.');this.reset();">
+        <h3>Reserva tu clase gratuita</h3>
+        <div class="form-group">
+          <label>Nombre del alumno</label>
+          <input type="text" required placeholder="Ej: Aitor Etxeberria">
+        </div>
+        <div class="form-group">
+          <label>Edad</label>
+          <select required>
+            <option value="">Selecciona un grupo</option>
+            <option>4 – 7 años (Karate Txiki)</option>
+            <option>8 – 13 años (Infantil)</option>
+            <option>14+ años (Juvenil/Adulto)</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Teléfono de contacto</label>
+          <input type="tel" required placeholder="600 00 00 00">
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" required placeholder="tu@email.com">
+        </div>
+        <div class="form-group">
+          <label>Mensaje (opcional)</label>
+          <textarea placeholder="Cuéntanos lo que quieras — experiencia previa, dudas, día preferido para la clase de prueba..."></textarea>
+        </div>
+        <button type="submit" class="form-submit">Reservar clase gratuita →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="footer-brand">
+        <span class="logo-kanji">空</span>
+        <strong>Ukabidea Karate Klub</strong>
+      </div>
+      <p class="footer-about">Club de karate tradicional en Zornotza (Amorebieta-Etxano) desde hace más de 30 años. Federados con la Federación Vasca de Karate.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Klub</h4>
+      <a href="#valores">Filosofía</a>
+      <a href="#sobre">Historia</a>
+      <a href="#horarios">Horarios</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div class="footer-col">
+      <h4>Clases</h4>
+      <a href="#clases">Karate Txiki (4-7)</a>
+      <a href="#clases">Infantil (8-13)</a>
+      <a href="#clases">Juvenil y Adulto</a>
+      <a href="#clases">Tatami libre</a>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <a href="tel:+34946000000">946 00 00 00</a>
+      <a href="mailto:info@ukabidea.eus">info@ukabidea.eus</a>
+      <p>Amorebieta-Etxano<br>48340 Bizkaia</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Ukabidea Karate Klub · Zornotza · Todos los derechos reservados</div>
+    <div>Aviso legal · Privacidad · Cookies</div>
+  </div>
+</footer>
+
+<script>
+window.addEventListener('scroll',()=>{
+  const nav=document.querySelector('.nav');
+  if(window.scrollY>40){nav.style.boxShadow='0 4px 20px rgba(0,0,0,0.06)'}
+  else{nav.style.boxShadow='none'}
+});
+</script>
+
+</body>
+</html>
