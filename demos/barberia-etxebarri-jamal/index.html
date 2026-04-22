@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Barbería Etxebarri Jamal · Corte, barba y afeitado clásico en Etxebarri</title>
+<meta name="description" content="Barbería Jamal en Etxebarri (Bizkaia). Corte caballero, arreglo de barba, afeitado clásico con toalla caliente. San Esteban Hiribidea 9. Reserva hoy.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Playfair+Display:ital,wght@0,700;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --negro:#0a0807;
+  --carbon:#161210;
+  --cobre:#ff6a1a;
+  --cobre-d:#c44a0a;
+  --oro:#e8b84a;
+  --sangre:#d7263d;
+  --crema:#f4eadb;
+  --humo:#a8988a;
+}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--crema);background:var(--negro);line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:'Bebas Neue',sans-serif;letter-spacing:0.02em;line-height:1}
+.serif{font-family:'Playfair Display',serif;font-style:italic;font-weight:700}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:20px 0;background:rgba(10,8,7,0.85);backdrop-filter:blur(14px);border-bottom:1px solid rgba(232,184,74,0.15)}
+.nav-c{max-width:1280px;margin:0 auto;padding:0 32px;display:flex;align-items:center;justify-content:space-between}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--crema)}
+.logo-mark{width:48px;height:48px;background:linear-gradient(135deg,var(--cobre),var(--sangre));display:flex;align-items:center;justify-content:center;border-radius:50%;font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:white;box-shadow:0 0 20px rgba(255,106,26,0.4)}
+.logo-txt{display:flex;flex-direction:column;line-height:1}
+.logo-txt strong{font-family:'Bebas Neue',sans-serif;font-size:1.35rem;letter-spacing:0.08em}
+.logo-txt small{font-size:0.7rem;color:var(--oro);letter-spacing:0.25em;text-transform:uppercase;margin-top:2px}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--crema);text-decoration:none;font-size:0.9rem;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;transition:color 0.2s}
+.nav-links a:hover{color:var(--cobre)}
+.nav-cta{background:var(--cobre);color:var(--negro);padding:12px 24px;text-decoration:none;font-weight:700;font-size:0.85rem;letter-spacing:0.12em;text-transform:uppercase;border-radius:2px;transition:all 0.2s}
+.nav-cta:hover{background:var(--oro);box-shadow:0 0 30px rgba(232,184,74,0.5)}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 32px 80px;position:relative;overflow:hidden;background:var(--negro)}
+.hero::before{content:'';position:absolute;inset:0;background:url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=1800&q=90') center/cover;opacity:0.35}
+.hero::after{content:'';position:absolute;inset:0;background:radial-gradient(circle at 70% 50%,rgba(255,106,26,0.25) 0%,transparent 50%),linear-gradient(90deg,rgba(10,8,7,0.95) 0%,rgba(10,8,7,0.7) 50%,rgba(10,8,7,0.4) 100%)}
+.hero-c{max-width:1280px;margin:0 auto;width:100%;position:relative;z-index:2}
+.hero-tag{display:inline-flex;align-items:center;gap:12px;padding:10px 18px;background:rgba(232,184,74,0.1);border:1px solid rgba(232,184,74,0.3);color:var(--oro);font-size:0.75rem;font-weight:600;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:32px;border-radius:2px}
+.hero-tag::before{content:'';width:30px;height:1px;background:var(--oro)}
+.hero h1{font-size:clamp(3.5rem,10vw,8rem);color:var(--crema);margin-bottom:24px;letter-spacing:0.01em}
+.hero h1 .stroke{-webkit-text-stroke:2px var(--cobre);color:transparent;display:block}
+.hero h1 .accent{color:var(--cobre);text-shadow:0 0 40px rgba(255,106,26,0.6)}
+.hero-sub{font-size:1.15rem;color:var(--humo);max-width:520px;margin-bottom:40px;line-height:1.7}
+.hero-sub em{color:var(--oro);font-style:normal}
+.hero-ctas{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:60px}
+.btn{padding:18px 36px;text-decoration:none;font-weight:700;font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase;transition:all 0.3s;display:inline-flex;align-items:center;gap:12px;border:0;cursor:pointer;border-radius:2px;font-family:'Inter',sans-serif}
+.btn-primary{background:var(--cobre);color:var(--negro)}
+.btn-primary:hover{background:var(--oro);transform:translateY(-2px);box-shadow:0 14px 40px rgba(255,106,26,0.5)}
+.btn-ghost{background:transparent;color:var(--crema);border:1px solid rgba(244,234,219,0.3)}
+.btn-ghost:hover{border-color:var(--cobre);color:var(--cobre)}
+.hero-stats{display:flex;gap:56px;padding-top:32px;border-top:1px solid rgba(244,234,219,0.1);max-width:640px}
+.stat-n{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:var(--cobre);line-height:1}
+.stat-l{font-size:0.75rem;color:var(--humo);letter-spacing:0.2em;text-transform:uppercase;margin-top:4px}
+
+/* STRIP */
+.strip{background:var(--cobre);padding:22px 0;overflow:hidden;position:relative}
+.strip-inner{display:flex;gap:48px;animation:scroll 30s linear infinite;white-space:nowrap}
+.strip span{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--negro);letter-spacing:0.2em}
+.strip span::after{content:'✂';margin-left:48px;color:var(--negro)}
+@keyframes scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SECTIONS */
+section{padding:120px 32px}
+.container{max-width:1280px;margin:0 auto}
+.s-head{max-width:720px;margin:0 auto 80px;text-align:center}
+.s-tag{display:inline-block;color:var(--cobre);font-size:0.75rem;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;margin-bottom:20px}
+.s-tag::before,.s-tag::after{content:'—';margin:0 12px;color:var(--oro)}
+.s-title{font-size:clamp(2.5rem,6vw,4.5rem);color:var(--crema);margin-bottom:20px}
+.s-title .italic{font-family:'Playfair Display',serif;font-style:italic;color:var(--oro);font-weight:700;text-transform:none}
+.s-sub{font-size:1.05rem;color:var(--humo);line-height:1.7}
+
+/* SERVICIOS */
+.servicios{background:var(--carbon);position:relative}
+.servicios::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--cobre),transparent)}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:80px}
+.menu-col h3{font-family:'Playfair Display',serif;font-style:italic;color:var(--oro);font-size:1.8rem;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid rgba(232,184,74,0.2);font-weight:700}
+.srv{display:grid;grid-template-columns:1fr auto;gap:16px 24px;padding:18px 0;border-bottom:1px dashed rgba(244,234,219,0.1);align-items:baseline}
+.srv:last-child{border-bottom:0}
+.srv-name{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--crema);letter-spacing:0.04em}
+.srv-price{font-family:'Bebas Neue',sans-serif;font-size:1.6rem;color:var(--cobre);letter-spacing:0.02em}
+.srv-desc{grid-column:1/-1;font-size:0.88rem;color:var(--humo);margin-top:-4px}
+
+/* SOBRE */
+.sobre{position:relative;overflow:hidden}
+.sobre::before{content:'';position:absolute;right:-100px;top:50%;transform:translateY(-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(255,106,26,0.08) 0%,transparent 70%)}
+.sobre-g{display:grid;grid-template-columns:1.1fr 1fr;gap:80px;align-items:center;position:relative;z-index:2}
+.sobre-img{height:620px;background:url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=1200&q=90') center/cover;border-radius:4px;position:relative}
+.sobre-img::before{content:'EST.';position:absolute;top:24px;left:24px;font-family:'Bebas Neue',sans-serif;font-size:0.85rem;color:var(--crema);background:var(--cobre);padding:10px 16px;letter-spacing:0.2em}
+.sobre-img::after{content:'';position:absolute;inset:-2px;border:1px solid var(--cobre);border-radius:4px;transform:translate(18px,18px);z-index:-1;pointer-events:none}
+.sobre h2{color:var(--crema);margin-bottom:28px}
+.sobre-lead{font-size:1.25rem;color:var(--oro);margin-bottom:24px;font-family:'Playfair Display',serif;font-style:italic;line-height:1.5}
+.sobre p{color:var(--humo);margin-bottom:18px;line-height:1.8}
+.sobre-firma{margin-top:40px;padding-top:28px;border-top:1px solid rgba(244,234,219,0.1);display:flex;align-items:center;gap:16px}
+.sobre-firma-nom{font-family:'Playfair Display',serif;font-weight:700;font-size:1.25rem;color:var(--crema)}
+.sobre-firma-rol{font-size:0.8rem;color:var(--cobre);letter-spacing:0.15em;text-transform:uppercase;margin-top:2px}
+
+/* GALERIA */
+.galeria{background:var(--carbon);padding-bottom:0}
+.gal-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:60px}
+.gal-item{aspect-ratio:1;background-size:cover;background-position:center;position:relative;overflow:hidden;cursor:pointer;transition:all 0.4s}
+.gal-item::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,106,26,0) 0%,rgba(255,106,26,0.4) 100%);opacity:0;transition:opacity 0.3s}
+.gal-item:hover::after{opacity:1}
+.gal-item:hover{transform:scale(1.02)}
+.gal-item.wide{grid-column:span 2}
+
+/* RESEÑAS */
+.resenas{background:var(--negro)}
+.res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;margin-top:20px}
+.res{background:var(--carbon);padding:36px 32px;border-radius:4px;border:1px solid rgba(232,184,74,0.1);position:relative;transition:all 0.3s}
+.res:hover{border-color:var(--cobre);transform:translateY(-4px)}
+.res-stars{color:var(--oro);font-size:1.1rem;letter-spacing:0.15em;margin-bottom:18px}
+.res-txt{color:var(--crema);line-height:1.7;margin-bottom:24px;font-size:0.98rem}
+.res-txt::before{content:'"';font-family:'Playfair Display',serif;font-size:4rem;color:var(--cobre);position:absolute;top:4px;left:20px;line-height:1;opacity:0.3}
+.res-autor{display:flex;align-items:center;gap:12px;padding-top:18px;border-top:1px solid rgba(244,234,219,0.08)}
+.res-ava{width:42px;height:42px;background:linear-gradient(135deg,var(--cobre),var(--sangre));border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-family:'Bebas Neue',sans-serif;font-size:1.1rem}
+.res-nom{font-weight:600;color:var(--crema);font-size:0.95rem}
+.res-fec{font-size:0.8rem;color:var(--humo)}
+
+/* RESERVA CTA */
+.reserva{background:linear-gradient(135deg,var(--cobre) 0%,var(--sangre) 100%);position:relative;overflow:hidden;text-align:center}
+.reserva::before{content:'✂';position:absolute;left:-80px;top:50%;transform:translateY(-50%) rotate(-25deg);font-size:28rem;opacity:0.08;color:var(--negro);line-height:1}
+.reserva::after{content:'✂';position:absolute;right:-80px;top:50%;transform:translateY(-50%) rotate(25deg);font-size:28rem;opacity:0.08;color:var(--negro);line-height:1}
+.reserva-c{position:relative;z-index:2;max-width:760px;margin:0 auto}
+.reserva h2{color:var(--negro);font-size:clamp(2.5rem,6vw,4.5rem);margin-bottom:20px}
+.reserva p{color:rgba(10,8,7,0.8);font-size:1.15rem;margin-bottom:36px}
+.reserva .btn-primary{background:var(--negro);color:var(--cobre)}
+.reserva .btn-primary:hover{background:var(--crema);color:var(--negro);box-shadow:0 14px 40px rgba(0,0,0,0.4)}
+
+/* CONTACTO */
+.contacto{background:var(--carbon)}
+.cont-g{display:grid;grid-template-columns:1fr 1.1fr;gap:60px}
+.cont-info h2{color:var(--crema);margin-bottom:28px}
+.cont-lead{color:var(--humo);font-size:1.05rem;margin-bottom:40px;line-height:1.7}
+.cont-item{display:flex;gap:20px;padding:22px 0;border-bottom:1px solid rgba(244,234,219,0.08);align-items:flex-start}
+.cont-item:last-of-type{border-bottom:0}
+.cont-ico{width:48px;height:48px;background:rgba(255,106,26,0.1);border:1px solid rgba(255,106,26,0.3);color:var(--cobre);display:flex;align-items:center;justify-content:center;border-radius:4px;flex-shrink:0;font-size:1.15rem}
+.cont-item strong{display:block;color:var(--crema);font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;margin-bottom:6px}
+.cont-item span,.cont-item a{color:var(--humo);font-size:1rem;text-decoration:none;line-height:1.6}
+.cont-item a:hover{color:var(--cobre)}
+
+.horarios-box{background:var(--negro);padding:32px;border-radius:4px;border:1px solid rgba(232,184,74,0.15)}
+.horarios-box h3{font-family:'Bebas Neue',sans-serif;font-size:1.8rem;color:var(--oro);margin-bottom:24px;letter-spacing:0.08em}
+.hr{display:flex;justify-content:space-between;padding:14px 0;border-bottom:1px dashed rgba(244,234,219,0.1);font-size:0.98rem}
+.hr:last-child{border-bottom:0}
+.hr-dia{color:var(--crema);font-weight:600;letter-spacing:0.05em}
+.hr-hora{color:var(--humo)}
+.hr-hora.cerrado{color:var(--sangre);font-weight:600;font-size:0.85rem;letter-spacing:0.15em;text-transform:uppercase}
+.hr.hoy{background:rgba(255,106,26,0.08);margin:0 -20px;padding-left:20px;padding-right:20px;border-radius:4px;border-bottom:0}
+.hr.hoy .hr-dia{color:var(--cobre)}
+
+/* FOOTER */
+.footer{background:var(--negro);padding:72px 32px 32px;border-top:1px solid rgba(232,184,74,0.1)}
+.f-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:48px;margin-bottom:48px}
+.f-col h4{font-family:'Bebas Neue',sans-serif;font-size:1.1rem;letter-spacing:0.2em;color:var(--oro);margin-bottom:20px}
+.f-col a,.f-col p{color:var(--humo);text-decoration:none;display:block;padding:5px 0;font-size:0.92rem;transition:color 0.2s}
+.f-col a:hover{color:var(--cobre)}
+.f-brand{display:flex;gap:14px;align-items:center;margin-bottom:20px}
+.f-brand strong{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;letter-spacing:0.08em;color:var(--crema)}
+.f-about{color:var(--humo);font-size:0.93rem;line-height:1.7;max-width:320px}
+.f-bot{max-width:1280px;margin:0 auto;padding-top:28px;border-top:1px solid rgba(244,234,219,0.08);display:flex;justify-content:space-between;color:var(--humo);font-size:0.85rem;flex-wrap:wrap;gap:12px}
+.f-bot a{color:var(--humo);text-decoration:none;margin-left:20px}
+.f-bot a:hover{color:var(--cobre)}
+
+/* WhatsApp flotante */
+.wa-float{position:fixed;bottom:28px;right:28px;width:60px;height:60px;background:#25d366;border-radius:50%;display:flex;align-items:center;justify-content:center;color:white;text-decoration:none;font-size:1.8rem;box-shadow:0 10px 30px rgba(37,211,102,0.4);z-index:90;transition:all 0.3s}
+.wa-float:hover{transform:scale(1.1);box-shadow:0 14px 40px rgba(37,211,102,0.6)}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  section{padding:72px 22px}
+  .hero{padding:110px 22px 60px}
+  .hero-stats{gap:28px;flex-wrap:wrap}
+  .stat-n{font-size:2rem}
+  .menu,.sobre-g,.cont-g{grid-template-columns:1fr;gap:48px}
+  .sobre-img{height:380px}
+  .gal-grid{grid-template-columns:repeat(2,1fr)}
+  .gal-item.wide{grid-column:span 2}
+  .res-grid{grid-template-columns:1fr}
+  .f-grid{grid-template-columns:1fr 1fr;gap:32px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-c">
+    <a href="#" class="logo">
+      <span class="logo-mark">J</span>
+      <span class="logo-txt">
+        <strong>JAMAL</strong>
+        <small>Barbería Etxebarri</small>
+      </span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#servicios">Servicios</a></li>
+      <li><a href="#sobre">Nosotros</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+    </ul>
+    <a href="tel:+34604917690" class="nav-cta">Reservar cita</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-c">
+    <span class="hero-tag">San Esteban 9 · Etxebarri</span>
+    <h1>
+      <span class="stroke">BARBERÍA</span>
+      <span class="accent">JAMAL</span>
+    </h1>
+    <p class="hero-sub">Corte preciso, barba trabajada y <em>afeitado clásico con toalla caliente</em>. El ritual del barbero de siempre, con la técnica de hoy. En pleno centro de Etxebarri.</p>
+    <div class="hero-ctas">
+      <a href="tel:+34604917690" class="btn btn-primary">Llamar ahora →</a>
+      <a href="#servicios" class="btn btn-ghost">Ver precios</a>
+    </div>
+    <div class="hero-stats">
+      <div><div class="stat-n">4.8★</div><div class="stat-l">Valoración Google</div></div>
+      <div><div class="stat-n">6 DÍAS</div><div class="stat-l">Abiertos a la semana</div></div>
+      <div><div class="stat-n">15€</div><div class="stat-l">Desde, corte clásico</div></div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="strip-inner">
+    <span>CORTE CLÁSICO</span>
+    <span>AFEITADO NAVAJA</span>
+    <span>BARBA ESCULPIDA</span>
+    <span>FADE PRECISO</span>
+    <span>TOALLA CALIENTE</span>
+    <span>MASAJE CAPILAR</span>
+    <span>CORTE CLÁSICO</span>
+    <span>AFEITADO NAVAJA</span>
+    <span>BARBA ESCULPIDA</span>
+    <span>FADE PRECISO</span>
+    <span>TOALLA CALIENTE</span>
+    <span>MASAJE CAPILAR</span>
+  </div>
+</div>
+
+<section id="servicios" class="servicios">
+  <div class="container">
+    <div class="s-head">
+      <span class="s-tag">Carta de servicios</span>
+      <h2 class="s-title">Lo que hacemos, <span class="italic">bien hecho</span></h2>
+      <p class="s-sub">Precios claros, sin sorpresas. Cada servicio incluye lavado, toalla caliente y una conversación tranquila.</p>
+    </div>
+    <div class="menu">
+      <div class="menu-col">
+        <h3>Corte</h3>
+        <div class="srv">
+          <div class="srv-name">Corte caballero</div>
+          <div class="srv-price">15 €</div>
+          <div class="srv-desc">Corte a tijera o máquina, lavado, peinado y acabado.</div>
+        </div>
+        <div class="srv">
+          <div class="srv-name">Corte niño (&lt;12 años)</div>
+          <div class="srv-price">12 €</div>
+          <div class="srv-desc">Paciencia, profesionalidad y una piruleta al final.</div>
+        </div>
+        <div class="srv">
+          <div class="srv-name">Fade / Degradado</div>
+          <div class="srv-price">17 €</div>
+          <div class="srv-desc">Skin fade, mid fade o taper — tú eliges, nosotros lo bordamos.</div>
+        </div>
+        <div class="srv">
+          <div class="srv-name">Diseños y rayas</div>
+          <div class="srv-price">+5 €</div>
+          <div class="srv-desc">Sobre cualquier corte. Líneas, símbolos o letras.</div>
+        </div>
+        <div class="srv">
+          <div class="srv-name">Corte rapado total</div>
+          <div class="srv-price">10 €</div>
+          <div class="srv-desc">Una pasada limpia y perfiles definidos.</div>
+        </div>
+      </div>
+
+      <div class="menu-col">
+        <h3>Barba &amp; afeitado</h3>
+        <div class="srv">
+          <div class="srv-name">Arreglo de barba</div>
+          <div class="srv-price">10 €</div>
+          <div class="srv-desc">Perfilado a máquina y tijera, aceite y bálsamo.</div>
+        </div>
+        <div class="srv">
+          <div class="srv-name">Afeitado clásico</div>
+          <div class="srv-price">15 €</div>
+          <div class="srv-desc">Navaja, toalla caliente, aftershave. Ritual completo.</div>
+        </div>
+        <div class="srv">
+          <div class="srv-name">Corte + barba</div>
+          <div class="srv-price">22 €</div>
+          <div class="srv-desc">Combo más pedido. Ahorra 3€.</div>
+        </div>
+        <div class="srv">
+          <div class="srv-name">Ritual total</div>
+          <div class="srv-price">32 €</div>
+          <div class="srv-desc">Corte + barba + afeitado a navaja + masaje capilar. 45 min.</div>
+        </div>
+        <div class="srv">
+          <div class="srv-name">Masaje capilar</div>
+          <div class="srv-price">8 €</div>
+          <div class="srv-desc">10 minutos de relax con aceites esenciales.</div>
+        </div>
+        <div class="srv">
+          <div class="srv-name">Tinte barba/pelo</div>
+          <div class="srv-price">20 €</div>
+          <div class="srv-desc">Coloración profesional, sin amoniaco.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre" class="sobre">
+  <div class="container">
+    <div class="sobre-g">
+      <div class="sobre-img"></div>
+      <div>
+        <span class="s-tag" style="margin-bottom:16px">Sobre nosotros</span>
+        <h2 class="s-title">El oficio, <span class="italic">con respeto</span></h2>
+        <p class="sobre-lead">Una barbería no es una peluquería. Es un sitio al que vienes, te sientas, te callas veinte minutos — y sales siendo otro.</p>
+        <p>En Jamal llevamos años cortando el pelo a Etxebarri. Trabajamos con técnica clásica y herramientas de calidad: tijeras japonesas, navaja barbera, toallas calientes y cosmética específica para barba y piel.</p>
+        <p>Aquí no hay prisa. No te apretamos el tiempo. Si vienes con dudas, te aconsejamos. Si sabes lo que quieres, lo clavamos. Y si solo quieres silencio y un buen corte, también.</p>
+        <p>Somos <strong style="color:var(--crema)">LGBTQ+ friendly</strong>, el local es <strong style="color:var(--crema)">accesible en silla de ruedas</strong>, y el baño es de género neutro. Aquí cabe todo el mundo.</p>
+        <div class="sobre-firma">
+          <div class="logo-mark">J</div>
+          <div>
+            <div class="sobre-firma-nom">Jamal</div>
+            <div class="sobre-firma-rol">Maestro barbero · Fundador</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" class="galeria">
+  <div class="container">
+    <div class="s-head">
+      <span class="s-tag">Galería</span>
+      <h2 class="s-title">El trabajo <span class="italic">habla por sí solo</span></h2>
+    </div>
+  </div>
+  <div class="gal-grid">
+    <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1599351431202-1e0f0137899a?w=800&q=85')"></div>
+    <div class="gal-item wide" style="background-image:url('https://images.unsplash.com/photo-1621605815971-fbc98d665033?w=1200&q=85')"></div>
+    <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1503951914875-452162b0f3f1?w=800&q=85')"></div>
+    <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1622286342621-4bd786c2447c?w=800&q=85')"></div>
+    <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1585747860715-2ba37e788b70?w=800&q=85')"></div>
+    <div class="gal-item wide" style="background-image:url('https://images.unsplash.com/photo-1593702275687-f8b402bf1fb5?w=1200&q=85')"></div>
+    <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1634481538371-6b2d1e0dee4b?w=800&q=85')"></div>
+    <div class="gal-item" style="background-image:url('https://images.unsplash.com/photo-1581974944026-5d6ed762f617?w=800&q=85')"></div>
+  </div>
+</section>
+
+<section class="resenas">
+  <div class="container">
+    <div class="s-head">
+      <span class="s-tag">Lo que dicen</span>
+      <h2 class="s-title">Clientes <span class="italic">contentos</span></h2>
+      <p class="s-sub">Reseñas reales de Google. Sin filtros, sin paga.</p>
+    </div>
+    <div class="res-grid">
+      <div class="res">
+        <div class="res-stars">★★★★★</div>
+        <p class="res-txt">La mejor barbería de Etxebarri. Voy desde que abrieron. Jamal tiene manos de cirujano y encima te ríes un rato con él. Muy recomendable.</p>
+        <div class="res-autor">
+          <div class="res-ava">I</div>
+          <div>
+            <div class="res-nom">Iker M.</div>
+            <div class="res-fec">Hace 2 semanas</div>
+          </div>
+        </div>
+      </div>
+      <div class="res">
+        <div class="res-stars">★★★★★</div>
+        <p class="res-txt">Llevé a mi hijo de 6 años y lo trató de maravilla. Corte perfecto, el niño tan feliz. Precio justo, local limpísimo. Repetiremos seguro.</p>
+        <div class="res-autor">
+          <div class="res-ava">A</div>
+          <div>
+            <div class="res-nom">Ane G.</div>
+            <div class="res-fec">Hace 1 mes</div>
+          </div>
+        </div>
+      </div>
+      <div class="res">
+        <div class="res-stars">★★★★★</div>
+        <p class="res-txt">El afeitado clásico con toalla caliente es otro nivel. Me siento como en los años 50 pero con corte moderno. Única pega: siempre hay cola los sábados — mejor reservar.</p>
+        <div class="res-autor">
+          <div class="res-ava">J</div>
+          <div>
+            <div class="res-nom">Jon A.</div>
+            <div class="res-fec">Hace 3 semanas</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="reserva">
+  <div class="reserva-c">
+    <h2>Pide tu cita. Hoy mismo.</h2>
+    <p>Llama o escribe por WhatsApp. Hueco disponible esta misma semana.</p>
+    <div class="hero-ctas" style="justify-content:center">
+      <a href="tel:+34604917690" class="btn btn-primary">📞 604 91 76 90</a>
+      <a href="https://wa.me/34604917690?text=Hola%20Jamal,%20quer%C3%ADa%20pedir%20cita" class="btn btn-ghost" style="color:var(--negro);border-color:var(--negro)">WhatsApp →</a>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contacto">
+  <div class="container">
+    <div class="cont-g">
+      <div class="cont-info">
+        <span class="s-tag" style="margin-bottom:16px">Contacto</span>
+        <h2 class="s-title">Ven a <span class="italic">vernos</span></h2>
+        <p class="cont-lead">Estamos en pleno San Esteban, en el local izquierdo. Cinco minutos andando desde el metro de Etxebarri.</p>
+
+        <div class="cont-item">
+          <div class="cont-ico">📍</div>
+          <div>
+            <strong>Dirección</strong>
+            <span>San Esteban Hiribidea, 9 · Local izquierda<br>48450 Etxebarri, Bizkaia</span>
+          </div>
+        </div>
+        <div class="cont-item">
+          <div class="cont-ico">📞</div>
+          <div>
+            <strong>Teléfono</strong>
+            <a href="tel:+34604917690">604 91 76 90</a>
+          </div>
+        </div>
+        <div class="cont-item">
+          <div class="cont-ico">💬</div>
+          <div>
+            <strong>WhatsApp</strong>
+            <a href="https://wa.me/34604917690">Escríbenos directo</a>
+          </div>
+        </div>
+        <div class="cont-item">
+          <div class="cont-ico">🚇</div>
+          <div>
+            <strong>Transporte</strong>
+            <span>Metro Etxebarri (L3) · 5 min andando</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="horarios-box">
+        <h3>Horarios</h3>
+        <div class="hr"><span class="hr-dia">Lunes</span><span class="hr-hora">09:45 – 14:00 · 16:00 – 20:00</span></div>
+        <div class="hr"><span class="hr-dia">Martes</span><span class="hr-hora">09:45 – 14:00 · 16:00 – 20:00</span></div>
+        <div class="hr hoy"><span class="hr-dia">Miércoles · Hoy</span><span class="hr-hora">09:45 – 14:00 · 16:00 – 20:00</span></div>
+        <div class="hr"><span class="hr-dia">Jueves</span><span class="hr-hora">09:45 – 14:00 · 16:00 – 20:00</span></div>
+        <div class="hr"><span class="hr-dia">Viernes</span><span class="hr-hora">09:45 – 14:00 · 16:00 – 20:00</span></div>
+        <div class="hr"><span class="hr-dia">Sábado</span><span class="hr-hora">09:00 – 18:00</span></div>
+        <div class="hr"><span class="hr-dia">Domingo</span><span class="hr-hora cerrado">Cerrado</span></div>
+
+        <div style="margin-top:28px;padding:18px;background:rgba(232,184,74,0.08);border-left:2px solid var(--oro);border-radius:2px">
+          <div style="font-size:0.8rem;color:var(--oro);letter-spacing:0.15em;text-transform:uppercase;margin-bottom:6px;font-weight:600">Recomendación</div>
+          <div style="color:var(--humo);font-size:0.92rem;line-height:1.6">Los sábados hay mucha demanda. Reserva con antelación por WhatsApp para no esperar.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="f-grid">
+    <div class="f-col">
+      <div class="f-brand">
+        <span class="logo-mark">J</span>
+        <strong>BARBERÍA JAMAL</strong>
+      </div>
+      <p class="f-about">Corte, barba y afeitado clásico en Etxebarri desde hace años. Técnica tradicional, trato cercano, precios justos.</p>
+    </div>
+    <div class="f-col">
+      <h4>Barbería</h4>
+      <a href="#servicios">Servicios</a>
+      <a href="#sobre">Nosotros</a>
+      <a href="#galeria">Galería</a>
+      <a href="#contacto">Contacto</a>
+    </div>
+    <div class="f-col">
+      <h4>Servicios</h4>
+      <a href="#servicios">Corte caballero</a>
+      <a href="#servicios">Afeitado clásico</a>
+      <a href="#servicios">Arreglo de barba</a>
+      <a href="#servicios">Ritual total</a>
+    </div>
+    <div class="f-col">
+      <h4>Contacto</h4>
+      <a href="tel:+34604917690">604 91 76 90</a>
+      <a href="https://wa.me/34604917690">WhatsApp</a>
+      <p>San Esteban 9<br>48450 Etxebarri</p>
+    </div>
+  </div>
+  <div class="f-bot">
+    <div>© 2026 Barbería Etxebarri Jamal · Todos los derechos reservados</div>
+    <div><a href="#">Aviso legal</a><a href="#">Privacidad</a><a href="#">Cookies</a></div>
+  </div>
+</footer>
+
+<a href="https://wa.me/34604917690?text=Hola%20Jamal,%20quer%C3%ADa%20pedir%20cita" class="wa-float" aria-label="WhatsApp">💬</a>
+
+<script>
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click',e=>{
+    const t=document.querySelector(a.getAttribute('href'));
+    if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+  });
+});
+</script>
+
+</body>
+</html>
