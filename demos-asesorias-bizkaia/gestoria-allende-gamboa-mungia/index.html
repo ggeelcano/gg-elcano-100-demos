@@ -1,0 +1,876 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gestoría Allende Gamboa — Asesoría fiscal, laboral y contable en Mungia</title>
+<meta name="description" content="Gestoría Allende Gamboa S.L. en Mungia. Asesoría fiscal, laboral, contable y mercantil para autónomos y empresas en Bizkaia. Más de 25 años de experiencia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lora:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  :root {
+    --navy: #0F2A47;
+    --navy-dark: #0a1d33;
+    --gold: #C5A35A;
+    --gold-light: #d9bd80;
+    --cream: #faf8f3;
+    --gray: #5a6273;
+    --gray-light: #e8eaf0;
+    --white: #ffffff;
+    --serif: 'Lora', Georgia, serif;
+    --sans: 'Inter', system-ui, sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--sans);
+    color: var(--navy);
+    background: var(--cream);
+    line-height: 1.65;
+    font-weight: 400;
+    overflow-x: hidden;
+  }
+  a { color: inherit; text-decoration: none; }
+  img { max-width: 100%; display: block; }
+
+  /* ─── NAVBAR ─── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    background: rgba(250, 248, 243, 0.96);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid rgba(15, 42, 71, 0.08);
+    padding: 18px 0;
+    transition: padding .3s;
+  }
+  nav.scrolled { padding: 12px 0; box-shadow: 0 4px 20px rgba(0,0,0,0.05); }
+  .nav-container {
+    max-width: 1240px; margin: 0 auto;
+    padding: 0 32px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+  .logo { display: flex; align-items: center; gap: 12px; }
+  .logo-mark {
+    width: 44px; height: 44px;
+    background: var(--navy);
+    color: var(--gold);
+    display: grid; place-items: center;
+    font-family: var(--serif); font-weight: 700; font-size: 20px;
+    border: 1px solid var(--gold);
+  }
+  .logo-text { font-family: var(--serif); font-weight: 600; font-size: 18px; line-height: 1.1; }
+  .logo-text small { display: block; font-family: var(--sans); font-weight: 400; font-size: 11px; color: var(--gray); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 2px;}
+  .nav-links { display: flex; gap: 36px; align-items: center; font-size: 14px; font-weight: 500; }
+  .nav-links a { transition: color .2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    background: var(--navy); color: var(--cream) !important;
+    padding: 10px 22px; font-weight: 500; font-size: 14px;
+    transition: background .2s;
+  }
+  .nav-cta:hover { background: var(--gold); color: var(--navy) !important; }
+  .menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
+  .menu-btn span { display: block; width: 24px; height: 2px; background: var(--navy); margin: 5px 0; transition: .3s; }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 92vh;
+    display: grid; grid-template-columns: 1.05fr 1fr; gap: 60px;
+    align-items: center;
+    padding: 140px 32px 80px;
+    max-width: 1240px; margin: 0 auto;
+  }
+  .hero-content .eyebrow {
+    display: inline-block;
+    color: var(--gold);
+    font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 24px;
+    padding-left: 50px; position: relative;
+  }
+  .hero-content .eyebrow::before {
+    content: ''; position: absolute; left: 0; top: 50%;
+    width: 36px; height: 1px; background: var(--gold);
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-size: clamp(36px, 5vw, 56px);
+    font-weight: 600; line-height: 1.1;
+    margin-bottom: 28px;
+    color: var(--navy);
+  }
+  .hero h1 em { color: var(--gold); font-style: italic; font-weight: 500; }
+  .hero p.lead {
+    font-size: 18px; line-height: 1.7; color: var(--gray);
+    margin-bottom: 38px; max-width: 520px;
+  }
+  .btn-row { display: flex; gap: 16px; flex-wrap: wrap; }
+  .btn {
+    padding: 16px 32px;
+    font-weight: 500; font-size: 15px;
+    transition: all .25s ease;
+    cursor: pointer; border: none;
+    display: inline-flex; align-items: center; gap: 10px;
+  }
+  .btn-primary { background: var(--navy); color: var(--cream); }
+  .btn-primary:hover { background: var(--gold); color: var(--navy); transform: translateY(-2px); }
+  .btn-outline { background: transparent; color: var(--navy); border: 1.5px solid var(--navy); }
+  .btn-outline:hover { background: var(--navy); color: var(--cream); }
+
+  .hero-visual {
+    position: relative; height: 580px;
+  }
+  .hero-card {
+    position: absolute;
+    background: var(--white);
+    padding: 32px;
+    box-shadow: 0 30px 60px rgba(15, 42, 71, 0.12);
+    border-top: 3px solid var(--gold);
+  }
+  .hero-card-1 {
+    top: 0; right: 0; width: 320px;
+  }
+  .hero-card-2 {
+    bottom: 0; left: 0; width: 340px;
+  }
+  .hero-card h3 {
+    font-family: var(--serif); font-size: 22px; font-weight: 600;
+    margin-bottom: 14px; color: var(--navy);
+  }
+  .hero-card p { color: var(--gray); font-size: 14px; line-height: 1.6; }
+  .hero-stat {
+    display: flex; align-items: baseline; gap: 12px;
+    margin-top: 20px; padding-top: 20px;
+    border-top: 1px solid var(--gray-light);
+  }
+  .hero-stat-num {
+    font-family: var(--serif); font-size: 36px; font-weight: 700; color: var(--gold);
+  }
+  .hero-stat-label { font-size: 13px; color: var(--gray); line-height: 1.3; }
+
+  .pattern {
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, var(--gold) 1px, transparent 1px);
+    background-size: 24px 24px;
+    opacity: 0.15; z-index: -1;
+    border-radius: 4px;
+  }
+
+  /* ─── SECTIONS ─── */
+  section { padding: 100px 32px; }
+  .container { max-width: 1240px; margin: 0 auto; }
+  .section-header { text-align: center; max-width: 720px; margin: 0 auto 70px; }
+  .section-header .eyebrow {
+    color: var(--gold);
+    font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 18px; display: block;
+  }
+  .section-header h2 {
+    font-family: var(--serif);
+    font-size: clamp(32px, 4vw, 44px);
+    font-weight: 600; line-height: 1.2;
+    margin-bottom: 20px;
+  }
+  .section-header p { color: var(--gray); font-size: 17px; }
+
+  /* ─── SERVICES ─── */
+  #servicios { background: var(--white); }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0;
+    border: 1px solid var(--gray-light);
+  }
+  .service-card {
+    padding: 44px 36px;
+    border-right: 1px solid var(--gray-light);
+    border-bottom: 1px solid var(--gray-light);
+    transition: all .3s ease;
+    position: relative;
+  }
+  .service-card:hover {
+    background: var(--cream);
+    transform: translateY(-2px);
+  }
+  .service-card:hover .service-icon { color: var(--gold); }
+  .service-icon {
+    width: 56px; height: 56px;
+    color: var(--navy);
+    margin-bottom: 24px;
+    transition: color .3s;
+  }
+  .service-card h3 {
+    font-family: var(--serif); font-size: 22px; font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .service-card p { color: var(--gray); font-size: 15px; line-height: 1.7; }
+  .service-card ul { margin-top: 16px; list-style: none; }
+  .service-card li {
+    font-size: 14px; color: var(--gray); padding: 4px 0 4px 20px; position: relative;
+  }
+  .service-card li::before {
+    content: '—'; position: absolute; left: 0; color: var(--gold);
+  }
+
+  /* ─── ABOUT ─── */
+  #nosotros {
+    background: var(--cream);
+  }
+  .about-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 80px;
+    align-items: center;
+  }
+  .about-content .eyebrow {
+    color: var(--gold);
+    font-size: 13px; letter-spacing: 3px; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 18px; display: block;
+  }
+  .about-content h2 {
+    font-family: var(--serif); font-size: clamp(30px, 4vw, 42px);
+    font-weight: 600; line-height: 1.2; margin-bottom: 24px;
+  }
+  .about-content p {
+    color: var(--gray); margin-bottom: 18px; font-size: 16px;
+  }
+  .about-stats {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 30px; margin-top: 40px; padding-top: 40px;
+    border-top: 1px solid var(--gray-light);
+  }
+  .about-stat-num {
+    font-family: var(--serif); font-size: 44px; font-weight: 700;
+    color: var(--gold); line-height: 1;
+  }
+  .about-stat-label { font-size: 13px; color: var(--gray); margin-top: 8px; line-height: 1.4; }
+
+  .about-visual {
+    position: relative; aspect-ratio: 4/5;
+    background: var(--navy);
+    overflow: hidden;
+  }
+  .about-visual::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg, transparent 40%, rgba(197,163,90,0.15) 100%),
+      repeating-linear-gradient(45deg, transparent, transparent 80px, rgba(197,163,90,0.08) 80px, rgba(197,163,90,0.08) 81px);
+  }
+  .about-quote {
+    position: absolute; bottom: 40px; left: 40px; right: 40px;
+    color: var(--cream);
+    font-family: var(--serif); font-style: italic;
+    font-size: 22px; line-height: 1.4;
+  }
+  .about-quote::before {
+    content: '"'; font-size: 80px; color: var(--gold); display: block;
+    line-height: 1; margin-bottom: -20px;
+  }
+  .about-quote-author {
+    display: block; margin-top: 20px; font-style: normal; font-family: var(--sans);
+    font-size: 13px; letter-spacing: 2px; text-transform: uppercase; color: var(--gold);
+  }
+
+  /* ─── PROCESS ─── */
+  #proceso { background: var(--white); }
+  .process-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 30px;
+    position: relative;
+  }
+  .process-step {
+    padding: 36px 28px;
+    text-align: center;
+    position: relative;
+  }
+  .process-num {
+    font-family: var(--serif); font-size: 64px; font-weight: 700;
+    color: var(--gold); line-height: 1; opacity: 0.4;
+    margin-bottom: 16px;
+  }
+  .process-step h3 {
+    font-family: var(--serif); font-size: 20px; font-weight: 600;
+    margin-bottom: 12px;
+  }
+  .process-step p { color: var(--gray); font-size: 14px; line-height: 1.6; }
+
+  /* ─── REVIEWS ─── */
+  #opiniones {
+    background: var(--navy); color: var(--cream);
+  }
+  #opiniones .section-header h2 { color: var(--cream); }
+  #opiniones .section-header p { color: rgba(250, 248, 243, 0.7); }
+  .reviews-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 28px;
+  }
+  .review {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(197,163,90,0.2);
+    padding: 36px 32px;
+  }
+  .review-stars { color: var(--gold); margin-bottom: 18px; font-size: 16px; letter-spacing: 2px; }
+  .review-text {
+    font-family: var(--serif); font-size: 17px; line-height: 1.6;
+    margin-bottom: 24px; font-style: italic;
+  }
+  .review-author {
+    display: flex; align-items: center; gap: 14px;
+    padding-top: 20px; border-top: 1px solid rgba(197,163,90,0.15);
+  }
+  .review-avatar {
+    width: 44px; height: 44px;
+    background: var(--gold); color: var(--navy);
+    display: grid; place-items: center;
+    font-family: var(--serif); font-weight: 700; font-size: 16px;
+  }
+  .review-name { font-weight: 500; font-size: 14px; }
+  .review-meta { font-size: 12px; color: rgba(250, 248, 243, 0.5); }
+
+  .reviews-summary {
+    text-align: center; margin-top: 60px;
+    padding-top: 40px; border-top: 1px solid rgba(197,163,90,0.2);
+  }
+  .reviews-summary-stars { color: var(--gold); font-size: 24px; letter-spacing: 4px; margin-bottom: 12px;}
+  .reviews-summary-text { font-size: 14px; color: rgba(250, 248, 243, 0.6); }
+
+  /* ─── CONTACT ─── */
+  #contacto { background: var(--cream); }
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1.2fr; gap: 70px;
+  }
+  .contact-info h3 {
+    font-family: var(--serif); font-size: 28px; font-weight: 600;
+    margin-bottom: 30px;
+  }
+  .contact-block {
+    margin-bottom: 30px; padding-bottom: 30px;
+    border-bottom: 1px solid var(--gray-light);
+  }
+  .contact-block:last-child { border-bottom: none; }
+  .contact-label {
+    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--gold); font-weight: 600; margin-bottom: 10px;
+  }
+  .contact-value {
+    font-family: var(--serif); font-size: 19px; font-weight: 500;
+  }
+  .contact-value small { display: block; font-family: var(--sans); font-size: 14px; color: var(--gray); margin-top: 4px; font-weight: 400; }
+
+  .contact-form {
+    background: var(--white);
+    padding: 48px;
+    box-shadow: 0 20px 50px rgba(15, 42, 71, 0.06);
+    border-top: 3px solid var(--gold);
+  }
+  .contact-form h3 {
+    font-family: var(--serif); font-size: 26px; font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .contact-form .form-sub {
+    color: var(--gray); font-size: 14px; margin-bottom: 28px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 18px; }
+  .form-group label {
+    display: block; font-size: 12px; letter-spacing: 1px; text-transform: uppercase;
+    color: var(--gray); font-weight: 600; margin-bottom: 8px;
+  }
+  .form-group input, .form-group select, .form-group textarea {
+    width: 100%; padding: 14px 16px;
+    border: 1px solid var(--gray-light);
+    background: var(--cream);
+    font-family: var(--sans); font-size: 15px;
+    color: var(--navy); transition: border-color .2s, background .2s;
+  }
+  .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+    outline: none; border-color: var(--gold); background: var(--white);
+  }
+  .form-group textarea { min-height: 120px; resize: vertical; }
+  .form-submit { width: 100%; justify-content: center; margin-top: 8px; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--navy-dark); color: var(--cream);
+    padding: 70px 32px 30px;
+  }
+  .footer-grid {
+    max-width: 1240px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 50px;
+    margin-bottom: 50px;
+  }
+  .footer-col h4 {
+    font-family: var(--serif); font-size: 16px; font-weight: 600;
+    margin-bottom: 18px; color: var(--gold);
+  }
+  .footer-col p, .footer-col a, .footer-col li {
+    font-size: 14px; line-height: 1.9; color: rgba(250, 248, 243, 0.7);
+    list-style: none;
+  }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom {
+    max-width: 1240px; margin: 0 auto;
+    padding-top: 30px; border-top: 1px solid rgba(197,163,90,0.15);
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 13px; color: rgba(250, 248, 243, 0.5); flex-wrap: wrap; gap: 16px;
+  }
+
+  /* ─── REVEAL ─── */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .9s ease, transform .9s ease; }
+  .reveal.in { opacity: 1; transform: none; }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 960px) {
+    .hero { grid-template-columns: 1fr; padding-top: 110px; }
+    .hero-visual { height: 480px; max-width: 480px; margin: 0 auto; }
+    .about-grid { grid-template-columns: 1fr; gap: 50px; }
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .process-grid { grid-template-columns: repeat(2, 1fr); }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+    .nav-links { display: none; }
+    .menu-btn { display: block; }
+    section { padding: 70px 24px; }
+    .contact-form { padding: 32px; }
+  }
+  @media (max-width: 560px) {
+    .form-row { grid-template-columns: 1fr; }
+    .process-grid { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+    .hero-card-1, .hero-card-2 { width: 90%; left: 5%; right: auto; }
+    .hero-card-1 { top: 0; }
+    .hero-card-2 { bottom: 0; }
+    .about-stats { grid-template-columns: 1fr; gap: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="nav-container">
+    <a href="#" class="logo" aria-label="Inicio">
+      <div class="logo-mark">A</div>
+      <div class="logo-text">
+        Allende Gamboa
+        <small>Asesoría · Mungia</small>
+      </div>
+    </a>
+    <div class="nav-links">
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Despacho</a>
+      <a href="#proceso">Cómo trabajamos</a>
+      <a href="#opiniones">Opiniones</a>
+      <a href="#contacto" class="nav-cta">Pedir cita</a>
+    </div>
+    <button class="menu-btn" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<!-- ─── HERO ─── -->
+<header class="hero">
+  <div class="hero-content reveal">
+    <span class="eyebrow">Asesoría desde 1998 · Mungia</span>
+    <h1>Tu gestoría de <em>confianza</em> en Mungia y el resto de Bizkaia</h1>
+    <p class="lead">Asesoría fiscal, laboral, contable y mercantil para autónomos, pequeñas y medianas empresas. Tratamos cada cliente con el cuidado que merece y conocemos al detalle la fiscalidad foral de Bizkaia.</p>
+    <div class="btn-row">
+      <a href="#contacto" class="btn btn-primary">Pedir primera cita gratuita →</a>
+      <a href="tel:946156493" class="btn btn-outline">946 15 64 93</a>
+    </div>
+  </div>
+  <div class="hero-visual reveal">
+    <div class="pattern"></div>
+    <div class="hero-card hero-card-1">
+      <h3>Fiscalidad foral</h3>
+      <p>Especialistas en la normativa de la Diputación Foral de Bizkaia: IRPF, Sociedades, IVA, modelos forales y BatuZ.</p>
+      <div class="hero-stat">
+        <div class="hero-stat-num">+25</div>
+        <div class="hero-stat-label">años acompañando<br>negocios en Mungia</div>
+      </div>
+    </div>
+    <div class="hero-card hero-card-2">
+      <h3>Trato cercano</h3>
+      <p>Aquí te conocemos por tu nombre. Sin call-centers, sin esperas, sin tickets. Cuando llamas, te atiende quien lleva tus papeles.</p>
+      <div class="hero-stat">
+        <div class="hero-stat-num">200+</div>
+        <div class="hero-stat-label">autónomos y empresas<br>en cartera activa</div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ─── SERVICIOS ─── -->
+<section id="servicios">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Nuestros servicios</span>
+      <h2>Todo lo que tu negocio necesita, bajo un mismo despacho</h2>
+      <p>Desde el alta como autónomo hasta la planificación fiscal de tu sociedad. Nos encargamos de los papeles para que tú te encargues de tu negocio.</p>
+    </div>
+    <div class="services-grid reveal">
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M9 11H7a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7a2 2 0 0 0-2-2h-2"/>
+          <path d="M9 11V7a3 3 0 0 1 6 0v4"/>
+        </svg>
+        <h3>Asesoría fiscal</h3>
+        <p>Cumplimos con todas tus obligaciones tributarias en la Hacienda Foral de Bizkaia.</p>
+        <ul>
+          <li>IRPF y declaración de la renta</li>
+          <li>Impuesto de Sociedades</li>
+          <li>IVA, modelos forales, BatuZ</li>
+          <li>Planificación fiscal anual</li>
+          <li>Recursos y reclamaciones</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+          <circle cx="9" cy="7" r="4"/>
+          <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+          <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+        </svg>
+        <h3>Asesoría laboral</h3>
+        <p>Gestionamos toda la relación laboral con tus trabajadores, sin sustos.</p>
+        <ul>
+          <li>Nóminas y seguros sociales</li>
+          <li>Altas, bajas y contratos</li>
+          <li>Despidos y finiquitos</li>
+          <li>Inspecciones de trabajo</li>
+          <li>Convenios colectivos</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <line x1="12" y1="20" x2="12" y2="10"/>
+          <line x1="18" y1="20" x2="18" y2="4"/>
+          <line x1="6" y1="20" x2="6" y2="16"/>
+        </svg>
+        <h3>Contabilidad</h3>
+        <p>Llevamos tu contabilidad al día y te explicamos los números en cristiano.</p>
+        <ul>
+          <li>Contabilidad oficial completa</li>
+          <li>Cuentas anuales y depósito</li>
+          <li>Libros registro y BatuZ</li>
+          <li>Cierre fiscal y contable</li>
+          <li>Análisis financiero</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <h3>Mercantil y societario</h3>
+        <p>Constituciones, ampliaciones, fusiones y todo el ciclo de vida de tu sociedad.</p>
+        <ul>
+          <li>Constitución de sociedades</li>
+          <li>Modificaciones estatutarias</li>
+          <li>Juntas y actas</li>
+          <li>Disoluciones y liquidaciones</li>
+          <li>Registro Mercantil</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+          <line x1="16" y1="2" x2="16" y2="6"/>
+          <line x1="8" y1="2" x2="8" y2="6"/>
+          <line x1="3" y1="10" x2="21" y2="10"/>
+        </svg>
+        <h3>Autónomos</h3>
+        <p>Servicio integral para autónomos: desde el alta hasta la jubilación.</p>
+        <ul>
+          <li>Alta como autónomo</li>
+          <li>Trimestrales y anuales</li>
+          <li>Tarifa plana y bonificaciones</li>
+          <li>Cambio de epígrafe</li>
+          <li>Cese de actividad</li>
+        </ul>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2v6m0 8v6"/>
+          <circle cx="12" cy="12" r="4"/>
+          <path d="M2 12h6m8 0h6"/>
+        </svg>
+        <h3>Herencias y sucesiones</h3>
+        <p>Te acompañamos en los trámites más delicados, con la cabeza fría y la mano firme.</p>
+        <ul>
+          <li>Aceptación de herencia</li>
+          <li>Impuesto de sucesiones (Bizkaia)</li>
+          <li>Reparto de bienes</li>
+          <li>Donaciones</li>
+          <li>Planificación patrimonial</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── NOSOTROS ─── -->
+<section id="nosotros">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-content reveal">
+        <span class="eyebrow">El despacho</span>
+        <h2>Más de dos décadas a pie de calle, en pleno centro de Mungia</h2>
+        <p>Allende Gamboa nació con una idea sencilla: que los autónomos y pequeñas empresas de Mungia y comarca tuvieran a su disposición un despacho profesional, sin tener que desplazarse a Bilbao y sin pagar los precios de la capital.</p>
+        <p>Más de 25 años después, seguimos en la misma calle, con el mismo compromiso: trato directo, respuestas claras y nadie se va de aquí sin entender qué se está firmando.</p>
+        <p>Nuestro equipo combina experiencia foral con el manejo diario de las nuevas obligaciones digitales (BatuZ, presentación telemática, certificados electrónicos), para que tú no tengas que pelearte con ningún portal.</p>
+        <div class="about-stats">
+          <div>
+            <div class="about-stat-num">25</div>
+            <div class="about-stat-label">años de despacho<br>en Mungia</div>
+          </div>
+          <div>
+            <div class="about-stat-num">200+</div>
+            <div class="about-stat-label">clientes activos<br>en Bizkaia</div>
+          </div>
+          <div>
+            <div class="about-stat-num">100%</div>
+            <div class="about-stat-label">cumplimiento<br>de plazos forales</div>
+          </div>
+        </div>
+      </div>
+      <div class="about-visual reveal" aria-hidden="true">
+        <div class="about-quote">
+          Aquí no eres un número de expediente. Cuando vienes, te conocemos. Cuando llamas, te reconocemos.
+          <span class="about-quote-author">— Filosofía del despacho</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── PROCESO ─── -->
+<section id="proceso">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Cómo trabajamos</span>
+      <h2>Un proceso claro, sin sorpresas</h2>
+      <p>Desde el primer café hasta la presentación del último modelo, sabes en cada momento qué pasa con tus papeles.</p>
+    </div>
+    <div class="process-grid reveal">
+      <div class="process-step">
+        <div class="process-num">01</div>
+        <h3>Primera cita gratuita</h3>
+        <p>Te escuchamos, vemos tu situación y te decimos honestamente qué necesitas y qué no. Sin compromiso.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">02</div>
+        <h3>Presupuesto cerrado</h3>
+        <p>Te pasamos un presupuesto por escrito, con cuota mensual fija. Cero letra pequeña.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">03</div>
+        <h3>Empezamos</h3>
+        <p>Recogemos toda tu documentación, organizamos tus libros y dejamos al día tus obligaciones.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-num">04</div>
+        <h3>Te informamos</h3>
+        <p>Antes de cada cierre fiscal te llamamos. Sabes lo que vas a pagar antes de pagarlo.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── OPINIONES ─── -->
+<section id="opiniones">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Lo que dicen nuestros clientes</span>
+      <h2>30 reseñas en Google y contando</h2>
+      <p>Las opiniones de quienes confían en nosotros son la mejor garantía de nuestro trabajo.</p>
+    </div>
+    <div class="reviews-grid reveal">
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Llevo más de 10 años con ellos y nunca he tenido un problema. Trato cercano, siempre disponibles y conocen al detalle la fiscalidad foral.</p>
+        <div class="review-author">
+          <div class="review-avatar">JM</div>
+          <div>
+            <div class="review-name">Jon M.</div>
+            <div class="review-meta">Cliente desde 2014 · Mungia</div>
+          </div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Me dieron de alta como autónoma en menos de 48 horas y me explicaron todo paso a paso. Ahora les llevan también la asesoría laboral de mi negocio.</p>
+        <div class="review-author">
+          <div class="review-avatar">AE</div>
+          <div>
+            <div class="review-name">Amaia E.</div>
+            <div class="review-meta">Comercio · Mungialde</div>
+          </div>
+        </div>
+      </div>
+      <div class="review">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">Se nota que tienen experiencia. Vinimos de otra gestoría y la diferencia es brutal: aquí te llaman antes de cada cierre y te explican todo.</p>
+        <div class="review-author">
+          <div class="review-avatar">IB</div>
+          <div>
+            <div class="review-name">Iker B.</div>
+            <div class="review-meta">PYME · Bermeo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-summary reveal">
+      <div class="reviews-summary-stars">★★★★☆</div>
+      <p class="reviews-summary-text">Valoración media en Google · 30 reseñas verificadas</p>
+    </div>
+  </div>
+</section>
+
+<!-- ─── CONTACTO ─── -->
+<section id="contacto">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Pide tu primera cita</span>
+      <h2>Hablemos de tu negocio</h2>
+      <p>La primera cita es gratuita y sin compromiso. Tomamos un café, vemos tu situación y te decimos exactamente qué podemos hacer por ti.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-info reveal">
+        <h3>Despacho</h3>
+        <div class="contact-block">
+          <div class="contact-label">Dirección</div>
+          <div class="contact-value">
+            Erribide Kalea, 5, Bajo
+            <small>48100 Mungia, Bizkaia</small>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Teléfono</div>
+          <div class="contact-value">
+            <a href="tel:946156493">946 15 64 93</a>
+            <small>Lunes a viernes · 9:00 – 14:00 / 16:00 – 19:00</small>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Email</div>
+          <div class="contact-value">
+            <a href="mailto:info@allendegamboa.es">info@allendegamboa.es</a>
+            <small>Respondemos en menos de 24h laborables</small>
+          </div>
+        </div>
+        <div class="contact-block">
+          <div class="contact-label">Cómo llegar</div>
+          <div class="contact-value">
+            <a href="https://maps.google.com/?cid=4841702744093305150" target="_blank" rel="noopener">Ver en Google Maps →</a>
+            <small>Aparcamiento gratuito a 50m</small>
+          </div>
+        </div>
+      </div>
+      <form class="contact-form reveal" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Mensaje enviado ✓'; this.querySelector('button').disabled=true;">
+        <h3>Solicita tu cita gratuita</h3>
+        <p class="form-sub">Cuéntanos brevemente qué necesitas y nos ponemos en contacto contigo en menos de 24 horas.</p>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="nombre">Nombre</label>
+            <input type="text" id="nombre" required>
+          </div>
+          <div class="form-group">
+            <label for="telefono">Teléfono</label>
+            <input type="tel" id="telefono" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required>
+        </div>
+        <div class="form-group">
+          <label for="servicio">Servicio que te interesa</label>
+          <select id="servicio">
+            <option>Asesoría fiscal</option>
+            <option>Asesoría laboral</option>
+            <option>Contabilidad</option>
+            <option>Mercantil / sociedades</option>
+            <option>Autónomos</option>
+            <option>Herencias</option>
+            <option>Otros / no estoy seguro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="mensaje">Cuéntanos brevemente</label>
+          <textarea id="mensaje" placeholder="Por ejemplo: Soy autónomo en hostelería y busco cambiar de gestoría..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary form-submit">Enviar solicitud →</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-col">
+      <div class="logo" style="margin-bottom:20px;">
+        <div class="logo-mark">A</div>
+        <div class="logo-text" style="color:var(--cream);">
+          Allende Gamboa
+          <small style="color:rgba(250,248,243,0.5);">Asesoría · Mungia</small>
+        </div>
+      </div>
+      <p>Asesoría fiscal, laboral, contable y mercantil para autónomos y empresas en Bizkaia. Más de 25 años de experiencia a tu disposición.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Servicios</h4>
+      <ul>
+        <li><a href="#servicios">Asesoría fiscal</a></li>
+        <li><a href="#servicios">Asesoría laboral</a></li>
+        <li><a href="#servicios">Contabilidad</a></li>
+        <li><a href="#servicios">Mercantil</a></li>
+        <li><a href="#servicios">Herencias</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Despacho</h4>
+      <ul>
+        <li><a href="#nosotros">Sobre nosotros</a></li>
+        <li><a href="#proceso">Cómo trabajamos</a></li>
+        <li><a href="#opiniones">Opiniones</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contacto</h4>
+      <ul>
+        <li>Erribide Kalea, 5</li>
+        <li>48100 Mungia, Bizkaia</li>
+        <li><a href="tel:946156493">946 15 64 93</a></li>
+        <li><a href="mailto:info@allendegamboa.es">info@allendegamboa.es</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2026 Gestoría Allende Gamboa S.L. · CIF B-XXXXXXXX</div>
+    <div><a href="#">Aviso legal</a> · <a href="#">Privacidad</a> · <a href="#">Cookies</a></div>
+  </div>
+</footer>
+
+<script>
+  // Navbar scroll
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 30);
+  });
+
+  // Reveal on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('in');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
