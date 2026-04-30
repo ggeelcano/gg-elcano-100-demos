@@ -235,23 +235,22 @@
   }
   .notario-photo {
     aspect-ratio: 4/5;
-    background:
-      linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    background-image: url('https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=700&q=85&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center top;
     position: relative;
     overflow: hidden;
-  }
-  .notario-photo::before {
-    content: 'I A G';
-    position: absolute; inset: 0;
-    display: grid; place-items: center;
-    color: var(--accent);
-    font-family: var(--serif);
-    font-size: 64px; font-weight: 600;
-    letter-spacing: 8px;
+    filter: grayscale(15%) contrast(1.02);
   }
   .notario-photo::after {
-    content: ''; position: absolute; inset: 14px;
-    border: 1px solid rgba(184, 157, 94, 0.3);
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, transparent 60%, rgba(10,34,64,0.35) 100%);
+  }
+  .notario-photo-frame {
+    position: absolute; inset: 12px;
+    border: 1px solid rgba(184, 157, 94, 0.4);
+    pointer-events: none;
+    z-index: 2;
   }
   .notario-info h3 {
     font-family: var(--serif);
@@ -562,7 +561,7 @@
     </div>
     <div class="conocernos-grid reveal">
       <div class="notario-card">
-        <div class="notario-photo" aria-hidden="true"></div>
+        <div class="notario-photo" aria-hidden="true"><span class="notario-photo-frame"></span></div>
         <div class="notario-info">
           <h3>Igone Aretxaga González</h3>
           <div class="notario-role">Notaria titular · Balmaseda</div>
