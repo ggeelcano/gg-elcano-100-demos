@@ -3,535 +3,514 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Notaría Igone Aretxaga González — Balmaseda · Las Encartaciones</title>
-<meta name="description" content="Notaría de Igone Aretxaga González en Balmaseda. Compraventas, herencias, hipotecas, sociedades, poderes y actas notariales en Las Encartaciones, Bizkaia.">
+<title>Notaría Igone Aretxaga González — Balmaseda · Bizkaia</title>
+<meta name="description" content="Notaría de Igone Aretxaga González en Balmaseda. Compraventas, herencias, hipotecas, sociedades, poderes y actas. Plaza de San Severino, Balmaseda, Bizkaia.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&family=Source+Serif+4:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+  *,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
   :root {
-    --burgundy: #5C1A1B;
-    --burgundy-dark: #3d1112;
-    --burgundy-light: #7a2425;
-    --bronze: #A47148;
-    --bronze-light: #c69364;
-    --ivory: #f5f1e8;
-    --paper: #faf6ec;
-    --ink: #1a1a1a;
-    --ink-soft: #4a4a4a;
-    --gray: #6b6b6b;
-    --gray-line: #d8d2c4;
-    --serif: 'Cormorant Garamond', Georgia, serif;
-    --sans: 'Inter', system-ui, sans-serif;
+    --navy: #0a2240;
+    --navy-dark: #061731;
+    --navy-light: #163559;
+    --accent: #b89d5e;
+    --accent-light: #d2b878;
+    --white: #ffffff;
+    --off-white: #f7f6f2;
+    --gray-50: #f4f5f7;
+    --gray-100: #e6e8ec;
+    --gray-300: #b8bcc4;
+    --gray-500: #6b7280;
+    --gray-700: #3a4452;
+    --gray-900: #15202b;
+    --sans: 'Source Sans 3', system-ui, sans-serif;
+    --serif: 'Source Serif 4', Georgia, serif;
   }
   html { scroll-behavior: smooth; }
   body {
     font-family: var(--sans);
-    color: var(--ink);
-    background: var(--paper);
-    line-height: 1.7;
+    color: var(--gray-900);
+    background: var(--white);
+    line-height: 1.65;
     font-weight: 400;
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
   }
   a { color: inherit; text-decoration: none; }
   img { max-width: 100%; display: block; }
 
-  /* ─── TOP BAR ─── */
+  /* ─── TOPBAR ─── */
   .topbar {
-    background: var(--burgundy);
-    color: var(--ivory);
-    padding: 10px 32px;
+    background: var(--navy-dark);
+    color: rgba(255,255,255,0.85);
+    padding: 9px 32px;
     font-size: 13px;
-    text-align: center;
-    letter-spacing: 1.2px;
+    display: flex; justify-content: space-between; align-items: center;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
   }
-  .topbar a { color: var(--bronze-light); margin: 0 12px; }
+  .topbar-left, .topbar-right { display: flex; gap: 22px; align-items: center; }
+  .topbar a { color: var(--accent-light); transition: color .2s; }
+  .topbar a:hover { color: var(--white); }
+  .topbar svg { width: 14px; height: 14px; vertical-align: -2px; margin-right: 6px; opacity: 0.7; }
 
   /* ─── NAVBAR ─── */
   nav {
-    background: var(--paper);
-    border-bottom: 1px solid var(--gray-line);
-    padding: 24px 0;
+    background: var(--white);
+    border-bottom: 1px solid var(--gray-100);
+    padding: 18px 0;
     position: sticky; top: 0; z-index: 100;
     transition: padding .3s, box-shadow .3s;
   }
-  nav.scrolled { padding: 16px 0; box-shadow: 0 4px 24px rgba(0,0,0,0.06); }
+  nav.scrolled { padding: 12px 0; box-shadow: 0 2px 18px rgba(10, 34, 64, 0.07); }
   .nav-container {
-    max-width: 1240px; margin: 0 auto;
+    max-width: 1280px; margin: 0 auto;
     padding: 0 32px;
     display: flex; justify-content: space-between; align-items: center;
   }
-  .logo { display: flex; align-items: center; gap: 18px; }
+  .logo { display: flex; align-items: center; gap: 16px; }
   .logo-mark {
-    width: 56px; height: 56px;
-    border: 2px solid var(--burgundy);
-    color: var(--burgundy);
+    width: 50px; height: 56px;
+    background: var(--navy);
+    color: var(--accent);
     display: grid; place-items: center;
-    font-family: var(--serif); font-weight: 700; font-size: 26px;
+    font-family: var(--serif); font-weight: 600; font-size: 26px;
     position: relative;
+    clip-path: polygon(0 0, 100% 0, 100% 85%, 50% 100%, 0 85%);
   }
-  .logo-mark::before {
-    content: ''; position: absolute; inset: 4px;
-    border: 1px solid var(--burgundy);
+  .logo-text {
+    font-family: var(--serif); font-weight: 600; font-size: 18px;
+    line-height: 1.1; color: var(--navy);
+    letter-spacing: 0.3px;
   }
-  .logo-text { font-family: var(--serif); font-weight: 600; font-size: 22px; line-height: 1.1; color: var(--burgundy); }
   .logo-text small {
-    display: block; font-family: var(--sans); font-weight: 400; font-size: 10px;
-    color: var(--gray); letter-spacing: 3px; text-transform: uppercase; margin-top: 4px;
+    display: block; font-family: var(--sans); font-weight: 400;
+    font-size: 11px; color: var(--gray-500);
+    letter-spacing: 2.5px; text-transform: uppercase;
+    margin-top: 5px;
   }
-  .nav-links { display: flex; gap: 36px; align-items: center; font-size: 14px; font-weight: 500; }
-  .nav-links a { transition: color .2s; color: var(--ink-soft); }
-  .nav-links a:hover { color: var(--burgundy); }
+  .nav-links {
+    display: flex; gap: 32px; align-items: center;
+    font-size: 14px; font-weight: 500;
+  }
+  .nav-links > a {
+    color: var(--gray-700); transition: color .2s;
+    padding: 6px 0; position: relative;
+  }
+  .nav-links > a::after {
+    content: ''; position: absolute; bottom: 0; left: 0; right: 0;
+    height: 2px; background: var(--accent);
+    transform: scaleX(0); transform-origin: center; transition: transform .3s;
+  }
+  .nav-links > a:hover { color: var(--navy); }
+  .nav-links > a:hover::after { transform: scaleX(1); }
   .nav-cta {
-    background: var(--burgundy); color: var(--ivory) !important;
-    padding: 12px 26px; font-weight: 500; font-size: 13px;
-    letter-spacing: 1px; text-transform: uppercase;
+    background: var(--navy); color: var(--white) !important;
+    padding: 12px 24px; font-weight: 500; font-size: 13px;
+    letter-spacing: 1.5px; text-transform: uppercase;
     transition: background .2s;
   }
-  .nav-cta:hover { background: var(--burgundy-dark); }
+  .nav-cta:hover { background: var(--navy-light); }
+  .nav-cta::after { display: none !important; }
   .menu-btn { display: none; background: none; border: none; cursor: pointer; padding: 8px; }
-  .menu-btn span { display: block; width: 24px; height: 2px; background: var(--burgundy); margin: 5px 0; }
+  .menu-btn span { display: block; width: 26px; height: 2px; background: var(--navy); margin: 6px 0; }
 
   /* ─── HERO ─── */
   .hero {
     position: relative;
-    padding: 90px 32px 110px;
+    min-height: 75vh;
+    display: grid; place-items: center;
     text-align: center;
-    background:
-      linear-gradient(rgba(245, 241, 232, 0.92), rgba(245, 241, 232, 0.96)),
-      repeating-linear-gradient(45deg, transparent, transparent 14px, rgba(92, 26, 27, 0.025) 14px, rgba(92, 26, 27, 0.025) 15px);
-    border-bottom: 1px solid var(--gray-line);
+    padding: 120px 32px;
+    color: var(--white);
+    overflow: hidden;
+    background: var(--navy);
   }
-  .hero-inner { max-width: 880px; margin: 0 auto; }
+  .hero::before {
+    content: ''; position: absolute; inset: 0;
+    background:
+      linear-gradient(135deg, rgba(10,34,64,0.78) 0%, rgba(6,23,49,0.92) 100%),
+      url('https://images.unsplash.com/photo-1564507592333-c60657eea523?w=1600&q=80') center/cover;
+    background-blend-mode: multiply;
+    z-index: 0;
+  }
+  .hero::after {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      repeating-linear-gradient(45deg, transparent, transparent 50px, rgba(184,157,94,0.04) 50px, rgba(184,157,94,0.04) 51px);
+    z-index: 1;
+  }
+  .hero-inner {
+    position: relative; z-index: 2;
+    max-width: 1000px;
+  }
   .hero .ornament {
-    display: inline-block;
-    color: var(--bronze);
-    font-size: 28px; letter-spacing: 8px;
-    margin-bottom: 24px;
+    color: var(--accent);
+    font-size: 24px; letter-spacing: 14px;
+    margin-bottom: 32px;
+    opacity: 0.9;
   }
   .hero .eyebrow {
-    color: var(--burgundy);
-    font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
-    font-weight: 600; margin-bottom: 28px; display: block;
+    color: var(--accent-light);
+    font-size: 13px; letter-spacing: 5px; text-transform: uppercase;
+    font-weight: 500; margin-bottom: 26px; display: block;
   }
   .hero h1 {
     font-family: var(--serif);
-    font-size: clamp(40px, 6vw, 68px);
-    font-weight: 500; line-height: 1.1;
-    margin-bottom: 30px;
-    color: var(--burgundy);
+    font-size: clamp(34px, 5.2vw, 64px);
+    font-weight: 500; line-height: 1.18;
+    margin-bottom: 32px;
     letter-spacing: -0.5px;
+    text-transform: uppercase;
   }
-  .hero h1 em { font-style: italic; color: var(--bronze); }
+  .hero h1 strong {
+    font-weight: 600; color: var(--accent-light);
+    display: block;
+  }
   .hero p.lead {
     font-family: var(--serif);
-    font-size: clamp(18px, 2vw, 22px); line-height: 1.6; color: var(--ink-soft);
-    margin: 0 auto 42px;
-    max-width: 680px;
-    font-weight: 400;
+    font-size: clamp(17px, 1.7vw, 21px); line-height: 1.6;
+    margin: 0 auto 44px;
+    max-width: 700px;
+    color: rgba(255,255,255,0.88);
+    font-style: italic;
   }
-  .btn-row { display: flex; gap: 18px; flex-wrap: wrap; justify-content: center; }
+  .btn-row { display: flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
   .btn {
-    padding: 16px 36px;
+    padding: 16px 38px;
     font-weight: 500; font-size: 13px;
-    letter-spacing: 2px; text-transform: uppercase;
+    letter-spacing: 2.5px; text-transform: uppercase;
     transition: all .25s ease;
     cursor: pointer; border: none;
     display: inline-flex; align-items: center; gap: 12px;
   }
-  .btn-primary { background: var(--burgundy); color: var(--ivory); }
-  .btn-primary:hover { background: var(--burgundy-dark); }
+  .btn-primary { background: var(--accent); color: var(--navy-dark); }
+  .btn-primary:hover { background: var(--accent-light); transform: translateY(-1px); }
   .btn-outline {
-    background: transparent; color: var(--burgundy);
-    border: 1.5px solid var(--burgundy);
+    background: transparent; color: var(--white);
+    border: 1.5px solid rgba(255,255,255,0.4);
   }
-  .btn-outline:hover { background: var(--burgundy); color: var(--ivory); }
+  .btn-outline:hover { background: var(--white); color: var(--navy); border-color: var(--white); }
 
-  .hero-badges {
-    display: flex; justify-content: center; gap: 50px;
-    margin-top: 70px; padding-top: 40px;
-    border-top: 1px solid var(--gray-line);
-    flex-wrap: wrap;
-  }
-  .hero-badge { text-align: center; max-width: 200px; }
-  .hero-badge-num {
-    font-family: var(--serif);
-    font-size: 42px; font-weight: 600;
-    color: var(--bronze); line-height: 1;
-    margin-bottom: 8px;
-  }
-  .hero-badge-label {
-    font-size: 12px; color: var(--gray); letter-spacing: 2px; text-transform: uppercase;
-  }
-
-  /* ─── SECTIONS ─── */
+  /* ─── SECTIONS BASE ─── */
   section { padding: 110px 32px; position: relative; }
-  .container { max-width: 1240px; margin: 0 auto; }
-  .section-header { text-align: center; max-width: 760px; margin: 0 auto 80px; }
-  .section-header .ornament {
-    display: inline-block;
-    color: var(--bronze);
-    font-size: 22px; letter-spacing: 6px;
-    margin-bottom: 18px;
-  }
+  .container { max-width: 1280px; margin: 0 auto; }
+  .section-header { text-align: center; max-width: 760px; margin: 0 auto 70px; }
   .section-header .eyebrow {
-    color: var(--burgundy);
-    font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
-    font-weight: 600; margin-bottom: 22px; display: block;
+    color: var(--accent);
+    font-size: 13px; letter-spacing: 4px; text-transform: uppercase;
+    font-weight: 600; margin-bottom: 18px; display: block;
   }
   .section-header h2 {
     font-family: var(--serif);
-    font-size: clamp(34px, 4.5vw, 52px);
-    font-weight: 500; line-height: 1.15;
-    margin-bottom: 24px;
-    color: var(--ink);
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 500; line-height: 1.2;
+    margin-bottom: 22px;
+    color: var(--navy);
     letter-spacing: -0.5px;
   }
   .section-header p {
-    color: var(--ink-soft); font-size: 18px;
-    font-family: var(--serif); font-style: italic;
-    line-height: 1.6;
+    color: var(--gray-500); font-size: 17px;
+    line-height: 1.7;
+  }
+  .section-divider {
+    display: block; width: 60px; height: 2px;
+    background: var(--accent); margin: 0 auto 28px;
   }
 
+  /* ─── ACERQUESE ─── */
+  #conocernos { background: var(--off-white); }
+  .conocernos-grid {
+    display: grid; grid-template-columns: 1fr; gap: 50px;
+    max-width: 880px; margin: 0 auto;
+  }
+  .notario-card {
+    display: grid; grid-template-columns: 280px 1fr;
+    gap: 50px;
+    background: var(--white);
+    padding: 50px;
+    border-left: 4px solid var(--accent);
+    box-shadow: 0 6px 30px rgba(10, 34, 64, 0.06);
+    align-items: center;
+  }
+  .notario-photo {
+    aspect-ratio: 4/5;
+    background:
+      linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .notario-photo::before {
+    content: 'I A G';
+    position: absolute; inset: 0;
+    display: grid; place-items: center;
+    color: var(--accent);
+    font-family: var(--serif);
+    font-size: 64px; font-weight: 600;
+    letter-spacing: 8px;
+  }
+  .notario-photo::after {
+    content: ''; position: absolute; inset: 14px;
+    border: 1px solid rgba(184, 157, 94, 0.3);
+  }
+  .notario-info h3 {
+    font-family: var(--serif);
+    font-size: 30px; font-weight: 600;
+    color: var(--navy); margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .notario-role {
+    color: var(--accent); font-size: 12px;
+    letter-spacing: 3px; text-transform: uppercase;
+    font-weight: 600; margin-bottom: 22px;
+  }
+  .notario-info p {
+    color: var(--gray-700); margin-bottom: 16px;
+    font-size: 15px; line-height: 1.75;
+  }
+  .saber-mas {
+    display: inline-flex; align-items: center; gap: 10px;
+    color: var(--navy); font-weight: 600;
+    font-size: 13px; letter-spacing: 2px; text-transform: uppercase;
+    border-bottom: 1px solid var(--accent);
+    padding-bottom: 4px; margin-top: 12px;
+    transition: gap .2s, color .2s;
+  }
+  .saber-mas:hover { gap: 16px; color: var(--accent); }
+
   /* ─── SERVICIOS ─── */
-  #servicios { background: var(--ivory); }
+  #servicios { background: var(--white); }
   .servicios-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
-    border-top: 1px solid var(--gray-line);
-    border-left: 1px solid var(--gray-line);
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
   }
   .servicio {
-    padding: 50px 40px;
-    border-right: 1px solid var(--gray-line);
-    border-bottom: 1px solid var(--gray-line);
-    background: var(--paper);
-    transition: background .3s;
+    padding: 40px 36px;
+    background: var(--off-white);
+    border-top: 3px solid var(--navy);
+    transition: all .3s ease;
     position: relative;
   }
-  .servicio:hover { background: var(--ivory); }
-  .servicio:hover .servicio-num { color: var(--burgundy); }
-  .servicio-num {
-    font-family: var(--serif);
-    font-size: 14px; color: var(--bronze);
-    letter-spacing: 4px; font-weight: 600;
-    margin-bottom: 18px;
+  .servicio:hover {
+    background: var(--navy);
+    border-top-color: var(--accent);
+    transform: translateY(-4px);
+  }
+  .servicio:hover h3, .servicio:hover p, .servicio:hover .servicio-icon { color: var(--white); }
+  .servicio:hover .servicio-icon { color: var(--accent-light); }
+  .servicio-icon {
+    width: 48px; height: 48px;
+    color: var(--navy); margin-bottom: 24px;
     transition: color .3s;
   }
   .servicio h3 {
     font-family: var(--serif);
-    font-size: 26px; font-weight: 600;
-    margin-bottom: 16px;
-    color: var(--burgundy);
-    line-height: 1.2;
-  }
-  .servicio p { color: var(--ink-soft); font-size: 15px; line-height: 1.7; }
-  .servicio-list { margin-top: 18px; list-style: none; }
-  .servicio-list li {
-    font-size: 14px; color: var(--gray);
-    padding: 5px 0 5px 20px; position: relative;
-    border-bottom: 1px dotted var(--gray-line);
-  }
-  .servicio-list li:last-child { border-bottom: none; }
-  .servicio-list li::before {
-    content: '§'; position: absolute; left: 0;
-    color: var(--bronze); font-family: var(--serif); font-weight: 600;
-  }
-
-  /* ─── DESPACHO ─── */
-  #despacho { background: var(--paper); }
-  .despacho-grid {
-    display: grid; grid-template-columns: 1fr 1fr; gap: 90px;
-    align-items: center;
-  }
-  .despacho-text .ornament {
-    display: inline-block; color: var(--bronze);
-    font-size: 20px; letter-spacing: 6px;
+    font-size: 22px; font-weight: 600;
     margin-bottom: 14px;
+    color: var(--navy);
+    transition: color .3s;
   }
-  .despacho-text .eyebrow {
-    color: var(--burgundy);
-    font-size: 12px; letter-spacing: 4px; text-transform: uppercase;
-    font-weight: 600; margin-bottom: 22px; display: block;
-  }
-  .despacho-text h2 {
-    font-family: var(--serif); font-size: clamp(32px, 4vw, 46px);
-    font-weight: 500; line-height: 1.2; margin-bottom: 28px;
-    color: var(--ink); letter-spacing: -0.5px;
-  }
-  .despacho-text p {
-    color: var(--ink-soft); margin-bottom: 20px;
-    font-size: 16px; line-height: 1.8;
-  }
-  .signature {
-    margin-top: 40px; padding-top: 30px;
-    border-top: 1px solid var(--gray-line);
-    display: flex; align-items: center; gap: 20px;
-  }
-  .signature-name {
-    font-family: var(--serif);
-    font-size: 28px; font-weight: 500;
-    color: var(--burgundy); font-style: italic;
-    line-height: 1;
-  }
-  .signature-title {
-    font-size: 12px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--gray); margin-top: 6px;
+  .servicio p {
+    color: var(--gray-700); font-size: 14.5px;
+    line-height: 1.7;
+    transition: color .3s;
   }
 
-  .despacho-visual {
-    aspect-ratio: 4/5;
-    background: var(--burgundy);
-    position: relative;
-    overflow: hidden;
+  /* ─── HORARIO ─── */
+  #horario { background: var(--navy); color: var(--white); }
+  #horario .section-header h2 { color: var(--white); }
+  #horario .section-header .eyebrow { color: var(--accent-light); }
+  #horario .section-header p { color: rgba(255,255,255,0.7); }
+  .horario-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    max-width: 960px; margin: 0 auto;
+    border: 1px solid rgba(184, 157, 94, 0.25);
   }
-  .despacho-visual::before {
-    content: ''; position: absolute; inset: 24px;
-    border: 1px solid rgba(196, 147, 100, 0.4);
+  .horario-col {
+    padding: 50px 44px;
+    background: rgba(255,255,255,0.03);
   }
-  .despacho-visual::after {
-    content: ''; position: absolute; inset: 36px;
-    border: 1px solid rgba(196, 147, 100, 0.2);
+  .horario-col + .horario-col {
+    border-left: 1px solid rgba(184, 157, 94, 0.25);
+    background: transparent;
   }
-  .seal {
-    position: absolute; top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    width: 240px; height: 240px;
-    border: 2px solid var(--bronze);
-    border-radius: 50%;
-    display: grid; place-items: center;
-    text-align: center;
-    color: var(--bronze);
+  .horario-title {
     font-family: var(--serif);
+    font-size: 22px; font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 4px; text-transform: uppercase;
+    margin-bottom: 26px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(184, 157, 94, 0.3);
   }
-  .seal::before {
-    content: ''; position: absolute; inset: 12px;
-    border: 1px solid var(--bronze);
-    border-radius: 50%;
+  .horario-row {
+    display: flex; justify-content: space-between;
+    padding: 11px 0;
+    font-size: 15px;
+    border-bottom: 1px dotted rgba(255,255,255,0.1);
   }
-  .seal-text {
-    font-size: 14px; letter-spacing: 4px; text-transform: uppercase;
-    line-height: 1.4;
-  }
-  .seal-text strong {
-    display: block; font-size: 36px; font-weight: 600;
-    letter-spacing: 1px; text-transform: none;
-    margin: 6px 0; font-style: italic;
-  }
-  .seal-text small {
-    display: block; font-size: 11px; letter-spacing: 3px;
-    margin-top: 4px;
-  }
-
-  /* ─── PROCESO ─── */
-  #proceso { background: var(--ivory); }
-  .proceso-list { max-width: 880px; margin: 0 auto; }
-  .proceso-item {
-    display: grid; grid-template-columns: 80px 1fr;
-    gap: 40px; padding: 36px 0;
-    border-bottom: 1px solid var(--gray-line);
-    align-items: start;
-  }
-  .proceso-item:last-child { border-bottom: none; }
-  .proceso-num {
-    font-family: var(--serif);
-    font-size: 56px; font-weight: 500;
-    color: var(--burgundy); line-height: 1;
-    font-style: italic;
-  }
-  .proceso-content h3 {
-    font-family: var(--serif); font-size: 26px; font-weight: 600;
-    margin-bottom: 12px; color: var(--ink);
-  }
-  .proceso-content p { color: var(--ink-soft); font-size: 16px; line-height: 1.7; }
-
-  /* ─── HONORARIOS ─── */
-  #honorarios { background: var(--burgundy); color: var(--ivory); }
-  #honorarios .section-header h2 { color: var(--ivory); }
-  #honorarios .section-header p { color: rgba(245, 241, 232, 0.7); }
-  #honorarios .section-header .eyebrow { color: var(--bronze-light); }
-  .honorarios-card {
-    max-width: 720px; margin: 0 auto;
-    background: var(--burgundy-dark);
-    padding: 60px 50px;
-    border: 1px solid rgba(196, 147, 100, 0.3);
-    text-align: center;
-  }
-  .honorarios-card p {
-    font-family: var(--serif); font-size: 20px; line-height: 1.7;
-    margin-bottom: 28px; font-style: italic;
-  }
-  .honorarios-card p:last-child { margin-bottom: 0; }
-  .honorarios-card a {
-    color: var(--bronze-light); border-bottom: 1px solid var(--bronze-light);
-    padding-bottom: 2px;
-  }
-
-  /* ─── OPINIONES ─── */
-  #opiniones { background: var(--paper); }
-  .opiniones-grid {
-    display: grid; grid-template-columns: repeat(3, 1fr); gap: 0;
-    border-top: 1px solid var(--gray-line);
-    border-left: 1px solid var(--gray-line);
-  }
-  .opinion {
-    padding: 50px 40px;
-    border-right: 1px solid var(--gray-line);
-    border-bottom: 1px solid var(--gray-line);
-    background: var(--paper);
-  }
-  .opinion-stars {
-    color: var(--bronze); font-size: 16px; letter-spacing: 4px;
-    margin-bottom: 24px;
-  }
-  .opinion-text {
-    font-family: var(--serif);
-    font-size: 19px; line-height: 1.6;
-    margin-bottom: 30px; font-style: italic;
-    color: var(--ink);
-  }
-  .opinion-text::before {
-    content: '"'; font-family: var(--serif); font-size: 70px;
-    color: var(--bronze); line-height: 0.5;
-    vertical-align: -25px; margin-right: 4px;
-  }
-  .opinion-author {
-    padding-top: 22px; border-top: 1px solid var(--gray-line);
-    display: flex; justify-content: space-between; align-items: baseline;
-  }
-  .opinion-name { font-weight: 500; font-size: 14px; color: var(--burgundy); }
-  .opinion-meta {
-    font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--gray);
-  }
+  .horario-row:last-child { border-bottom: none; }
+  .horario-day { color: var(--white); font-weight: 500; }
+  .horario-time { color: rgba(255,255,255,0.7); font-family: var(--serif); }
 
   /* ─── CONTACTO ─── */
-  #contacto { background: var(--ivory); }
+  #contacto { background: var(--off-white); }
   .contacto-grid {
-    display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px;
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    gap: 70px; align-items: start;
   }
-  .contacto-info-card {
-    background: var(--paper);
-    padding: 50px 44px;
-    border: 1px solid var(--gray-line);
-    border-top: 4px solid var(--burgundy);
-  }
-  .contacto-info-card h3 {
-    font-family: var(--serif); font-size: 30px; font-weight: 600;
-    margin-bottom: 8px; color: var(--burgundy);
-  }
-  .contacto-sub {
-    font-style: italic; color: var(--gray); margin-bottom: 36px;
-    font-family: var(--serif); font-size: 16px;
-  }
-  .contacto-block {
-    margin-bottom: 28px; padding-bottom: 28px;
-    border-bottom: 1px dotted var(--gray-line);
-  }
-  .contacto-block:last-child { border: none; padding-bottom: 0; margin-bottom: 0; }
-  .contacto-label {
-    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
-    color: var(--bronze); font-weight: 600; margin-bottom: 8px;
-  }
-  .contacto-value {
-    font-family: var(--serif); font-size: 20px; font-weight: 500;
-    color: var(--ink);
-  }
-  .contacto-value small {
-    display: block; font-family: var(--sans); font-size: 13px;
-    color: var(--gray); margin-top: 4px; font-weight: 400; font-style: normal;
-  }
-
   .contacto-form {
-    background: var(--paper);
-    padding: 50px 44px;
-    border: 1px solid var(--gray-line);
+    background: var(--white);
+    padding: 50px;
+    border-top: 4px solid var(--accent);
   }
   .contacto-form h3 {
-    font-family: var(--serif); font-size: 30px; font-weight: 600;
-    margin-bottom: 8px; color: var(--burgundy);
+    font-family: var(--serif); font-size: 26px; font-weight: 600;
+    margin-bottom: 8px; color: var(--navy);
   }
   .contacto-form .form-sub {
-    font-style: italic; color: var(--gray); margin-bottom: 32px;
-    font-family: var(--serif); font-size: 16px;
+    color: var(--gray-500); margin-bottom: 32px;
+    font-size: 15px;
   }
-  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
-  .form-group { margin-bottom: 20px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .form-group { margin-bottom: 18px; }
   .form-group label {
     display: block; font-size: 11px; letter-spacing: 2px; text-transform: uppercase;
-    color: var(--gray); font-weight: 600; margin-bottom: 8px;
+    color: var(--gray-500); font-weight: 600; margin-bottom: 8px;
   }
   .form-group input, .form-group select, .form-group textarea {
     width: 100%; padding: 14px 16px;
-    border: 1px solid var(--gray-line);
-    background: var(--ivory);
+    border: 1px solid var(--gray-100);
+    background: var(--off-white);
     font-family: var(--sans); font-size: 15px;
-    color: var(--ink); transition: border-color .2s;
+    color: var(--navy); transition: border-color .2s, background .2s;
   }
   .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-    outline: none; border-color: var(--burgundy);
+    outline: none; border-color: var(--accent); background: var(--white);
   }
-  .form-group textarea { min-height: 130px; resize: vertical; font-family: var(--sans); }
+  .form-group textarea { min-height: 120px; resize: vertical; }
   .form-submit { width: 100%; justify-content: center; margin-top: 8px; }
+
+  .contacto-info { padding: 0; }
+  .contacto-block {
+    padding: 26px 0;
+    border-bottom: 1px solid var(--gray-100);
+    display: grid; grid-template-columns: 50px 1fr; gap: 24px; align-items: start;
+  }
+  .contacto-block:first-child { padding-top: 0; }
+  .contacto-icon {
+    width: 44px; height: 44px;
+    background: var(--navy); color: var(--accent);
+    display: grid; place-items: center;
+  }
+  .contacto-icon svg { width: 20px; height: 20px; }
+  .contacto-block-content .label {
+    font-size: 11px; letter-spacing: 3px; text-transform: uppercase;
+    color: var(--accent); font-weight: 600; margin-bottom: 6px;
+  }
+  .contacto-block-content .value {
+    font-family: var(--serif); font-size: 19px; font-weight: 500;
+    color: var(--navy);
+  }
+  .contacto-block-content .value small {
+    display: block; font-family: var(--sans); font-weight: 400;
+    font-size: 14px; color: var(--gray-500);
+    margin-top: 4px;
+  }
+
+  /* ─── ENLACES INTERES ─── */
+  #enlaces { background: var(--white); padding-bottom: 80px; }
+  .enlaces-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px;
+    max-width: 1100px; margin: 0 auto;
+  }
+  .enlace {
+    padding: 22px 26px;
+    border: 1px solid var(--gray-100);
+    background: var(--off-white);
+    transition: all .25s ease;
+    display: flex; align-items: center; justify-content: space-between;
+    font-size: 14px; font-weight: 500; color: var(--navy);
+  }
+  .enlace:hover {
+    background: var(--navy); color: var(--white);
+    border-color: var(--navy);
+    transform: translateY(-2px);
+  }
+  .enlace::after {
+    content: '→'; color: var(--accent);
+    transition: transform .2s, color .2s;
+  }
+  .enlace:hover::after { color: var(--accent-light); transform: translateX(4px); }
 
   /* ─── FOOTER ─── */
   footer {
-    background: var(--burgundy-dark); color: var(--ivory);
-    padding: 80px 32px 30px;
+    background: var(--navy-dark); color: rgba(255,255,255,0.7);
+    padding: 70px 32px 30px;
   }
   .footer-grid {
-    max-width: 1240px; margin: 0 auto;
-    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 60px;
-    margin-bottom: 60px;
+    max-width: 1280px; margin: 0 auto;
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 50px;
+    margin-bottom: 50px;
   }
   .footer-col h4 {
-    font-family: var(--serif); font-size: 18px; font-weight: 600;
-    margin-bottom: 22px; color: var(--bronze-light);
-    letter-spacing: 0.5px;
+    font-family: var(--serif); font-size: 16px; font-weight: 600;
+    margin-bottom: 18px; color: var(--accent-light);
+    letter-spacing: 1px;
   }
   .footer-col p, .footer-col a, .footer-col li {
-    font-size: 14px; line-height: 2; color: rgba(245, 241, 232, 0.7);
+    font-size: 14px; line-height: 1.9;
     list-style: none;
   }
-  .footer-col a:hover { color: var(--bronze-light); }
+  .footer-col a:hover { color: var(--accent-light); }
   .footer-bottom {
-    max-width: 1240px; margin: 0 auto;
-    padding-top: 30px; border-top: 1px solid rgba(196, 147, 100, 0.2);
+    max-width: 1280px; margin: 0 auto;
+    padding-top: 30px; border-top: 1px solid rgba(184, 157, 94, 0.15);
     display: flex; justify-content: space-between; align-items: center;
-    font-size: 12px; letter-spacing: 1px;
-    color: rgba(245, 241, 232, 0.5); flex-wrap: wrap; gap: 16px;
+    font-size: 13px; color: rgba(255,255,255,0.45);
+    flex-wrap: wrap; gap: 16px;
   }
+  .footer-bottom a:hover { color: var(--accent-light); }
 
   /* ─── REVEAL ─── */
-  .reveal { opacity: 0; transform: translateY(30px); transition: opacity 1s ease, transform 1s ease; }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity .9s ease, transform .9s ease; }
   .reveal.in { opacity: 1; transform: none; }
 
   /* ─── RESPONSIVE ─── */
   @media (max-width: 1000px) {
     .servicios-grid { grid-template-columns: repeat(2, 1fr); }
-    .opiniones-grid { grid-template-columns: 1fr; }
-    .despacho-grid { grid-template-columns: 1fr; gap: 50px; }
     .contacto-grid { grid-template-columns: 1fr; gap: 40px; }
+    .horario-grid { grid-template-columns: 1fr; }
+    .horario-col + .horario-col { border-left: none; border-top: 1px solid rgba(184,157,94,0.25); }
+    .enlaces-grid { grid-template-columns: repeat(2, 1fr); }
     .nav-links { display: none; }
     .menu-btn { display: block; }
     .footer-grid { grid-template-columns: 1fr 1fr; }
     section { padding: 70px 24px; }
-    .hero { padding: 60px 24px 80px; }
+    .notario-card { grid-template-columns: 1fr; gap: 32px; padding: 32px; }
+    .notario-photo { max-width: 240px; margin: 0 auto; }
+    .topbar { flex-direction: column; gap: 8px; padding: 12px; font-size: 12px; }
   }
   @media (max-width: 600px) {
     .servicios-grid { grid-template-columns: 1fr; }
     .form-row { grid-template-columns: 1fr; }
     .footer-grid { grid-template-columns: 1fr; gap: 30px; }
-    .hero-badges { gap: 30px; }
-    .proceso-item { grid-template-columns: 1fr; gap: 12px; }
-    .topbar { font-size: 11px; }
+    .enlaces-grid { grid-template-columns: 1fr; }
+    .contacto-form { padding: 32px; }
+    .hero { min-height: 65vh; padding: 80px 24px; }
   }
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  Lunes a viernes · 9:00 – 14:00 / 16:00 – 19:00 &nbsp;·&nbsp; <a href="tel:946102198">946 10 21 98</a> &nbsp;·&nbsp; San Severino Plaza, 7 · Balmaseda
+  <div class="topbar-left">
+    <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Plaza San Severino, 7 · Balmaseda</span>
+  </div>
+  <div class="topbar-right">
+    <a href="tel:946102198"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>946 10 21 98</a>
+    <a href="mailto:notaria@aretxaga.es"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>notaria@aretxaga.es</a>
+  </div>
 </div>
 
 <nav id="nav">
@@ -540,15 +519,16 @@
       <div class="logo-mark">A</div>
       <div class="logo-text">
         Notaría Aretxaga
-        <small>Igone Aretxaga González · Balmaseda</small>
+        <small>Balmaseda · Bizkaia</small>
       </div>
     </a>
     <div class="nav-links">
+      <a href="#">Inicio</a>
+      <a href="#conocernos">Quiénes somos</a>
       <a href="#servicios">Servicios</a>
-      <a href="#despacho">El despacho</a>
-      <a href="#proceso">Cómo trabajamos</a>
-      <a href="#opiniones">Opiniones</a>
-      <a href="#contacto" class="nav-cta">Pedir cita</a>
+      <a href="#horario">Horario y contacto</a>
+      <a href="#enlaces">Enlaces de interés</a>
+      <a href="#contacto" class="nav-cta">Citas y consultas</a>
     </div>
     <button class="menu-btn" aria-label="Menú"><span></span><span></span><span></span></button>
   </div>
@@ -557,274 +537,142 @@
 <!-- ─── HERO ─── -->
 <header class="hero">
   <div class="hero-inner">
-    <div class="ornament reveal">❦ &nbsp; § &nbsp; ❦</div>
-    <span class="eyebrow reveal">Notaría · Balmaseda · Las Encartaciones</span>
-    <h1 class="reveal">Documentos firmados con <em>rigor</em>, atención dedicada y plazos claros</h1>
-    <p class="lead reveal">Notaría de Igone Aretxaga González en pleno corazón de Balmaseda. Atendemos compraventas, herencias, hipotecas, sociedades y poderes para particulares y empresas de toda la comarca de Las Encartaciones y Bizkaia.</p>
-    <div class="btn-row reveal">
+    <div class="ornament">§ &nbsp; § &nbsp; §</div>
+    <span class="eyebrow">Notaría Igone Aretxaga González</span>
+    <h1>
+      Una notaría<br>
+      <strong>al servicio de las personas</strong>
+    </h1>
+    <p class="lead">"Construir confianza y seguridad jurídica para los vecinos, autónomos y empresas de Balmaseda y Las Encartaciones, con la atención dedicada de un despacho de pueblo y el rigor de un despacho de capital."</p>
+    <div class="btn-row">
       <a href="#contacto" class="btn btn-primary">Solicitar cita</a>
-      <a href="tel:946102198" class="btn btn-outline">946 10 21 98</a>
-    </div>
-    <div class="hero-badges reveal">
-      <div class="hero-badge">
-        <div class="hero-badge-num">4,1<span style="font-size:18px;color:var(--gray)">★</span></div>
-        <div class="hero-badge-label">35 reseñas verificadas en Google</div>
-      </div>
-      <div class="hero-badge">
-        <div class="hero-badge-num">24h</div>
-        <div class="hero-badge-label">Tiempo medio de respuesta a consultas</div>
-      </div>
-      <div class="hero-badge">
-        <div class="hero-badge-num">€</div>
-        <div class="hero-badge-label">Aranceles oficiales transparentes</div>
-      </div>
+      <a href="#conocernos" class="btn btn-outline">Conózcanos</a>
     </div>
   </div>
 </header>
+
+<!-- ─── ACÉRQUESE A CONOCERNOS ─── -->
+<section id="conocernos">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Acérquese a conocernos</span>
+      <span class="section-divider"></span>
+      <h2>Una notaria al frente de un equipo con vocación de servicio al cliente</h2>
+      <p>Más de tres décadas dando fe pública en Balmaseda, manteniendo el compromiso con la cercanía, la claridad y el respeto a los plazos.</p>
+    </div>
+    <div class="conocernos-grid reveal">
+      <div class="notario-card">
+        <div class="notario-photo" aria-hidden="true"></div>
+        <div class="notario-info">
+          <h3>Igone Aretxaga González</h3>
+          <div class="notario-role">Notaria titular · Balmaseda</div>
+          <p>Notaria del Ilustre Colegio Notarial del País Vasco con despacho en Balmaseda desde hace más de treinta años. Especializada en Derecho Civil Foral Vasco y planificación sucesoria mediante pactos sucesorios.</p>
+          <p>Defiende un modelo de notaría cercana, donde cada documento se explica con calma antes de firmar. La primera obligación del notario, dice, es asegurarse de que nadie firme nada sin haberlo entendido.</p>
+          <a href="#servicios" class="saber-mas">Saber más →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- ─── SERVICIOS ─── -->
 <section id="servicios">
   <div class="container">
     <div class="section-header reveal">
-      <div class="ornament">§ &nbsp; § &nbsp; §</div>
-      <span class="eyebrow">Servicios notariales</span>
+      <span class="eyebrow">Nuestros servicios</span>
+      <span class="section-divider"></span>
       <h2>Toda la actividad notarial bajo un mismo despacho</h2>
-      <p>Asesoramiento previo, redacción y autorización de documentos públicos, con explicación detallada antes de firmar.</p>
+      <p>Asesoramiento previo, redacción y autorización de documentos públicos, con presentación telemática en Registro y liquidación de impuestos.</p>
     </div>
-
     <div class="servicios-grid reveal">
 
       <div class="servicio">
-        <div class="servicio-num">— I —</div>
-        <h3>Compraventas e inmuebles</h3>
-        <p>Escrituras de compraventa de viviendas, locales, fincas rústicas y suelo urbano.</p>
-        <ul class="servicio-list">
-          <li>Compraventa de vivienda</li>
-          <li>Permutas y daciones</li>
-          <li>Obra nueva y división horizontal</li>
-          <li>Cancelación de cargas</li>
-          <li>Inscripción en Registro</li>
-        </ul>
+        <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+          <polyline points="9 22 9 12 15 12 15 22"/>
+        </svg>
+        <h3>Compraventa de inmuebles</h3>
+        <p>Escrituras de compraventa de viviendas, locales, fincas rústicas y suelo urbano, con tramitación íntegra ante el Registro de la Propiedad.</p>
       </div>
 
       <div class="servicio">
-        <div class="servicio-num">— II —</div>
+        <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <line x1="16" y1="13" x2="8" y2="13"/>
+          <line x1="16" y1="17" x2="8" y2="17"/>
+        </svg>
         <h3>Herencias y testamentos</h3>
-        <p>Acompañamiento integral en la planificación sucesoria y la aceptación de herencias.</p>
-        <ul class="servicio-list">
-          <li>Otorgamiento de testamento</li>
-          <li>Declaración de herederos</li>
-          <li>Aceptación y partición</li>
-          <li>Renuncia a herencia</li>
-          <li>Pactos sucesorios forales</li>
-        </ul>
+        <p>Otorgamiento de testamento, declaración de herederos, aceptación de herencia y pactos sucesorios forales del País Vasco.</p>
       </div>
 
       <div class="servicio">
-        <div class="servicio-num">— III —</div>
+        <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+        </svg>
         <h3>Préstamos hipotecarios</h3>
-        <p>Cumplimiento íntegro de la Ley reguladora de los contratos de crédito inmobiliario.</p>
-        <ul class="servicio-list">
-          <li>Acta previa LCCI gratuita</li>
-          <li>Préstamos con garantía hipotecaria</li>
-          <li>Subrogación de hipoteca</li>
-          <li>Novación y cancelación</li>
-          <li>Préstamos personales</li>
-        </ul>
+        <p>Acta previa LCCI, préstamos con garantía hipotecaria, subrogación, novación y cancelación. Cumplimiento íntegro de la normativa.</p>
       </div>
 
       <div class="servicio">
-        <div class="servicio-num">— IV —</div>
+        <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+        </svg>
         <h3>Sociedades mercantiles</h3>
-        <p>Todo el ciclo de vida de tu sociedad, desde la constitución hasta la disolución.</p>
-        <ul class="servicio-list">
-          <li>Constitución de sociedades</li>
-          <li>Ampliaciones y reducciones</li>
-          <li>Modificaciones estatutarias</li>
-          <li>Apoderamientos mercantiles</li>
-          <li>Disoluciones y liquidaciones</li>
-        </ul>
+        <p>Constitución de sociedades, ampliaciones de capital, modificaciones estatutarias, apoderamientos mercantiles y disoluciones.</p>
       </div>
 
       <div class="servicio">
-        <div class="servicio-num">— V —</div>
-        <h3>Poderes y representación</h3>
-        <p>Otorgamiento de poderes generales, especiales y revocaciones, con redacción a medida.</p>
-        <ul class="servicio-list">
-          <li>Poderes generales</li>
-          <li>Poderes especiales</li>
-          <li>Poderes preventivos</li>
-          <li>Apoderamientos para pleitos</li>
-          <li>Revocaciones de poder</li>
-        </ul>
+        <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+          <polyline points="14 2 14 8 20 8"/>
+          <path d="M9 15l2 2 4-4"/>
+        </svg>
+        <h3>Poderes notariales</h3>
+        <p>Poderes generales, especiales, preventivos, para pleitos y revocaciones. Redacción adaptada a las necesidades específicas de cada caso.</p>
       </div>
 
       <div class="servicio">
-        <div class="servicio-num">— VI —</div>
+        <svg class="servicio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"/>
+          <path d="M12 6v6l4 2"/>
+        </svg>
         <h3>Actas y otros</h3>
-        <p>Documentos que dan fe pública de hechos, manifestaciones y declaraciones.</p>
-        <ul class="servicio-list">
-          <li>Actas de notoriedad</li>
-          <li>Actas de presencia</li>
-          <li>Capitulaciones matrimoniales</li>
-          <li>Legalización de libros</li>
-          <li>Legitimaciones de firmas</li>
-        </ul>
+        <p>Actas de notoriedad y de presencia, capitulaciones matrimoniales, legalización de libros, legitimaciones de firmas y donaciones.</p>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ─── DESPACHO ─── -->
-<section id="despacho">
-  <div class="container">
-    <div class="despacho-grid">
-      <div class="despacho-text reveal">
-        <div class="ornament">§ &nbsp; §</div>
-        <span class="eyebrow">El despacho</span>
-        <h2>Una notaría de pueblo, con la solvencia de un despacho de capital</h2>
-        <p>La Notaría de Igone Aretxaga González está situada en plena Plaza de San Severino, frente a la iglesia, en el casco histórico de Balmaseda. Atendemos a vecinos, autónomos y empresas de toda la comarca de Las Encartaciones, sin necesidad de desplazarse a Bilbao.</p>
-        <p>Cada documento que firmamos lleva detrás horas de trabajo previo: revisamos la documentación, explicamos al cliente cada cláusula y nos aseguramos de que nadie firme nada sin haberlo entendido. Esa es la primera obligación del notario y la que más nos importa.</p>
-        <p>Tramitamos directamente con el Registro de la Propiedad de Balmaseda y con el Registro Mercantil de Bizkaia. Conocemos el Derecho Civil Foral Vasco y los pactos sucesorios, una herramienta especialmente útil en planificación patrimonial familiar.</p>
-        <div class="signature">
-          <div>
-            <div class="signature-name">Igone Aretxaga González</div>
-            <div class="signature-title">Notaria · Plaza de San Severino, Balmaseda</div>
-          </div>
-        </div>
-      </div>
-      <div class="despacho-visual reveal" aria-hidden="true">
-        <div class="seal">
-          <div class="seal-text">
-            Notaría
-            <strong>Aretxaga</strong>
-            <small>Balmaseda · 1991</small>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ─── PROCESO ─── -->
-<section id="proceso">
+<!-- ─── HORARIO ─── -->
+<section id="horario">
   <div class="container">
     <div class="section-header reveal">
-      <div class="ornament">§ &nbsp; § &nbsp; §</div>
-      <span class="eyebrow">Cómo trabajamos</span>
-      <h2>De la consulta inicial a la firma, sin sobresaltos</h2>
-      <p>Un proceso claro, con plazos definidos y comunicación constante.</p>
+      <span class="eyebrow">Horario de atención</span>
+      <span class="section-divider"></span>
+      <h2>Estamos a su disposición</h2>
+      <p>Atención al público en el despacho con cita previa. Para consultas urgentes, no dude en llamarnos.</p>
     </div>
-    <div class="proceso-list reveal">
-
-      <div class="proceso-item">
-        <div class="proceso-num">i.</div>
-        <div class="proceso-content">
-          <h3>Consulta inicial</h3>
-          <p>Por teléfono, email o presencial. Te explicamos qué documentos necesitas, qué tributos se devengan y qué plazos manejamos. Sin coste y sin compromiso.</p>
-        </div>
+    <div class="horario-grid reveal">
+      <div class="horario-col">
+        <div class="horario-title">Horario de invierno</div>
+        <div class="horario-row"><span class="horario-day">Lunes</span><span class="horario-time">09:00 — 14:00 / 16:00 — 19:00</span></div>
+        <div class="horario-row"><span class="horario-day">Martes</span><span class="horario-time">09:00 — 14:00 / 16:00 — 19:00</span></div>
+        <div class="horario-row"><span class="horario-day">Miércoles</span><span class="horario-time">09:00 — 14:00 / 16:00 — 19:00</span></div>
+        <div class="horario-row"><span class="horario-day">Jueves</span><span class="horario-time">09:00 — 14:00 / 16:00 — 19:00</span></div>
+        <div class="horario-row"><span class="horario-day">Viernes</span><span class="horario-time">09:00 — 14:00</span></div>
+        <div class="horario-row"><span class="horario-day">Sábado y domingo</span><span class="horario-time">Cerrado</span></div>
       </div>
-
-      <div class="proceso-item">
-        <div class="proceso-num">ii.</div>
-        <div class="proceso-content">
-          <h3>Presupuesto orientativo</h3>
-          <p>Calculamos los aranceles notariales aplicables (regulados por Real Decreto, idénticos en cualquier notaría de España) y los gastos asociados: registro, gestoría e impuestos.</p>
-        </div>
+      <div class="horario-col">
+        <div class="horario-title">Horario de verano</div>
+        <div class="horario-row"><span class="horario-day">Lunes</span><span class="horario-time">09:00 — 15:00</span></div>
+        <div class="horario-row"><span class="horario-day">Martes</span><span class="horario-time">09:00 — 15:00</span></div>
+        <div class="horario-row"><span class="horario-day">Miércoles</span><span class="horario-time">09:00 — 15:00</span></div>
+        <div class="horario-row"><span class="horario-day">Jueves</span><span class="horario-time">09:00 — 15:00</span></div>
+        <div class="horario-row"><span class="horario-day">Viernes</span><span class="horario-time">09:00 — 14:00</span></div>
+        <div class="horario-row"><span class="horario-day">Sábado y domingo</span><span class="horario-time">Cerrado</span></div>
       </div>
-
-      <div class="proceso-item">
-        <div class="proceso-num">iii.</div>
-        <div class="proceso-content">
-          <h3>Recopilación documental</h3>
-          <p>Te enviamos un listado claro con la documentación necesaria. Si te resulta difícil obtener algún documento, te ayudamos a tramitarlo.</p>
-        </div>
-      </div>
-
-      <div class="proceso-item">
-        <div class="proceso-num">iv.</div>
-        <div class="proceso-content">
-          <h3>Lectura previa</h3>
-          <p>Antes del día de la firma, te enviamos el borrador de la escritura para que lo leas con calma. Resolvemos cualquier duda por teléfono o email.</p>
-        </div>
-      </div>
-
-      <div class="proceso-item">
-        <div class="proceso-num">v.</div>
-        <div class="proceso-content">
-          <h3>Firma y autorización</h3>
-          <p>El día de la firma, repasamos el documento contigo en el despacho, resolvemos cualquier última duda y procedemos a la autorización notarial.</p>
-        </div>
-      </div>
-
-      <div class="proceso-item">
-        <div class="proceso-num">vi.</div>
-        <div class="proceso-content">
-          <h3>Tramitación posterior</h3>
-          <p>Nos encargamos de la presentación telemática en el Registro correspondiente, la liquidación de impuestos y te entregamos copia autorizada cuando esté inscrita.</p>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-
-<!-- ─── HONORARIOS ─── -->
-<section id="honorarios">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="ornament">§ &nbsp; § &nbsp; §</div>
-      <span class="eyebrow">Aranceles notariales</span>
-      <h2>Tarifas reguladas por ley, idénticas en toda España</h2>
-      <p>Los aranceles notariales están fijados por Real Decreto 1426/1989. Pagas lo mismo aquí que en cualquier notaría del país.</p>
-    </div>
-    <div class="honorarios-card reveal">
-      <p>Por ley, los honorarios notariales son <strong>fijos y oficiales</strong> en todo el territorio nacional. No hay negociación posible ni descuentos: se calculan sobre el valor del acto y la extensión del documento.</p>
-      <p>Lo que <em>sí</em> diferencia a un despacho de otro es la <strong>atención previa</strong>, la <strong>claridad en las explicaciones</strong> y la <strong>velocidad en la tramitación</strong>. Y eso, en Aretxaga, no lo cobramos aparte.</p>
-      <p>Si quieres un presupuesto orientativo de tu operación, llámanos al <a href="tel:946102198">946 10 21 98</a> y en menos de 24 horas te enviamos el desglose completo.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ─── OPINIONES ─── -->
-<section id="opiniones">
-  <div class="container">
-    <div class="section-header reveal">
-      <div class="ornament">§ &nbsp; § &nbsp; §</div>
-      <span class="eyebrow">Opiniones de clientes</span>
-      <h2>Lo que cuentan en Google quienes han firmado con nosotros</h2>
-      <p>35 reseñas verificadas con una valoración media de 4,1 estrellas.</p>
-    </div>
-    <div class="opiniones-grid reveal">
-
-      <div class="opinion">
-        <div class="opinion-stars">★★★★★</div>
-        <p class="opinion-text">Compramos nuestra primera vivienda con ellos y la experiencia fue inmejorable. Nos explicaron cada cláusula con paciencia, sin prisas. Salimos del despacho entendiéndolo todo.</p>
-        <div class="opinion-author">
-          <div class="opinion-name">Maialen O.</div>
-          <div class="opinion-meta">Compraventa · Balmaseda</div>
-        </div>
-      </div>
-
-      <div class="opinion">
-        <div class="opinion-stars">★★★★★</div>
-        <p class="opinion-text">Heredé un piso de mi tía y todo el proceso fue claro y sin sustos. La notaria me orientó con el pacto sucesorio y los plazos del Impuesto. Muy recomendable.</p>
-        <div class="opinion-author">
-          <div class="opinion-name">Javier M.</div>
-          <div class="opinion-meta">Herencia · Las Encartaciones</div>
-        </div>
-      </div>
-
-      <div class="opinion">
-        <div class="opinion-stars">★★★★★</div>
-        <p class="opinion-text">Constituí mi sociedad con ellos en menos de una semana, incluyendo cita con el banco para abrir cuenta. Profesionalidad y trato cercano, dos cosas que no siempre van juntas.</p>
-        <div class="opinion-author">
-          <div class="opinion-name">Aitor B.</div>
-          <div class="opinion-meta">Sociedad mercantil · Bizkaia</div>
-        </div>
-      </div>
-
     </div>
   </div>
 </section>
@@ -833,52 +681,16 @@
 <section id="contacto">
   <div class="container">
     <div class="section-header reveal">
-      <div class="ornament">§ &nbsp; § &nbsp; §</div>
-      <span class="eyebrow">Solicitar cita</span>
-      <h2>Estamos a tu disposición</h2>
-      <p>Pide hora por teléfono, email o el formulario. Respondemos en menos de 24 horas laborables.</p>
+      <span class="eyebrow">Citas y consultas</span>
+      <span class="section-divider"></span>
+      <h2>Solicite su cita</h2>
+      <p>Indíquenos brevemente el asunto y nos pondremos en contacto en menos de 24 horas laborables.</p>
     </div>
     <div class="contacto-grid">
-      <div class="contacto-info-card reveal">
-        <h3>Despacho notarial</h3>
-        <div class="contacto-sub">San Severino Plaza, 7 — Balmaseda</div>
-
-        <div class="contacto-block">
-          <div class="contacto-label">Teléfono</div>
-          <div class="contacto-value">
-            <a href="tel:946102198">946 10 21 98</a>
-            <small>Lunes a viernes · 9:00 – 14:00 / 16:00 – 19:00</small>
-          </div>
-        </div>
-
-        <div class="contacto-block">
-          <div class="contacto-label">Correo electrónico</div>
-          <div class="contacto-value">
-            <a href="mailto:notaria@aretxaga.es">notaria@aretxaga.es</a>
-            <small>Respuesta en 24h laborables</small>
-          </div>
-        </div>
-
-        <div class="contacto-block">
-          <div class="contacto-label">Dirección</div>
-          <div class="contacto-value">
-            San Severino Plaza, 7
-            <small>48800 Balmaseda · Bizkaia</small>
-          </div>
-        </div>
-
-        <div class="contacto-block">
-          <div class="contacto-label">Cómo llegar</div>
-          <div class="contacto-value">
-            <a href="https://maps.google.com/?cid=9846610479340264405" target="_blank" rel="noopener">Ver en Google Maps →</a>
-            <small>Frente a la iglesia de San Severino · Casco histórico</small>
-          </div>
-        </div>
-      </div>
 
       <form class="contacto-form reveal" onsubmit="event.preventDefault(); this.querySelector('button').textContent='Solicitud enviada ✓'; this.querySelector('button').disabled=true;">
-        <h3>Pedir cita</h3>
-        <p class="form-sub">Indícanos brevemente el asunto y nos ponemos en contacto contigo.</p>
+        <h3>Formulario de contacto</h3>
+        <p class="form-sub">Le contestaremos en menos de 24 horas laborables.</p>
 
         <div class="form-row">
           <div class="form-group">
@@ -911,11 +723,75 @@
 
         <div class="form-group">
           <label for="mensaje">Detalles adicionales</label>
-          <textarea id="mensaje" placeholder="Por ejemplo: Voy a comprar una vivienda en Balmaseda y necesito presupuesto orientativo de los aranceles..."></textarea>
+          <textarea id="mensaje" placeholder="Describa brevemente su consulta..."></textarea>
         </div>
 
         <button type="submit" class="btn btn-primary form-submit">Enviar solicitud</button>
       </form>
+
+      <div class="contacto-info reveal">
+        <div class="contacto-block">
+          <div class="contacto-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+          </div>
+          <div class="contacto-block-content">
+            <div class="label">Dónde estamos</div>
+            <div class="value">San Severino Plaza, 7<small>48800 Balmaseda · Bizkaia</small></div>
+          </div>
+        </div>
+
+        <div class="contacto-block">
+          <div class="contacto-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.37 1.9.72 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.35 1.85.59 2.81.72A2 2 0 0 1 22 16.92z"/></svg>
+          </div>
+          <div class="contacto-block-content">
+            <div class="label">Teléfonos</div>
+            <div class="value"><a href="tel:946102198">946 10 21 98</a><small>Lunes a viernes en horario de despacho</small></div>
+          </div>
+        </div>
+
+        <div class="contacto-block">
+          <div class="contacto-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div class="contacto-block-content">
+            <div class="label">Correo electrónico</div>
+            <div class="value"><a href="mailto:notaria@aretxaga.es">notaria@aretxaga.es</a><small>Respuesta en 24h laborables</small></div>
+          </div>
+        </div>
+
+        <div class="contacto-block">
+          <div class="contacto-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="3 11 22 2 13 21 11 13 3 11"/></svg>
+          </div>
+          <div class="contacto-block-content">
+            <div class="label">Cómo llegar</div>
+            <div class="value"><a href="https://maps.google.com/?cid=9846610479340264405" target="_blank" rel="noopener">Ver en Google Maps →</a><small>Casco histórico · Frente a la iglesia de San Severino</small></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ─── ENLACES DE INTERÉS ─── -->
+<section id="enlaces">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="eyebrow">Enlaces de interés</span>
+      <span class="section-divider"></span>
+      <h2>Recursos útiles</h2>
+    </div>
+    <div class="enlaces-grid reveal">
+      <a href="https://www.notariado.org" target="_blank" rel="noopener" class="enlace">Consejo General del Notariado</a>
+      <a href="https://www.notariadelpaisvasco.org" target="_blank" rel="noopener" class="enlace">Colegio Notarial País Vasco</a>
+      <a href="https://www.registradores.org" target="_blank" rel="noopener" class="enlace">Registro de la Propiedad</a>
+      <a href="https://www.bizkaia.eus" target="_blank" rel="noopener" class="enlace">Hacienda Foral de Bizkaia</a>
+      <a href="https://sede.agenciatributaria.gob.es" target="_blank" rel="noopener" class="enlace">Agencia Tributaria</a>
+      <a href="https://www.catastro.minhap.es" target="_blank" rel="noopener" class="enlace">Catastro</a>
+      <a href="https://www.boe.es" target="_blank" rel="noopener" class="enlace">BOE — Legislación</a>
+      <a href="https://www.balmaseda.eus" target="_blank" rel="noopener" class="enlace">Ayuntamiento de Balmaseda</a>
     </div>
   </div>
 </section>
@@ -925,13 +801,22 @@
   <div class="footer-grid">
     <div class="footer-col">
       <div class="logo" style="margin-bottom:24px;">
-        <div class="logo-mark" style="border-color:var(--bronze-light);color:var(--bronze-light);">A</div>
-        <div class="logo-text" style="color:var(--ivory);">
+        <div class="logo-mark">A</div>
+        <div class="logo-text" style="color:var(--white);">
           Notaría Aretxaga
-          <small style="color:rgba(245,241,232,0.5);">Igone Aretxaga González · Balmaseda</small>
+          <small style="color:rgba(255,255,255,0.5);">Balmaseda · Bizkaia</small>
         </div>
       </div>
-      <p>Notaría situada en pleno casco histórico de Balmaseda, atendiendo a Las Encartaciones y al resto de Bizkaia desde hace más de tres décadas.</p>
+      <p>Notaría de Igone Aretxaga González. Despacho situado en pleno casco histórico de Balmaseda, atendiendo a Las Encartaciones y al resto de Bizkaia.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Notaría</h4>
+      <ul>
+        <li><a href="#conocernos">Quiénes somos</a></li>
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#horario">Horario y contacto</a></li>
+        <li><a href="#contacto">Citas y consultas</a></li>
+      </ul>
     </div>
     <div class="footer-col">
       <h4>Servicios</h4>
@@ -942,15 +827,6 @@
         <li><a href="#servicios">Sociedades</a></li>
         <li><a href="#servicios">Poderes</a></li>
         <li><a href="#servicios">Actas</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h4>Notaría</h4>
-      <ul>
-        <li><a href="#despacho">El despacho</a></li>
-        <li><a href="#proceso">Cómo trabajamos</a></li>
-        <li><a href="#honorarios">Aranceles</a></li>
-        <li><a href="#opiniones">Opiniones</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -965,7 +841,7 @@
   </div>
   <div class="footer-bottom">
     <div>© 2026 Notaría Igone Aretxaga González · Plaza de San Severino, 7 · Balmaseda</div>
-    <div><a href="#">Aviso legal</a> · <a href="#">Privacidad</a> · <a href="#">Cookies</a></div>
+    <div><a href="#">Aviso legal</a> · <a href="#">Política de privacidad</a> · <a href="#">Cookies</a></div>
   </div>
 </footer>
 
