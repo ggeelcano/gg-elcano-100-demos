@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Asador Motabarri · Unbe, Erandio · Chuletón a la brasa desde 1995</title>
+<meta name="description" content="Asador familiar en el monte Unbe, Erandio. Chuletón del país a la brasa, alubias con sacramentos y txakoli. 30 años de tradición vasca.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  :root{
+    --carbon:#1a1410;
+    --ember:#c4421a;
+    --ember-bright:#e85d28;
+    --cream:#f5ede2;
+    --paper:#faf6f0;
+    --gold:#c9a86a;
+    --smoke:#3a2e26;
+    --char:#221915;
+  }
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',sans-serif;
+    color:var(--carbon);
+    background:var(--paper);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{font-family:'Playfair Display',serif;font-weight:700;line-height:1.15;letter-spacing:-.01em}
+
+  /* NAV */
+  nav{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:20px 8%;
+    display:flex;justify-content:space-between;align-items:center;
+    transition:all .35s ease;
+  }
+  nav.scrolled{
+    background:rgba(26,20,16,.96);
+    backdrop-filter:blur(12px);
+    padding:14px 8%;
+    box-shadow:0 4px 30px rgba(0,0,0,.3);
+  }
+  .logo{
+    font-family:'Playfair Display',serif;
+    font-size:1.6rem;font-weight:700;color:#fff;
+    letter-spacing:.04em;
+  }
+  .logo span{color:var(--ember-bright);font-style:italic}
+  nav ul{list-style:none;display:flex;gap:36px}
+  nav ul a{
+    color:#fff;text-decoration:none;font-size:.92rem;
+    font-weight:500;letter-spacing:.05em;text-transform:uppercase;
+    position:relative;transition:color .25s;
+  }
+  nav ul a:hover{color:var(--ember-bright)}
+  nav ul a::after{
+    content:'';position:absolute;bottom:-6px;left:0;
+    width:0;height:1px;background:var(--ember-bright);
+    transition:width .3s;
+  }
+  nav ul a:hover::after{width:100%}
+  .nav-cta{
+    background:var(--ember);color:#fff;
+    padding:10px 22px;border-radius:2px;
+    text-decoration:none;font-weight:600;font-size:.85rem;
+    letter-spacing:.08em;text-transform:uppercase;
+    transition:all .25s;
+  }
+  .nav-cta:hover{background:var(--ember-bright);transform:translateY(-1px)}
+  .burger{display:none;color:#fff;background:none;border:none;font-size:1.6rem;cursor:pointer}
+
+  /* HERO */
+  .hero{
+    height:100vh;min-height:680px;
+    position:relative;overflow:hidden;
+    display:flex;align-items:flex-end;
+  }
+  .hero-bg{
+    position:absolute;inset:0;
+    background:url('https://lh5.googleusercontent.com/p/AF1QipPwWy0Lc9ujdtysWOLaSGcJn8YT6oHazjnMtmF9=w1600-h1200-k-no') center/cover no-repeat;
+    transform:scale(1.05);
+    animation:slowZoom 18s ease-in-out infinite alternate;
+  }
+  @keyframes slowZoom{to{transform:scale(1.12)}}
+  .hero::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,rgba(26,20,16,.45) 0%,rgba(26,20,16,.2) 40%,rgba(26,20,16,.92) 100%);
+  }
+  .hero-content{
+    position:relative;z-index:2;
+    padding:0 8% 90px;
+    color:#fff;max-width:1100px;
+  }
+  .hero-tag{
+    display:inline-block;
+    color:var(--gold);
+    font-size:.82rem;letter-spacing:.4em;text-transform:uppercase;
+    margin-bottom:24px;font-weight:500;
+    padding-bottom:14px;
+    border-bottom:1px solid var(--gold);
+  }
+  .hero h1{
+    font-size:clamp(2.6rem,6.5vw,5.4rem);
+    font-weight:900;line-height:1.02;
+    margin-bottom:24px;
+    text-shadow:0 4px 40px rgba(0,0,0,.4);
+  }
+  .hero h1 em{color:var(--ember-bright);font-style:italic}
+  .hero p{
+    font-size:clamp(1.05rem,1.5vw,1.25rem);
+    max-width:580px;color:rgba(255,255,255,.88);
+    margin-bottom:40px;font-weight:300;
+  }
+  .hero-actions{display:flex;gap:18px;flex-wrap:wrap}
+  .btn{
+    padding:16px 34px;
+    text-decoration:none;font-weight:600;font-size:.92rem;
+    letter-spacing:.1em;text-transform:uppercase;
+    transition:all .3s;display:inline-flex;align-items:center;gap:10px;
+    border:none;cursor:pointer;
+  }
+  .btn-primary{background:var(--ember);color:#fff;border:2px solid var(--ember)}
+  .btn-primary:hover{background:var(--ember-bright);border-color:var(--ember-bright);transform:translateY(-2px);box-shadow:0 12px 30px rgba(232,93,40,.4)}
+  .btn-ghost{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.4)}
+  .btn-ghost:hover{background:#fff;color:var(--carbon);border-color:#fff}
+  .scroll-hint{
+    position:absolute;bottom:30px;left:50%;
+    transform:translateX(-50%);z-index:3;
+    color:rgba(255,255,255,.6);font-size:.75rem;
+    letter-spacing:.3em;text-transform:uppercase;
+    animation:bounce 2.5s ease-in-out infinite;
+  }
+  @keyframes bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+  /* SECTION BASE */
+  section{padding:120px 8%}
+  .eyebrow{
+    color:var(--ember);font-size:.78rem;font-weight:600;
+    letter-spacing:.4em;text-transform:uppercase;
+    margin-bottom:18px;
+  }
+  .section-title{
+    font-size:clamp(2rem,4vw,3.4rem);
+    margin-bottom:24px;color:var(--carbon);
+  }
+  .section-title em{color:var(--ember);font-style:italic}
+
+  /* HISTORIA */
+  .historia{
+    background:var(--cream);
+    display:grid;grid-template-columns:1.05fr 1fr;
+    gap:80px;align-items:center;
+  }
+  .historia-text p{
+    color:var(--smoke);font-size:1.05rem;
+    margin-bottom:18px;
+  }
+  .historia-stats{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:24px;margin-top:40px;
+    padding-top:40px;border-top:1px solid rgba(58,46,38,.15);
+  }
+  .stat-num{
+    font-family:'Playfair Display',serif;
+    font-size:3rem;color:var(--ember);font-weight:700;
+    line-height:1;
+  }
+  .stat-label{
+    font-size:.78rem;color:var(--smoke);
+    letter-spacing:.15em;text-transform:uppercase;
+    margin-top:8px;
+  }
+  .historia-img{
+    position:relative;
+    aspect-ratio:4/5;
+    background:url('https://lh5.googleusercontent.com/p/AF1QipPTkwDzd51ZwmIUVMMPys7x8tSemfiWSrwWvLtc=w1200-h1500-k-no') center/cover no-repeat;
+    box-shadow:30px 30px 0 var(--ember);
+  }
+
+  /* ESPECIALIDADES */
+  .especialidades{
+    background:var(--carbon);color:var(--cream);
+    text-align:center;
+  }
+  .especialidades .section-title{color:#fff}
+  .especialidades-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:30px;margin-top:70px;
+    text-align:left;
+  }
+  .plato{
+    background:var(--char);
+    overflow:hidden;
+    transition:transform .4s ease;
+    border:1px solid rgba(201,168,106,.1);
+  }
+  .plato:hover{transform:translateY(-8px)}
+  .plato-img{
+    aspect-ratio:4/3;
+    background-size:cover;background-position:center;
+    position:relative;overflow:hidden;
+  }
+  .plato-img::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(180deg,transparent 60%,rgba(26,20,16,.5) 100%);
+  }
+  .plato-body{padding:32px 28px}
+  .plato h3{
+    font-size:1.5rem;color:#fff;margin-bottom:10px;
+  }
+  .plato p{color:rgba(245,237,226,.7);font-size:.95rem;margin-bottom:18px}
+  .plato-tag{
+    display:inline-block;
+    color:var(--gold);font-size:.72rem;
+    letter-spacing:.25em;text-transform:uppercase;
+    font-weight:600;
+  }
+
+  /* CASA */
+  .casa{
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:0;padding:0;
+    min-height:560px;
+  }
+  .casa-img{
+    background:url('https://lh5.googleusercontent.com/p/AF1QipOkGgpRWWAgWvDP4RRCFH2JCuQEldizbHtOGjq=w1200-h1500-k-no') center/cover no-repeat;
+  }
+  .casa-text{
+    padding:100px 70px;
+    background:var(--paper);
+    display:flex;flex-direction:column;justify-content:center;
+  }
+  .casa-text p{color:var(--smoke);font-size:1.05rem;margin-bottom:18px}
+  .casa-features{
+    list-style:none;margin-top:30px;
+    display:grid;grid-template-columns:1fr 1fr;gap:14px;
+  }
+  .casa-features li{
+    font-size:.95rem;color:var(--carbon);
+    display:flex;align-items:flex-start;gap:10px;
+    padding:6px 0;
+  }
+  .casa-features li::before{
+    content:'';flex-shrink:0;
+    width:6px;height:6px;border-radius:50%;
+    background:var(--ember);margin-top:9px;
+  }
+
+  /* RESERVA */
+  .reserva{
+    background:linear-gradient(135deg,var(--smoke) 0%,var(--carbon) 100%);
+    color:#fff;text-align:center;
+    position:relative;overflow:hidden;
+  }
+  .reserva::before{
+    content:'';position:absolute;inset:0;
+    background:radial-gradient(circle at 30% 50%,rgba(196,66,26,.18) 0%,transparent 60%);
+  }
+  .reserva-inner{position:relative;z-index:2;max-width:760px;margin:0 auto}
+  .reserva .section-title{color:#fff;margin-bottom:20px}
+  .reserva p{color:rgba(255,255,255,.8);font-size:1.1rem;margin-bottom:50px;font-weight:300}
+  .reserva-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);
+    gap:0;margin-bottom:50px;
+    border:1px solid rgba(255,255,255,.12);
+  }
+  .info-block{
+    padding:36px 24px;
+    border-right:1px solid rgba(255,255,255,.12);
+  }
+  .info-block:last-child{border-right:none}
+  .info-block h4{
+    font-family:'Inter',sans-serif;
+    font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;
+    color:var(--gold);font-weight:600;margin-bottom:14px;
+  }
+  .info-block p{color:#fff;font-size:1rem;margin:0;font-weight:400}
+  .info-block strong{font-size:1.4rem;font-family:'Playfair Display',serif;font-weight:700;display:block;margin-bottom:6px}
+
+  /* FOOTER */
+  footer{
+    background:#0e0a07;color:rgba(255,255,255,.6);
+    padding:60px 8% 30px;
+    text-align:center;
+  }
+  .footer-logo{
+    font-family:'Playfair Display',serif;
+    font-size:1.8rem;color:#fff;margin-bottom:18px;
+  }
+  .footer-logo span{color:var(--ember-bright);font-style:italic}
+  .footer-meta{
+    font-size:.85rem;margin-bottom:30px;
+    letter-spacing:.05em;
+  }
+  .footer-divider{
+    height:1px;background:rgba(255,255,255,.08);
+    margin:30px 0 20px;
+  }
+  .footer-bottom{
+    font-size:.78rem;color:rgba(255,255,255,.35);
+    letter-spacing:.05em;
+  }
+
+  /* MOBILE */
+  @media(max-width:900px){
+    nav ul{display:none}
+    .nav-cta{display:none}
+    .burger{display:block}
+    section{padding:80px 6%}
+    .hero-content{padding:0 6% 60px}
+    .historia,.casa{grid-template-columns:1fr;gap:50px}
+    .casa-text{padding:60px 30px}
+    .casa-img{min-height:380px}
+    .historia-img{box-shadow:18px 18px 0 var(--ember);max-width:90%}
+    .especialidades-grid{grid-template-columns:1fr;gap:24px}
+    .reserva-grid{grid-template-columns:1fr}
+    .info-block{border-right:none;border-bottom:1px solid rgba(255,255,255,.12)}
+    .info-block:last-child{border-bottom:none}
+    .casa-features{grid-template-columns:1fr}
+  }
+
+  /* REVEAL */
+  .reveal{opacity:0;transform:translateY(30px);transition:all .9s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <div class="logo">Motabarri<span>.</span></div>
+  <ul>
+    <li><a href="#historia">Historia</a></li>
+    <li><a href="#carta">Carta</a></li>
+    <li><a href="#casa">La casa</a></li>
+    <li><a href="#reserva">Visítanos</a></li>
+  </ul>
+  <a href="tel:944670768" class="nav-cta">Reservar</a>
+  <button class="burger" aria-label="menu">☰</button>
+</nav>
+
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-tag">Asador familiar · Unbe, Erandio · Desde 1995</span>
+    <h1>El sabor de la <em>brasa</em><br>en pleno monte Unbe.</h1>
+    <p>Treinta años cocinando chuletón del país, alubias con sacramentos y la mejor lubina a la parrilla en un caserío de piedra rodeado de naturaleza.</p>
+    <div class="hero-actions">
+      <a href="#reserva" class="btn btn-primary">Reservar mesa</a>
+      <a href="#carta" class="btn btn-ghost">Ver carta</a>
+    </div>
+  </div>
+  <div class="scroll-hint">↓ Pasa adelante</div>
+</header>
+
+<section id="historia" class="historia">
+  <div class="historia-text reveal">
+    <span class="eyebrow">Tres décadas en Unbe</span>
+    <h2 class="section-title">Un caserío, una <em>familia</em>, una brasa que nunca se apaga.</h2>
+    <p>Empezamos en 1995 con una idea sencilla: cocinar como en casa, con producto del país y el respeto de quien ha visto encender el fuego cada mañana durante treinta años.</p>
+    <p>El caserío sigue siendo el mismo. Las paredes de piedra, los dos comedores, las carpas para los días de buen tiempo. Y la brasa, claro. Esa nunca se ha movido de sitio.</p>
+    <div class="historia-stats">
+      <div>
+        <div class="stat-num">30</div>
+        <div class="stat-label">Años en Unbe</div>
+      </div>
+      <div>
+        <div class="stat-num">255</div>
+        <div class="stat-label">Plazas en sala y carpa</div>
+      </div>
+    </div>
+  </div>
+  <div class="historia-img reveal"></div>
+</section>
+
+<section id="carta" class="especialidades">
+  <span class="eyebrow" style="color:var(--gold)">Lo que mejor se nos da</span>
+  <h2 class="section-title">Cocina vasca de <em>siempre</em>.</h2>
+  <div class="especialidades-grid">
+    <div class="plato reveal">
+      <div class="plato-img" style="background-image:url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/0d/7c/21/a2/asador-motabarri.jpg')"></div>
+      <div class="plato-body">
+        <span class="plato-tag">La especialidad</span>
+        <h3>Chuletón del país a la brasa</h3>
+        <p>Vaca seleccionada, madurada en cámara y hecha sobre carbón de encina. Punto sangrante, sal Maldon, y a la mesa.</p>
+      </div>
+    </div>
+    <div class="plato reveal">
+      <div class="plato-img" style="background-image:url('https://pidemesa.es/files/restaurantes/1/1/5/7/4/asador-motabarri_2.webp')"></div>
+      <div class="plato-body">
+        <span class="plato-tag">Receta de la abuela</span>
+        <h3>Alubias con sacramentos</h3>
+        <p>Alubia roja de Tolosa cocinada a fuego lento con su morcilla, chorizo, tocino y berza. La que pide la cuadrilla cuando aprieta el frío.</p>
+      </div>
+    </div>
+    <div class="plato reveal">
+      <div class="plato-img" style="background-image:url('https://dynamic-media-cdn.tripadvisor.com/media/photo-o/06/9b/37/49/asador-motabarri.jpg')"></div>
+      <div class="plato-body">
+        <span class="plato-tag">De casa</span>
+        <h3>Mamia con miel</h3>
+        <p>Postre de cuajada artesana servida en barreño de barro con miel del valle y nueces. El cierre que se merece la sobremesa.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="casa" class="casa">
+  <div class="casa-img reveal"></div>
+  <div class="casa-text reveal">
+    <span class="eyebrow">La casa</span>
+    <h2 class="section-title">Sitio para todos: cuadrillas, familias y celebraciones.</h2>
+    <p>Dos comedores en el caserío, dos carpas exteriores, terraza y zona infantil. Aparcamiento amplio y entrada directa al monte para estirar las piernas después de comer.</p>
+    <p>Organizamos comuniones, bautizos, comidas de empresa y celebraciones de cuadrilla. Habla con nosotros y te montamos el menú a tu medida.</p>
+    <ul class="casa-features">
+      <li>Comedor principal · 70 plazas</li>
+      <li>Comedor inferior · 55 plazas</li>
+      <li>Dos carpas · 65 plazas cada una</li>
+      <li>Terraza al aire libre</li>
+      <li>Zona infantil con columpios</li>
+      <li>Aparcamiento gratuito</li>
+      <li>Bodega de Rioja y txakoli Itsasmendi</li>
+      <li>Eventos privados a medida</li>
+    </ul>
+  </div>
+</section>
+
+<section id="reserva" class="reserva">
+  <div class="reserva-inner">
+    <span class="eyebrow" style="color:var(--gold)">Visítanos</span>
+    <h2 class="section-title">Te esperamos en el <em>monte</em>.</h2>
+    <p>Reservas por teléfono. Lo cogemos todos los días desde las 6:00.</p>
+    <div class="reserva-grid">
+      <div class="info-block">
+        <h4>Dirección</h4>
+        <strong>Carretera Leioa-Unbe, 32</strong>
+        <p>48950 Erandio, Bizkaia</p>
+      </div>
+      <div class="info-block">
+        <h4>Teléfono</h4>
+        <strong>944 67 07 68</strong>
+        <p>619 62 29 74</p>
+      </div>
+      <div class="info-block">
+        <h4>Horario</h4>
+        <strong>Todos los días</strong>
+        <p>Desde las 6:00 h</p>
+      </div>
+    </div>
+    <div class="hero-actions" style="justify-content:center">
+      <a href="tel:944670768" class="btn btn-primary">Llamar al asador</a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Asador+Motabarri+Erandio" target="_blank" rel="noopener" class="btn btn-ghost">Cómo llegar</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo">Motabarri<span>.</span></div>
+  <div class="footer-meta">Carretera Leioa-Unbe, 32 · 48950 Erandio · Bizkaia · 944 67 07 68</div>
+  <div class="footer-divider"></div>
+  <div class="footer-bottom">© 2026 Asador Motabarri · Cocina vasca desde 1995</div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll',()=>{
+    nav.classList.toggle('scrolled',window.scrollY > 60);
+  });
+  const io = new IntersectionObserver(es=>{
+    es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);}});
+  },{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+
+</body>
+</html>
