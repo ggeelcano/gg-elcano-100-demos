@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="description" content="RL Fisioterapia — Fisioterapia en Granada. 5⭐ con 343 reseñas en Google.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="RL Fisioterapia">
+  <meta property="og:description" content="RL Fisioterapia — Fisioterapia en Granada. 5⭐ con 343 reseñas en Google.">
+  <meta property="og:image" content="https://ggeelcano.github.io/gg-elcano-100-demos/demos-andalucia/rl-fisioterapia-granada/img/foto-1.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://ggeelcano.github.io/gg-elcano-100-demos/demos-andalucia/rl-fisioterapia-granada/?v=2">
+  <meta property="og:site_name" content="RL Fisioterapia">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="RL Fisioterapia">
+  <meta name="twitter:description" content="RL Fisioterapia — Fisioterapia en Granada. 5⭐ con 343 reseñas en Google.">
+  <meta name="twitter:image" content="https://ggeelcano.github.io/gg-elcano-100-demos/demos-andalucia/rl-fisioterapia-granada/img/foto-1.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RL Fisioterapia — Fisioterapia en Granada</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --black: #000;
+      --white: #fff;
+      --grey-50: #f7f7f7;
+      --grey-100: #e8e8e8;
+      --grey-300: #b8b8b8;
+      --grey-500: #707070;
+      --grey-700: #2b2b2b;
+      --accent: #d5001c;
+      --font: 'Inter', -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--font);
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 60px;
+      background: rgba(255,255,255,0.85);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      border-bottom: 1px solid var(--grey-100);
+      transition: padding 0.3s, background 0.3s;
+    }
+    .nav-logo {
+      font-weight: 700; font-size: 1.3rem; letter-spacing: -0.02em;
+      color: var(--black);
+    }
+    .nav-links { display: flex; gap: 40px; list-style: none; }
+    .nav-links a {
+      font-size: 0.85rem; font-weight: 500; color: var(--black);
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--accent); }
+    .nav-cta {
+      padding: 10px 22px; background: var(--black); color: var(--white) !important;
+      border-radius: 0; font-size: 0.82rem !important; font-weight: 600;
+      transition: background 0.2s;
+    }
+    .nav-cta:hover { background: var(--accent); }
+    .hamburger { display: none; background: none; border: none; cursor: pointer; padding: 8px; flex-direction: column; gap: 5px; }
+    .hamburger span { display: block; width: 26px; height: 2px; background: var(--black); transition: 0.3s; }
+    @media (max-width: 900px) {
+      nav { padding: 18px 24px; }
+      .nav-links { display: none; }
+      .hamburger { display: flex; }
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      position: relative; min-height: 100vh;
+      display: flex; align-items: flex-end;
+      overflow: hidden;
+      background: var(--black);
+    }
+    .hero-bg {
+      position: absolute; inset: 0;
+      background-image: url('img/foto-1.jpg');
+      background-size: cover; background-position: center;
+      filter: brightness(0.65);
+      transform: scale(1.05);
+      transition: transform 8s ease-out;
+    }
+    .hero.loaded .hero-bg { transform: scale(1); }
+    .hero-content {
+      position: relative; z-index: 2;
+      padding: 0 60px 100px;
+      max-width: 1400px; width: 100%;
+      color: var(--white);
+    }
+    .hero-eyebrow {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--grey-300);
+      margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(2.8rem, 7vw, 6rem);
+      font-weight: 700; line-height: 1.02;
+      letter-spacing: -0.035em; margin-bottom: 28px;
+      max-width: 14ch;
+    }
+    .hero p {
+      font-size: clamp(1rem, 1.4vw, 1.2rem);
+      max-width: 540px; color: var(--grey-100);
+      margin-bottom: 40px; font-weight: 400;
+    }
+    .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
+    .btn {
+      display: inline-block; padding: 16px 32px;
+      font-size: 0.9rem; font-weight: 600; letter-spacing: 0.02em;
+      transition: all 0.25s; border: none; cursor: pointer;
+    }
+    .btn-primary {
+      background: var(--white); color: var(--black);
+    }
+    .btn-primary:hover { background: var(--accent); color: var(--white); }
+    .btn-ghost {
+      background: transparent; color: var(--white);
+      border: 1px solid rgba(255,255,255,0.4);
+    }
+    .btn-ghost:hover { background: var(--white); color: var(--black); }
+    @media (max-width: 700px) { .hero-content { padding: 0 24px 70px; } }
+
+    /* ─── INTRO ─── */
+    .intro { padding: 140px 60px; max-width: 1200px; margin: 0 auto; text-align: center; }
+    .section-eyebrow {
+      font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--grey-500); margin-bottom: 18px;
+    }
+    .section-title {
+      font-size: clamp(2rem, 4vw, 3.4rem); font-weight: 700;
+      letter-spacing: -0.025em; line-height: 1.1; max-width: 22ch; margin: 0 auto 26px;
+    }
+    .section-lead {
+      font-size: 1.15rem; max-width: 60ch; margin: 0 auto;
+      color: var(--grey-700); line-height: 1.7;
+    }
+    @media (max-width: 700px) { .intro { padding: 80px 24px; } }
+
+    /* ─── SHOWCASE: tarjetas grandes tipo Porsche ─── */
+    .showcase { background: var(--grey-50); padding: 120px 60px; }
+    .showcase-head { max-width: 1400px; margin: 0 auto 70px; }
+    .showcase-head h2 {
+      font-size: clamp(2rem, 3.8vw, 3rem); font-weight: 700;
+      letter-spacing: -0.025em; line-height: 1.1;
+    }
+    .showcase-grid {
+      display: grid; gap: 24px;
+      grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+      max-width: 1400px; margin: 0 auto;
+    }
+    .show-card {
+      background: var(--white); overflow: hidden; cursor: pointer;
+      transition: transform 0.4s ease;
+    }
+    .show-card:hover { transform: translateY(-6px); }
+    .show-card-img {
+      height: 280px;
+      background-size: cover; background-position: center;
+      transition: transform 0.6s ease;
+    }
+    .show-card:hover .show-card-img { transform: scale(1.04); }
+    .show-card-body { padding: 32px; }
+    .show-card h3 {
+      font-size: 1.4rem; font-weight: 700; letter-spacing: -0.015em;
+      margin-bottom: 10px;
+    }
+    .show-card p {
+      color: var(--grey-500); font-size: 0.95rem; margin-bottom: 22px;
+    }
+    .show-card-link {
+      font-size: 0.82rem; font-weight: 600; letter-spacing: 0.04em;
+      color: var(--black); display: inline-flex; align-items: center; gap: 6px;
+      transition: gap 0.25s, color 0.25s;
+    }
+    .show-card:hover .show-card-link { gap: 12px; color: var(--accent); }
+    @media (max-width: 700px) { .showcase { padding: 70px 24px; } .show-card-body { padding: 24px; } }
+
+    /* ─── FULLBLEED IMAGE BANNER ─── */
+    .banner {
+      position: relative; height: 70vh; min-height: 480px;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden; background: var(--black);
+    }
+    .banner-bg {
+      position: absolute; inset: 0;
+      background-image: url('img/foto-2.jpg');
+      background-size: cover; background-position: center;
+      filter: brightness(0.6);
+    }
+    .banner-content {
+      position: relative; z-index: 2; text-align: center;
+      color: var(--white); padding: 0 24px;
+    }
+    .banner h2 {
+      font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700;
+      letter-spacing: -0.025em; max-width: 22ch; margin: 0 auto 24px;
+    }
+
+    /* ─── INFO STRIP ─── */
+    .info-strip {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      max-width: 1400px; margin: 0 auto;
+      padding: 100px 60px;
+    }
+    .info-item { padding: 20px; }
+    .info-num {
+      font-size: 3rem; font-weight: 700; letter-spacing: -0.04em;
+      color: var(--accent); line-height: 1; margin-bottom: 12px;
+    }
+    .info-label {
+      font-size: 0.85rem; color: var(--grey-500);
+      text-transform: uppercase; letter-spacing: 0.12em; font-weight: 600;
+    }
+    @media (max-width: 700px) { .info-strip { padding: 60px 24px; } }
+
+    /* ─── GALLERY ─── */
+    .gallery { padding: 0 60px 120px; max-width: 1600px; margin: 0 auto; }
+    .gallery-grid {
+      display: grid; gap: 8px;
+      grid-template-columns: repeat(4, 1fr);
+    }
+    .gallery-item {
+      aspect-ratio: 1/1;
+      background-size: cover; background-position: center;
+      transition: opacity 0.3s;
+      cursor: pointer;
+    }
+    .gallery-item:hover { opacity: 0.85; }
+    .gallery-item:nth-child(1) {
+      grid-column: span 2; grid-row: span 2; aspect-ratio: auto;
+      background-image: url('img/foto-3.jpg');
+    }
+    .gallery-item:nth-child(2) { background-image: url('img/foto-4.jpg'); }
+    .gallery-item:nth-child(3) { background-image: url('img/foto-5.jpg'); }
+    .gallery-item:nth-child(4) { background-image: url('img/foto-6.jpg'); }
+    @media (max-width: 700px) {
+      .gallery { padding: 0 24px 80px; }
+      .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+      .gallery-item:nth-child(1) { grid-column: span 2; grid-row: auto; aspect-ratio: 16/9; }
+    }
+
+    /* ─── CTA SECTION ─── */
+    .cta-section {
+      background: var(--black); color: var(--white);
+      padding: 130px 60px; text-align: center;
+    }
+    .cta-section h2 {
+      font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 700;
+      letter-spacing: -0.03em; line-height: 1.1; max-width: 18ch;
+      margin: 0 auto 24px;
+    }
+    .cta-section p {
+      max-width: 50ch; margin: 0 auto 36px;
+      color: var(--grey-300); font-size: 1.1rem;
+    }
+    @media (max-width: 700px) { .cta-section { padding: 80px 24px; } }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: var(--black); color: var(--grey-300);
+      padding: 60px 60px 40px;
+      border-top: 1px solid var(--grey-700);
+    }
+    .footer-inner { max-width: 1400px; margin: 0 auto; display: grid; gap: 40px; grid-template-columns: 2fr 1fr 1fr 1fr; }
+    .footer-brand h3 { color: var(--white); font-size: 1.4rem; font-weight: 700; margin-bottom: 14px; }
+    .footer-brand p { font-size: 0.9rem; max-width: 28ch; }
+    .footer-col h4 { color: var(--white); font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; margin-bottom: 16px; }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .footer-col a { font-size: 0.88rem; color: var(--grey-300); transition: color 0.2s; }
+    .footer-col a:hover { color: var(--white); }
+    .footer-bottom { max-width: 1400px; margin: 50px auto 0; padding-top: 24px; border-top: 1px solid var(--grey-700); display: flex; justify-content: space-between; font-size: 0.78rem; }
+    @media (max-width: 800px) {
+      footer { padding: 50px 24px 30px; }
+      .footer-inner { grid-template-columns: 1fr 1fr; }
+      .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+    }
+
+    /* ─── ANIMATIONS ─── */
+    .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+    .reveal.in { opacity: 1; transform: translateY(0); }
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" style="position:absolute;top:-40px;left:0;background:#000;color:#fff;padding:10px 18px;z-index:99999;">Saltar al contenido</a>
+
+  <nav role="navigation" aria-label="Navegación principal">
+    <a href="#" class="nav-logo">RL Fisioterapia</a>
+    <ul class="nav-links">
+      <li><a href="#about">Sobre nosotros</a></li>
+      <li><a href="#showcase">Servicios</a></li>
+      <li><a href="#galeria">Galería</a></li>
+      <li><a href="#contacto">Contacto</a></li>
+      <li><a href="#contacto" class="nav-cta">Reservar</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </nav>
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="hero-bg"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Fisioterapia · Granada</div>
+        <h1>RL Fisioterapia</h1>
+        <p>Fisioterapia de referencia en Granada. 5⭐ con 343 reseñas en Google.</p>
+        <div class="hero-ctas">
+          <a href="tel:+34622250748" class="btn btn-primary">Llamar ahora</a>
+          <a href="#showcase" class="btn btn-ghost">Descubre más</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="intro reveal" id="about">
+      <div class="section-eyebrow">Quiénes somos</div>
+      <h2 class="section-title">Una experiencia construida sobre confianza</h2>
+      <p class="section-lead">Llevamos años acompañando a nuestros clientes en Granada. 343 reseñas verificadas en Google avalan nuestra forma de trabajar: cercanía, profesionalidad y resultados.</p>
+    </section>
+
+    <section class="showcase" id="showcase">
+      <div class="showcase-head">
+        <div class="section-eyebrow">Lo que ofrecemos</div>
+        <h2>Servicios que marcan la diferencia.</h2>
+      </div>
+      <div class="showcase-grid">
+        <article class="show-card">
+          <div class="show-card-img" style="background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=900&q=80');"></div>
+          <div class="show-card-body">
+            <h3>Servicio principal</h3>
+            <p>Nuestro servicio insignia, lo que mejor sabemos hacer y por lo que nos eligen.</p>
+            <a href="#contacto" class="show-card-link">Saber más →</a>
+          </div>
+        </article>
+        <article class="show-card">
+          <div class="show-card-img" style="background-image: url('https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=900&q=80');"></div>
+          <div class="show-card-body">
+            <h3>Atención personalizada</h3>
+            <p>Cada cliente es único. Adaptamos cada sesión a tus necesidades.</p>
+            <a href="#contacto" class="show-card-link">Saber más →</a>
+          </div>
+        </article>
+        <article class="show-card">
+          <div class="show-card-img" style="background-image: url('https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=900&q=80');"></div>
+          <div class="show-card-body">
+            <h3>Resultados garantizados</h3>
+            <p>Comprometidos con tu satisfacción de principio a fin.</p>
+            <a href="#contacto" class="show-card-link">Saber más →</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="banner reveal">
+      <div class="banner-bg"></div>
+      <div class="banner-content">
+        <div class="hero-eyebrow" style="color:rgba(255,255,255,0.7)">Excelencia</div>
+        <h2>Calidad y atención que hablan por sí solas.</h2>
+        <a href="#contacto" class="btn btn-primary">Contactar</a>
+      </div>
+    </section>
+
+    <section class="info-strip">
+      <div class="info-item">
+        <div class="info-num">5★</div>
+        <div class="info-label">Valoración Google</div>
+      </div>
+      <div class="info-item">
+        <div class="info-num">343+</div>
+        <div class="info-label">Reseñas verificadas</div>
+      </div>
+      <div class="info-item">
+        <div class="info-num">100%</div>
+        <div class="info-label">Compromiso</div>
+      </div>
+      <div class="info-item">
+        <div class="info-num">Granada</div>
+        <div class="info-label">Ubicación</div>
+      </div>
+    </section>
+
+    <section class="gallery reveal" id="galeria">
+      <div class="section-eyebrow" style="text-align:center; margin-bottom:18px;">Galería</div>
+      <h2 class="section-title" style="text-align:center; margin-bottom:60px;">Detalles que marcan la diferencia.</h2>
+      <div class="gallery-grid">
+        <div class="gallery-item" role="img" aria-label="Galería 1"></div>
+        <div class="gallery-item" role="img" aria-label="Galería 2"></div>
+        <div class="gallery-item" role="img" aria-label="Galería 3"></div>
+        <div class="gallery-item" role="img" aria-label="Galería 4"></div>
+      </div>
+    </section>
+
+    <section class="cta-section" id="contacto">
+      <div class="section-eyebrow" style="color:rgba(255,255,255,0.6)">Contacto</div>
+      <h2>Reserva tu cita hoy.</h2>
+      <p>Llámanos o pásate por nuestras instalaciones. Estamos en 59RQ+G7W, Calle Rector José Vida, Beiro, 18014 Soria, Granada, Spain.</p>
+      <div class="hero-ctas" style="justify-content:center;">
+        <a href="tel:+34622250748" class="btn btn-primary">+34 622250748</a>
+        <a href="mailto:info@ggelcano.com" class="btn btn-ghost">Escríbenos</a>
+      </div>
+    </section>
+
+  
+  <section class="map-section" aria-label="Ubicación" style="padding:80px 60px;background:#fff;">
+    <div style="max-width:1400px;margin:0 auto;">
+      <div style="font-size:.78rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:#707070;margin-bottom:18px;">Encuéntranos</div>
+      <h2 style="font-size:clamp(2rem,3.8vw,3rem);font-weight:700;letter-spacing:-.025em;margin-bottom:36px;">59RQ+G7W, Calle Rector José Vida, Beiro, 18014 Soria, Granada, Spain</h2>
+      <div style="position:relative;width:100%;padding-bottom:42%;border-radius:0;overflow:hidden;">
+        <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=place_id:ChIJt-gXygD9cQ0RHehbl29uulM&zoom=16" style="position:absolute;top:0;left:0;width:100%;height:100%;border:0;" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Mapa de RL Fisioterapia"></iframe>
+      </div>
+    </div>
+  </section>
+</main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>RL Fisioterapia</h3>
+        <p>Fisioterapia · Granada. Confianza, profesionalidad y resultados.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Negocio</h4>
+        <ul>
+          <li><a href="#about">Sobre nosotros</a></li>
+          <li><a href="#showcase">Servicios</a></li>
+          <li><a href="#galeria">Galería</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+34622250748">+34 622250748</a></li>
+          <li><a href="mailto:info@ggelcano.com">info@ggelcano.com</a></li>
+          <li>59RQ+G7W, Calle Rector José Vida, Beiro, 18014 Soria, Granada, Spain</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Aviso legal</a></li>
+          <li><a href="#">Privacidad</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© RL Fisioterapia. Todos los derechos reservados.</span>
+      <span>Hecho con cuidado.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Reveal on scroll
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Hero loaded
+    window.addEventListener('load', () => document.querySelector('.hero').classList.add('loaded'));
+
+    // Hamburger
+    document.querySelector('.hamburger')?.addEventListener('click', () => {
+      const links = document.querySelector('.nav-links');
+      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script>
+</body>
+</html>

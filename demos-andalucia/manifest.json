@@ -1,0 +1,50 @@
+[
+  {
+    "nombre": "Academia Kitu",
+    "sector": "academia",
+    "sector_label": "Academia",
+    "ciudad": "Sevilla",
+    "place_id": "ChIJUyDhn8JvEg0R9Efp64DgXww",
+    "telefono": "635616175",
+    "rating": 5,
+    "reviews": 1002,
+    "slug": "academia-kitu-sevilla",
+    "direccion": "Avd San Francisco Javier, n°24, Edificio Sevilla 1, módulos, 21-22, planta baja, 41018 Sevilla, Spain"
+  },
+  {
+    "nombre": "Autoescuela Sport",
+    "sector": "autoescuela",
+    "sector_label": "Autoescuela",
+    "ciudad": "Sevilla",
+    "place_id": "ChIJhb_aiJpuEg0R7vqBBfpj-l8",
+    "telefono": "615441969",
+    "rating": 5,
+    "reviews": 872,
+    "slug": "autoescuela-sport-sevilla",
+    "direccion": "C. Jose Saramago, 27C, 41013 Sevilla, Spain"
+  },
+  {
+    "nombre": "RL Fisioterapia",
+    "sector": "fisioterapia",
+    "sector_label": "Fisioterapia",
+    "ciudad": "Granada",
+    "place_id": "ChIJt-gXygD9cQ0RHehbl29uulM",
+    "telefono": "622250748",
+    "rating": 5,
+    "reviews": 343,
+    "slug": "rl-fisioterapia-granada",
+    "direccion": "59RQ+G7W, Calle Rector José Vida, Beiro, 18014 Soria, Granada, Spain"
+  },
+  {
+    "nombre": "Centro Estética Adara",
+    "sector": "centro-estetica",
+    "sector_label": "Centro de estética",
+    "ciudad": "Granada",
+    "place_id": "ChIJrTtKoKL8cQ0RqsQJNb9Xtcw",
+    "telefono": "673864430",
+    "rating": 5,
+    "reviews": 262,
+    "slug": "centro-estetica-adara-granada",
+    "direccion": "C. Ribera del Genil, 12, Ronda, 18005 Granada, Spain"
+  }
+]
