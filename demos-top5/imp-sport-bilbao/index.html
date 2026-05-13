@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta name="description" content="Imp Sport Bilbao — Tienda de deportes en Bilbao. 4.6⭐ con 92 reseñas en Google.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Imp Sport Bilbao">
+  <meta property="og:description" content="Imp Sport Bilbao — Tienda de deportes en Bilbao. 4.6⭐ con 92 reseñas en Google.">
+  <meta property="og:image" content="https://ggeelcano.github.io/gg-elcano-100-demos/demos-top5/imp-sport-bilbao/img/foto-1.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:url" content="https://ggeelcano.github.io/gg-elcano-100-demos/demos-top5/imp-sport-bilbao/?v=2">
+  <meta property="og:site_name" content="Imp Sport Bilbao">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Imp Sport Bilbao">
+  <meta name="twitter:description" content="Imp Sport Bilbao — Tienda de deportes en Bilbao. 4.6⭐ con 92 reseñas en Google.">
+  <meta name="twitter:image" content="https://ggeelcano.github.io/gg-elcano-100-demos/demos-top5/imp-sport-bilbao/img/foto-1.jpg">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Imp Sport Bilbao — Importación · Sport · Bilbao</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Bebas+Neue&display=swap" rel="stylesheet">
+  <style>
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    :root{
+      --black:#000;
+      --carbon:#0a0a0a;
+      --dark:#141414;
+      --grey-900:#1a1a1a;
+      --grey-700:#2b2b2b;
+      --grey-500:#707070;
+      --grey-300:#b8b8b8;
+      --grey-100:#e8e8e8;
+      --white:#fff;
+      --accent:#e10600;
+      --accent-2:#0066cc;
+      --font:'Inter',-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+      --font-display:'Bebas Neue','Inter',sans-serif;
+    }
+    html{scroll-behavior:smooth;background:var(--black)}
+    body{font-family:var(--font);background:var(--white);color:var(--black);line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+    a{color:inherit;text-decoration:none}
+    img{max-width:100%;display:block}
+
+    /* ─── PRELOADER ─── */
+    .preloader{position:fixed;inset:0;background:var(--black);z-index:99999;display:flex;align-items:center;justify-content:center;transition:opacity .6s,visibility .6s}
+    .preloader.hidden{opacity:0;visibility:hidden}
+    .preloader-logo{color:var(--white);font-family:var(--font-display);font-size:3rem;letter-spacing:.1em;opacity:0;animation:fadeIn 1s forwards}
+    @keyframes fadeIn{to{opacity:1}}
+
+    /* ─── NAV ─── */
+    nav{position:fixed;top:0;left:0;right:0;z-index:1000;display:flex;align-items:center;justify-content:space-between;padding:22px 60px;background:transparent;transition:padding .3s,background .3s;border-bottom:1px solid transparent}
+    nav.scrolled{background:rgba(0,0,0,0.95);backdrop-filter:blur(20px);padding:14px 60px;border-bottom:1px solid rgba(255,255,255,0.08)}
+    .nav-logo{font-family:var(--font-display);font-size:1.5rem;letter-spacing:.06em;color:var(--white);text-transform:uppercase}
+    .nav-links{display:flex;gap:38px;list-style:none}
+    .nav-links a{font-size:.78rem;font-weight:600;color:var(--white);letter-spacing:.12em;text-transform:uppercase;transition:color .2s;position:relative}
+    .nav-links a::after{content:'';position:absolute;bottom:-4px;left:0;width:0;height:2px;background:var(--accent);transition:width .3s}
+    .nav-links a:hover::after{width:100%}
+    .nav-cta{padding:11px 26px;background:var(--accent);color:var(--white) !important;font-weight:600;letter-spacing:.1em;transition:background .25s}
+    .nav-cta::after{display:none}
+    .nav-cta:hover{background:var(--white);color:var(--black) !important}
+    .hamburger{display:none;background:none;border:none;cursor:pointer;padding:8px;flex-direction:column;gap:5px}
+    .hamburger span{display:block;width:26px;height:2px;background:var(--white);transition:.3s}
+    @media(max-width:900px){nav{padding:16px 22px}nav.scrolled{padding:12px 22px}.nav-links{display:none}.hamburger{display:flex}}
+
+    /* ─── HERO ─── */
+    .hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:var(--black)}
+    .hero-slides{position:absolute;inset:0}
+    .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.06);transition:opacity 1.5s ease,transform 8s ease-out}
+    .hero-slide.active{opacity:1;transform:scale(1)}
+    .hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,0,0,0.75) 0%,rgba(0,0,0,0.4) 60%,rgba(0,0,0,0.85) 100%);z-index:1}
+    .hero-content{position:relative;z-index:2;padding:0 60px;max-width:1400px;width:100%;color:var(--white)}
+    .hero-eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:.78rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--white);margin-bottom:30px;opacity:0;animation:slideUp .9s .3s forwards}
+    .hero-eyebrow::before{content:'';width:60px;height:2px;background:var(--accent)}
+    .hero h1{font-family:var(--font-display);font-size:clamp(3.5rem,10vw,9rem);font-weight:400;line-height:.95;letter-spacing:-.005em;margin-bottom:24px;max-width:14ch;opacity:0;animation:slideUp .9s .5s forwards}
+    .hero-sub{font-size:clamp(1.1rem,1.6vw,1.4rem);max-width:560px;color:var(--grey-100);margin-bottom:46px;font-weight:300;opacity:0;animation:slideUp .9s .7s forwards}
+    .hero-ctas{display:flex;gap:14px;flex-wrap:wrap;opacity:0;animation:slideUp .9s .9s forwards}
+    .btn{display:inline-flex;align-items:center;gap:10px;padding:18px 36px;font-size:.85rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;transition:all .25s;border:none;cursor:pointer;font-family:inherit}
+    .btn-primary{background:var(--accent);color:var(--white)}
+    .btn-primary:hover{background:var(--white);color:var(--black)}
+    .btn-ghost{background:transparent;color:var(--white);border:1px solid rgba(255,255,255,0.4)}
+    .btn-ghost:hover{background:var(--white);color:var(--black);border-color:var(--white)}
+    .btn-dark{background:var(--black);color:var(--white)}
+    .btn-dark:hover{background:var(--accent)}
+    .hero-scroll{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);color:var(--white);z-index:3;display:flex;flex-direction:column;align-items:center;gap:10px;font-size:.7rem;letter-spacing:.3em;text-transform:uppercase;opacity:.7;animation:bounce 2s infinite}
+    .hero-scroll::after{content:'';width:1px;height:40px;background:var(--white);animation:scrollLine 2s ease-in-out infinite}
+    @keyframes slideUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+    @keyframes bounce{0%,100%{transform:translateX(-50%) translateY(0)}50%{transform:translateX(-50%) translateY(10px)}}
+    @keyframes scrollLine{0%,100%{transform:scaleY(1);transform-origin:top}50%{transform:scaleY(0);transform-origin:bottom}}
+    @media(max-width:700px){.hero-content{padding:0 22px}}
+
+    /* ─── INTRO ─── */
+    .intro{padding:160px 60px 140px;background:var(--white);position:relative}
+    .intro-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1.4fr;gap:90px;align-items:center}
+    .intro-num{font-family:var(--font-display);font-size:clamp(7rem,12vw,11rem);font-weight:400;color:var(--accent);line-height:1;letter-spacing:-.02em}
+    .intro-content .section-eyebrow{display:flex;align-items:center;gap:14px;font-size:.78rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-500);margin-bottom:24px}
+    .intro-content .section-eyebrow::before{content:'';width:50px;height:1px;background:var(--accent)}
+    .intro-content h2{font-size:clamp(2.4rem,5vw,4.5rem);font-weight:700;letter-spacing:-.03em;line-height:1.05;margin-bottom:30px;color:var(--black)}
+    .intro-content p{font-size:1.15rem;color:var(--grey-700);line-height:1.75;max-width:55ch}
+    @media(max-width:900px){.intro-inner{grid-template-columns:1fr;gap:40px}.intro-num{font-size:6rem}}
+    @media(max-width:700px){.intro{padding:90px 22px}}
+
+    /* ─── COLECCIÓN — featured + grid ─── */
+    .collection{background:var(--carbon);color:var(--white);padding:140px 60px}
+    .collection-head{max-width:1400px;margin:0 auto 70px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;flex-wrap:wrap}
+    .collection-head h2{font-family:var(--font-display);font-size:clamp(2.8rem,6vw,5rem);font-weight:400;line-height:.95;letter-spacing:-.005em;max-width:14ch}
+    .collection-head .section-eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-500);margin-bottom:18px;display:flex;align-items:center;gap:14px}
+    .collection-head .section-eyebrow::before{content:'';width:50px;height:1px;background:var(--accent)}
+    .collection-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:24px;max-width:1400px;margin:0 auto}
+    .col-card{position:relative;overflow:hidden;cursor:pointer;background:var(--dark)}
+    .col-card-img{aspect-ratio:4/5;background-size:cover;background-position:center;transition:transform .8s ease}
+    .col-card-featured .col-card-img{aspect-ratio:auto;height:100%;min-height:600px}
+    .col-card:hover .col-card-img{transform:scale(1.05)}
+    .col-card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.95) 100%);display:flex;flex-direction:column;justify-content:flex-end;padding:40px}
+    .col-card-num{font-family:var(--font-display);font-size:1.2rem;letter-spacing:.15em;color:var(--accent);margin-bottom:8px}
+    .col-card h3{font-family:var(--font-display);font-size:clamp(1.6rem,2.4vw,2.6rem);font-weight:400;letter-spacing:.005em;line-height:1;margin-bottom:10px}
+    .col-card p{font-size:.92rem;color:var(--grey-300);max-width:32ch}
+    .col-card-featured{grid-row:span 2}
+    .col-card-small-wrap{display:grid;grid-template-rows:1fr 1fr;gap:24px}
+    @media(max-width:900px){.collection{padding:90px 22px}.collection-grid{grid-template-columns:1fr}.col-card-featured{grid-row:auto}.col-card-featured .col-card-img{min-height:400px}}
+
+    /* ─── SERVICIOS NUMERADOS ─── */
+    .services{background:var(--white);padding:140px 60px}
+    .services-inner{max-width:1400px;margin:0 auto}
+    .services-head{margin-bottom:80px;max-width:700px}
+    .services-head .section-eyebrow{display:flex;align-items:center;gap:14px;font-size:.78rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-500);margin-bottom:18px}
+    .services-head .section-eyebrow::before{content:'';width:50px;height:1px;background:var(--accent)}
+    .services-head h2{font-size:clamp(2.4rem,5vw,4rem);font-weight:700;letter-spacing:-.03em;line-height:1.05}
+    .services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:60px 40px}
+    .srv{position:relative;padding-top:30px}
+    .srv-num{font-family:var(--font-display);font-size:3.5rem;color:var(--accent);line-height:1;margin-bottom:18px}
+    .srv h3{font-size:1.5rem;font-weight:700;letter-spacing:-.01em;margin-bottom:12px}
+    .srv p{color:var(--grey-700);font-size:.98rem;line-height:1.7}
+    @media(max-width:700px){.services{padding:90px 22px}}
+
+    /* ─── BANNER FULL-BLEED ─── */
+    .banner{position:relative;min-height:75vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--black)}
+    .banner-bg{position:absolute;inset:0;background-size:cover;background-position:center;filter:brightness(.55)}
+    .banner-content{position:relative;z-index:2;text-align:center;color:var(--white);padding:0 30px;max-width:1100px}
+    .banner-eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:20px}
+    .banner h2{font-family:var(--font-display);font-size:clamp(2.4rem,7vw,6rem);font-weight:400;line-height:1.02;letter-spacing:.005em;margin-bottom:32px}
+    .banner p{font-size:1.15rem;color:var(--grey-100);margin:0 auto 36px;max-width:50ch}
+
+    /* ─── STATS ─── */
+    .stats{background:var(--carbon);color:var(--white);padding:90px 60px;border-top:1px solid rgba(255,255,255,0.05)}
+    .stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));max-width:1400px;margin:0 auto;gap:60px 40px}
+    .stat{text-align:left;padding-left:18px;border-left:2px solid var(--accent)}
+    .stat-num{font-family:var(--font-display);font-size:clamp(2.8rem,4.5vw,4rem);font-weight:400;color:var(--white);line-height:1;margin-bottom:6px;letter-spacing:-.01em}
+    .stat-label{font-size:.78rem;color:var(--grey-300);text-transform:uppercase;letter-spacing:.18em;font-weight:600}
+    @media(max-width:700px){.stats{padding:60px 22px}}
+
+    /* ─── GALERÍA MASONRY ─── */
+    .gallery{padding:130px 60px;background:var(--white)}
+    .gallery-head{max-width:1400px;margin:0 auto 60px;text-align:center}
+    .gallery-head .section-eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-500);margin-bottom:18px}
+    .gallery-head h2{font-family:var(--font-display);font-size:clamp(2.4rem,5vw,4rem);font-weight:400;letter-spacing:.005em}
+    .gallery-grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:120px;gap:10px;max-width:1600px;margin:0 auto}
+    .gallery-item{background-size:cover;background-position:center;transition:filter .3s;cursor:pointer;overflow:hidden;position:relative}
+    .gallery-item::after{content:'';position:absolute;inset:0;background:rgba(0,0,0,0);transition:background .3s}
+    .gallery-item:hover::after{background:rgba(0,0,0,0.2)}
+    .g1{grid-column:span 7;grid-row:span 3}
+    .g2{grid-column:span 5;grid-row:span 2}
+    .g3{grid-column:span 5;grid-row:span 2}
+    .g4{grid-column:span 4;grid-row:span 2}
+    .g5{grid-column:span 4;grid-row:span 2}
+    .g6{grid-column:span 4;grid-row:span 2}
+    @media(max-width:800px){.gallery{padding:70px 22px}.gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:160px}.g1,.g2,.g3,.g4,.g5,.g6{grid-column:span 1;grid-row:span 1}.g1{grid-column:span 2;grid-row:span 2}}
+
+    /* ─── VISÍTANOS (foto + mapa lado a lado) ─── */
+    .visit{background:var(--carbon);color:var(--white);padding:140px 60px}
+    .visit-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+    .visit-text .section-eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--grey-500);margin-bottom:20px;display:flex;align-items:center;gap:14px}
+    .visit-text .section-eyebrow::before{content:'';width:50px;height:1px;background:var(--accent)}
+    .visit-text h2{font-family:var(--font-display);font-size:clamp(2.4rem,5vw,4rem);font-weight:400;line-height:1;letter-spacing:.005em;margin-bottom:30px}
+    .visit-text p{color:var(--grey-300);font-size:1.05rem;margin-bottom:14px;line-height:1.7}
+    .visit-text .info-row{display:flex;gap:14px;align-items:center;margin-bottom:14px;color:var(--grey-100)}
+    .visit-text .info-row strong{color:var(--white);min-width:90px;font-size:.78rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600}
+    .visit-text .btn{margin-top:30px}
+    .visit-map{position:relative;width:100%;padding-bottom:85%;overflow:hidden;background:var(--dark)}
+    .visit-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(0.4) contrast(1.05)}
+    @media(max-width:900px){.visit{padding:80px 22px}.visit-inner{grid-template-columns:1fr;gap:40px}.visit-map{padding-bottom:60%}}
+
+    /* ─── CTA FINAL ─── */
+    .cta-final{background:var(--black);color:var(--white);padding:140px 60px;text-align:center;position:relative;overflow:hidden}
+    .cta-final::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 30% 50%,rgba(225,6,0,0.15),transparent 70%);pointer-events:none}
+    .cta-final-inner{position:relative;z-index:2;max-width:1000px;margin:0 auto}
+    .cta-final .section-eyebrow{font-size:.78rem;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--accent);margin-bottom:22px}
+    .cta-final h2{font-family:var(--font-display);font-size:clamp(3rem,7vw,6rem);font-weight:400;letter-spacing:0;line-height:1;margin-bottom:28px}
+    .cta-final p{font-size:1.15rem;color:var(--grey-300);max-width:55ch;margin:0 auto 42px}
+    .cta-final .hero-ctas{justify-content:center}
+
+    /* ─── FOOTER ─── */
+    footer{background:var(--carbon);color:var(--grey-300);padding:80px 60px 40px;border-top:1px solid var(--grey-700)}
+    .footer-inner{max-width:1400px;margin:0 auto;display:grid;gap:50px;grid-template-columns:2fr 1fr 1fr 1fr}
+    .footer-brand h3{color:var(--white);font-family:var(--font-display);font-size:1.6rem;font-weight:400;letter-spacing:.06em;margin-bottom:16px;text-transform:uppercase}
+    .footer-brand p{font-size:.95rem;max-width:30ch;line-height:1.7}
+    .footer-col h4{color:var(--white);font-size:.78rem;font-weight:600;text-transform:uppercase;letter-spacing:.14em;margin-bottom:18px}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:11px}
+    .footer-col a{font-size:.92rem;color:var(--grey-300);transition:color .2s}
+    .footer-col a:hover{color:var(--white)}
+    .footer-bottom{max-width:1400px;margin:60px auto 0;padding-top:28px;border-top:1px solid var(--grey-700);display:flex;justify-content:space-between;font-size:.78rem;color:var(--grey-500)}
+    @media(max-width:900px){footer{padding:60px 22px 30px}.footer-inner{grid-template-columns:1fr 1fr}.footer-bottom{flex-direction:column;gap:12px;text-align:center}}
+
+    /* ─── REVEALS ─── */
+    .reveal{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s ease}
+    .reveal.in{opacity:1;transform:translateY(0)}
+    @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms !important;transition-duration:.01ms !important}}
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main" style="position:absolute;top:-40px;left:0;background:#000;color:#fff;padding:10px 18px;z-index:99999;">Saltar al contenido</a>
+
+  <div class="preloader" id="preloader"><div class="preloader-logo">Imp Sport Bilbao</div></div>
+
+  <nav role="navigation" aria-label="Navegación principal" id="nav">
+    <a href="#" class="nav-logo">Imp Sport Bilbao</a>
+    <ul class="nav-links">
+      <li><a href="#about">Sobre nosotros</a></li>
+      <li><a href="#collection">Colección</a></li>
+      <li><a href="#services">Servicios</a></li>
+      <li><a href="#gallery">Galería</a></li>
+      <li><a href="#visit">Visítanos</a></li>
+      <li><a href="#contacto" class="nav-cta">Contacto</a></li>
+    </ul>
+    <button class="hamburger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </nav>
+
+  <main id="main">
+
+    <section class="hero">
+      <div class="hero-slides">
+        <div class="hero-slide active" style="background-image:url('img/foto-1.jpg');"></div>
+        <div class="hero-slide" style="background-image:url('img/foto-2.jpg');"></div>
+        <div class="hero-slide" style="background-image:url('img/foto-3.jpg');"></div>
+      </div>
+      <div class="hero-overlay"></div>
+      <div class="hero-content">
+        <div class="hero-eyebrow">Importación · Sport · Bilbao</div>
+        <h1>Imp Sport Bilbao</h1>
+        <p class="hero-sub">Pasión por el deporte desde Bilbao. 4.6⭐ con 92 reseñas verificadas en Google.</p>
+        <div class="hero-ctas">
+          <a href="#collection" class="btn btn-primary">Descubre la colección →</a>
+          <a href="tel:+34677549520" class="btn btn-ghost">Llamar ahora</a>
+        </div>
+      </div>
+      <div class="hero-scroll">Scroll</div>
+    </section>
+
+    <section class="intro reveal" id="about">
+      <div class="intro-inner">
+        <div class="intro-num">01</div>
+        <div class="intro-content">
+          <div class="section-eyebrow">Quiénes somos</div>
+          <h2>Más que un negocio. Una pasión.</h2>
+          <p>En Imp Sport Bilbao llevamos años importando lo mejor del mundo del deporte. Equipamiento, complementos, asesoramiento y trato personalizado: porque entendemos que cada deportista es único y merece lo mejor.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="collection reveal" id="collection">
+      <div class="collection-head">
+        <div>
+          <div class="section-eyebrow">Nuestra colección</div>
+          <h2>Lo mejor, seleccionado para ti.</h2>
+        </div>
+        <a href="#contacto" class="btn btn-ghost">Pedir información →</a>
+      </div>
+      <div class="collection-grid">
+        <article class="col-card col-card-featured">
+          <div class="col-card-img" style="background-image:url('img/foto-4.jpg');"></div>
+          <div class="col-card-overlay">
+            <div class="col-card-num">01 — Destacado</div>
+            <h3>Equipamiento deportivo</h3>
+            <p>Las mejores marcas internacionales seleccionadas con criterio. Producto auténtico y soporte directo del importador.</p>
+          </div>
+        </article>
+        <div class="col-card-small-wrap">
+          <article class="col-card">
+            <div class="col-card-img" style="background-image:url('img/foto-5.jpg');"></div>
+            <div class="col-card-overlay">
+              <div class="col-card-num">02</div>
+              <h3>Suplementación</h3>
+            </div>
+          </article>
+          <article class="col-card">
+            <div class="col-card-img" style="background-image:url('img/foto-6.jpg');"></div>
+            <div class="col-card-overlay">
+              <div class="col-card-num">03</div>
+              <h3>Accesorios premium</h3>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="services reveal" id="services">
+      <div class="services-inner">
+        <div class="services-head">
+          <div class="section-eyebrow">Servicios</div>
+          <h2>Atención que marca la diferencia.</h2>
+        </div>
+        <div class="services-grid">
+          <div class="srv">
+            <div class="srv-num">01</div>
+            <h3>Asesoramiento personal</h3>
+            <p>Te ayudamos a elegir el producto que mejor encaja con tu disciplina y nivel. Sin venderte por vender.</p>
+          </div>
+          <div class="srv">
+            <div class="srv-num">02</div>
+            <h3>Envío rápido</h3>
+            <p>Stock real, envíos en 24-48h a toda España. Producto en mano cuando lo necesitas.</p>
+          </div>
+          <div class="srv">
+            <div class="srv-num">03</div>
+            <h3>Garantía importador</h3>
+            <p>Como importadores oficiales, gestionamos directamente cualquier incidencia con el fabricante.</p>
+          </div>
+          <div class="srv">
+            <div class="srv-num">04</div>
+            <h3>Recogida en tienda</h3>
+            <p>Ven a probarlo, tocarlo y llevarlo. Te esperamos en nuestro pabellón en Aperribai.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="banner reveal">
+      <div class="banner-bg" style="background-image:url('img/foto-2.jpg');"></div>
+      <div class="banner-content">
+        <div class="banner-eyebrow">Compromiso</div>
+        <h2>"Tu confianza es nuestro motor"</h2>
+        <p>Cada cliente es único. Cada proyecto, una historia. Y nosotros, los responsables de que sea perfecta.</p>
+        <a href="#contacto" class="btn btn-primary">Hablamos →</a>
+      </div>
+    </section>
+
+    <section class="stats reveal">
+      <div class="stats-grid">
+        <div class="stat"><div class="stat-num">4.6★</div><div class="stat-label">Valoración Google</div></div>
+        <div class="stat"><div class="stat-num">92+</div><div class="stat-label">Reseñas verificadas</div></div>
+        <div class="stat"><div class="stat-num">100%</div><div class="stat-label">Compromiso</div></div>
+        <div class="stat"><div class="stat-num">Bilbao</div><div class="stat-label">Ubicación</div></div>
+      </div>
+    </section>
+
+    <section class="gallery reveal" id="gallery">
+      <div class="gallery-head">
+        <div class="section-eyebrow">Galería</div>
+        <h2>El detalle, también importa.</h2>
+      </div>
+      <div class="gallery-grid">
+        <div class="gallery-item g1" role="img" aria-label="Galería 1" style="background-image:url('img/foto-7.jpg');"></div>
+        <div class="gallery-item g2" role="img" aria-label="Galería 2" style="background-image:url('img/foto-8.jpg');"></div>
+        <div class="gallery-item g3" role="img" aria-label="Galería 3" style="background-image:url('img/foto-9.jpg');"></div>
+        <div class="gallery-item g4" role="img" aria-label="Galería 4" style="background-image:url('img/foto-10.jpg');"></div>
+        <div class="gallery-item g5" role="img" aria-label="Galería 5" style="background-image:url('img/foto-1.jpg');"></div>
+        <div class="gallery-item g6" role="img" aria-label="Galería 6" style="background-image:url('img/foto-2.jpg');"></div>
+      </div>
+    </section>
+
+    <section class="visit reveal" id="visit">
+      <div class="visit-inner">
+        <div class="visit-text">
+          <div class="section-eyebrow">Visítanos</div>
+          <h2>Te esperamos.</h2>
+          <p>Ven a vernos. Te enseñamos todo lo que hacemos, sin compromiso, en persona.</p>
+          <div class="info-row"><strong>Dirección</strong> <span>Kalea IRU-BIDE, 2, Pol. Ind. Iru-Bide, Pabellón 5, 48960 Aperribai, Bizkaia</span></div>
+          <div class="info-row"><strong>Teléfono</strong> <span>+34 677549520</span></div>
+          <div class="info-row"><strong>Email</strong> <span>info@impsportbilbao.com</span></div>
+          <a href="tel:+34677549520" class="btn btn-dark">Llamar ahora →</a>
+        </div>
+        <div class="visit-map">
+          <iframe src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8&q=place_id:ChIJHykwJ9dRTg0RQEF7N3Aw6Kg&zoom=16" loading="lazy" allowfullscreen referrerpolicy="no-referrer-when-downgrade" title="Mapa"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-final reveal" id="contacto">
+      <div class="cta-final-inner">
+        <div class="section-eyebrow">Contacto</div>
+        <h2>Vamos a hablar.</h2>
+        <p>Si quieres saber más, pasarte a vernos o pedir información, escríbenos o llámanos. Estamos aquí para ti.</p>
+        <div class="hero-ctas">
+          <a href="tel:+34677549520" class="btn btn-primary">+34 677549520</a>
+          <a href="mailto:info@impsportbilbao.com" class="btn btn-ghost">Escríbenos</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Imp Sport Bilbao</h3>
+        <p>Importación · Sport · Bilbao. Calidad y experiencia, sin compromisos.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Negocio</h4>
+        <ul>
+          <li><a href="#about">Sobre nosotros</a></li>
+          <li><a href="#collection">Colección</a></li>
+          <li><a href="#services">Servicios</a></li>
+          <li><a href="#gallery">Galería</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+34677549520">+34 677549520</a></li>
+          <li><a href="mailto:info@impsportbilbao.com">info@impsportbilbao.com</a></li>
+          <li>Kalea IRU-BIDE, 2, Pol. Ind. Iru-Bide, Pabellón 5, 48960 Aperribai, Bizkaia</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Legal</h4>
+        <ul>
+          <li><a href="#">Aviso legal</a></li>
+          <li><a href="#">Privacidad</a></li>
+          <li><a href="#">Cookies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© Imp Sport Bilbao. Todos los derechos reservados.</span>
+      <span>Hecho con cuidado.</span>
+    </div>
+  </footer>
+
+  <script>
+    // Preloader
+    window.addEventListener('load', () => setTimeout(() => document.getElementById('preloader').classList.add('hidden'), 600));
+    // Nav scroll
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => nav.classList.toggle('scrolled', window.scrollY > 50));
+    // Hero slideshow
+    const slides = document.querySelectorAll('.hero-slide');
+    if (slides.length > 1) {
+      let cur = 0;
+      setInterval(() => { slides[cur].classList.remove('active'); cur = (cur + 1) % slides.length; slides[cur].classList.add('active'); }, 5500);
+    }
+    // Reveal on scroll
+    const io = new IntersectionObserver(entries => { entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); }); }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    // Hamburger
+    document.querySelector('.hamburger')?.addEventListener('click', () => {
+      const links = document.querySelector('.nav-links');
+      links.style.display = links.style.display === 'flex' ? 'none' : 'flex';
+    });
+  </script>
+</body>
+</html>
