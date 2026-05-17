@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reservas — KINESFIT</title>
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://ggeelcano.github.io/gg-elcano-100-demos/reservas-demos/kinesfit/">
+<meta property="og:title" content="KINESFIT — Reservar cita">
+<meta property="og:description" content="Reserva tu cita online 24h · Fisioterapia y entreno personal en Galdakao">
+<meta property="og:site_name" content="KINESFIT">
+<meta property="og:locale" content="es_ES">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="KINESFIT — Reservar cita">
+<meta name="twitter:description" content="Reserva tu cita online 24h · Fisioterapia y entreno personal en Galdakao">
+<meta name="description" content="Reserva tu cita online 24h · Fisioterapia y entreno personal en Galdakao">
+
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background: #f7f8fa;
+    color: #1a1a2e;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+
+  /* Header negocio */
+  .header {
+    display: flex; align-items: center; gap: 24px;
+    background: #fff;
+    border-radius: 16px;
+    padding: 24px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .header .logo {
+    width: 80px; height: 80px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #667eea 0%, #06b6d4 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 28px;
+  }
+  .header h1 { font-size: 24px; font-weight: 600; }
+  .header .sub { color: #64748b; font-size: 14px; margin-top: 4px; }
+
+  /* Pasos */
+  .step {
+    background: #fff;
+    border-radius: 16px;
+    padding: 28px 32px;
+    margin-bottom: 16px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    gap: 32px;
+  }
+  .step.disabled { opacity: 0.5; pointer-events: none; }
+  .step-title { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
+  .step-desc { color: #64748b; font-size: 14px; }
+
+  /* Inputs */
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+  .field label .req { color: #dc2626; }
+  .field input, .field select {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    font-size: 15px;
+    background: #fff;
+    transition: border-color 0.15s;
+  }
+  .field input:focus, .field select:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+  }
+  .field .hint { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
+
+  /* Calendario */
+  .cal-nav {
+    display: flex; justify-content: space-between; align-items: center;
+    margin-bottom: 16px;
+  }
+  .cal-nav button {
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    padding: 8px 16px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .cal-nav button:hover { background: #f1f5f9; }
+  .cal-nav button:disabled { opacity: 0.4; cursor: not-allowed; }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+  }
+  .cal-day { text-align: center; }
+  .cal-day-head { font-weight: 600; font-size: 13px; color: #475569; padding-bottom: 6px; }
+  .cal-day-date { font-size: 11px; color: #94a3b8; padding-bottom: 8px; }
+  .slot {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    margin-bottom: 6px;
+    background: #fff;
+    border: 1px solid #e2e8f0;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .slot:hover { background: #eef2ff; border-color: #667eea; }
+  .slot.selected {
+    background: linear-gradient(135deg, #667eea 0%, #06b6d4 100%);
+    color: #fff;
+    border-color: transparent;
+  }
+  .slot.empty { background: #f8fafc; color: #cbd5e1; cursor: default; pointer-events: none; }
+
+  /* Selección actual (paso 2) */
+  .selected-slot {
+    background: #1e293b;
+    color: #fff;
+    padding: 14px 20px;
+    border-radius: 10px;
+    text-align: center;
+    margin-bottom: 16px;
+    font-weight: 600;
+  }
+
+  /* Checkbox */
+  .check {
+    display: flex; align-items: flex-start; gap: 10px;
+    margin: 16px 0;
+    font-size: 14px; color: #475569;
+  }
+  .check input { margin-top: 2px; }
+  .check a { color: #667eea; text-decoration: underline; }
+
+  /* Botón Reservar */
+  .btn-primary {
+    display: inline-block;
+    background: linear-gradient(135deg, #667eea 0%, #06b6d4 100%);
+    color: #fff;
+    border: none;
+    padding: 14px 32px;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(102,126,234,0.3); }
+  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    color: #94a3b8;
+    font-size: 12px;
+    margin-top: 24px;
+  }
+  .footer .req-note { color: #dc2626; }
+
+  /* Confirmación */
+  .confirm {
+    background: #fff;
+    border-radius: 16px;
+    padding: 48px 32px;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  }
+  .confirm .icon {
+    width: 80px; height: 80px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-size: 40px;
+  }
+  .confirm h2 { font-size: 28px; margin-bottom: 12px; }
+  .confirm .summary {
+    background: #f8fafc;
+    border-radius: 12px;
+    padding: 20px;
+    margin: 24px auto;
+    max-width: 400px;
+    text-align: left;
+  }
+  .confirm .summary .row {
+    display: flex; justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #e2e8f0;
+  }
+  .confirm .summary .row:last-child { border-bottom: none; }
+  .confirm .summary .key { color: #64748b; }
+  .confirm .summary .val { font-weight: 600; }
+
+  @media (max-width: 768px) {
+    .step { grid-template-columns: 1fr; gap: 16px; padding: 20px; }
+    .row2, .row3 { grid-template-columns: 1fr; }
+    .cal-grid { grid-template-columns: repeat(7, 1fr); gap: 3px; }
+    .slot { padding: 8px 0; font-size: 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container" id="app">
+
+  <!-- Header negocio -->
+  <div class="header">
+    <div class="logo">KF</div>
+      <div>
+        <h1>KINESFIT</h1>
+        <div class="sub">Fisioterapia y entrenamiento personal · Galdakao</div>
+    </div>
+  </div>
+
+  <!-- FLUJO RESERVA -->
+  <div id="flow">
+
+    <!-- Paso 1 -->
+    <div class="step" id="step1">
+      <div>
+        <div class="step-title">Paso 1</div>
+        <div class="step-desc">Selecciona el servicio y profesional.</div>
+      </div>
+      <div>
+        <div class="row2">
+          <div class="field">
+            <label>Servicio <span class="req">*</span></label>
+            <select id="servicio">
+              <option value="">Selecciona...</option>
+              <option value="fisio">Fisioterapia (45 min) — 45€</option>
+              <option value="entreno">Entrenamiento personal (60 min) — 35€</option>
+              <option value="valoracion">Valoración inicial (60 min) — 50€</option>
+              <option value="puncion">Punción seca (30 min) — 35€</option>
+              <option value="recup">Sesión recuperación (30 min) — 25€</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Profesional</label>
+            <select id="profesional">
+              <option value="cualquiera">Cualquiera</option>
+              <option value="prof1">KINESFIT</option>
+            </select>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Paso 2 -->
+    <div class="step disabled" id="step2">
+      <div>
+        <div class="step-title">Paso 2</div>
+        <div class="step-desc">Selecciona el día y la hora.</div>
+      </div>
+      <div>
+        <div id="selected-slot-display"></div>
+        <div class="cal-nav">
+          <button id="prev-week">← Anterior</button>
+          <button id="today-btn">📅 Hoy</button>
+          <button id="next-week">Siguiente →</button>
+        </div>
+        <div class="cal-grid" id="cal"></div>
+      </div>
+    </div>
+
+    <!-- Paso 3 -->
+    <div class="step disabled" id="step3">
+      <div>
+        <div class="step-title">Paso 3</div>
+        <div class="step-desc">Tus datos y confirma.</div>
+      </div>
+      <div>
+        <div class="row3">
+          <div class="field">
+            <label>Nombre <span class="req">*</span></label>
+            <input type="text" id="nombre" required>
+          </div>
+          <div class="field">
+            <label>Primer apellido <span class="req">*</span></label>
+            <input type="text" id="apellido1" required>
+          </div>
+          <div class="field">
+            <label>Segundo apellido</label>
+            <input type="text" id="apellido2">
+          </div>
+        </div>
+        <div class="row2">
+          <div class="field">
+            <label>Teléfono <span class="req">*</span></label>
+            <input type="tel" id="telefono" required>
+            <div class="hint">Ej.: 692171060</div>
+          </div>
+          <div class="field">
+            <label>Correo electrónico <span class="req">*</span></label>
+            <input type="email" id="email" required>
+            <div class="hint">Ej.: nombre@correo.com</div>
+          </div>
+        </div>
+        <div class="check">
+          <input type="checkbox" id="terms">
+          <label for="terms">
+            Acepto las <a href="#">condiciones de uso</a> y conozco la <a href="#">política de privacidad</a>. <span class="req">*</span>
+          </label>
+        </div>
+        <button class="btn-primary" id="reservar" disabled>Reservar cita</button>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- CONFIRMACIÓN (oculto al inicio) -->
+  <div class="confirm" id="confirm" style="display: none;">
+    <div class="icon">✓</div>
+    <h2>¡Cita confirmada!</h2>
+    <p>Te hemos enviado un correo con los detalles. Si necesitas modificarla, llámanos.</p>
+    <div class="summary" id="summary"></div>
+    <button class="btn-primary" onclick="location.reload()">Hacer otra reserva</button>
+  </div>
+
+  <div class="footer">
+    <p><span class="req-note">*</span> Campo obligatorio</p>
+    <p style="margin-top: 8px;"><strong>KINESFIT</strong> · Galdakao, Bizkaia · 691 66 92 62</p>
+  </div>
+
+</div>
+
+<script>
+// ============================================
+// DATOS MOCK (en producción: API de Cloudflare Worker)
+// ============================================
+
+const HOY = new Date('2026-05-17'); // Domingo
+const HORARIO = {"1":[["08:00","13:00"],["16:00","21:00"]],"2":[["08:00","13:00"],["16:00","21:00"]],"3":[["08:00","13:00"],["16:00","21:00"]],"4":[["08:00","13:00"],["16:00","21:00"]],"5":[["08:00","13:00"],["16:00","21:00"]],"6":[["09:00","13:00"]]};
+// Citas ya ocupadas (mock) - formato: "YYYY-MM-DD HH:MM"
+const OCUPADO = new Set([
+  '2026-05-18 11:00',
+  '2026-05-18 12:00',
+  '2026-05-18 13:00',
+  '2026-05-18 16:00',
+  '2026-05-18 17:00',
+  '2026-05-18 18:00',
+  '2026-05-18 19:00',
+  '2026-05-19 10:00',
+  '2026-05-19 13:00',
+  '2026-05-19 15:00',
+  '2026-05-19 16:00',
+  '2026-05-19 18:00',
+  '2026-05-19 20:00',
+  '2026-05-20 10:00',
+  '2026-05-20 11:00',
+  '2026-05-20 15:00',
+  '2026-05-20 17:00',
+  '2026-05-20 20:00',
+  '2026-05-21 09:00',
+  '2026-05-21 11:00',
+  '2026-05-21 12:00',
+  '2026-05-21 18:00',
+  '2026-05-21 20:00',
+  '2026-05-22 11:00',
+  '2026-05-22 17:00',
+  '2026-05-22 18:00',
+  '2026-05-22 20:00',
+  '2026-05-23 09:00',
+  '2026-05-23 11:00',
+]);
+const DIAS = ['Dom','Lun','Mar','Mie','Jue','Vie','Sab'];
+const DIAS_LARGO = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
+const SERVICIOS = {
+  fisio      : { nombre: 'Fisioterapia', duracion: 45, precio: 45 },
+  entreno    : { nombre: 'Entrenamiento personal', duracion: 60, precio: 35 },
+  valoracion : { nombre: 'Valoración inicial', duracion: 60, precio: 50 },
+  puncion    : { nombre: 'Punción seca', duracion: 30, precio: 35 },
+  recup      : { nombre: 'Sesión recuperación', duracion: 30, precio: 25 },
+};
+
+// ============================================
+// ESTADO
+// ============================================
+let semanaOffset = 0; // 0 = semana de hoy
+let slotSeleccionado = null;
+
+// ============================================
+// HELPERS
+// ============================================
+function fmtFecha(d) {
+  return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
+}
+function fmtFechaISO(d) {
+  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
+}
+function getSemanaInicio(offset) {
+  // Inicio = lunes de la semana actual + offset semanas
+  const d = new Date(HOY);
+  const dia = d.getDay() === 0 ? 6 : d.getDay() - 1; // lunes = 0
+  d.setDate(d.getDate() - dia + offset * 7);
+  return d;
+}
+function generarSlots(fecha) {
+  // Devuelve array de "HH:MM" disponibles para esa fecha
+  const dia = fecha.getDay();
+  const tramos = HORARIO[dia] || [];
+  const slots = [];
+  const iso = fmtFechaISO(fecha);
+  for (const [ini, fin] of tramos) {
+    let [h, m] = ini.split(':').map(Number);
+    const [hFin] = fin.split(':').map(Number);
+    while (h < hFin) {
+      const hhmm = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
+      if (!OCUPADO.has(`${iso} ${hhmm}`) && fecha >= HOY) {
+        slots.push(hhmm);
+      }
+      h++;
+    }
+  }
+  return slots;
+}
+
+// ============================================
+// RENDER CALENDARIO
+// ============================================
+function renderCalendario() {
+  const grid = document.getElementById('cal');
+  grid.innerHTML = '';
+  const inicio = getSemanaInicio(semanaOffset);
+  const maxSlots = 6; // máximo de slots verticales a mostrar
+
+  // Calcular slots por día primero
+  const dias = [];
+  for (let i = 0; i < 7; i++) {
+    const d = new Date(inicio);
+    d.setDate(d.getDate() + i);
+    dias.push({ fecha: d, slots: generarSlots(d) });
+  }
+  const maxLen = Math.max(...dias.map(d => d.slots.length), 1);
+
+  dias.forEach(({ fecha, slots }) => {
+    const col = document.createElement('div');
+    col.className = 'cal-day';
+    const isToday = fmtFechaISO(fecha) === fmtFechaISO(HOY);
+    col.innerHTML = `
+      <div class="cal-day-head" style="${isToday ? 'color:#667eea' : ''}">${DIAS[fecha.getDay()]}</div>
+      <div class="cal-day-date">${fmtFecha(fecha)}</div>
+    `;
+    for (let i = 0; i < maxLen; i++) {
+      if (slots[i]) {
+        const btn = document.createElement('button');
+        btn.className = 'slot';
+        btn.textContent = slots[i];
+        const slotKey = `${fmtFechaISO(fecha)} ${slots[i]}`;
+        if (slotSeleccionado && slotSeleccionado.key === slotKey) btn.classList.add('selected');
+        btn.onclick = () => seleccionarSlot(fecha, slots[i]);
+        col.appendChild(btn);
+      } else {
+        const empty = document.createElement('div');
+        empty.className = 'slot empty';
+        empty.textContent = '–';
+        col.appendChild(empty);
+      }
+    }
+    grid.appendChild(col);
+  });
+
+  document.getElementById('prev-week').disabled = semanaOffset === 0;
+}
+
+function seleccionarSlot(fecha, hora) {
+  slotSeleccionado = {
+    fecha: new Date(fecha),
+    hora,
+    key: `${fmtFechaISO(fecha)} ${hora}`,
+    displayFecha: fmtFecha(fecha),
+    displayDia: DIAS_LARGO[fecha.getDay()],
+  };
+  renderCalendario();
+  document.getElementById('selected-slot-display').innerHTML =
+    `<div class="selected-slot">${slotSeleccionado.displayDia} · ${slotSeleccionado.displayFecha} · ${slotSeleccionado.hora}</div>`;
+  // Activar paso 3
+  document.getElementById('step3').classList.remove('disabled');
+  document.getElementById('step3').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  validarFormulario();
+}
+
+// ============================================
+// VALIDACIÓN PASO 1 → activar paso 2
+// ============================================
+document.getElementById('servicio').addEventListener('change', e => {
+  if (e.target.value) {
+    document.getElementById('step2').classList.remove('disabled');
+    renderCalendario();
+    document.getElementById('step2').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  } else {
+    document.getElementById('step2').classList.add('disabled');
+    document.getElementById('step3').classList.add('disabled');
+  }
+});
+
+// ============================================
+// NAVEGACIÓN SEMANA
+// ============================================
+document.getElementById('prev-week').onclick = () => { if (semanaOffset > 0) { semanaOffset--; renderCalendario(); } };
+document.getElementById('next-week').onclick = () => { semanaOffset++; renderCalendario(); };
+document.getElementById('today-btn').onclick = () => { semanaOffset = 0; renderCalendario(); };
+
+// ============================================
+// VALIDACIÓN PASO 3 → habilitar botón
+// ============================================
+function validarFormulario() {
+  const requiredIds = ['nombre','apellido1','telefono','email'];
+  const ok = requiredIds.every(id => document.getElementById(id).value.trim() !== '')
+    && document.getElementById('terms').checked
+    && slotSeleccionado;
+  document.getElementById('reservar').disabled = !ok;
+}
+['nombre','apellido1','apellido2','telefono','email','terms'].forEach(id => {
+  document.getElementById(id).addEventListener('input', validarFormulario);
+  document.getElementById(id).addEventListener('change', validarFormulario);
+});
+
+// ============================================
+// SUBMIT RESERVA (mock — en producción: POST al Worker)
+// ============================================
+document.getElementById('reservar').onclick = () => {
+  const servicio = SERVICIOS[document.getElementById('servicio').value];
+  const nombre = document.getElementById('nombre').value;
+  const apellido = document.getElementById('apellido1').value + ' ' + document.getElementById('apellido2').value;
+  const summary = `
+    <div class="row"><span class="key">Servicio</span><span class="val">${servicio.nombre}</span></div>
+    <div class="row"><span class="key">Día</span><span class="val">${slotSeleccionado.displayDia} ${slotSeleccionado.displayFecha}</span></div>
+    <div class="row"><span class="key">Hora</span><span class="val">${slotSeleccionado.hora}</span></div>
+    <div class="row"><span class="key">Duración</span><span class="val">${servicio.duracion} min</span></div>
+    <div class="row"><span class="key">Precio</span><span class="val">${servicio.precio}€</span></div>
+    <div class="row"><span class="key">A nombre de</span><span class="val">${nombre} ${apellido.trim()}</span></div>
+  `;
+  document.getElementById('summary').innerHTML = summary;
+  document.getElementById('flow').style.display = 'none';
+  document.getElementById('confirm').style.display = 'block';
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+};
+
+// Init
+// (no se renderiza calendario hasta seleccionar servicio)
+</script>
+
+</body>
+</html>
