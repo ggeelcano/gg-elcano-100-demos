@@ -227,7 +227,7 @@
       <div class="brand-logo">G</div>
       <div class="brand-name">G&amp;G Elcano · Reservas Online</div>
     </div>
-    <h1>3 propuestas fisioterapia · Bizkaia</h1>
+    <h1>10 propuestas fisioterapia · Bizkaia</h1>
     <p>Clica el botón verde de cada negocio para abrir WhatsApp con el mensaje pre-escrito. Antes puedes revisar la demo.</p>
     <div class="meta">
       <span>📍 Bizkaia</span>
@@ -250,71 +250,115 @@ const BASE_URL = 'https://ggeelcano.github.io/gg-elcano-100-demos/reservas-demos
 
 const negocios = [
   {
-    slug: 'alberphysio',
-    nombre: 'Alberphysio',
-    iniciales: 'AP',
-    ciudad: 'Bilbao',
-    telefono: '623 980 447',
-    telefonoWA: '34623980447',
-    rating: '5.0',
-    estado: 'WhatsApp enviado',
-    mensaje:
-`Hola Alber, soy Josu de G&G Elcano (Bilbao).
-
-He visto Alberphysio y os he preparado una página donde vuestros pacientes pueden pedir cita online 24h, sin tener que escribir por WhatsApp:
-
-{URL}
-
-Está pensada para clínicas como la vuestra: el paciente elige servicio, día y hora, y vosotros recibís el aviso por email.
-
-Os la dejo activa con vuestros horarios y precios reales por 149€ pago único, sin cuotas mensuales.
-
-Cualquier duda me decís 🙏`
+    "slug": "alberphysio",
+    "nombre": "Alberphysio",
+    "iniciales": "AP",
+    "ciudad": "Bilbao",
+    "telefono": "623 980 447",
+    "telefonoWA": "34623980447",
+    "rating": "–",
+    "estado": "Pipeline activo",
+    "mensaje": "Hola Alber, soy Josu de G&G Elcano (Bilbao).\n\nHe visto Alberphysio y os he preparado una página donde vuestros pacientes pueden pedir cita online 24h, sin tener que escribir por WhatsApp:\n\n{URL}\n\nEstá pensada para clínicas como la vuestra: el paciente elige servicio, día y hora, y vosotros recibís el aviso por email.\n\nOs la dejo activa con vuestros horarios y precios reales por 149€ pago único, sin cuotas mensuales.\n\nCualquier duda me decís 🙏"
   },
   {
-    slug: 'masajeak-lekue',
-    nombre: 'Masajeak Lekue',
-    iniciales: 'ML',
-    ciudad: 'Amorebieta',
-    telefono: '615 70 74 23',
-    telefonoWA: '34615707423',
-    rating: '5.0',
-    estado: 'Demo enviada',
-    mensaje:
-`Egun on, soy Josu de G&G Elcano.
-
-Os he preparado una página de reservas online para Masajeak Lekue: vuestros clientes eligen servicio (osteopatía, masaje terapéutico, descarga, relajante), día y hora ellos solos:
-
-{URL}
-
-El objetivo es liberaros del WhatsApp manual para coger citas. Vosotros solo recibís el aviso y atendéis.
-
-Os la dejo lista por 149€ pago único, sin cuotas mensuales. Si os encaja la activamos con vuestros datos reales.
-
-Échale un ojo cuando puedas 🙏`
+    "slug": "masajeak-lekue",
+    "nombre": "Masajeak Lekue",
+    "iniciales": "ML",
+    "ciudad": "Amorebieta-Etxano",
+    "telefono": "615 70 74 23",
+    "telefonoWA": "34615707423",
+    "rating": "–",
+    "estado": "Pipeline activo",
+    "mensaje": "Egun on, soy Josu de G&G Elcano.\n\nOs he preparado una página de reservas online para Masajeak Lekue: vuestros clientes eligen servicio (osteopatía, masaje terapéutico, descarga, relajante), día y hora ellos solos:\n\n{URL}\n\nEl objetivo es liberaros del WhatsApp manual para coger citas. Vosotros solo recibís el aviso y atendéis.\n\nOs la dejo lista por 149€ pago único, sin cuotas mensuales. Si os encaja la activamos con vuestros datos reales.\n\nÉchale un ojo cuando puedas 🙏"
   },
   {
-    slug: 'kinesfit',
-    nombre: 'KINESFIT',
-    iniciales: 'KF',
-    ciudad: 'Galdakao',
-    telefono: '691 66 92 62',
-    telefonoWA: '34691669262',
-    rating: '–',
-    estado: 'Demo enviada',
-    mensaje:
-`Hola, soy Josu de G&G Elcano.
-
-He visto KINESFIT en Galdakao y os he montado una página de reservas online para que vuestros clientes elijan sesión (fisioterapia, entrenamiento personal, valoración, recuperación…), día y hora sin tener que llamar:
-
-{URL}
-
-Pensada para descargar las horas que pasáis cogiendo citas por teléfono o WhatsApp.
-
-Por 149€ pago único os la dejo lista con vuestros horarios, servicios y precios reales. Sin cuotas mensuales.
-
-Echadle un vistazo y me decís 💪`
+    "slug": "kinesfit",
+    "nombre": "KINESFIT",
+    "iniciales": "KF",
+    "ciudad": "Galdakao",
+    "telefono": "691 66 92 62",
+    "telefonoWA": "34691669262",
+    "rating": "–",
+    "estado": "Pipeline activo",
+    "mensaje": "Hola, soy Josu de G&G Elcano.\n\nHe visto KINESFIT en Galdakao y os he montado una página de reservas online para que vuestros clientes elijan sesión (fisioterapia, entrenamiento personal, valoración, recuperación…), día y hora sin tener que llamar:\n\n{URL}\n\nPensada para descargar las horas que pasáis cogiendo citas por teléfono o WhatsApp.\n\nPor 149€ pago único os la dejo lista con vuestros horarios, servicios y precios reales. Sin cuotas mensuales.\n\nEchadle un vistazo y me decís 💪"
   },
+  {
+    "slug": "fisioterapia-elejabarrieta",
+    "nombre": "Fisioterapia Elejabarrieta",
+    "iniciales": "FE",
+    "ciudad": "Algorta (Getxo)",
+    "telefono": "688 78 40 29",
+    "telefonoWA": "34688784029",
+    "rating": "–",
+    "estado": "Nuevo",
+    "mensaje": "Hola, soy Josu de G&G Elcano (Bilbao).\n\nHe visto Fisioterapia Elejabarrieta en Algorta (Getxo) y os he preparado una página de reservas online: el paciente elige servicio, día y hora ellos solos, sin tener que llamar ni escribir por WhatsApp.\n\n{URL}\n\nLa idea es liberaros tiempo y que los pacientes puedan reservar a cualquier hora (incluso de noche).\n\nOs la dejo activa con vuestros horarios y precios reales por 149€ pago único — sin cuotas mensuales.\n\nEchadle un vistazo cuando podáis 🙏"
+  },
+  {
+    "slug": "diana-moncada-fisioterapia",
+    "nombre": "Diana Moncada Fisioterapia",
+    "iniciales": "DM",
+    "ciudad": "Gernika-Lumo",
+    "telefono": "623 42 45 19",
+    "telefonoWA": "34623424519",
+    "rating": "–",
+    "estado": "Nuevo",
+    "mensaje": "Egun on,\n\nSoy Josu de G&G Elcano. He visto Diana Moncada Fisioterapia en Gernika-Lumo y me he tomado la libertad de prepararos una página de reservas online — sin compromiso, para que la veáis:\n\n{URL}\n\nLos pacientes eligen servicio, día y hora, y vosotros recibís el aviso por email. Reduce mucho el WhatsApp manual.\n\n149€ pago único y se queda activa, sin suscripción mensual.\n\nCualquier duda me decís 🙏"
+  },
+  {
+    "slug": "taupadak-fisioterapia",
+    "nombre": "Taupadak Fisioterapia",
+    "iniciales": "TF",
+    "ciudad": "Gernika-Lumo",
+    "telefono": "678 23 56 48",
+    "telefonoWA": "34678235648",
+    "rating": "–",
+    "estado": "Nuevo",
+    "mensaje": "Hola,\n\nSoy Josu de G&G Elcano. He visto Taupadak Fisioterapia en Gernika-Lumo y os he montado una página de reservas online sin compromiso para que la probéis:\n\n{URL}\n\nPensada para que descarguéis las horas que pasáis cogiendo citas por teléfono o WhatsApp. Si os encaja la dejamos activa con vuestros datos reales.\n\n149€ pago único, sin cuotas mensuales.\n\nEchadle un ojo y me decís 💪"
+  },
+  {
+    "slug": "nare-fisioterapia",
+    "nombre": "Nare Fisioterapia Osteopatia Zentroa",
+    "iniciales": "NF",
+    "ciudad": "Basauri",
+    "telefono": "674 90 23 04",
+    "telefonoWA": "34674902304",
+    "rating": "–",
+    "estado": "Nuevo",
+    "mensaje": "Hola, soy Josu de G&G Elcano.\n\nHe preparado una página de reservas para Nare Fisioterapia Osteopatia Zentroa (Basauri) — los pacientes piden cita 24h, eligiendo servicio y hora, y vosotros la recibís confirmada por email:\n\n{URL}\n\nEspecialmente útil para fisios y osteopatas: el paciente lo hace en 1 minuto sin tener que esperar a que le contestéis.\n\nOs la dejo lista por 149€ pago único. Sin suscripciones.\n\nSi os encaja me decís 🙏"
+  },
+  {
+    "slug": "centro-hirurena",
+    "nombre": "Centro de Fisioterapia Hirurena",
+    "iniciales": "CH",
+    "ciudad": "Barakaldo",
+    "telefono": "659 03 03 76",
+    "telefonoWA": "34659030376",
+    "rating": "–",
+    "estado": "Nuevo",
+    "mensaje": "Hola, soy Josu de G&G Elcano (Bilbao).\n\nHe visto Centro de Fisioterapia Hirurena en Barakaldo y os he preparado una página de reservas online: el paciente elige servicio, día y hora ellos solos, sin tener que llamar ni escribir por WhatsApp.\n\n{URL}\n\nLa idea es liberaros tiempo y que los pacientes puedan reservar a cualquier hora (incluso de noche).\n\nOs la dejo activa con vuestros horarios y precios reales por 149€ pago único — sin cuotas mensuales.\n\nEchadle un vistazo cuando podáis 🙏"
+  },
+  {
+    "slug": "noor-osteopatia",
+    "nombre": "NOOR Osteopatía",
+    "iniciales": "NO",
+    "ciudad": "Mungia",
+    "telefono": "678 42 35 21",
+    "telefonoWA": "34678423521",
+    "rating": "–",
+    "estado": "Nuevo",
+    "mensaje": "Egun on,\n\nSoy Josu de G&G Elcano. He visto NOOR Osteopatía en Mungia y me he tomado la libertad de prepararos una página de reservas online — sin compromiso, para que la veáis:\n\n{URL}\n\nLos pacientes eligen servicio, día y hora, y vosotros recibís el aviso por email. Reduce mucho el WhatsApp manual.\n\n149€ pago único y se queda activa, sin suscripción mensual.\n\nCualquier duda me decís 🙏"
+  },
+  {
+    "slug": "sasoitsu-fisioterapia",
+    "nombre": "SASOITSU Fisioterapia-Osteopatía",
+    "iniciales": "SF",
+    "ciudad": "Arrigorriaga",
+    "telefono": "688 75 29 86",
+    "telefonoWA": "34688752986",
+    "rating": "–",
+    "estado": "Nuevo",
+    "mensaje": "Hola,\n\nSoy Josu de G&G Elcano. He visto SASOITSU Fisioterapia-Osteopatía en Arrigorriaga y os he montado una página de reservas online sin compromiso para que la probéis:\n\n{URL}\n\nPensada para que descarguéis las horas que pasáis cogiendo citas por teléfono o WhatsApp. Si os encaja la dejamos activa con vuestros datos reales.\n\n149€ pago único, sin cuotas mensuales.\n\nEchadle un ojo y me decís 💪"
+  }
 ];
 
 function escape(s) {
