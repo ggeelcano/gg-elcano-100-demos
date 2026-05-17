@@ -15,203 +15,423 @@
 <meta name="twitter:description" content="Reserva tu cita online 24h · Osteopatía y masajes en Amorebieta">
 <meta name="description" content="Reserva tu cita online 24h · Osteopatía y masajes en Amorebieta">
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+  :root {
+    --primary: #0f4c75;       /* azul medical */
+    --primary-dark: #0a3a5c;
+    --accent: #14b8a6;        /* teal salud */
+    --accent-soft: #ccfbf1;
+    --brand-1: #667eea;       /* G&G morado (toque) */
+    --brand-2: #06b6d4;       /* G&G cyan */
+    --text-1: #0f172a;
+    --text-2: #475569;
+    --text-3: #94a3b8;
+    --border: #e2e8f0;
+    --bg: #f8fafc;
+    --surface: #ffffff;
+    --success: #10b981;
+    --shadow-sm: 0 1px 2px rgba(15, 23, 42, 0.04);
+    --shadow:    0 1px 3px rgba(15, 23, 42, 0.06), 0 4px 12px rgba(15, 23, 42, 0.04);
+    --shadow-lg: 0 8px 24px rgba(15, 23, 42, 0.08);
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
   * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { -webkit-text-size-adjust: 100%; }
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    background: #f7f8fa;
-    color: #1a1a2e;
-    line-height: 1.5;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: var(--bg);
+    color: var(--text-1);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
     min-height: 100vh;
   }
-  .container { max-width: 1100px; margin: 0 auto; padding: 24px 16px 64px; }
+  .container { max-width: 1080px; margin: 0 auto; padding: 28px 20px 64px; }
 
-  /* Header negocio */
-  .header {
-    display: flex; align-items: center; gap: 24px;
-    background: #fff;
-    border-radius: 16px;
-    padding: 24px 32px;
-    margin-bottom: 24px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  }
-  .header .logo {
-    width: 80px; height: 80px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #667eea 0%, #06b6d4 100%);
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-weight: 700; font-size: 28px;
-  }
-  .header h1 { font-size: 24px; font-weight: 600; }
-  .header .sub { color: #64748b; font-size: 14px; margin-top: 4px; }
-
-  /* Pasos */
-  .step {
-    background: #fff;
-    border-radius: 16px;
+  /* === HEADER === */
+  .biz-header {
+    background: var(--surface);
+    border-radius: var(--radius);
     padding: 28px 32px;
-    margin-bottom: 16px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    margin-bottom: 20px;
+    box-shadow: var(--shadow);
     display: grid;
-    grid-template-columns: 240px 1fr;
-    gap: 32px;
+    grid-template-columns: auto 1fr auto;
+    gap: 24px;
+    align-items: center;
   }
-  .step.disabled { opacity: 0.5; pointer-events: none; }
-  .step-title { font-size: 20px; font-weight: 600; margin-bottom: 8px; }
-  .step-desc { color: #64748b; font-size: 14px; }
+  .biz-logo {
+    width: 64px; height: 64px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 22px;
+    letter-spacing: 0.5px;
+  }
+  .biz-info h1 {
+    font-size: 22px; font-weight: 700;
+    color: var(--text-1);
+    letter-spacing: -0.01em;
+  }
+  .biz-info .tagline {
+    color: var(--text-2);
+    font-size: 14px;
+    margin-top: 2px;
+  }
+  .biz-contact {
+    display: flex; gap: 8px;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+  .biz-chip {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 7px 12px;
+    background: var(--bg);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--text-2);
+    font-weight: 500;
+  }
+  .biz-chip svg { width: 14px; height: 14px; flex-shrink: 0; }
 
-  /* Inputs */
-  .field { margin-bottom: 16px; }
-  .field label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+  /* === HERO INTRO === */
+  .hero {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 24px 32px;
+    margin-bottom: 20px;
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    border: 1px solid var(--border);
+  }
+  .hero h2 {
+    font-size: 18px; font-weight: 600;
+    color: var(--text-1);
+    margin-bottom: 4px;
+  }
+  .hero p {
+    color: var(--text-2);
+    font-size: 14px;
+  }
+
+  /* === PASOS === */
+  .step {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 28px 32px;
+    margin-bottom: 14px;
+    box-shadow: var(--shadow);
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 32px;
+    border: 1px solid transparent;
+    transition: border-color 0.2s, opacity 0.2s;
+  }
+  .step.disabled { opacity: 0.45; pointer-events: none; }
+  .step.active { border-color: var(--primary); }
+  .step-num {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    font-weight: 700;
+    color: var(--primary);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 8px;
+  }
+  .step-num::before {
+    content: "";
+    display: inline-block;
+    width: 24px; height: 24px;
+    border-radius: 50%;
+    background: var(--accent-soft);
+    color: var(--primary);
+    text-align: center;
+    line-height: 24px;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .step:nth-of-type(1) .step-num::before { content: "1"; }
+  .step:nth-of-type(2) .step-num::before { content: "2"; }
+  .step:nth-of-type(3) .step-num::before { content: "3"; }
+  .step-title {
+    font-size: 20px; font-weight: 600;
+    color: var(--text-1);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  .step-desc { color: var(--text-2); font-size: 14px; }
+
+  /* === INPUTS === */
+  .field { margin-bottom: 18px; }
+  .field label {
+    display: block; font-weight: 600; font-size: 13px;
+    margin-bottom: 6px; color: var(--text-1);
+  }
   .field label .req { color: #dc2626; }
   .field input, .field select {
     width: 100%;
-    padding: 12px 14px;
-    border: 1px solid #e2e8f0;
-    border-radius: 10px;
-    font-size: 15px;
-    background: #fff;
-    transition: border-color 0.15s;
+    padding: 11px 14px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    background: var(--surface);
+    color: var(--text-1);
+    font-family: inherit;
+    transition: border-color 0.15s, box-shadow 0.15s;
   }
   .field input:focus, .field select:focus {
     outline: none;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102,126,234,0.1);
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(15, 76, 117, 0.1);
   }
-  .field .hint { font-size: 12px; color: #94a3b8; margin-top: 4px; }
+  .field .hint { font-size: 12px; color: var(--text-3); margin-top: 4px; }
   .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
   .row3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 16px; }
 
-  /* Calendario */
+  /* === CALENDARIO === */
   .cal-nav {
     display: flex; justify-content: space-between; align-items: center;
-    margin-bottom: 16px;
+    margin-bottom: 14px;
   }
   .cal-nav button {
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    padding: 8px 16px;
-    border-radius: 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    padding: 8px 14px;
+    border-radius: var(--radius-sm);
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
+    font-size: 13px; font-weight: 500;
+    color: var(--text-1);
+    font-family: inherit;
+    display: inline-flex; align-items: center; gap: 6px;
     transition: all 0.15s;
   }
-  .cal-nav button:hover { background: #f1f5f9; }
-  .cal-nav button:disabled { opacity: 0.4; cursor: not-allowed; }
+  .cal-nav button:hover:not(:disabled) {
+    background: var(--bg); border-color: var(--primary);
+    color: var(--primary);
+  }
+  .cal-nav button:disabled { opacity: 0.35; cursor: not-allowed; }
   .cal-grid {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 6px;
+    gap: 5px;
   }
   .cal-day { text-align: center; }
-  .cal-day-head { font-weight: 600; font-size: 13px; color: #475569; padding-bottom: 6px; }
-  .cal-day-date { font-size: 11px; color: #94a3b8; padding-bottom: 8px; }
+  .cal-day-head {
+    font-weight: 600; font-size: 12px;
+    color: var(--text-2); padding-bottom: 4px;
+    text-transform: uppercase; letter-spacing: 0.05em;
+  }
+  .cal-day-head.today { color: var(--primary); }
+  .cal-day-date { font-size: 11px; color: var(--text-3); padding-bottom: 8px; }
   .slot {
     display: block;
     width: 100%;
-    padding: 10px 0;
-    margin-bottom: 6px;
-    background: #fff;
-    border: 1px solid #e2e8f0;
-    border-radius: 8px;
+    padding: 9px 0;
+    margin-bottom: 5px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
     cursor: pointer;
-    font-size: 14px;
-    font-weight: 500;
-    transition: all 0.15s;
+    font-size: 13px; font-weight: 600;
+    color: var(--text-1);
+    font-family: inherit;
+    transition: all 0.12s;
   }
-  .slot:hover { background: #eef2ff; border-color: #667eea; }
+  .slot:hover {
+    background: var(--accent-soft);
+    border-color: var(--accent);
+    color: var(--primary);
+  }
   .slot.selected {
-    background: linear-gradient(135deg, #667eea 0%, #06b6d4 100%);
+    background: var(--primary);
     color: #fff;
-    border-color: transparent;
+    border-color: var(--primary);
   }
-  .slot.empty { background: #f8fafc; color: #cbd5e1; cursor: default; pointer-events: none; }
-
-  /* Selección actual (paso 2) */
-  .selected-slot {
-    background: #1e293b;
+  .slot.empty {
+    background: var(--bg); color: var(--text-3);
+    cursor: default; pointer-events: none;
+    font-weight: 400;
+  }
+  .selected-slot-pill {
+    background: var(--primary);
     color: #fff;
-    padding: 14px 20px;
-    border-radius: 10px;
+    padding: 13px 20px;
+    border-radius: var(--radius-sm);
     text-align: center;
     margin-bottom: 16px;
     font-weight: 600;
+    font-size: 15px;
+    box-shadow: var(--shadow-sm);
   }
 
-  /* Checkbox */
+  /* === CHECKBOX & SUBMIT === */
   .check {
     display: flex; align-items: flex-start; gap: 10px;
-    margin: 16px 0;
-    font-size: 14px; color: #475569;
+    margin: 18px 0 22px;
+    font-size: 13px; color: var(--text-2);
   }
-  .check input { margin-top: 2px; }
-  .check a { color: #667eea; text-decoration: underline; }
+  .check input { margin-top: 3px; accent-color: var(--primary); }
+  .check a { color: var(--primary); text-decoration: underline; }
 
-  /* Botón Reservar */
   .btn-primary {
-    display: inline-block;
-    background: linear-gradient(135deg, #667eea 0%, #06b6d4 100%);
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: linear-gradient(135deg, var(--brand-1) 0%, var(--brand-2) 100%);
     color: #fff;
     border: none;
-    padding: 14px 32px;
-    border-radius: 10px;
-    font-size: 16px;
-    font-weight: 600;
+    padding: 14px 36px;
+    border-radius: var(--radius-sm);
+    font-size: 15px; font-weight: 600;
+    font-family: inherit;
     cursor: pointer;
     transition: transform 0.15s, box-shadow 0.15s;
+    box-shadow: 0 4px 14px rgba(102, 126, 234, 0.25);
   }
-  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(102,126,234,0.3); }
-  .btn-primary:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+  .btn-primary:hover:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.35);
+  }
+  .btn-primary:disabled {
+    opacity: 0.45; cursor: not-allowed;
+    transform: none; box-shadow: none;
+    background: var(--text-3);
+  }
+  .btn-secondary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    background: var(--surface);
+    color: var(--text-1);
+    border: 1px solid var(--border);
+    padding: 13px 28px;
+    border-radius: var(--radius-sm);
+    font-size: 14px; font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-decoration: none;
+  }
+  .btn-secondary:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--bg);
+  }
+  .btn-wa {
+    background: #25D366;
+    color: #fff;
+    border-color: #25D366;
+  }
+  .btn-wa:hover {
+    background: #1ebe57;
+    color: #fff;
+    border-color: #1ebe57;
+  }
 
-  /* Footer */
+  /* === FOOTER === */
   .footer {
+    margin-top: 32px;
+    padding: 24px 32px;
+    background: var(--surface);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-sm);
+    color: var(--text-2);
+    font-size: 13px;
+  }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 16px;
+  }
+  .footer-col h4 {
+    font-size: 12px; font-weight: 700;
+    color: var(--text-1);
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    margin-bottom: 8px;
+  }
+  .footer-col p { margin-bottom: 4px; }
+  .footer-bottom {
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
     text-align: center;
-    color: #94a3b8;
+    color: var(--text-3);
     font-size: 12px;
-    margin-top: 24px;
   }
-  .footer .req-note { color: #dc2626; }
+  .footer-bottom .req-note { color: #dc2626; }
 
-  /* Confirmación */
+  /* === CONFIRMACIÓN === */
   .confirm {
-    background: #fff;
-    border-radius: 16px;
-    padding: 48px 32px;
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 56px 32px;
     text-align: center;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    box-shadow: var(--shadow-lg);
   }
-  .confirm .icon {
-    width: 80px; height: 80px;
-    margin: 0 auto 24px;
+  .confirm-icon {
+    width: 72px; height: 72px;
+    margin: 0 auto 20px;
     border-radius: 50%;
-    background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);
+    background: linear-gradient(135deg, var(--success) 0%, var(--accent) 100%);
     display: flex; align-items: center; justify-content: center;
-    color: #fff; font-size: 40px;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(16, 185, 129, 0.3);
   }
-  .confirm h2 { font-size: 28px; margin-bottom: 12px; }
-  .confirm .summary {
-    background: #f8fafc;
-    border-radius: 12px;
-    padding: 20px;
-    margin: 24px auto;
-    max-width: 400px;
+  .confirm-icon svg { width: 36px; height: 36px; }
+  .confirm h2 {
+    font-size: 26px; font-weight: 700;
+    color: var(--text-1);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+  .confirm p.subtitle { color: var(--text-2); font-size: 15px; }
+  .confirm-summary {
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    padding: 22px;
+    margin: 26px auto 0;
+    max-width: 420px;
     text-align: left;
   }
-  .confirm .summary .row {
+  .confirm-summary .sum-row {
     display: flex; justify-content: space-between;
     padding: 8px 0;
-    border-bottom: 1px solid #e2e8f0;
+    border-bottom: 1px solid var(--border);
+    font-size: 14px;
   }
-  .confirm .summary .row:last-child { border-bottom: none; }
-  .confirm .summary .key { color: #64748b; }
-  .confirm .summary .val { font-weight: 600; }
+  .confirm-summary .sum-row:last-child { border-bottom: none; }
+  .confirm-summary .sum-key { color: var(--text-2); }
+  .confirm-summary .sum-val { font-weight: 600; color: var(--text-1); }
+  .confirm-actions {
+    display: flex; gap: 10px; justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 24px;
+  }
 
-  @media (max-width: 768px) {
-    .step { grid-template-columns: 1fr; gap: 16px; padding: 20px; }
-    .row2, .row3 { grid-template-columns: 1fr; }
-    .cal-grid { grid-template-columns: repeat(7, 1fr); gap: 3px; }
-    .slot { padding: 8px 0; font-size: 12px; }
+  /* === ICON HELPERS === */
+  .ico { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+  /* === RESPONSIVE === */
+  @media (max-width: 820px) {
+    .biz-header { grid-template-columns: auto 1fr; gap: 16px; padding: 20px; }
+    .biz-contact { grid-column: 1 / -1; justify-content: flex-start; }
+    .step { grid-template-columns: 1fr; gap: 16px; padding: 22px; }
+    .row3 { grid-template-columns: 1fr; }
+    .footer-grid { grid-template-columns: 1fr; gap: 16px; }
+  }
+  @media (max-width: 520px) {
+    .container { padding: 16px 12px 40px; }
+    .row2 { grid-template-columns: 1fr; }
+    .cal-grid { gap: 3px; }
+    .slot { padding: 7px 0; font-size: 11px; }
+    .cal-day-head { font-size: 10px; }
+    .cal-day-date { font-size: 9px; }
+    .biz-header { padding: 18px; }
+    .biz-info h1 { font-size: 18px; }
+    .step { padding: 18px; }
+    .confirm { padding: 36px 20px; }
   }
 </style>
 </head>
@@ -219,23 +439,44 @@
 
 <div class="container" id="app">
 
-  <!-- Header negocio -->
-  <div class="header">
-    <div class="logo">ML</div>
-      <div>
-        <h1>Masajeak Lekue</h1>
-        <div class="sub">Osteopatía y masajes en Amorebieta</div>
+  <!-- HEADER NEGOCIO -->
+  <header class="biz-header">
+    <div class="biz-logo">ML</div>
+    <div class="biz-info">
+      <h1>Masajeak Lekue</h1>
+      <div class="tagline">Osteopatía y masajes · Amorebieta</div>
     </div>
-  </div>
+    <div class="biz-contact">
+      <span class="biz-chip">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+        615 70 74 23
+      </span>
+      <span class="biz-chip">
+        <svg class="ico" viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Amorebieta-Etxano, Bizkaia
+      </span>
+      <span class="biz-chip">
+        <svg class="ico" viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        L-V 10-14h y 16-20h · S 10-14h
+      </span>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Reserva tu cita online</h2>
+    <p>En menos de un minuto · disponible 24h · sin esperar respuesta</p>
+  </section>
 
   <!-- FLUJO RESERVA -->
   <div id="flow">
 
     <!-- Paso 1 -->
-    <div class="step" id="step1">
+    <section class="step" id="step1">
       <div>
-        <div class="step-title">Paso 1</div>
-        <div class="step-desc">Selecciona el servicio y profesional.</div>
+        <div class="step-num">Paso 1</div>
+        <div class="step-title">Servicio y profesional</div>
+        <p class="step-desc">Elige qué necesitas y con quién.</p>
       </div>
       <div>
         <div class="row2">
@@ -252,46 +493,48 @@
           <div class="field">
             <label>Profesional</label>
             <select id="profesional">
-              <option value="cualquiera">Cualquiera</option>
+              <option value="cualquiera">Cualquiera disponible</option>
               <option value="prof1">Lekue</option>
             </select>
           </div>
         </div>
       </div>
-    </div>
+    </section>
 
     <!-- Paso 2 -->
-    <div class="step disabled" id="step2">
+    <section class="step disabled" id="step2">
       <div>
-        <div class="step-title">Paso 2</div>
-        <div class="step-desc">Selecciona el día y la hora.</div>
+        <div class="step-num">Paso 2</div>
+        <div class="step-title">Día y hora</div>
+        <p class="step-desc">Selecciona el momento que mejor te encaje.</p>
       </div>
       <div>
         <div id="selected-slot-display"></div>
         <div class="cal-nav">
-          <button id="prev-week">← Anterior</button>
-          <button id="today-btn">📅 Hoy</button>
-          <button id="next-week">Siguiente →</button>
+          <button id="prev-week"><svg class="ico" viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg> Anterior</button>
+          <button id="today-btn"><svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Hoy</button>
+          <button id="next-week">Siguiente <svg class="ico" viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
         </div>
         <div class="cal-grid" id="cal"></div>
       </div>
-    </div>
+    </section>
 
     <!-- Paso 3 -->
-    <div class="step disabled" id="step3">
+    <section class="step disabled" id="step3">
       <div>
-        <div class="step-title">Paso 3</div>
-        <div class="step-desc">Tus datos y confirma.</div>
+        <div class="step-num">Paso 3</div>
+        <div class="step-title">Tus datos</div>
+        <p class="step-desc">Para confirmar y enviarte el recordatorio.</p>
       </div>
       <div>
         <div class="row3">
           <div class="field">
             <label>Nombre <span class="req">*</span></label>
-            <input type="text" id="nombre" required>
+            <input type="text" id="nombre" autocomplete="given-name" required>
           </div>
           <div class="field">
             <label>Primer apellido <span class="req">*</span></label>
-            <input type="text" id="apellido1" required>
+            <input type="text" id="apellido1" autocomplete="family-name" required>
           </div>
           <div class="field">
             <label>Segundo apellido</label>
@@ -301,88 +544,126 @@
         <div class="row2">
           <div class="field">
             <label>Teléfono <span class="req">*</span></label>
-            <input type="tel" id="telefono" required>
-            <div class="hint">Ej.: 692171060</div>
+            <input type="tel" id="telefono" autocomplete="tel" required placeholder="600 000 000">
           </div>
           <div class="field">
             <label>Correo electrónico <span class="req">*</span></label>
-            <input type="email" id="email" required>
-            <div class="hint">Ej.: nombre@correo.com</div>
+            <input type="email" id="email" autocomplete="email" required placeholder="nombre@correo.com">
           </div>
         </div>
         <div class="check">
           <input type="checkbox" id="terms">
           <label for="terms">
-            Acepto las <a href="#">condiciones de uso</a> y conozco la <a href="#">política de privacidad</a>. <span class="req">*</span>
+            Acepto las <a href="#">condiciones de uso</a> y la <a href="#">política de privacidad</a>. <span class="req">*</span>
           </label>
         </div>
-        <button class="btn-primary" id="reservar" disabled>Reservar cita</button>
+        <button class="btn-primary" id="reservar" disabled>
+          <svg class="ico" viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg>
+          Confirmar reserva
+        </button>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- CONFIRMACIÓN -->
+  <div class="confirm" id="confirm" style="display: none;">
+    <div class="confirm-icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+    </div>
+    <h2>¡Cita confirmada!</h2>
+    <p class="subtitle">Hemos enviado los detalles a tu correo.</p>
+    <div class="confirm-summary" id="summary"></div>
+    <div class="confirm-actions">
+      <a class="btn-secondary btn-wa" id="wa-cita" href="#" target="_blank" rel="noopener">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        Avisar al centro por WhatsApp
+      </a>
+      <a class="btn-secondary" id="ics-link" href="#" download="cita.ics">
+        <svg class="ico" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+        Añadir al calendario
+      </a>
+      <button class="btn-secondary" onclick="location.reload()">
+        <svg class="ico" viewBox="0 0 24 24"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+        Hacer otra reserva
+      </button>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4>Contacto</h4>
+        <p>615 70 74 23</p>
+        <p>info@masajeaklekue.es</p>
+      </div>
+      <div class="footer-col">
+        <h4>Dirección</h4>
+        <p>Amorebieta-Etxano, Bizkaia</p>
+        <p>Amorebieta-Etxano</p>
+      </div>
+      <div class="footer-col">
+        <h4>Horario</h4>
+        <p>Lunes a Viernes 10-14h y 16-20h</p>
+        <p>Sábados 10-14h</p>
       </div>
     </div>
-
-  </div>
-
-  <!-- CONFIRMACIÓN (oculto al inicio) -->
-  <div class="confirm" id="confirm" style="display: none;">
-    <div class="icon">✓</div>
-    <h2>¡Cita confirmada!</h2>
-    <p>Te hemos enviado un correo con los detalles. Si necesitas modificarla, llámanos.</p>
-    <div class="summary" id="summary"></div>
-    <button class="btn-primary" onclick="location.reload()">Hacer otra reserva</button>
-  </div>
-
-  <div class="footer">
-    <p><span class="req-note">*</span> Campo obligatorio</p>
-    <p style="margin-top: 8px;"><strong>Masajeak Lekue</strong> · Amorebieta-Etxano, Bizkaia · 615 70 74 23</p>
-  </div>
+    <div class="footer-bottom">
+      <span class="req-note">*</span> Campo obligatorio · © 2026 Masajeak Lekue
+    </div>
+  </footer>
 
 </div>
 
 <script>
 // ============================================
-// DATOS MOCK (en producción: API de Cloudflare Worker)
+// DATOS MOCK (en producción: API Cloudflare Worker)
 // ============================================
-
-const HOY = new Date('2026-05-17'); // Domingo
+const HOY = new Date('2026-05-17');
 const HORARIO = {"1":[["10:00","14:00"],["16:00","20:00"]],"2":[["10:00","14:00"],["16:00","20:00"]],"3":[["10:00","14:00"],["16:00","20:00"]],"4":[["10:00","14:00"],["16:00","20:00"]],"5":[["10:00","14:00"],["16:00","20:00"]],"6":[["10:00","14:00"]]};
-// Citas ya ocupadas (mock) - formato: "YYYY-MM-DD HH:MM"
 const OCUPADO = new Set([
+  '2026-05-18 08:00',
   '2026-05-18 09:00',
-  '2026-05-18 10:00',
+  '2026-05-18 13:00',
   '2026-05-18 15:00',
   '2026-05-18 16:00',
   '2026-05-18 17:00',
   '2026-05-18 18:00',
-  '2026-05-18 19:00',
-  '2026-05-19 09:00',
-  '2026-05-19 10:00',
+  '2026-05-18 20:00',
+  '2026-05-19 08:00',
+  '2026-05-19 11:00',
   '2026-05-19 13:00',
-  '2026-05-19 16:00',
+  '2026-05-19 17:00',
+  '2026-05-19 18:00',
   '2026-05-19 19:00',
-  '2026-05-19 20:00',
-  '2026-05-20 09:00',
+  '2026-05-20 08:00',
+  '2026-05-20 10:00',
   '2026-05-20 11:00',
-  '2026-05-20 13:00',
   '2026-05-20 15:00',
-  '2026-05-20 18:00',
+  '2026-05-20 16:00',
+  '2026-05-20 17:00',
   '2026-05-20 19:00',
-  '2026-05-20 20:00',
+  '2026-05-21 08:00',
+  '2026-05-21 09:00',
   '2026-05-21 10:00',
   '2026-05-21 12:00',
   '2026-05-21 13:00',
   '2026-05-21 15:00',
   '2026-05-21 17:00',
   '2026-05-21 18:00',
-  '2026-05-21 19:00',
-  '2026-05-22 09:00',
-  '2026-05-22 10:00',
-  '2026-05-22 13:00',
-  '2026-05-22 17:00',
+  '2026-05-22 08:00',
+  '2026-05-22 11:00',
+  '2026-05-22 12:00',
+  '2026-05-22 16:00',
   '2026-05-22 18:00',
+  '2026-05-22 19:00',
+  '2026-05-22 20:00',
   '2026-05-23 09:00',
   '2026-05-23 11:00',
+  '2026-05-23 13:00',
 ]);
-const DIAS = ['Dom','Lun','Mar','Mie','Jue','Vie','Sab'];
+const DIAS = ['Dom','Lun','Mar','Mié','Jue','Vie','Sáb'];
 const DIAS_LARGO = ['Domingo','Lunes','Martes','Miércoles','Jueves','Viernes','Sábado'];
 const SERVICIOS = {
   osteo      : { nombre: 'Osteopatía', duracion: 50, precio: 50 },
@@ -390,31 +671,26 @@ const SERVICIOS = {
   descarga   : { nombre: 'Masaje de descarga', duracion: 30, precio: 30 },
   relaja     : { nombre: 'Masaje relajante', duracion: 60, precio: 45 },
 };
+const WHATSAPP_NEGOCIO = '34615707423'; // tel sin signos, formato wa.me
 
 // ============================================
 // ESTADO
 // ============================================
-let semanaOffset = 0; // 0 = semana de hoy
+let semanaOffset = 0;
 let slotSeleccionado = null;
 
 // ============================================
 // HELPERS
 // ============================================
-function fmtFecha(d) {
-  return `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
-}
-function fmtFechaISO(d) {
-  return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
-}
+const fmtFecha = d => `${String(d.getDate()).padStart(2,'0')}/${String(d.getMonth()+1).padStart(2,'0')}/${d.getFullYear()}`;
+const fmtFechaISO = d => `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}`;
 function getSemanaInicio(offset) {
-  // Inicio = lunes de la semana actual + offset semanas
   const d = new Date(HOY);
-  const dia = d.getDay() === 0 ? 6 : d.getDay() - 1; // lunes = 0
+  const dia = d.getDay() === 0 ? 6 : d.getDay() - 1;
   d.setDate(d.getDate() - dia + offset * 7);
   return d;
 }
 function generarSlots(fecha) {
-  // Devuelve array de "HH:MM" disponibles para esa fecha
   const dia = fecha.getDay();
   const tramos = HORARIO[dia] || [];
   const slots = [];
@@ -424,9 +700,7 @@ function generarSlots(fecha) {
     const [hFin] = fin.split(':').map(Number);
     while (h < hFin) {
       const hhmm = `${String(h).padStart(2,'0')}:${String(m).padStart(2,'0')}`;
-      if (!OCUPADO.has(`${iso} ${hhmm}`) && fecha >= HOY) {
-        slots.push(hhmm);
-      }
+      if (!OCUPADO.has(`${iso} ${hhmm}`) && fecha >= HOY) slots.push(hhmm);
       h++;
     }
   }
@@ -440,9 +714,6 @@ function renderCalendario() {
   const grid = document.getElementById('cal');
   grid.innerHTML = '';
   const inicio = getSemanaInicio(semanaOffset);
-  const maxSlots = 6; // máximo de slots verticales a mostrar
-
-  // Calcular slots por día primero
   const dias = [];
   for (let i = 0; i < 7; i++) {
     const d = new Date(inicio);
@@ -450,13 +721,12 @@ function renderCalendario() {
     dias.push({ fecha: d, slots: generarSlots(d) });
   }
   const maxLen = Math.max(...dias.map(d => d.slots.length), 1);
-
   dias.forEach(({ fecha, slots }) => {
     const col = document.createElement('div');
     col.className = 'cal-day';
     const isToday = fmtFechaISO(fecha) === fmtFechaISO(HOY);
     col.innerHTML = `
-      <div class="cal-day-head" style="${isToday ? 'color:#667eea' : ''}">${DIAS[fecha.getDay()]}</div>
+      <div class="cal-day-head${isToday ? ' today' : ''}">${DIAS[fecha.getDay()]}</div>
       <div class="cal-day-date">${fmtFecha(fecha)}</div>
     `;
     for (let i = 0; i < maxLen; i++) {
@@ -477,54 +747,45 @@ function renderCalendario() {
     }
     grid.appendChild(col);
   });
-
   document.getElementById('prev-week').disabled = semanaOffset === 0;
 }
 
 function seleccionarSlot(fecha, hora) {
   slotSeleccionado = {
-    fecha: new Date(fecha),
-    hora,
+    fecha: new Date(fecha), hora,
     key: `${fmtFechaISO(fecha)} ${hora}`,
     displayFecha: fmtFecha(fecha),
     displayDia: DIAS_LARGO[fecha.getDay()],
   };
   renderCalendario();
   document.getElementById('selected-slot-display').innerHTML =
-    `<div class="selected-slot">${slotSeleccionado.displayDia} · ${slotSeleccionado.displayFecha} · ${slotSeleccionado.hora}</div>`;
-  // Activar paso 3
+    `<div class="selected-slot-pill">${slotSeleccionado.displayDia} · ${slotSeleccionado.displayFecha} · ${slotSeleccionado.hora}</div>`;
   document.getElementById('step3').classList.remove('disabled');
+  document.getElementById('step3').classList.add('active');
   document.getElementById('step3').scrollIntoView({ behavior: 'smooth', block: 'start' });
   validarFormulario();
 }
 
 // ============================================
-// VALIDACIÓN PASO 1 → activar paso 2
+// VALIDACIÓN
 // ============================================
 document.getElementById('servicio').addEventListener('change', e => {
+  const step2 = document.getElementById('step2');
   if (e.target.value) {
-    document.getElementById('step2').classList.remove('disabled');
+    step2.classList.remove('disabled'); step2.classList.add('active');
     renderCalendario();
-    document.getElementById('step2').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    step2.scrollIntoView({ behavior: 'smooth', block: 'start' });
   } else {
-    document.getElementById('step2').classList.add('disabled');
+    step2.classList.add('disabled'); step2.classList.remove('active');
     document.getElementById('step3').classList.add('disabled');
   }
 });
-
-// ============================================
-// NAVEGACIÓN SEMANA
-// ============================================
 document.getElementById('prev-week').onclick = () => { if (semanaOffset > 0) { semanaOffset--; renderCalendario(); } };
 document.getElementById('next-week').onclick = () => { semanaOffset++; renderCalendario(); };
 document.getElementById('today-btn').onclick = () => { semanaOffset = 0; renderCalendario(); };
 
-// ============================================
-// VALIDACIÓN PASO 3 → habilitar botón
-// ============================================
 function validarFormulario() {
-  const requiredIds = ['nombre','apellido1','telefono','email'];
-  const ok = requiredIds.every(id => document.getElementById(id).value.trim() !== '')
+  const ok = ['nombre','apellido1','telefono','email'].every(id => document.getElementById(id).value.trim())
     && document.getElementById('terms').checked
     && slotSeleccionado;
   document.getElementById('reservar').disabled = !ok;
@@ -535,28 +796,51 @@ function validarFormulario() {
 });
 
 // ============================================
-// SUBMIT RESERVA (mock — en producción: POST al Worker)
+// SUBMIT RESERVA (mock)
 // ============================================
 document.getElementById('reservar').onclick = () => {
   const servicio = SERVICIOS[document.getElementById('servicio').value];
   const nombre = document.getElementById('nombre').value;
-  const apellido = document.getElementById('apellido1').value + ' ' + document.getElementById('apellido2').value;
-  const summary = `
-    <div class="row"><span class="key">Servicio</span><span class="val">${servicio.nombre}</span></div>
-    <div class="row"><span class="key">Día</span><span class="val">${slotSeleccionado.displayDia} ${slotSeleccionado.displayFecha}</span></div>
-    <div class="row"><span class="key">Hora</span><span class="val">${slotSeleccionado.hora}</span></div>
-    <div class="row"><span class="key">Duración</span><span class="val">${servicio.duracion} min</span></div>
-    <div class="row"><span class="key">Precio</span><span class="val">${servicio.precio}€</span></div>
-    <div class="row"><span class="key">A nombre de</span><span class="val">${nombre} ${apellido.trim()}</span></div>
+  const apellido = (document.getElementById('apellido1').value + ' ' + document.getElementById('apellido2').value).trim();
+
+  document.getElementById('summary').innerHTML = `
+    <div class="sum-row"><span class="sum-key">Servicio</span><span class="sum-val">${servicio.nombre}</span></div>
+    <div class="sum-row"><span class="sum-key">Día</span><span class="sum-val">${slotSeleccionado.displayDia} ${slotSeleccionado.displayFecha}</span></div>
+    <div class="sum-row"><span class="sum-key">Hora</span><span class="sum-val">${slotSeleccionado.hora}</span></div>
+    <div class="sum-row"><span class="sum-key">Duración</span><span class="sum-val">${servicio.duracion} min</span></div>
+    <div class="sum-row"><span class="sum-key">Precio</span><span class="sum-val">${servicio.precio}€</span></div>
+    <div class="sum-row"><span class="sum-key">A nombre de</span><span class="sum-val">${nombre} ${apellido}</span></div>
   `;
-  document.getElementById('summary').innerHTML = summary;
+
+  // WhatsApp aviso al centro
+  const waText = encodeURIComponent(
+    `Hola, he reservado una cita online:\n\n` +
+    `· Servicio: ${servicio.nombre}\n` +
+    `· Día: ${slotSeleccionado.displayDia} ${slotSeleccionado.displayFecha}\n` +
+    `· Hora: ${slotSeleccionado.hora}\n` +
+    `· A nombre de: ${nombre} ${apellido}\n\n` +
+    `Gracias`
+  );
+  document.getElementById('wa-cita').href = `https://wa.me/${WHATSAPP_NEGOCIO}?text=${waText}`;
+
+  // .ics
+  const dt = new Date(slotSeleccionado.key.replace(' ','T') + ':00');
+  const dtEnd = new Date(dt.getTime() + servicio.duracion * 60000);
+  const fmtICS = d => d.toISOString().replace(/[-:]/g,'').replace(/\.\d{3}/,'');
+  const ics = ['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//G&G Elcano//Reservas//ES','BEGIN:VEVENT',
+    `UID:${Date.now()}@reservas`,
+    `DTSTAMP:${fmtICS(new Date())}`,
+    `DTSTART:${fmtICS(dt)}`,
+    `DTEND:${fmtICS(dtEnd)}`,
+    `SUMMARY:${servicio.nombre} - ${document.querySelector('.biz-info h1').textContent}`,
+    `DESCRIPTION:Reserva confirmada para ${nombre} ${apellido}`,
+    'END:VEVENT','END:VCALENDAR'].join('\r\n');
+  document.getElementById('ics-link').href = 'data:text/calendar;charset=utf-8,' + encodeURIComponent(ics);
+
   document.getElementById('flow').style.display = 'none';
   document.getElementById('confirm').style.display = 'block';
   window.scrollTo({ top: 0, behavior: 'smooth' });
 };
-
-// Init
-// (no se renderiza calendario hasta seleccionar servicio)
 </script>
 
 </body>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Envío Reservas Online — G&G Elcano</title>
+<meta property="og:title" content="Reservas Online — 3 propuestas Bizkaia">
+<meta property="og:description" content="Páginas de reserva online para fisioterapeutas de Bizkaia">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #0f4c75;
+    --accent: #14b8a6;
+    --brand-1: #667eea;
+    --brand-2: #06b6d4;
+    --wa: #25D366;
+    --wa-dark: #1ebe57;
+    --text-1: #0f172a;
+    --text-2: #475569;
+    --text-3: #94a3b8;
+    --border: #e2e8f0;
+    --bg: #f8fafc;
+    --surface: #fff;
+    --radius: 14px;
+    --radius-sm: 8px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background: var(--bg);
+    color: var(--text-1);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 56px; }
+
+  .top {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 36px 36px 32px;
+    margin-bottom: 24px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06);
+  }
+  .top .logo-line {
+    display: flex; align-items: center; gap: 12px;
+    margin-bottom: 16px;
+  }
+  .top .brand-logo {
+    width: 40px; height: 40px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, var(--brand-1) 0%, var(--brand-2) 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 16px;
+  }
+  .top .brand-name {
+    font-weight: 700; font-size: 16px;
+    color: var(--text-1);
+  }
+  .top h1 {
+    font-size: 28px; font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-1);
+    margin-bottom: 6px;
+  }
+  .top p {
+    color: var(--text-2);
+    font-size: 15px;
+  }
+  .top .meta {
+    margin-top: 18px;
+    display: flex; gap: 12px;
+    flex-wrap: wrap;
+  }
+  .top .meta span {
+    display: inline-flex; align-items: center; gap: 6px;
+    padding: 6px 12px;
+    background: var(--bg);
+    border-radius: 100px;
+    font-size: 13px;
+    color: var(--text-2);
+    font-weight: 500;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 18px;
+  }
+
+  .card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 28px;
+    box-shadow: 0 1px 3px rgba(15, 23, 42, 0.06), 0 4px 12px rgba(15, 23, 42, 0.04);
+    display: flex;
+    flex-direction: column;
+    border: 1px solid transparent;
+    transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+  }
+  .card:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(15, 23, 42, 0.08);
+  }
+  .card-head {
+    display: flex; align-items: center; gap: 14px;
+    margin-bottom: 18px;
+  }
+  .card-logo {
+    width: 56px; height: 56px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+    display: flex; align-items: center; justify-content: center;
+    color: #fff; font-weight: 700; font-size: 18px;
+    flex-shrink: 0;
+  }
+  .card-head h2 {
+    font-size: 19px; font-weight: 700;
+    color: var(--text-1);
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+  .card-head .city {
+    font-size: 13px; color: var(--text-2);
+    margin-top: 2px;
+  }
+
+  .card-info {
+    display: grid;
+    gap: 8px;
+    padding: 14px;
+    background: var(--bg);
+    border-radius: var(--radius-sm);
+    margin-bottom: 18px;
+    font-size: 13px;
+  }
+  .card-info .info-row {
+    display: flex; justify-content: space-between;
+    align-items: center;
+  }
+  .card-info .info-key {
+    color: var(--text-3);
+    font-weight: 500;
+  }
+  .card-info .info-val {
+    color: var(--text-1);
+    font-weight: 600;
+  }
+  .card-info .stars { color: #f59e0b; }
+
+  .card-msg {
+    font-size: 13px;
+    color: var(--text-2);
+    padding: 14px;
+    background: #fef3c7;
+    border-left: 3px solid #f59e0b;
+    border-radius: var(--radius-sm);
+    margin-bottom: 18px;
+    line-height: 1.5;
+    max-height: 200px;
+    overflow-y: auto;
+    white-space: pre-wrap;
+  }
+  .card-actions {
+    display: flex; gap: 8px;
+    margin-top: auto;
+  }
+  .btn {
+    flex: 1;
+    display: inline-flex; align-items: center; justify-content: center; gap: 7px;
+    padding: 12px 16px;
+    border-radius: var(--radius-sm);
+    font-size: 14px; font-weight: 600;
+    font-family: inherit;
+    cursor: pointer;
+    transition: all 0.15s;
+    text-decoration: none;
+    border: 1px solid var(--border);
+  }
+  .btn-view {
+    background: var(--surface);
+    color: var(--text-1);
+  }
+  .btn-view:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: var(--bg);
+  }
+  .btn-wa {
+    background: var(--wa);
+    color: #fff;
+    border-color: var(--wa);
+  }
+  .btn-wa:hover {
+    background: var(--wa-dark);
+    border-color: var(--wa-dark);
+  }
+  .btn svg { width: 16px; height: 16px; }
+
+  .footer-note {
+    margin-top: 32px;
+    padding: 20px 28px;
+    background: var(--surface);
+    border-radius: var(--radius);
+    color: var(--text-2);
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .footer-note strong { color: var(--text-1); }
+
+  @media (max-width: 520px) {
+    .container { padding: 20px 14px 40px; }
+    .top { padding: 24px 22px; }
+    .top h1 { font-size: 22px; }
+    .card { padding: 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <header class="top">
+    <div class="logo-line">
+      <div class="brand-logo">G</div>
+      <div class="brand-name">G&amp;G Elcano · Reservas Online</div>
+    </div>
+    <h1>3 propuestas fisioterapia · Bizkaia</h1>
+    <p>Clica el botón verde de cada negocio para abrir WhatsApp con el mensaje pre-escrito. Antes puedes revisar la demo.</p>
+    <div class="meta">
+      <span>📍 Bizkaia</span>
+      <span>🩺 Fisioterapia / Osteopatía</span>
+      <span>💬 WhatsApp directo</span>
+      <span>💶 149€ pago único</span>
+    </div>
+  </header>
+
+  <div class="grid" id="cards"></div>
+
+  <div class="footer-note">
+    <strong>Recordatorios:</strong> Para no saturar WhatsApp, manda máx. 20-30 mensajes al día y varía el texto entre envíos. Si un preview de WhatsApp no muestra bien la demo, añade <code>?v=2</code> al final del enlace para forzar refresco del caché.
+  </div>
+
+</div>
+
+<script>
+const BASE_URL = 'https://ggeelcano.github.io/gg-elcano-100-demos/reservas-demos';
+
+const negocios = [
+  {
+    slug: 'alberphysio',
+    nombre: 'Alberphysio',
+    iniciales: 'AP',
+    ciudad: 'Bilbao',
+    telefono: '623 980 447',
+    telefonoWA: '34623980447',
+    rating: '5.0',
+    estado: 'WhatsApp enviado',
+    mensaje:
+`Hola Alber, soy Josu de G&G Elcano (Bilbao).
+
+He visto Alberphysio y os he preparado una página donde vuestros pacientes pueden pedir cita online 24h, sin tener que escribir por WhatsApp:
+
+{URL}
+
+Está pensada para clínicas como la vuestra: el paciente elige servicio, día y hora, y vosotros recibís el aviso por email.
+
+Os la dejo activa con vuestros horarios y precios reales por 149€ pago único, sin cuotas mensuales.
+
+Cualquier duda me decís 🙏`
+  },
+  {
+    slug: 'masajeak-lekue',
+    nombre: 'Masajeak Lekue',
+    iniciales: 'ML',
+    ciudad: 'Amorebieta',
+    telefono: '615 70 74 23',
+    telefonoWA: '34615707423',
+    rating: '5.0',
+    estado: 'Demo enviada',
+    mensaje:
+`Egun on, soy Josu de G&G Elcano.
+
+Os he preparado una página de reservas online para Masajeak Lekue: vuestros clientes eligen servicio (osteopatía, masaje terapéutico, descarga, relajante), día y hora ellos solos:
+
+{URL}
+
+El objetivo es liberaros del WhatsApp manual para coger citas. Vosotros solo recibís el aviso y atendéis.
+
+Os la dejo lista por 149€ pago único, sin cuotas mensuales. Si os encaja la activamos con vuestros datos reales.
+
+Échale un ojo cuando puedas 🙏`
+  },
+  {
+    slug: 'kinesfit',
+    nombre: 'KINESFIT',
+    iniciales: 'KF',
+    ciudad: 'Galdakao',
+    telefono: '691 66 92 62',
+    telefonoWA: '34691669262',
+    rating: '–',
+    estado: 'Demo enviada',
+    mensaje:
+`Hola, soy Josu de G&G Elcano.
+
+He visto KINESFIT en Galdakao y os he montado una página de reservas online para que vuestros clientes elijan sesión (fisioterapia, entrenamiento personal, valoración, recuperación…), día y hora sin tener que llamar:
+
+{URL}
+
+Pensada para descargar las horas que pasáis cogiendo citas por teléfono o WhatsApp.
+
+Por 149€ pago único os la dejo lista con vuestros horarios, servicios y precios reales. Sin cuotas mensuales.
+
+Echadle un vistazo y me decís 💪`
+  },
+];
+
+function escape(s) {
+  return s.replace(/[<>]/g, c => ({'<':'&lt;','>':'&gt;'}[c]));
+}
+
+const grid = document.getElementById('cards');
+for (const n of negocios) {
+  const url = `${BASE_URL}/${n.slug}/`;
+  const mensajeFinal = n.mensaje.replace('{URL}', url);
+  const waUrl = `https://wa.me/${n.telefonoWA}?text=${encodeURIComponent(mensajeFinal)}`;
+
+  const card = document.createElement('article');
+  card.className = 'card';
+  card.innerHTML = `
+    <div class="card-head">
+      <div class="card-logo">${n.iniciales}</div>
+      <div>
+        <h2>${n.nombre}</h2>
+        <div class="city">${n.ciudad}, Bizkaia</div>
+      </div>
+    </div>
+    <div class="card-info">
+      <div class="info-row"><span class="info-key">Teléfono</span><span class="info-val">${n.telefono}</span></div>
+      <div class="info-row"><span class="info-key">Rating</span><span class="info-val"><span class="stars">★</span> ${n.rating}</span></div>
+      <div class="info-row"><span class="info-key">Estado pipeline</span><span class="info-val">${n.estado}</span></div>
+    </div>
+    <div class="card-msg">${escape(mensajeFinal)}</div>
+    <div class="card-actions">
+      <a class="btn btn-view" href="${url}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        Ver demo
+      </a>
+      <a class="btn btn-wa" href="${waUrl}" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448L.057 24zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+        Enviar WhatsApp
+      </a>
+    </div>
+  `;
+  grid.appendChild(card);
+}
+</script>
+
+</body>
+</html>
