@@ -262,9 +262,14 @@ body{font-family:'Inter',sans-serif;background:var(--hueso);color:var(--tinta);l
 <div class="toast" id="toast"></div>
 
 <script>
+var API='https://gg-reservas-erp.ggelcano.workers.dev/api/reservas';
+var RESTAURANT='motabarri-erandio';
 var CRM_KEY='gg_reservas';
 var AUTH_KEY='motabarri_admin_auth';
+var TOKEN_KEY='motabarri_admin_token';
 var USER='motabarri',PASS='brasa2026';
+var ADMIN_TOKEN='motabarri-admin-2026-changeme';
+var CACHE=[];
 
 /* Login */
 function showLogin(){document.getElementById('loginWrap').style.display='grid';document.getElementById('panel').classList.remove('active')}
@@ -275,10 +280,10 @@ document.getElementById('loginForm').addEventListener('submit',function(e){
   e.preventDefault();
   var u=document.getElementById('usr').value.trim();
   var p=document.getElementById('pwd').value;
-  if(u===USER&&p===PASS){sessionStorage.setItem(AUTH_KEY,'1');document.getElementById('loginErr').classList.remove('show');showPanel()}
+  if(u===USER&&p===PASS){sessionStorage.setItem(AUTH_KEY,'1');sessionStorage.setItem(TOKEN_KEY,ADMIN_TOKEN);document.getElementById('loginErr').classList.remove('show');showPanel()}
   else{document.getElementById('loginErr').classList.add('show')}
 });
-document.getElementById('btnLogout').addEventListener('click',function(){sessionStorage.removeItem(AUTH_KEY);showLogin()});
+document.getElementById('btnLogout').addEventListener('click',function(){sessionStorage.removeItem(AUTH_KEY);sessionStorage.removeItem(TOKEN_KEY);showLogin()});
 
 /* Toast */
 function toast(msg,type){
@@ -287,11 +292,61 @@ function toast(msg,type){
   clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show')},2600);
 }
 
-/* Datos */
-function readAll(){try{return JSON.parse(localStorage.getItem(CRM_KEY)||'[]')}catch(e){return[]}}
-function writeAll(arr){localStorage.setItem(CRM_KEY,JSON.stringify(arr))}
-function updateOne(id,changes){var all=readAll();var i=all.findIndex(function(r){return r.id===id});if(i>-1){Object.assign(all[i],changes);writeAll(all);return all[i]}return null}
-function removeOne(id){var all=readAll().filter(function(r){return r.id!==id});writeAll(all)}
+/* API helpers */
+function authHeaders(){return {'Authorization':'Bearer '+ADMIN_TOKEN,'Content-Type':'application/json'}}
+
+async function apiList(){
+  try{
+    var r=await fetch(API,{headers:authHeaders()});
+    if(!r.ok)throw new Error('API '+r.status);
+    var j=await r.json();
+    var arr=j.reservas||j||[];
+    return arr.filter(function(r){return !r.restaurante||r.restaurante===RESTAURANT});
+  }catch(e){
+    return null;
+  }
+}
+async function apiPatch(id,changes){
+  try{var r=await fetch(API+'/'+id,{method:'PATCH',headers:authHeaders(),body:JSON.stringify(changes)});return r.ok}catch(e){return false}
+}
+async function apiDelete(id){
+  try{var r=await fetch(API+'/'+id,{method:'DELETE',headers:authHeaders()});return r.ok}catch(e){return false}
+}
+
+/* Datos locales como fallback / cache */
+function readLocal(){try{return JSON.parse(localStorage.getItem(CRM_KEY)||'[]')}catch(e){return[]}}
+function writeLocal(arr){localStorage.setItem(CRM_KEY,JSON.stringify(arr))}
+function updateLocal(id,changes){var all=readLocal();var i=all.findIndex(function(r){return r.id===id});if(i>-1){Object.assign(all[i],changes);writeLocal(all);return all[i]}return null}
+function removeLocal(id){var all=readLocal().filter(function(r){return r.id!==id});writeLocal(all)}
+
+function readAll(){return CACHE}
+async function refresh(){
+  var remote=await apiList();
+  if(remote){
+    var local=readLocal().filter(function(r){return r._offline});
+    CACHE=local.concat(remote);
+    writeLocal(remote);
+    var note=document.getElementById('demoNote');
+    if(note){note.innerHTML='<b>Conectado al backend en vivo:</b> las reservas se sincronizan en tiempo real con el servidor. <button type="button" class="btn-sm out" id="seedBtn" style="margin-left:10px">Cargar reservas de ejemplo</button>';document.getElementById('seedBtn').addEventListener('click',seed)}
+  }else{
+    CACHE=readLocal();
+    var note=document.getElementById('demoNote');
+    if(note){note.innerHTML='<b>Modo offline:</b> no se puede conectar al backend. Mostrando datos locales del navegador. <button type="button" class="btn-sm out" id="seedBtn" style="margin-left:10px">Cargar reservas de ejemplo</button>';document.getElementById('seedBtn').addEventListener('click',seed)}
+  }
+}
+
+async function updateOne(id,changes){
+  var ok=await apiPatch(id,changes);
+  updateLocal(id,changes);
+  var item=CACHE.find(function(r){return r.id===id});
+  if(item)Object.assign(item,changes);
+  return ok;
+}
+async function removeOne(id){
+  await apiDelete(id);
+  removeLocal(id);
+  CACHE=CACHE.filter(function(r){return r.id!==id});
+}
 
 /* Stats */
 function fmtDate(d){var dt=new Date(d);return dt.getDate().toString().padStart(2,'0')+'/'+(dt.getMonth()+1).toString().padStart(2,'0')+'/'+dt.getFullYear()}
@@ -359,19 +414,20 @@ function renderTable(){
 }
 function escapeHtml(s){return s.replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
 
-document.getElementById('tbody').addEventListener('click',function(e){
+document.getElementById('tbody').addEventListener('click',async function(e){
   var btn=e.target.closest('.row-btn');if(!btn)return;
   var row=btn.closest('tr');var id=row.dataset.id;var act=btn.dataset.act;
-  if(act==='confirmar'){updateOne(id,{estado:'confirmada'});toast('Reserva confirmada')}
-  else if(act==='completar'){updateOne(id,{estado:'completada'});toast('Reserva marcada como completada')}
-  else if(act==='cancelar'){if(!confirm('¿Cancelar reserva?'))return;updateOne(id,{estado:'cancelada'});toast('Reserva cancelada','bad')}
-  else if(act==='borrar'){if(!confirm('¿Borrar definitivamente?'))return;removeOne(id);toast('Reserva borrada','bad')}
+  btn.disabled=true;
+  if(act==='confirmar'){await updateOne(id,{estado:'confirmada'});toast('Reserva confirmada')}
+  else if(act==='completar'){await updateOne(id,{estado:'completada'});toast('Reserva marcada como completada')}
+  else if(act==='cancelar'){if(!confirm('¿Cancelar reserva?')){btn.disabled=false;return}await updateOne(id,{estado:'cancelada'});toast('Reserva cancelada','bad')}
+  else if(act==='borrar'){if(!confirm('¿Borrar definitivamente?')){btn.disabled=false;return}await removeOne(id);toast('Reserva borrada','bad')}
   renderTable();
 });
 
 /* Filtros */
 ['fSearch','fEstado','fFecha'].forEach(function(id){document.getElementById(id).addEventListener('input',renderTable)});
-document.getElementById('btnReload').addEventListener('click',function(){renderTable();toast('Lista actualizada')});
+document.getElementById('btnReload').addEventListener('click',async function(){await refresh();renderTable();toast('Lista actualizada')});
 
 /* Export CSV */
 document.getElementById('btnExport').addEventListener('click',function(){
@@ -408,7 +464,7 @@ function seed(){
 document.getElementById('seedBtn').addEventListener('click',seed);
 document.getElementById('seedBtnEmpty').addEventListener('click',seed);
 
-function loadReservas(){renderTable()}
+async function loadReservas(){await refresh();renderTable();setInterval(async function(){if(document.getElementById('panel').classList.contains('active')){await refresh();renderTable()}},30000)}
 </script>
 </body>
 </html>

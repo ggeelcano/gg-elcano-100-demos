@@ -1287,29 +1287,22 @@ document.querySelectorAll('input[type="date"]').forEach(i=>{
   i.value=tomorrow.toISOString().slice(0,10);
 });
 
-const ERP_ENDPOINT='https://gg-crm.ggelcano.workers.dev/api/reservas';
+const ERP_ENDPOINT='https://gg-reservas-erp.ggelcano.workers.dev/api/reservas';
 const RESTAURANT_ID='motabarri-erandio';
 const CRM_KEY='gg_reservas';
 
-function saveToCRM(data){
+function saveLocal(data){
   try{
     const all=JSON.parse(localStorage.getItem(CRM_KEY)||'[]');
-    const ymd=new Date().toISOString().slice(0,10).replace(/-/g,'');
-    const seq=(all.length+1).toString().padStart(3,'0');
-    data.id='RES-'+ymd+'-'+seq;
-    data.estado='pendiente';
-    data.created_at=new Date().toISOString();
     all.unshift(data);
     localStorage.setItem(CRM_KEY,JSON.stringify(all));
-    return data.id;
-  }catch(e){return null}
+  }catch(e){}
 }
 
 async function submitBooking(form,statusEl,btn,closeAfter){
   const data=Object.fromEntries(new FormData(form).entries());
   data.restaurante=RESTAURANT_ID;
   data.restaurante_nombre='Asador Motabarri';
-  data.timestamp=new Date().toISOString();
   data.origen='web';
 
   if(!data.fecha||!data.hora||!data.nombre||!data.telefono||!data.email){
@@ -1323,10 +1316,23 @@ async function submitBooking(form,statusEl,btn,closeAfter){
   btn.textContent='Enviando…';
   statusEl.classList.remove('show');
 
-  const id=saveToCRM({...data});
+  let id=null;
+  let saved=false;
   try{
-    await fetch(ERP_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...data,id}),mode:'cors'});
+    const r=await fetch(ERP_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),mode:'cors'});
+    if(r.ok){
+      const j=await r.json();
+      id=j.id||(j.reserva&&j.reserva.id);
+      saved=true;
+    }
   }catch(err){}
+
+  if(!saved){
+    const ymd=new Date().toISOString().slice(0,10).replace(/-/g,'');
+    const all=(()=>{try{return JSON.parse(localStorage.getItem(CRM_KEY)||'[]')}catch{return[]}})();
+    id='RES-'+ymd+'-'+String(all.length+1).padStart(3,'0');
+    saveLocal({...data,id,estado:'pendiente',created_at:new Date().toISOString(),_offline:true});
+  }
 
   const fechaTxt=new Date(data.fecha+'T00:00:00').toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long'});
   statusEl.className='bf-status show success';
