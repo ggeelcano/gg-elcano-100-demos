@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Panel de reservas · Motabarri</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="theme-color" content="#2A1F18">
+
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='28' fill='%232A1F18'/%3E%3Ctext x='90' y='118' font-family='Georgia,serif' font-style='italic' font-size='100' font-weight='700' fill='%23C8632A' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%232A1F18'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='38' font-weight='700' fill='%23C8632A' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --crema:#F4EDE0;--hueso:#FBF7EF;--tierra:#2A1F18;--tierra-2:#1B1310;
+  --tinta:#1A140F;--gris:#6B5F50;--linea:#D8CDB6;--brasa:#C8632A;--brasa-2:#A0481B;
+  --ok:#2E7D32;--ok-bg:#E8F5E9;--warn:#E65100;--warn-bg:#FFF3E0;--bad:#C62828;--bad-bg:#FFEBEE;--info:#1565C0;--info-bg:#E3F2FD;
+}
+html,body{height:100%}
+body{font-family:'Inter',sans-serif;background:var(--hueso);color:var(--tinta);line-height:1.5;-webkit-font-smoothing:antialiased}
+
+/* Login */
+.login-wrap{min-height:100vh;display:grid;place-items:center;padding:30px;background:linear-gradient(135deg,var(--tierra) 0%,var(--tierra-2) 100%)}
+.login-box{background:var(--hueso);padding:48px 44px;width:100%;max-width:420px;border-top:3px solid var(--brasa);box-shadow:0 30px 80px rgba(0,0,0,.4)}
+.login-brand{text-align:center;margin-bottom:32px}
+.login-brand-mark{width:60px;height:60px;border:1.5px solid var(--tierra);color:var(--tierra);display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:34px;margin:0 auto 14px}
+.login-brand b{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--tierra);display:block;line-height:1}
+.login-brand small{font-size:10px;letter-spacing:.32em;color:var(--gris);text-transform:uppercase;font-weight:600;display:block;margin-top:8px}
+.login-box h1{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:24px;color:var(--brasa-2);text-align:center;margin-bottom:6px}
+.login-box>p{text-align:center;color:var(--gris);font-size:13px;margin-bottom:26px}
+.fld{margin-bottom:16px}
+.fld label{display:block;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brasa-2);margin-bottom:6px}
+.fld input,.fld select,.fld textarea{width:100%;padding:13px 14px;border:1px solid var(--linea);background:#fff;font-family:'Inter',sans-serif;font-size:14px;color:var(--tinta);font-weight:500}
+.fld input:focus,.fld select:focus,.fld textarea:focus{outline:none;border-color:var(--brasa)}
+.btn{width:100%;padding:14px;background:var(--tierra);color:var(--crema);border:none;font-family:'Inter',sans-serif;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:.25s}
+.btn:hover{background:var(--brasa);color:var(--tierra-2)}
+.btn-brasa{background:var(--brasa);color:var(--tierra-2)}
+.btn-brasa:hover{background:var(--brasa-2);color:var(--crema)}
+.btn-out{background:transparent;color:var(--tierra);border:1.5px solid var(--linea)}
+.btn-out:hover{border-color:var(--brasa);color:var(--brasa-2);background:transparent}
+.alert{padding:10px 14px;font-size:13px;margin-bottom:14px;display:none}
+.alert.show{display:block}
+.alert.error{background:var(--bad-bg);color:var(--bad);border-left:3px solid var(--bad)}
+.alert.info{background:var(--info-bg);color:var(--info);border-left:3px solid var(--info)}
+.login-hint{margin-top:18px;padding:12px;background:rgba(200,99,42,.08);border-left:3px solid var(--brasa);font-size:12px;color:var(--gris);line-height:1.6}
+.login-hint b{color:var(--tierra)}
+
+/* Panel */
+.panel{display:none}
+.panel.active{display:block}
+.topbar{background:var(--tierra);color:var(--crema);padding:14px 26px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:50;box-shadow:0 2px 12px rgba(0,0,0,.15)}
+.topbar-brand{display:flex;align-items:center;gap:12px}
+.topbar-brand .login-brand-mark{width:38px;height:38px;border-color:var(--brasa);color:var(--brasa);font-size:24px;margin:0}
+.topbar-brand b{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:20px}
+.topbar-brand small{font-size:10px;letter-spacing:.32em;color:rgba(244,237,224,.6);text-transform:uppercase;display:block}
+.topbar-actions{display:flex;gap:10px;align-items:center}
+.topbar-user{font-size:13px;color:rgba(244,237,224,.7)}
+.logout{background:transparent;border:1px solid rgba(244,237,224,.25);color:var(--crema);padding:8px 16px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600;cursor:pointer;transition:.25s;font-family:inherit}
+.logout:hover{background:var(--brasa);border-color:var(--brasa);color:var(--tierra-2)}
+
+.dash{max-width:1320px;margin:0 auto;padding:34px 26px 80px}
+.dash h1{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:38px;color:var(--tierra);margin-bottom:6px;letter-spacing:-.01em}
+.dash h1 em{font-style:italic;color:var(--brasa-2)}
+.dash-sub{color:var(--gris);font-size:14px;margin-bottom:30px}
+
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:30px}
+.stat{background:#fff;padding:22px;border:1px solid var(--linea);border-left:3px solid var(--brasa)}
+.stat-label{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--brasa-2);margin-bottom:8px}
+.stat-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:42px;color:var(--tierra);line-height:1}
+.stat-extra{font-size:12px;color:var(--gris);margin-top:4px}
+
+.controls{display:flex;gap:12px;align-items:flex-end;margin-bottom:18px;flex-wrap:wrap;background:#fff;padding:18px;border:1px solid var(--linea)}
+.controls .fld{margin:0;flex:1;min-width:140px}
+.controls .fld label{font-size:10px}
+.controls .fld input,.controls .fld select{padding:10px 12px;font-size:13px}
+.controls-actions{display:flex;gap:8px}
+.btn-sm{padding:10px 16px;font-size:11px;letter-spacing:.14em;font-weight:600;text-transform:uppercase;cursor:pointer;border:none;font-family:inherit;transition:.2s}
+.btn-sm.brasa{background:var(--brasa);color:var(--tierra-2)}
+.btn-sm.brasa:hover{background:var(--brasa-2);color:var(--crema)}
+.btn-sm.out{background:transparent;color:var(--tierra);border:1px solid var(--linea)}
+.btn-sm.out:hover{border-color:var(--brasa);color:var(--brasa-2)}
+
+.tbl-wrap{background:#fff;border:1px solid var(--linea);overflow-x:auto}
+.tbl{width:100%;border-collapse:collapse;font-size:13.5px}
+.tbl thead{background:var(--crema)}
+.tbl th{text-align:left;padding:14px 16px;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--brasa-2);border-bottom:1px solid var(--linea);white-space:nowrap}
+.tbl td{padding:14px 16px;border-bottom:1px solid var(--linea);vertical-align:middle}
+.tbl tbody tr:hover{background:var(--hueso)}
+.tbl tbody tr.cancelled{opacity:.55}
+.tbl-id{font-family:'Inter',sans-serif;font-size:11px;color:var(--gris);font-weight:600;letter-spacing:.05em}
+.tbl-name{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:17px;color:var(--tierra);line-height:1.15}
+.tbl-meta{font-size:11.5px;color:var(--gris);margin-top:2px}
+.tbl-date{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:17px;color:var(--brasa-2);white-space:nowrap}
+.tbl-date small{display:block;font-size:11px;color:var(--gris);font-style:normal;font-family:'Inter',sans-serif;font-weight:500;margin-top:2px;letter-spacing:.02em}
+.tbl-pax{font-family:'Cormorant Garamond',serif;font-weight:700;font-size:24px;color:var(--tierra);text-align:center;line-height:1}
+.tbl-pax small{display:block;font-size:10px;color:var(--gris);font-family:'Inter',sans-serif;font-weight:600;letter-spacing:.14em;text-transform:uppercase;margin-top:2px}
+.tbl a.phone{color:var(--brasa-2);font-weight:600;text-decoration:none}
+.tbl a.phone:hover{text-decoration:underline}
+
+.status-pill{display:inline-flex;align-items:center;gap:6px;padding:6px 10px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border:none;font-family:inherit;border-radius:0;white-space:nowrap}
+.status-pill::before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%}
+.status-pill.pendiente{background:var(--warn-bg);color:var(--warn)}
+.status-pill.pendiente::before{background:var(--warn)}
+.status-pill.confirmada{background:var(--ok-bg);color:var(--ok)}
+.status-pill.confirmada::before{background:var(--ok)}
+.status-pill.cancelada{background:var(--bad-bg);color:var(--bad)}
+.status-pill.cancelada::before{background:var(--bad)}
+.status-pill.completada{background:var(--info-bg);color:var(--info)}
+.status-pill.completada::before{background:var(--info)}
+
+.row-actions{display:flex;gap:6px;flex-wrap:wrap}
+.row-btn{background:transparent;border:1px solid var(--linea);color:var(--gris);padding:6px 9px;font-size:11px;cursor:pointer;font-family:inherit;font-weight:600;letter-spacing:.04em;transition:.2s;line-height:1;white-space:nowrap}
+.row-btn:hover{border-color:var(--brasa);color:var(--brasa-2)}
+.row-btn.bad:hover{border-color:var(--bad);color:var(--bad)}
+.row-btn.ok:hover{border-color:var(--ok);color:var(--ok)}
+
+.empty{padding:60px 20px;text-align:center;color:var(--gris)}
+.empty h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:24px;color:var(--tierra);margin-bottom:8px}
+.empty p{font-size:14px;max-width:380px;margin:0 auto;line-height:1.6}
+.empty button{margin-top:20px;display:inline-block}
+
+.toast{position:fixed;bottom:24px;right:24px;background:var(--tierra);color:var(--crema);padding:14px 20px;font-size:13px;font-weight:600;box-shadow:0 12px 36px rgba(0,0,0,.3);transform:translateY(60px);opacity:0;transition:.3s;z-index:200;border-left:3px solid var(--brasa)}
+.toast.show{transform:translateY(0);opacity:1}
+.toast.ok{border-left-color:var(--ok)}
+.toast.bad{border-left-color:var(--bad)}
+
+.notes{background:var(--crema);border-left:3px solid var(--brasa);padding:14px 18px;font-size:13px;color:var(--tierra);margin-bottom:24px;line-height:1.6}
+.notes b{font-weight:700}
+
+@media(max-width:900px){
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .dash h1{font-size:30px}
+  .controls{flex-direction:column;align-items:stretch}
+  .controls .fld{min-width:0;width:100%}
+  .controls-actions{width:100%}
+  .controls-actions button{flex:1}
+  .tbl{font-size:12.5px}
+  .tbl th,.tbl td{padding:10px 12px}
+}
+@media(max-width:560px){
+  .topbar{padding:12px 16px}
+  .topbar-user{display:none}
+  .dash{padding:24px 16px 60px}
+  .stats{grid-template-columns:1fr 1fr;gap:10px}
+  .stat{padding:16px}
+  .stat-num{font-size:34px}
+}
+</style>
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-wrap" id="loginWrap">
+  <form class="login-box" id="loginForm" novalidate>
+    <div class="login-brand">
+      <div class="login-brand-mark">M</div>
+      <b>Motabarri</b>
+      <small>Panel de gestión</small>
+    </div>
+    <h1>Acceso restaurante</h1>
+    <p>Introduce las credenciales del personal</p>
+    <div class="alert error" id="loginErr">Usuario o contraseña incorrectos.</div>
+    <div class="fld">
+      <label for="usr">Usuario</label>
+      <input type="text" id="usr" autocomplete="username" required>
+    </div>
+    <div class="fld">
+      <label for="pwd">Contraseña</label>
+      <input type="password" id="pwd" autocomplete="current-password" required>
+    </div>
+    <button type="submit" class="btn btn-brasa">Entrar</button>
+    <div class="login-hint">
+      <b>Acceso demo:</b> usuario <b>motabarri</b> · contraseña <b>brasa2026</b>
+    </div>
+  </form>
+</div>
+
+<!-- PANEL -->
+<div class="panel" id="panel">
+  <div class="topbar">
+    <div class="topbar-brand">
+      <div class="login-brand-mark">M</div>
+      <div><b>Motabarri</b><small>Panel de gestión</small></div>
+    </div>
+    <div class="topbar-actions">
+      <span class="topbar-user">Conectado como <b id="usrName">motabarri</b></span>
+      <button type="button" class="logout" id="btnLogout">Cerrar sesión</button>
+    </div>
+  </div>
+
+  <div class="dash">
+    <h1>Reservas <em>online</em>.</h1>
+    <p class="dash-sub">Gestiona las reservas que entran desde la web del Asador Motabarri.</p>
+
+    <div class="notes" id="demoNote">
+      <b>Modo demo:</b> esta vista usa los datos guardados en este navegador (localStorage). En la versión final las reservas se sincronizan en la nube y se notifican por WhatsApp/email automáticamente.
+      <button type="button" class="btn-sm out" id="seedBtn" style="margin-left:10px">Cargar reservas de ejemplo</button>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="stat-label">Hoy</div><div class="stat-num" id="statHoy">0</div><div class="stat-extra" id="statHoyPax">0 comensales</div></div>
+      <div class="stat"><div class="stat-label">Pendientes</div><div class="stat-num" id="statPend">0</div><div class="stat-extra">Por confirmar</div></div>
+      <div class="stat"><div class="stat-label">Confirmadas</div><div class="stat-num" id="statConf">0</div><div class="stat-extra">Próximas reservas</div></div>
+      <div class="stat"><div class="stat-label">Esta semana</div><div class="stat-num" id="statWeek">0</div><div class="stat-extra" id="statWeekPax">0 comensales</div></div>
+    </div>
+
+    <div class="controls">
+      <div class="fld">
+        <label for="fSearch">Buscar</label>
+        <input type="text" id="fSearch" placeholder="Nombre, teléfono o email…">
+      </div>
+      <div class="fld" style="flex:0 0 160px">
+        <label for="fEstado">Estado</label>
+        <select id="fEstado">
+          <option value="">Todas</option>
+          <option value="pendiente">Pendiente</option>
+          <option value="confirmada">Confirmada</option>
+          <option value="completada">Completada</option>
+          <option value="cancelada">Cancelada</option>
+        </select>
+      </div>
+      <div class="fld" style="flex:0 0 160px">
+        <label for="fFecha">Desde fecha</label>
+        <input type="date" id="fFecha">
+      </div>
+      <div class="controls-actions">
+        <button type="button" class="btn-sm out" id="btnExport">Exportar CSV</button>
+        <button type="button" class="btn-sm brasa" id="btnReload">Actualizar</button>
+      </div>
+    </div>
+
+    <div class="tbl-wrap">
+      <table class="tbl" id="tblReservas">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Cliente</th>
+            <th>Fecha y hora</th>
+            <th>Pax</th>
+            <th>Contacto</th>
+            <th>Notas</th>
+            <th>Estado</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+      </table>
+      <div class="empty" id="empty" style="display:none">
+        <h3>Sin reservas todavía</h3>
+        <p>Cuando alguien rellene el formulario de reserva en la web aparecerán aquí. Mientras, puedes cargar reservas de ejemplo para ver cómo funciona.</p>
+        <button type="button" class="btn-sm brasa" id="seedBtnEmpty">Cargar reservas de ejemplo</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+var CRM_KEY='gg_reservas';
+var AUTH_KEY='motabarri_admin_auth';
+var USER='motabarri',PASS='brasa2026';
+
+/* Login */
+function showLogin(){document.getElementById('loginWrap').style.display='grid';document.getElementById('panel').classList.remove('active')}
+function showPanel(){document.getElementById('loginWrap').style.display='none';document.getElementById('panel').classList.add('active');loadReservas()}
+if(sessionStorage.getItem(AUTH_KEY)==='1')showPanel();else showLogin();
+
+document.getElementById('loginForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  var u=document.getElementById('usr').value.trim();
+  var p=document.getElementById('pwd').value;
+  if(u===USER&&p===PASS){sessionStorage.setItem(AUTH_KEY,'1');document.getElementById('loginErr').classList.remove('show');showPanel()}
+  else{document.getElementById('loginErr').classList.add('show')}
+});
+document.getElementById('btnLogout').addEventListener('click',function(){sessionStorage.removeItem(AUTH_KEY);showLogin()});
+
+/* Toast */
+function toast(msg,type){
+  var t=document.getElementById('toast');t.textContent=msg;t.className='toast '+(type||'ok');
+  void t.offsetWidth;t.classList.add('show');
+  clearTimeout(t._t);t._t=setTimeout(function(){t.classList.remove('show')},2600);
+}
+
+/* Datos */
+function readAll(){try{return JSON.parse(localStorage.getItem(CRM_KEY)||'[]')}catch(e){return[]}}
+function writeAll(arr){localStorage.setItem(CRM_KEY,JSON.stringify(arr))}
+function updateOne(id,changes){var all=readAll();var i=all.findIndex(function(r){return r.id===id});if(i>-1){Object.assign(all[i],changes);writeAll(all);return all[i]}return null}
+function removeOne(id){var all=readAll().filter(function(r){return r.id!==id});writeAll(all)}
+
+/* Stats */
+function fmtDate(d){var dt=new Date(d);return dt.getDate().toString().padStart(2,'0')+'/'+(dt.getMonth()+1).toString().padStart(2,'0')+'/'+dt.getFullYear()}
+function fmtDateLong(d){var dt=new Date(d);var dias=['domingo','lunes','martes','miércoles','jueves','viernes','sábado'];var meses=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];return dias[dt.getDay()]+' '+dt.getDate()+' '+meses[dt.getMonth()]}
+function todayISO(){return new Date().toISOString().slice(0,10)}
+function weekStartISO(){var d=new Date();var day=d.getDay();var diff=d.getDate()-day+(day===0?-6:1);d.setDate(diff);return d.toISOString().slice(0,10)}
+function weekEndISO(){var d=new Date(weekStartISO());d.setDate(d.getDate()+6);return d.toISOString().slice(0,10)}
+
+function renderStats(all){
+  var hoy=todayISO();var ws=weekStartISO();var we=weekEndISO();
+  var hoyArr=all.filter(function(r){return r.fecha===hoy&&r.estado!=='cancelada'});
+  var pend=all.filter(function(r){return r.estado==='pendiente'&&r.fecha>=hoy});
+  var conf=all.filter(function(r){return r.estado==='confirmada'&&r.fecha>=hoy});
+  var week=all.filter(function(r){return r.fecha>=ws&&r.fecha<=we&&r.estado!=='cancelada'});
+  document.getElementById('statHoy').textContent=hoyArr.length;
+  document.getElementById('statHoyPax').textContent=hoyArr.reduce(function(s,r){return s+Number(r.comensales||0)},0)+' comensales';
+  document.getElementById('statPend').textContent=pend.length;
+  document.getElementById('statConf').textContent=conf.length;
+  document.getElementById('statWeek').textContent=week.length;
+  document.getElementById('statWeekPax').textContent=week.reduce(function(s,r){return s+Number(r.comensales||0)},0)+' comensales';
+}
+
+/* Render tabla */
+function renderTable(){
+  var all=readAll();
+  renderStats(all);
+  var q=document.getElementById('fSearch').value.trim().toLowerCase();
+  var fEst=document.getElementById('fEstado').value;
+  var fFch=document.getElementById('fFecha').value;
+  var filt=all.filter(function(r){
+    if(fEst&&r.estado!==fEst)return false;
+    if(fFch&&r.fecha<fFch)return false;
+    if(q){
+      var hay=(r.nombre+' '+r.telefono+' '+r.email).toLowerCase();
+      if(hay.indexOf(q)===-1)return false;
+    }
+    return true;
+  });
+  filt.sort(function(a,b){return (a.fecha+a.hora).localeCompare(b.fecha+b.hora)});
+  var tbody=document.getElementById('tbody');
+  var empty=document.getElementById('empty');
+  if(!filt.length){tbody.innerHTML='';empty.style.display='block';return}
+  empty.style.display='none';
+  tbody.innerHTML=filt.map(function(r){
+    var cls=r.estado==='cancelada'?'cancelled':'';
+    var phone=(r.telefono||'').replace(/\s/g,'');
+    var waPhone=phone.replace(/^\+/,'').replace(/^00/,'');
+    if(!waPhone.match(/^34/))waPhone='34'+waPhone;
+    return '<tr class="'+cls+'" data-id="'+r.id+'">'+
+      '<td><span class="tbl-id">'+(r.id||'').slice(0,18)+'</span></td>'+
+      '<td><div class="tbl-name">'+(r.nombre||'—')+'</div><div class="tbl-meta">'+(r.email||'')+'</div></td>'+
+      '<td><div class="tbl-date">'+(r.hora||'')+'<small>'+fmtDateLong(r.fecha)+'</small></div></td>'+
+      '<td><div class="tbl-pax">'+(r.comensales||'?')+'<small>pax</small></div></td>'+
+      '<td><a class="phone" href="tel:'+phone+'">'+(r.telefono||'')+'</a><div class="tbl-meta"><a href="https://wa.me/'+waPhone+'" target="_blank" rel="noopener" style="color:var(--ok);font-weight:600">WhatsApp →</a></div></td>'+
+      '<td><div class="tbl-meta" style="max-width:200px">'+(r.notas?escapeHtml(r.notas):'<em style="color:var(--linea)">—</em>')+'</div></td>'+
+      '<td><span class="status-pill '+(r.estado||'pendiente')+'">'+(r.estado||'pendiente')+'</span></td>'+
+      '<td><div class="row-actions">'+
+        (r.estado!=='confirmada'?'<button type="button" class="row-btn ok" data-act="confirmar">Confirmar</button>':'')+
+        (r.estado!=='completada'&&r.estado!=='cancelada'?'<button type="button" class="row-btn" data-act="completar">Completar</button>':'')+
+        (r.estado!=='cancelada'?'<button type="button" class="row-btn bad" data-act="cancelar">Cancelar</button>':'')+
+        '<button type="button" class="row-btn bad" data-act="borrar">Borrar</button>'+
+      '</div></td>'+
+    '</tr>';
+  }).join('');
+}
+function escapeHtml(s){return s.replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
+
+document.getElementById('tbody').addEventListener('click',function(e){
+  var btn=e.target.closest('.row-btn');if(!btn)return;
+  var row=btn.closest('tr');var id=row.dataset.id;var act=btn.dataset.act;
+  if(act==='confirmar'){updateOne(id,{estado:'confirmada'});toast('Reserva confirmada')}
+  else if(act==='completar'){updateOne(id,{estado:'completada'});toast('Reserva marcada como completada')}
+  else if(act==='cancelar'){if(!confirm('¿Cancelar reserva?'))return;updateOne(id,{estado:'cancelada'});toast('Reserva cancelada','bad')}
+  else if(act==='borrar'){if(!confirm('¿Borrar definitivamente?'))return;removeOne(id);toast('Reserva borrada','bad')}
+  renderTable();
+});
+
+/* Filtros */
+['fSearch','fEstado','fFecha'].forEach(function(id){document.getElementById(id).addEventListener('input',renderTable)});
+document.getElementById('btnReload').addEventListener('click',function(){renderTable();toast('Lista actualizada')});
+
+/* Export CSV */
+document.getElementById('btnExport').addEventListener('click',function(){
+  var all=readAll();
+  if(!all.length){toast('No hay reservas para exportar','bad');return}
+  var cols=['id','fecha','hora','comensales','nombre','telefono','email','notas','estado','created_at'];
+  var csv=cols.join(';')+'\n'+all.map(function(r){return cols.map(function(c){var v=(r[c]||'').toString().replace(/"/g,'""').replace(/\n/g,' ');return '"'+v+'"'}).join(';')}).join('\n');
+  var blob=new Blob(['﻿'+csv],{type:'text/csv;charset=utf-8'});
+  var url=URL.createObjectURL(blob);var a=document.createElement('a');a.href=url;a.download='reservas-motabarri-'+todayISO()+'.csv';a.click();URL.revokeObjectURL(url);
+  toast('Exportadas '+all.length+' reservas');
+});
+
+/* Seed datos demo */
+function seed(){
+  var today=new Date();
+  var d=function(off){var x=new Date(today);x.setDate(x.getDate()+off);return x.toISOString().slice(0,10)};
+  var ej=[
+    {id:'RES-'+Date.now()+'-001',fecha:d(0),hora:'21:00',comensales:'4',nombre:'Iñigo Aretxabaleta',telefono:'+34 688 123 456',email:'inigo@gmail.com',notas:'Cumpleaños, prefieren mesa cerca de la ventana',estado:'confirmada',created_at:new Date(Date.now()-3600000*5).toISOString(),restaurante:'motabarri-erandio'},
+    {id:'RES-'+Date.now()+'-002',fecha:d(0),hora:'21:30',comensales:'2',nombre:'María Etxeberria',telefono:'+34 644 987 654',email:'maria.etxeberria@hotmail.com',notas:'',estado:'pendiente',created_at:new Date(Date.now()-3600000*2).toISOString(),restaurante:'motabarri-erandio'},
+    {id:'RES-'+Date.now()+'-003',fecha:d(1),hora:'14:00',comensales:'8',nombre:'Empresa Bizkaiko Elektrika',telefono:'+34 944 567 890',email:'rrhh@bizkaikoelektrika.eus',notas:'Comida de empresa. Uno celíaco y un vegetariano',estado:'confirmada',created_at:new Date(Date.now()-3600000*24).toISOString(),restaurante:'motabarri-erandio'},
+    {id:'RES-'+Date.now()+'-004',fecha:d(1),hora:'14:30',comensales:'5',nombre:'Aitor Bilbao',telefono:'+34 677 555 222',email:'aitor.bilbao@gmail.com',notas:'Vienen con un perro pequeño',estado:'pendiente',created_at:new Date(Date.now()-3600000*8).toISOString(),restaurante:'motabarri-erandio'},
+    {id:'RES-'+Date.now()+'-005',fecha:d(2),hora:'21:00',comensales:'12',nombre:'Cuadrilla Algorta',telefono:'+34 633 444 111',email:'jonurra@gmail.com',notas:'Menú Motabarri 38 € para todos',estado:'confirmada',created_at:new Date(Date.now()-3600000*36).toISOString(),restaurante:'motabarri-erandio'},
+    {id:'RES-'+Date.now()+'-006',fecha:d(3),hora:'14:00',comensales:'2',nombre:'Patxi Goikoetxea',telefono:'+34 615 789 222',email:'patxi.goiko@yahoo.es',notas:'',estado:'pendiente',created_at:new Date(Date.now()-3600000*1).toISOString(),restaurante:'motabarri-erandio'},
+    {id:'RES-'+Date.now()+'-007',fecha:d(5),hora:'21:30',comensales:'6',nombre:'Familia Larrabe',telefono:'+34 689 333 100',email:'larrabe.familia@gmail.com',notas:'Aniversario de boda',estado:'pendiente',created_at:new Date(Date.now()-3600000*0.5).toISOString(),restaurante:'motabarri-erandio'},
+    {id:'RES-'+Date.now()+'-008',fecha:d(-1),hora:'14:00',comensales:'4',nombre:'Iker Mendia',telefono:'+34 666 222 333',email:'iker@gmail.com',notas:'',estado:'completada',created_at:new Date(Date.now()-3600000*48).toISOString(),restaurante:'motabarri-erandio'},
+    {id:'RES-'+Date.now()+'-009',fecha:d(-2),hora:'21:00',comensales:'3',nombre:'Naiara Olabarrieta',telefono:'+34 698 111 555',email:'naiara.olab@gmail.com',notas:'',estado:'cancelada',created_at:new Date(Date.now()-3600000*72).toISOString(),restaurante:'motabarri-erandio'},
+    {id:'RES-'+Date.now()+'-010',fecha:d(7),hora:'13:30',comensales:'2',nombre:'Jon Lekue',telefono:'+34 622 888 333',email:'jonlekue@hotmail.com',notas:'Primera vez en el restaurante',estado:'pendiente',created_at:new Date(Date.now()-3600000*4).toISOString(),restaurante:'motabarri-erandio'}
+  ];
+  var existing=readAll();
+  writeAll(ej.concat(existing.filter(function(r){return r.id&&!r.id.match(/^RES-\d+-00[0-9]$/)})));
+  renderTable();
+  toast('10 reservas de ejemplo cargadas');
+}
+document.getElementById('seedBtn').addEventListener('click',seed);
+document.getElementById('seedBtnEmpty').addEventListener('click',seed);
+
+function loadReservas(){renderTable()}
+</script>
+</body>
+</html>

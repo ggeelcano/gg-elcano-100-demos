@@ -1166,6 +1166,7 @@ setTimeout(hideLoader,4000);
         <li><a href="privacidad/">Política de privacidad</a></li>
         <li><a href="cookies/">Política de cookies</a></li>
         <li><a href="tratamiento-datos/">Tratamiento de datos</a></li>
+        <li><a href="admin/">Acceso restaurante →</a></li>
         <li style="font-size:11px;opacity:.5;letter-spacing:.04em;margin-top:10px">Bengoetxebarri S.L.<br>CIF B67758219</li>
       </ul>
     </div>
@@ -1293,7 +1294,9 @@ const CRM_KEY='gg_reservas';
 function saveToCRM(data){
   try{
     const all=JSON.parse(localStorage.getItem(CRM_KEY)||'[]');
-    data.id='RES-'+Date.now()+'-'+Math.floor(Math.random()*1000);
+    const ymd=new Date().toISOString().slice(0,10).replace(/-/g,'');
+    const seq=(all.length+1).toString().padStart(3,'0');
+    data.id='RES-'+ymd+'-'+seq;
     data.estado='pendiente';
     data.created_at=new Date().toISOString();
     all.unshift(data);
@@ -1325,10 +1328,11 @@ async function submitBooking(form,statusEl,btn,closeAfter){
     await fetch(ERP_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({...data,id}),mode:'cors'});
   }catch(err){}
 
+  const fechaTxt=new Date(data.fecha+'T00:00:00').toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long'});
   statusEl.className='bf-status show success';
-  statusEl.innerHTML=`<b>¡Reserva recibida!</b> Confirmación nº <b>${id||'—'}</b> · Llegará a <b>${data.email}</b>. Mesa para ${data.comensales} el ${data.fecha} a las ${data.hora}.`;
+  statusEl.innerHTML=`<b>¡Reserva recibida!</b> Te llegará la confirmación a <b>${data.email}</b> en breve.<br><br>📌 Reserva <b>${id||'—'}</b> · Mesa para <b>${data.comensales}</b> el <b>${fechaTxt} a las ${data.hora}</b>.<br>Si necesitas cambiar algo, llámanos al <a href="tel:+34944670768" style="color:inherit;text-decoration:underline;font-weight:600">944 67 07 68</a>.`;
   form.reset();
-  if(closeAfter)setTimeout(closeModal,4000);
+  if(closeAfter)setTimeout(closeModal,5500);
   btn.disabled=false;
   btn.textContent=original;
 }
