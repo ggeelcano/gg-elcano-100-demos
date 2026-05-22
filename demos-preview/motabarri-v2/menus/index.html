@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Menús cerrados · Asador Motabarri · Erandio</title>
+<meta name="description" content="Menús cerrados del Asador Motabarri en Erandio: menú fin de semana 22 €, festivos 26 €, menú Motabarri para grupos 38 € y menús concertados para eventos.">
+<meta name="theme-color" content="#2A1F18">
+
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='28' fill='%232A1F18'/%3E%3Ctext x='90' y='118' font-family='Georgia,serif' font-style='italic' font-size='100' font-weight='700' fill='%23C8632A' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%232A1F18'/%3E%3Ctext x='32' y='44' font-family='Georgia,serif' font-style='italic' font-size='38' font-weight='700' fill='%23C8632A' text-anchor='middle'%3EM%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --crema:#F4EDE0;
+  --hueso:#FBF7EF;
+  --tierra:#2A1F18;
+  --tierra-2:#1B1310;
+  --tinta:#1A140F;
+  --gris:#6B5F50;
+  --linea:#D8CDB6;
+  --brasa:#C8632A;
+  --brasa-2:#A0481B;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',sans-serif;background:var(--hueso);color:var(--tinta);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-weight:400}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+
+nav{position:sticky;top:0;background:rgba(251,247,239,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea);z-index:100}
+.nav-inner{max-width:1280px;margin:0 auto;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-mark{width:48px;height:48px;border:1.5px solid var(--tierra);color:var(--tierra);display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:28px}
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.brand-text b{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--tierra)}
+.brand-text small{font-size:9.5px;letter-spacing:.36em;color:var(--gris);margin-top:5px;text-transform:uppercase;font-weight:500}
+.nav-actions{display:flex;gap:10px;flex-wrap:wrap}
+.nav-back{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--tierra);padding:10px 18px;border:1.5px solid var(--linea);transition:.25s}
+.nav-back:hover{border-color:var(--brasa);color:var(--brasa-2)}
+.nav-back::before{content:"←";font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;line-height:1}
+.nav-go{display:inline-flex;align-items:center;gap:8px;font-family:'Inter',sans-serif;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--crema);background:var(--tierra);padding:10px 18px;border:1.5px solid var(--tierra);transition:.25s}
+.nav-go:hover{background:var(--brasa);border-color:var(--brasa);color:var(--tierra-2)}
+
+.head-page{background:var(--tierra);color:var(--crema);padding:90px 28px 70px;text-align:center;position:relative;overflow:hidden}
+.head-page::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 30%,rgba(200,99,42,.18) 0%,transparent 60%);pointer-events:none}
+.head-page span.eyebrow-h{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--brasa);display:block;margin-bottom:8px;font-weight:500;letter-spacing:.04em;position:relative}
+.head-page h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(50px,7vw,84px);line-height:1;color:var(--crema);letter-spacing:-.018em;position:relative}
+.head-page h1 em{font-style:italic;color:var(--brasa);font-weight:600}
+.head-page p{font-size:16px;color:rgba(244,237,224,.8);max-width:620px;margin:18px auto 0;font-weight:300;line-height:1.65;position:relative}
+
+main{padding:80px 28px}
+.wrap{max-width:1280px;margin:0 auto}
+
+.menus-grid{display:grid;grid-template-columns:1fr 1fr;gap:36px;max-width:1100px;margin:0 auto}
+.menu-fixed{background:#fff;padding:42px 44px;border:1px solid var(--linea);border-top:3px solid var(--brasa);box-shadow:0 18px 50px rgba(42,31,24,.08);display:flex;flex-direction:column}
+.menu-fixed.featured{border-top-width:4px;background:linear-gradient(180deg,#fff 0%,#fdf8ef 100%)}
+.menu-fixed-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;padding-bottom:18px;border-bottom:1px dashed var(--linea);flex-wrap:wrap;gap:12px}
+.menu-fixed-head h4{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;color:var(--tierra);font-size:30px;line-height:1.05}
+.menu-fixed-head h4 em{font-style:italic;font-weight:600;color:var(--brasa-2);display:block;font-size:15px;letter-spacing:.04em;margin-top:4px}
+.menu-fixed-price{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:42px;color:var(--brasa);line-height:1;white-space:nowrap}
+.menu-fixed h5{font-family:'Inter',sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brasa-2);margin:18px 0 10px}
+.menu-fixed h5:first-of-type{margin-top:0}
+.menu-fixed ul{list-style:none;margin-bottom:6px}
+.menu-fixed li{font-family:'Cormorant Garamond',serif;font-size:18px;color:var(--tierra);font-weight:500;padding:5px 0;line-height:1.4}
+.menu-fixed li small{display:block;font-size:11px;color:var(--gris);font-style:italic;letter-spacing:.04em;font-family:'Inter',sans-serif;font-weight:400;margin-top:1px}
+.menu-fixed-footer{margin-top:auto;padding-top:14px;border-top:1px dashed var(--linea);font-size:13px;color:var(--gris);line-height:1.6;font-style:italic;font-family:'Cormorant Garamond',serif}
+.menu-fixed-footer b{color:var(--tierra);font-weight:600;font-style:normal;font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:.04em}
+.menu-fixed-footer a{color:var(--brasa-2);font-weight:600}
+
+.menus-cta{background:var(--tierra);color:var(--crema);padding:60px 40px;text-align:center;max-width:1100px;margin:60px auto 0;border-top:3px solid var(--brasa)}
+.menus-cta h3{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:36px;margin-bottom:14px;font-weight:500}
+.menus-cta h3 em{color:var(--brasa);font-style:italic;font-weight:600}
+.menus-cta p{font-size:15px;color:rgba(244,237,224,.85);max-width:520px;margin:0 auto 28px;font-weight:300;line-height:1.65}
+.menus-cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.menus-cta-btns a{display:inline-flex;align-items:center;gap:10px;padding:14px 28px;font-family:'Inter',sans-serif;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;border:1.5px solid var(--brasa);transition:.25s}
+.menus-cta-btns a.primary{background:var(--brasa);color:var(--tierra-2)}
+.menus-cta-btns a.primary:hover{background:transparent;color:var(--brasa)}
+.menus-cta-btns a.outline{color:var(--brasa)}
+.menus-cta-btns a.outline:hover{background:var(--brasa);color:var(--tierra-2)}
+
+.carta-note{text-align:center;max-width:680px;margin:40px auto 0;font-size:13.5px;color:var(--gris);font-style:italic;line-height:1.6}
+.carta-note a{color:var(--brasa-2);font-weight:600}
+
+footer{background:#15100C;color:var(--crema);padding:40px 28px;text-align:center}
+footer .brand-mark{margin:0 auto 14px;border-color:var(--brasa);color:var(--brasa)}
+footer p{font-size:14px;opacity:.65;margin-top:6px}
+footer a{color:var(--brasa);font-weight:500}
+
+@media(max-width:1024px){
+  .head-page{padding:60px 22px 50px}
+  .menus-grid{grid-template-columns:1fr;gap:24px}
+  .menu-fixed{padding:32px 26px}
+  .menu-fixed-head h4{font-size:24px}
+  .menu-fixed-price{font-size:36px}
+  main{padding:60px 22px}
+  .menus-cta{padding:44px 28px}
+  .menus-cta h3{font-size:28px}
+}
+@media(max-width:480px){
+  .nav-inner{padding:14px 16px;flex-wrap:wrap}
+  .brand-mark{width:42px;height:42px;font-size:23px}
+  .brand-text b{font-size:20px}
+  .nav-back,.nav-go{padding:9px 12px;font-size:10.5px;letter-spacing:.12em}
+  .head-page h1{font-size:42px}
+  main{padding:50px 18px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="../" class="brand">
+      <div class="brand-mark">M</div>
+      <div class="brand-text"><b>Motabarri</b><small>Asador · Erandio</small></div>
+    </a>
+    <div class="nav-actions">
+      <a href="../carta/" class="nav-go">Ver la carta</a>
+      <a href="../" class="nav-back">Inicio</a>
+    </div>
+  </div>
+</nav>
+
+<header class="head-page">
+  <span class="eyebrow-h">— menús cerrados —</span>
+  <h1>Menús del <em>Motabarri</em>.</h1>
+  <p>Menú de fin de semana, menú de festivos, menú Motabarri para grupos y menús concertados para celebraciones. Para venir sin pensar mucho y comer bien.</p>
+</header>
+
+<main>
+  <div class="wrap">
+
+    <div class="menus-grid">
+
+      <div class="menu-fixed">
+        <div class="menu-fixed-head">
+          <h4>Menú fin de semana<em>sábado y domingo</em></h4>
+          <span class="menu-fixed-price">22 €</span>
+        </div>
+        <h5>Incluye</h5>
+        <ul>
+          <li>Entrante, segundo y postre casero</li>
+          <li>Agua, pan y bebida</li>
+        </ul>
+        <div class="menu-fixed-footer"><b>Disponibilidad:</b> sábado y domingo al mediodía. Producto de mercado, carta cerrada que cambia por temporada.</div>
+      </div>
+
+      <div class="menu-fixed">
+        <div class="menu-fixed-head">
+          <h4>Menú festivos<em>días señalados</em></h4>
+          <span class="menu-fixed-price">26 €</span>
+        </div>
+        <h5>Incluye</h5>
+        <ul>
+          <li>Entrante, segundo y postre casero</li>
+          <li>Agua, pan y bebida</li>
+        </ul>
+        <div class="menu-fixed-footer"><b>Disponibilidad:</b> festivos al mediodía. Menú reforzado para fechas especiales.</div>
+      </div>
+
+      <div class="menu-fixed featured">
+        <div class="menu-fixed-head">
+          <h4>Menú Motabarri<em>para grupos · mínimo 4 personas</em></h4>
+          <span class="menu-fixed-price">38 €</span>
+        </div>
+        <h5>Para compartir</h5>
+        <ul>
+          <li>Ensalada de ventresca</li>
+          <li>Revuelto de setas y gambas</li>
+          <li>Croquetas de jamón <small>3 por persona</small></li>
+        </ul>
+        <h5>Segundo (a elegir)</h5>
+        <ul>
+          <li>Lubina con patata panadera</li>
+          <li>Pimientos rellenos de txangurro</li>
+          <li>Entrecot con guarnición</li>
+        </ul>
+        <h5>Postre</h5>
+        <ul><li>Postre a elegir</li></ul>
+        <div class="menu-fixed-footer"><b>Incluye:</b> agua, pan y vino crianza. IVA incluido. Cervezas y refrescos no incluidos. <b>Mínimo 4 personas.</b></div>
+      </div>
+
+      <div class="menu-fixed">
+        <div class="menu-fixed-head">
+          <h4>Carta y eventos<em>menús concertados</em></h4>
+          <span class="menu-fixed-price">A medida</span>
+        </div>
+        <h5>Para grupos y celebraciones</h5>
+        <ul>
+          <li>Variedad de menús concertados</li>
+          <li>Bodas, comuniones, comidas de empresa</li>
+          <li>Hasta 65 comensales en carpa con chimenea</li>
+        </ul>
+        <div class="menu-fixed-footer"><b>Consultar disponibilidad:</b> <a href="tel:+34944670768">944 67 07 68</a> · WhatsApp <a href="https://wa.me/34619622974">619 622 974</a></div>
+      </div>
+
+    </div>
+
+    <div class="menus-cta">
+      <h3>¿Quieres ver <em>la carta completa</em>?</h3>
+      <p>Entrantes, pescados de lonja, carnes a la brasa, postres caseros y bodega con txakoli, riojas, riberas y cavas.</p>
+      <div class="menus-cta-btns">
+        <a href="../carta/" class="primary">Ver la carta</a>
+        <a href="https://wa.me/34619622974" class="outline" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+      </div>
+    </div>
+
+    <p class="carta-note">Precios con IVA incluido · Menús sujetos a disponibilidad de mercado · Para alérgenos consulta a tu camarero/a</p>
+
+  </div>
+</main>
+
+<footer>
+  <div class="brand-mark">M</div>
+  <p><a href="../">← Volver al inicio</a> · Asador Motabarri · Carretera Leioa-Unbe Km 32 · 48950 Erandio · <a href="tel:+34944670768">944 67 07 68</a></p>
+</footer>
+
+</body>
+</html>
