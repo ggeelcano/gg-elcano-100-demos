@@ -1423,5 +1423,21 @@ document.querySelectorAll('.carta-tab').forEach(function(t){
 })();
 </script>
 
+<script>
+(function(){
+  function eq(){
+    var cards=document.querySelectorAll('#menus .menu-fixed');
+    if(!cards.length)return;
+    cards.forEach(function(c){c.style.minHeight=''});
+    var max=0;
+    cards.forEach(function(c){if(c.offsetHeight>max)max=c.offsetHeight});
+    cards.forEach(function(c){c.style.minHeight=max+'px'});
+  }
+  if(document.readyState!=='loading')eq();else document.addEventListener('DOMContentLoaded',eq);
+  window.addEventListener('load',eq);
+  var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(eq,150)});
+})();
+</script>
+
 </body>
 </html>

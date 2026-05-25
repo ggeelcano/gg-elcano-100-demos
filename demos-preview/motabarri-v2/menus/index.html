@@ -259,5 +259,20 @@ footer a{color:var(--brasa);font-weight:500}
   <p><a href="../">← Volver al inicio</a> · Asador Motabarri · Carretera Leioa-Unbe Km 32 · 48950 Erandio · <a href="tel:+34944670768">944 67 07 68</a></p>
 </footer>
 
+<script>
+(function(){
+  function eq(){
+    var cards=document.querySelectorAll('.menu-fixed');
+    cards.forEach(function(c){c.style.minHeight=''});
+    var max=0;
+    cards.forEach(function(c){if(c.offsetHeight>max)max=c.offsetHeight});
+    cards.forEach(function(c){c.style.minHeight=max+'px'});
+  }
+  if(document.readyState!=='loading')eq();else document.addEventListener('DOMContentLoaded',eq);
+  window.addEventListener('load',eq);
+  var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(eq,150)});
+})();
+</script>
+
 </body>
 </html>
