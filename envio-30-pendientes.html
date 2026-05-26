@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="es"><head><meta charset="UTF-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Campaña 50 Bizkaia · G&G Elcano</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet"/>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;color:#fff;font-family:'Inter',sans-serif;padding:24px;line-height:1.5}
+.container{max-width:1100px;margin:0 auto}
+h1{font-family:'Space Grotesk',sans-serif;font-size:40px;letter-spacing:-1.5px;margin-bottom:8px}
+h1 i{color:#22c55e;font-style:italic}
+.sub{opacity:0.6;margin-bottom:20px;font-size:16px}
+.stats{display:flex;gap:28px;padding:18px;background:rgba(255,255,255,0.03);border-radius:12px;margin-bottom:24px;flex-wrap:wrap}
+.stats strong{font-family:'Space Grotesk',sans-serif;font-size:24px;color:#22c55e;display:block}
+.stats span{font-size:11px;opacity:0.5;text-transform:uppercase;letter-spacing:1px}
+.quick{position:sticky;top:0;background:linear-gradient(135deg,#0f2f1f,#1a0f2a);border:2px solid #22c55e;border-radius:16px;padding:20px;margin-bottom:24px;z-index:50;box-shadow:0 15px 40px rgba(34,197,94,0.2)}
+.quick-head{display:grid;grid-template-columns:1fr auto;gap:20px;margin-bottom:14px;align-items:center}
+.q-label{font-size:10px;color:#22c55e;font-weight:700;letter-spacing:2px;margin-bottom:4px}
+.q-title{font-family:'Space Grotesk',sans-serif;font-size:20px;letter-spacing:-0.5px}
+.q-meta{font-size:12px;opacity:0.6}
+.q-prog{text-align:right}
+.q-num{font-family:'Space Grotesk',sans-serif;font-size:26px;color:#22c55e;font-weight:700;line-height:1}
+.q-bar{width:150px;height:5px;background:rgba(255,255,255,0.1);border-radius:3px;margin-top:8px;overflow:hidden}
+.q-fill{height:100%;background:linear-gradient(90deg,#22c55e,#10b981);width:0%;transition:width 0.4s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:24px;font-weight:600;font-size:14px;text-decoration:none;transition:all 0.2s;cursor:pointer;border:none;color:#fff;font-family:inherit}
+.q-actions{display:flex;gap:8px;flex-wrap:wrap}
+.q-send{background:#22c55e;color:#000;flex:1;min-width:180px;padding:14px 22px;font-size:15px;font-weight:700}
+.q-send:hover{background:#16a34a}
+.q-skip{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:14px 18px}
+.q-reset{background:transparent;border:1px solid rgba(255,255,255,0.2);padding:14px 18px;font-size:12px}
+.q-hint{margin-top:12px;font-size:12px;opacity:0.7}
+.lead{padding:20px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:14px;margin-bottom:12px;display:grid;grid-template-columns:1fr auto;gap:16px;align-items:start;transition:all 0.3s}
+.lead.current{border-color:#22c55e;box-shadow:0 0 30px rgba(34,197,94,0.25);background:rgba(34,197,94,0.04)}
+.lead.done{opacity:0.3;border-color:#22c55e}
+.lead.done::before{content:"✓ Enviado";display:inline-block;padding:2px 8px;background:#22c55e;color:#000;border-radius:8px;font-size:10px;font-weight:700;letter-spacing:1px;margin-bottom:6px}
+.lead-head{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:8px}
+.lead-num{font-family:'Space Grotesk',sans-serif;font-size:13px;color:#22c55e;font-weight:700}
+.sec{display:inline-block;padding:2px 8px;background:rgba(34,197,94,0.15);color:#22c55e;border-radius:8px;font-size:10px;font-weight:600;letter-spacing:1px;text-transform:uppercase}
+.lead h3{font-family:'Space Grotesk',sans-serif;font-size:18px;letter-spacing:-0.4px}
+.meta{opacity:0.55;font-size:12px;margin-bottom:10px}
+.actions{display:flex;flex-direction:column;gap:8px;min-width:180px}
+.btn-wa{background:#25d366;color:#000}
+.btn-demo{background:#ff3d00}
+.btn-copy{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12)}
+.btn-copy.copied{background:#22c55e;color:#000}
+.howto{padding:14px 18px;background:rgba(34,197,94,0.08);border-left:3px solid #22c55e;border-radius:6px;margin-bottom:24px;font-size:13px;opacity:0.9}
+@media(max-width:700px){.lead{grid-template-columns:1fr}.quick-head{grid-template-columns:1fr}}
+</style></head><body>
+<div class="container">
+<h1><i>30 negocios</i> · WhatsApp Bizkaia</h1>
+<p class="sub">Sin web · Con móvil · Demo personalizada lista. Modo rápido: pulsa espacio para enviar.</p>
+<div class="stats">
+  <div><strong>30</strong><span>Leads</span></div>
+  <div><strong>8</strong><span>Sectores</span></div>
+  <div><strong>8</strong><span>bar</span></div><div><strong>5</strong><span>peluqueria</span></div><div><strong>4</strong><span>taller mecanico</span></div>
+</div>
+
+<div class="quick">
+  <div class="quick-head">
+    <div>
+      <div class="q-label">⚡ MODO RÁPIDO</div>
+      <div class="q-title" id="qc">Listo para empezar</div>
+      <div class="q-meta" id="qm">Barra espaciadora abre el siguiente WhatsApp con mensaje pre-redactado</div>
+    </div>
+    <div class="q-prog">
+      <div class="q-num"><span id="pd">0</span>/30</div>
+      <div class="q-bar"><div class="q-fill" id="pf"></div></div>
+    </div>
+  </div>
+  <div class="q-actions">
+    <button class="btn q-send" onclick="send()">🚀 ENVIAR AHORA</button>
+    <button class="btn q-skip" onclick="next()">⏭️ Saltar</button>
+    <button class="btn q-reset" onclick="reset()">🔄 Reset</button>
+  </div>
+  <div class="q-hint">💡 Espacio = enviar · S = saltar · El progreso se guarda automáticamente</div>
+</div>
+
+<div class="howto">⚠️ Mándalos espaciados — máx 20-30/día para evitar ban WhatsApp. Pulsa <b>ENVIAR AHORA</b> → abre pestaña WhatsApp con mensaje listo → tú pulsas Enter → cierras → Espacio para siguiente.</div>
+
+
+<div class="lead" id="L0">
+  <div>
+    <div class="lead-head"><span class="lead-num">#1</span><span class="sec">peluqueria</span><h3>Peluquería Manuel Ramos</h3></div>
+    <div class="meta">📱 617 06 19 51 · 📍 Moreaga · ⭐ 4.7 (69)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34617061951?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Peluquer%C3%ADa%20Manuel%20Ramos%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20peluquer%C3%ADa%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fpeluqueria-manuel-ramos-i-8eBc%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/peluqueria-manuel-ramos-i-8eBc/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(0,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L1">
+  <div>
+    <div class="lead-head"><span class="lead-num">#2</span><span class="sec">bar</span><h3>Bar Barinatxe</h3></div>
+    <div class="meta">📱 655 65 65 06 · 📍 Ugeraga · ⭐ 4.2 (69)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34655656506?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Bar%20Barinatxe%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20bar%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fbar-barinatxe-nLiKco%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/bar-barinatxe-nLiKco/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(1,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L2">
+  <div>
+    <div class="lead-head"><span class="lead-num">#3</span><span class="sec">bar</span><h3>OPELA koop</h3></div>
+    <div class="meta">📱 601 51 77 90 · 📍 Markina-Xemein · ⭐ 4.7 (67)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34601517790?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20OPELA%20koop%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20bar%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fopela-koop-3bI33Q%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/opela-koop-3bI33Q/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(2,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L3">
+  <div>
+    <div class="lead-head"><span class="lead-num">#4</span><span class="sec">cafeteria</span><h3>Restaurante, Cafe y Helados Ibaiko</h3></div>
+    <div class="meta">📱 632 37 52 36 · 📍 Portugalete · ⭐ 3.8 (65)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34632375236?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Restaurante%2C%20Cafe%20y%20Helados%20Ibaiko%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20cafeter%C3%ADa%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Frestaurante-cafe-y-helados-ibaiko-GPWw0Y%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/restaurante-cafe-y-helados-ibaiko-GPWw0Y/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(3,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L4">
+  <div>
+    <div class="lead-head"><span class="lead-num">#5</span><span class="sec">peluqueria</span><h3>Peluquería Lagun</h3></div>
+    <div class="meta">📱 677 11 12 28 · 📍 Santurtzi · ⭐ 4.7 (65)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34677111228?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Peluquer%C3%ADa%20Lagun%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20peluquer%C3%ADa%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fpeluqueria-lagun-yWN9Ts%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/peluqueria-lagun-yWN9Ts/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(4,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L5">
+  <div>
+    <div class="lead-head"><span class="lead-num">#6</span><span class="sec">bar</span><h3>Bar Viuda Francisco</h3></div>
+    <div class="meta">📱 676 49 01 29 · 📍 Santurtzi · ⭐ 4.5 (65)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34676490129?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Bar%20Viuda%20Francisco%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20bar%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fbar-viuda-francisco-jlplf8%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/bar-viuda-francisco-jlplf8/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(5,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L6">
+  <div>
+    <div class="lead-head"><span class="lead-num">#7</span><span class="sec">floristeria</span><h3>Floristería Kiara</h3></div>
+    <div class="meta">📱 657 77 55 63 · 📍 Portugalete · ⭐ 4.7 (64)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34657775563?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Florister%C3%ADa%20Kiara%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20florister%C3%ADa%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Ffloristeria-kiara-vZVyrk%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/floristeria-kiara-vZVyrk/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(6,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L7">
+  <div>
+    <div class="lead-head"><span class="lead-num">#8</span><span class="sec">taller mecanico</span><h3>Talleres Lau</h3></div>
+    <div class="meta">📱 688 86 58 06 · 📍 Astrabudua · ⭐ 4.6 (64)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34688865806?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Talleres%20Lau%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20taller%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Ftalleres-lau-1TBG5o%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/talleres-lau-1TBG5o/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(7,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L8">
+  <div>
+    <div class="lead-head"><span class="lead-num">#9</span><span class="sec">centro estetica</span><h3>Beautynails leioa</h3></div>
+    <div class="meta">📱 602 57 35 64 · 📍 Leioa · ⭐ 4.3 (64)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34602573564?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Beautynails%20leioa%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20centro%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fbeautynails-leioa-EfCLe0%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/beautynails-leioa-EfCLe0/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(8,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L9">
+  <div>
+    <div class="lead-head"><span class="lead-num">#10</span><span class="sec">taller mecanico</span><h3>Lauka Check - Servicios de automóvil a domicilio</h3></div>
+    <div class="meta">📱 673 47 81 65 · 📍 Laukariz · ⭐ 5 (64)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34673478165?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Lauka%20Check%20-%20Servicios%20de%20autom%C3%B3vil%20a%20domicilio%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20taller%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Flauka-check-servicios-de-automovil-a-domicilio-KBzVA8%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/lauka-check-servicios-de-automovil-a-domicilio-KBzVA8/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(9,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L10">
+  <div>
+    <div class="lead-head"><span class="lead-num">#11</span><span class="sec">peluqueria</span><h3>Peluquería Glamour</h3></div>
+    <div class="meta">📱 615 73 18 90 · 📍 Baracaldo · ⭐ 4.9 (63)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34615731890?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Peluquer%C3%ADa%20Glamour%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20peluquer%C3%ADa%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fpeluqueria-glamour-bg7HOc%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/peluqueria-glamour-bg7HOc/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(10,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L11">
+  <div>
+    <div class="lead-head"><span class="lead-num">#12</span><span class="sec">taller mecanico</span><h3>Neumáticos Berriz Taller Mecánico</h3></div>
+    <div class="meta">📱 600 04 40 23 · 📍 Olakueta · ⭐ 4.6 (62)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34600044023?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Neum%C3%A1ticos%20Berriz%20Taller%20Mec%C3%A1nico%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20taller%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fneumaticos-berriz-taller-mecanico-4NTYQw%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/neumaticos-berriz-taller-mecanico-4NTYQw/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(11,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L12">
+  <div>
+    <div class="lead-head"><span class="lead-num">#13</span><span class="sec">restaurante</span><h3>Restaurante Ibarra</h3></div>
+    <div class="meta">📱 614 29 22 31 · 📍 San Vicente de Barakaldo · ⭐ 4.3 (61)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34614292231?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Restaurante%20Ibarra%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20restaurante%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Frestaurante-ibarra-CsNc9E%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/restaurante-ibarra-CsNc9E/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(12,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L13">
+  <div>
+    <div class="lead-head"><span class="lead-num">#14</span><span class="sec">barberia</span><h3>Ozman Barber shop</h3></div>
+    <div class="meta">📱 655 14 15 23 · 📍 Bilbao · ⭐ 4.4 (61)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34655141523?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Ozman%20Barber%20shop%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20barber%C3%ADa%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fozman-barber-shop-TgKAK8%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/ozman-barber-shop-TgKAK8/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(13,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L14">
+  <div>
+    <div class="lead-head"><span class="lead-num">#15</span><span class="sec">centro estetica</span><h3>Lx nails studio</h3></div>
+    <div class="meta">📱 611 05 55 54 · 📍 Portugalete · ⭐ 3.7 (60)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34611055554?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Lx%20nails%20studio%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20centro%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Flx-nails-studio-I0vR-Y%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/lx-nails-studio-I0vR-Y/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(14,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L15">
+  <div>
+    <div class="lead-head"><span class="lead-num">#16</span><span class="sec">taller mecanico</span><h3>Neumáticos Gorra</h3></div>
+    <div class="meta">📱 671 06 61 90 · 📍 Gernika-Lumo · ⭐ 4.8 (60)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34671066190?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Neum%C3%A1ticos%20Gorra%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20taller%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fneumaticos-gorra-t3bo0k%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/neumaticos-gorra-t3bo0k/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(15,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L16">
+  <div>
+    <div class="lead-head"><span class="lead-num">#17</span><span class="sec">restaurante</span><h3>Sushi Ugari</h3></div>
+    <div class="meta">📱 682 07 62 06 · 📍 Mimetiz · ⭐ 5 (60)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34682076206?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Sushi%20Ugari%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20restaurante%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fsushi-ugari-odoPcA%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/sushi-ugari-odoPcA/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(16,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L17">
+  <div>
+    <div class="lead-head"><span class="lead-num">#18</span><span class="sec">barberia</span><h3>Gian The Barber</h3></div>
+    <div class="meta">📱 687 36 15 98 · 📍 Bilbao · ⭐ 4.8 (59)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34687361598?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Gian%20The%20Barber%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20barber%C3%ADa%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fgian-the-barber-BH7h8I%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/gian-the-barber-BH7h8I/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(17,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L18">
+  <div>
+    <div class="lead-head"><span class="lead-num">#19</span><span class="sec">bar</span><h3>Bar Venecia</h3></div>
+    <div class="meta">📱 657 79 67 69 · 📍 Portugalete · ⭐ 4.7 (59)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34657796769?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Bar%20Venecia%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20bar%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fbar-venecia-x844VY%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/bar-venecia-x844VY/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(18,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L19">
+  <div>
+    <div class="lead-head"><span class="lead-num">#20</span><span class="sec">cafeteria</span><h3>Break Cafe</h3></div>
+    <div class="meta">📱 673 16 92 69 · 📍 Bilbao · ⭐ 4.8 (58)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34673169269?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Break%20Cafe%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20cafeter%C3%ADa%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fbreak-cafe-9hUYys%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/break-cafe-9hUYys/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(19,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L20">
+  <div>
+    <div class="lead-head"><span class="lead-num">#21</span><span class="sec">restaurante</span><h3>Restaurante Etxebarri</h3></div>
+    <div class="meta">📱 613 93 52 50 · 📍 Ugarte · ⭐ 4.3 (58)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34613935250?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Restaurante%20Etxebarri%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20restaurante%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Frestaurante-etxebarri-FpZDFU%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/restaurante-etxebarri-FpZDFU/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(20,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L21">
+  <div>
+    <div class="lead-head"><span class="lead-num">#22</span><span class="sec">peluqueria</span><h3>Driss Barber</h3></div>
+    <div class="meta">📱 610 11 92 13 · 📍 Bilbao · ⭐ 4.9 (57)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34610119213?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Driss%20Barber%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20peluquer%C3%ADa%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fdriss-barber-00-nOU%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/driss-barber-00-nOU/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(21,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L22">
+  <div>
+    <div class="lead-head"><span class="lead-num">#23</span><span class="sec">bar</span><h3>Bar Aretxa</h3></div>
+    <div class="meta">📱 665 72 76 65 · 📍 Gernika-Lumo · ⭐ 4.4 (57)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34665727665?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Bar%20Aretxa%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20bar%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fbar-aretxa-2MxUrU%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/bar-aretxa-2MxUrU/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(22,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L23">
+  <div>
+    <div class="lead-head"><span class="lead-num">#24</span><span class="sec">bar</span><h3>Etxekhi Berria</h3></div>
+    <div class="meta">📱 637 31 27 26 · 📍 Moreaga · ⭐ 4.7 (56)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34637312726?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Etxekhi%20Berria%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20bar%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fetxekhi-berria-ydYLF0%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/etxekhi-berria-ydYLF0/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(23,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L24">
+  <div>
+    <div class="lead-head"><span class="lead-num">#25</span><span class="sec">bar</span><h3>La Cadena Sport</h3></div>
+    <div class="meta">📱 658 11 47 69 · 📍 Ortuella · ⭐ 4.3 (56)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34658114769?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20La%20Cadena%20Sport%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20bar%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fla-cadena-sport-7zdn8w%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/la-cadena-sport-7zdn8w/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(24,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L25">
+  <div>
+    <div class="lead-head"><span class="lead-num">#26</span><span class="sec">peluqueria</span><h3>Araian estilistas</h3></div>
+    <div class="meta">📱 611 15 04 88 · 📍 Mungia · ⭐ 5 (55)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34611150488?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Araian%20estilistas%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20peluquer%C3%ADa%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Faraian-estilistas-zO0EAU%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/araian-estilistas-zO0EAU/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(25,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L26">
+  <div>
+    <div class="lead-head"><span class="lead-num">#27</span><span class="sec">bar</span><h3>Kaialde Pastelería Balmaseda</h3></div>
+    <div class="meta">📱 695 17 48 56 · 📍 Balmaseda · ⭐ 3.8 (55)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34695174856?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Kaialde%20Pasteler%C3%ADa%20Balmaseda%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20bar%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fkaialde-pasteleria-balmaseda-eouO0I%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/kaialde-pasteleria-balmaseda-eouO0I/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(26,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L27">
+  <div>
+    <div class="lead-head"><span class="lead-num">#28</span><span class="sec">centro estetica</span><h3>Manos y Pies Artaza</h3></div>
+    <div class="meta">📱 611 63 20 60 · 📍 Leioa · ⭐ 4.5 (53)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34611632060?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Manos%20y%20Pies%20Artaza%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20centro%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Fmanos-y-pies-artaza-Ky1pSA%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/manos-y-pies-artaza-Ky1pSA/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(27,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L28">
+  <div>
+    <div class="lead-head"><span class="lead-num">#29</span><span class="sec">restaurante</span><h3>RESTAURANTE KEBAP Ortuella EL PATRIOTA</h3></div>
+    <div class="meta">📱 631 31 81 91 · 📍 Ortuella · ⭐ 3.5 (53)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34631318191?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20RESTAURANTE%20KEBAP%20Ortuella%20EL%20PATRIOTA%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20restaurante%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Frestaurante-kebap-ortuella-el-patriota-rrvVTY%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/restaurante-kebap-ortuella-el-patriota-rrvVTY/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(28,this)">📋 Copiar</button>
+  </div>
+</div>
+
+<div class="lead" id="L29">
+  <div>
+    <div class="lead-head"><span class="lead-num">#30</span><span class="sec">cafeteria</span><h3>Eudokia Coffee</h3></div>
+    <div class="meta">📱 614 03 17 26 · 📍 Bilbao · ⭐ 5 (52)</div>
+  </div>
+  <div class="actions">
+    <a class="btn btn-wa" href="https://wa.me/34614031726?text=%C2%A1Hola!%20%F0%9F%91%8B%20%C2%BFHablo%20con%20el%20due%C3%B1o%2Fa%20de%20Eudokia%20Coffee%3F%0A%0ASoy%20Ra%C3%BAl%2C%20de%20G%26G%20Elcano%20%E2%80%94%20una%20empresa%20de%20Bizkaia%20que%20hace%20webs%20profesionales%20para%20negocios%20locales.%0A%0AOs%20hemos%20preparado%20una%20web%20de%20muestra%20para%20vuestra%20cafeter%C3%ADa%2C%20totalmente%20gratis%20y%20sin%20compromiso.%0A%0AOs%20dejo%20el%20enlace%20para%20que%20la%20ve%C3%A1is%20cuando%20pod%C3%A1is%3A%0A%F0%9F%91%89%20https%3A%2F%2Fggeelcano.github.io%2Fgg-elcano-100-demos%2Fdemos-30-pendientes%2Feudokia-coffee-PKzJXM%2F%0A%0ASi%20os%20gusta%20c%C3%B3mo%20queda%20y%20quer%C3%A9is%20tenerla%20online%2C%20nos%20lo%20dec%C3%ADs%20y%20la%20dejamos%20lista%20en%20unos%20d%C3%ADas%20(con%20dominio%20y%20hosting%20incluidos).%20Si%20no%20os%20encaja%2C%20pues%20nada%20%E2%80%94%20ya%20estar%C3%A1%20ah%C3%AD%20por%20si%20cambi%C3%A1is%20de%20idea%20%F0%9F%99%82%0A%0A%C2%A1Un%20saludo!" target="_blank">💬 WhatsApp</a>
+    <a class="btn btn-demo" href="https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/eudokia-coffee-PKzJXM/" target="_blank">👁️ Ver demo</a>
+    <button class="btn btn-copy" onclick="copy(29,this)">📋 Copiar</button>
+  </div>
+</div>
+</div>
+<script>
+const leads = [{"nombre":"Peluquería Manuel Ramos","tel":"617 06 19 51","telClean":"34617061951","sector":"peluqueria","ciudad":"Moreaga","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/peluqueria-manuel-ramos-i-8eBc/"},{"nombre":"Bar Barinatxe","tel":"655 65 65 06","telClean":"34655656506","sector":"bar","ciudad":"Ugeraga","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/bar-barinatxe-nLiKco/"},{"nombre":"OPELA koop","tel":"601 51 77 90","telClean":"34601517790","sector":"bar","ciudad":"Markina-Xemein","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/opela-koop-3bI33Q/"},{"nombre":"Restaurante, Cafe y Helados Ibaiko","tel":"632 37 52 36","telClean":"34632375236","sector":"cafeteria","ciudad":"Portugalete","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/restaurante-cafe-y-helados-ibaiko-GPWw0Y/"},{"nombre":"Peluquería Lagun","tel":"677 11 12 28","telClean":"34677111228","sector":"peluqueria","ciudad":"Santurtzi","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/peluqueria-lagun-yWN9Ts/"},{"nombre":"Bar Viuda Francisco","tel":"676 49 01 29","telClean":"34676490129","sector":"bar","ciudad":"Santurtzi","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/bar-viuda-francisco-jlplf8/"},{"nombre":"Floristería Kiara","tel":"657 77 55 63","telClean":"34657775563","sector":"floristeria","ciudad":"Portugalete","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/floristeria-kiara-vZVyrk/"},{"nombre":"Talleres Lau","tel":"688 86 58 06","telClean":"34688865806","sector":"taller mecanico","ciudad":"Astrabudua","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/talleres-lau-1TBG5o/"},{"nombre":"Beautynails leioa","tel":"602 57 35 64","telClean":"34602573564","sector":"centro estetica","ciudad":"Leioa","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/beautynails-leioa-EfCLe0/"},{"nombre":"Lauka Check - Servicios de automóvil a domicilio","tel":"673 47 81 65","telClean":"34673478165","sector":"taller mecanico","ciudad":"Laukariz","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/lauka-check-servicios-de-automovil-a-domicilio-KBzVA8/"},{"nombre":"Peluquería Glamour","tel":"615 73 18 90","telClean":"34615731890","sector":"peluqueria","ciudad":"Baracaldo","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/peluqueria-glamour-bg7HOc/"},{"nombre":"Neumáticos Berriz Taller Mecánico","tel":"600 04 40 23","telClean":"34600044023","sector":"taller mecanico","ciudad":"Olakueta","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/neumaticos-berriz-taller-mecanico-4NTYQw/"},{"nombre":"Restaurante Ibarra","tel":"614 29 22 31","telClean":"34614292231","sector":"restaurante","ciudad":"San Vicente de Barakaldo","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/restaurante-ibarra-CsNc9E/"},{"nombre":"Ozman Barber shop","tel":"655 14 15 23","telClean":"34655141523","sector":"barberia","ciudad":"Bilbao","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/ozman-barber-shop-TgKAK8/"},{"nombre":"Lx nails studio","tel":"611 05 55 54","telClean":"34611055554","sector":"centro estetica","ciudad":"Portugalete","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/lx-nails-studio-I0vR-Y/"},{"nombre":"Neumáticos Gorra","tel":"671 06 61 90","telClean":"34671066190","sector":"taller mecanico","ciudad":"Gernika-Lumo","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/neumaticos-gorra-t3bo0k/"},{"nombre":"Sushi Ugari","tel":"682 07 62 06","telClean":"34682076206","sector":"restaurante","ciudad":"Mimetiz","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/sushi-ugari-odoPcA/"},{"nombre":"Gian The Barber","tel":"687 36 15 98","telClean":"34687361598","sector":"barberia","ciudad":"Bilbao","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/gian-the-barber-BH7h8I/"},{"nombre":"Bar Venecia","tel":"657 79 67 69","telClean":"34657796769","sector":"bar","ciudad":"Portugalete","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/bar-venecia-x844VY/"},{"nombre":"Break Cafe","tel":"673 16 92 69","telClean":"34673169269","sector":"cafeteria","ciudad":"Bilbao","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/break-cafe-9hUYys/"},{"nombre":"Restaurante Etxebarri","tel":"613 93 52 50","telClean":"34613935250","sector":"restaurante","ciudad":"Ugarte","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/restaurante-etxebarri-FpZDFU/"},{"nombre":"Driss Barber","tel":"610 11 92 13","telClean":"34610119213","sector":"peluqueria","ciudad":"Bilbao","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/driss-barber-00-nOU/"},{"nombre":"Bar Aretxa","tel":"665 72 76 65","telClean":"34665727665","sector":"bar","ciudad":"Gernika-Lumo","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/bar-aretxa-2MxUrU/"},{"nombre":"Etxekhi Berria","tel":"637 31 27 26","telClean":"34637312726","sector":"bar","ciudad":"Moreaga","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/etxekhi-berria-ydYLF0/"},{"nombre":"La Cadena Sport","tel":"658 11 47 69","telClean":"34658114769","sector":"bar","ciudad":"Ortuella","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/la-cadena-sport-7zdn8w/"},{"nombre":"Araian estilistas","tel":"611 15 04 88","telClean":"34611150488","sector":"peluqueria","ciudad":"Mungia","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/araian-estilistas-zO0EAU/"},{"nombre":"Kaialde Pastelería Balmaseda","tel":"695 17 48 56","telClean":"34695174856","sector":"bar","ciudad":"Balmaseda","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/kaialde-pasteleria-balmaseda-eouO0I/"},{"nombre":"Manos y Pies Artaza","tel":"611 63 20 60","telClean":"34611632060","sector":"centro estetica","ciudad":"Leioa","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/manos-y-pies-artaza-Ky1pSA/"},{"nombre":"RESTAURANTE KEBAP Ortuella EL PATRIOTA","tel":"631 31 81 91","telClean":"34631318191","sector":"restaurante","ciudad":"Ortuella","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/restaurante-kebap-ortuella-el-patriota-rrvVTY/"},{"nombre":"Eudokia Coffee","tel":"614 03 17 26","telClean":"34614031726","sector":"cafeteria","ciudad":"Bilbao","url":"https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/eudokia-coffee-PKzJXM/"}];
+const msgs = ["¡Hola! 👋 ¿Hablo con el dueño/a de Peluquería Manuel Ramos?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra peluquería, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/peluqueria-manuel-ramos-i-8eBc/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Bar Barinatxe?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra bar, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/bar-barinatxe-nLiKco/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de OPELA koop?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra bar, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/opela-koop-3bI33Q/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Restaurante, Cafe y Helados Ibaiko?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra cafetería, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/restaurante-cafe-y-helados-ibaiko-GPWw0Y/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Peluquería Lagun?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra peluquería, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/peluqueria-lagun-yWN9Ts/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Bar Viuda Francisco?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra bar, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/bar-viuda-francisco-jlplf8/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Floristería Kiara?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra floristería, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/floristeria-kiara-vZVyrk/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Talleres Lau?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra taller, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/talleres-lau-1TBG5o/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Beautynails leioa?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra centro, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/beautynails-leioa-EfCLe0/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Lauka Check - Servicios de automóvil a domicilio?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra taller, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/lauka-check-servicios-de-automovil-a-domicilio-KBzVA8/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Peluquería Glamour?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra peluquería, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/peluqueria-glamour-bg7HOc/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Neumáticos Berriz Taller Mecánico?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra taller, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/neumaticos-berriz-taller-mecanico-4NTYQw/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Restaurante Ibarra?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra restaurante, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/restaurante-ibarra-CsNc9E/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Ozman Barber shop?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra barbería, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/ozman-barber-shop-TgKAK8/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Lx nails studio?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra centro, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/lx-nails-studio-I0vR-Y/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Neumáticos Gorra?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra taller, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/neumaticos-gorra-t3bo0k/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Sushi Ugari?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra restaurante, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/sushi-ugari-odoPcA/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Gian The Barber?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra barbería, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/gian-the-barber-BH7h8I/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Bar Venecia?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra bar, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/bar-venecia-x844VY/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Break Cafe?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra cafetería, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/break-cafe-9hUYys/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Restaurante Etxebarri?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra restaurante, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/restaurante-etxebarri-FpZDFU/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Driss Barber?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra peluquería, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/driss-barber-00-nOU/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Bar Aretxa?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra bar, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/bar-aretxa-2MxUrU/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Etxekhi Berria?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra bar, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/etxekhi-berria-ydYLF0/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de La Cadena Sport?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra bar, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/la-cadena-sport-7zdn8w/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Araian estilistas?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra peluquería, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/araian-estilistas-zO0EAU/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Kaialde Pastelería Balmaseda?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra bar, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/kaialde-pasteleria-balmaseda-eouO0I/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Manos y Pies Artaza?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra centro, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/manos-y-pies-artaza-Ky1pSA/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de RESTAURANTE KEBAP Ortuella EL PATRIOTA?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra restaurante, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/restaurante-kebap-ortuella-el-patriota-rrvVTY/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!","¡Hola! 👋 ¿Hablo con el dueño/a de Eudokia Coffee?\n\nSoy Raúl, de G&G Elcano — una empresa de Bizkaia que hace webs profesionales para negocios locales.\n\nOs hemos preparado una web de muestra para vuestra cafetería, totalmente gratis y sin compromiso.\n\nOs dejo el enlace para que la veáis cuando podáis:\n👉 https://ggeelcano.github.io/gg-elcano-100-demos/demos-30-pendientes/eudokia-coffee-PKzJXM/\n\nSi os gusta cómo queda y queréis tenerla online, nos lo decís y la dejamos lista en unos días (con dominio y hosting incluidos). Si no os encaja, pues nada — ya estará ahí por si cambiáis de idea 🙂\n\n¡Un saludo!"];
+const SK = 'gg_wa_demos-30-pendientes_v1';
+let st = JSON.parse(localStorage.getItem(SK)||'{"sent":[]}');
+function save(){localStorage.setItem(SK,JSON.stringify(st));}
+function idx(){for(let i=0;i<leads.length;i++)if(!st.sent.includes(i))return i;return -1;}
+function render(){
+  const i=idx(); const done=st.sent.length;
+  document.getElementById('pd').textContent=done;
+  document.getElementById('pf').style.width=(done/leads.length*100)+'%';
+  leads.forEach((_,k)=>{const e=document.getElementById('L'+k);e.classList.toggle('done',st.sent.includes(k));e.classList.toggle('current',k===i);});
+  if(i===-1){document.getElementById('qc').textContent='🎉 Todos enviados';document.getElementById('qm').textContent='Buena campaña, Ministro.';}
+  else{const l=leads[i];document.getElementById('qc').textContent='#'+(i+1)+' → '+l.nombre;document.getElementById('qm').textContent=l.sector+' · '+l.ciudad+' · 📱 '+l.tel;const e=document.getElementById('L'+i);if(e)e.scrollIntoView({behavior:'smooth',block:'center'});}
+}
+function send(){const i=idx();if(i===-1)return;const l=leads[i];window.open('https://wa.me/'+l.telClean+'?text='+encodeURIComponent(msgs[i]),'_blank');setTimeout(()=>{if(!st.sent.includes(i))st.sent.push(i);save();render();},300);}
+function next(){const i=idx();if(i===-1)return;if(!st.sent.includes(i))st.sent.push(i);save();render();}
+function reset(){if(confirm('Resetear progreso?')){st.sent=[];save();render();}}
+async function copy(i,btn){try{await navigator.clipboard.writeText(msgs[i]);btn.textContent='✓';btn.classList.add('copied');setTimeout(()=>{btn.textContent='📋 Copiar';btn.classList.remove('copied');},1500);}catch(e){}}
+document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT'||e.target.tagName==='TEXTAREA')return;if(e.code==='Space'){e.preventDefault();send();}else if(e.key==='s'||e.key==='S'){e.preventDefault();next();}});
+render();
+</script>
+</body></html>
