@@ -3,10 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AUTOS SARRIKO® — Selected since 1988</title>
-<meta name="description" content="Vehículos de ocasión seleccionados en Bilbao. Empresa familiar desde 1988.">
+<title>AUTOS SARRIKO® — Selected since 1988 · Bilbao</title>
+<meta name="description" content="Vehículos de ocasión seleccionados en Bilbao. Empresa familiar desde 1988. Audi, Mercedes, BMW, Volvo, Land Rover.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://images.unsplash.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
@@ -16,6 +17,7 @@
     --paper:#f3f0ea;
     --gold:#c9a557;
     --red:#d94f2a;
+    --blue:#0a1428;
     --mute:#6b6760;
     --line:rgba(10,10,10,.12);
   }
@@ -34,17 +36,16 @@
   button{font-family:inherit;border:none;background:none}
   img{display:block;max-width:100%}
 
-  /* ========== GRAIN ========== */
   body::before{
     content:'';position:fixed;inset:0;z-index:9999;pointer-events:none;
-    opacity:.08;mix-blend-mode:multiply;
+    opacity:.06;mix-blend-mode:multiply;
     background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='200' height='200'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
   }
 
-  /* ========== CUSTOM CURSOR ========== */
+  /* ===== CURSOR ===== */
   .cursor{
     position:fixed;top:0;left:0;width:8px;height:8px;
-    background:var(--ink);border-radius:50%;
+    background:#fff;border-radius:50%;
     pointer-events:none;z-index:10000;
     transform:translate(-50%,-50%);
     transition:width .25s,height .25s,background .25s;
@@ -52,17 +53,17 @@
   }
   .cursor-ring{
     position:fixed;top:0;left:0;width:36px;height:36px;
-    border:1px solid var(--ink);border-radius:50%;
+    border:1px solid #fff;border-radius:50%;
     pointer-events:none;z-index:10000;
     transform:translate(-50%,-50%);
     transition:transform .15s ease-out,width .25s,height .25s,opacity .25s;
     mix-blend-mode:difference;
   }
-  .cursor.grow{width:60px;height:60px;background:var(--gold)}
+  .cursor.grow{width:60px;height:60px;background:var(--red)}
   .cursor-ring.grow{opacity:0}
   @media (hover:none){.cursor,.cursor-ring{display:none}body,a,button{cursor:auto}}
 
-  /* ========== LOADER ========== */
+  /* ===== LOADER ===== */
   .loader{
     position:fixed;inset:0;z-index:10001;
     background:var(--ink);color:var(--bg);
@@ -84,21 +85,20 @@
   }
   .loader-bar{
     position:absolute;bottom:0;left:0;height:2px;
-    background:var(--gold);width:0;
+    background:var(--red);width:0;
     transition:width .3s ease-out;
   }
 
-  /* ========== NAV ========== */
+  /* ===== NAV ===== */
   nav{
     position:fixed;top:0;left:0;right:0;z-index:100;
     padding:24px 40px;
     display:flex;justify-content:space-between;align-items:center;
-    mix-blend-mode:difference;color:var(--bg);
+    mix-blend-mode:difference;color:#fff;
   }
   .nav-logo{
     font-family:'Fraunces',serif;font-weight:900;
     font-size:22px;letter-spacing:-.02em;
-    display:flex;align-items:center;gap:8px;
   }
   .nav-logo sup{
     font-size:10px;vertical-align:super;
@@ -108,9 +108,7 @@
     display:flex;gap:32px;list-style:none;
     font-size:13px;font-weight:500;letter-spacing:.02em;
   }
-  .nav-links a{
-    position:relative;padding:6px 0;
-  }
+  .nav-links a{position:relative;padding:6px 0}
   .nav-links a::before{
     content:'';position:absolute;left:0;bottom:0;
     width:0;height:1px;background:currentColor;
@@ -119,34 +117,52 @@
   .nav-links a:hover::before{width:100%}
   .nav-time{
     font-family:'JetBrains Mono',monospace;
-    font-size:11px;letter-spacing:.1em;
-    opacity:.7;
+    font-size:11px;letter-spacing:.1em;opacity:.7;
   }
 
-  /* ========== HERO ========== */
+  /* ===== HERO (with real photo) ===== */
   .hero{
-    min-height:100vh;position:relative;
+    position:relative;min-height:100vh;
     padding:120px 40px 40px;
     display:flex;flex-direction:column;justify-content:space-between;
     overflow:hidden;
+    background:#000;color:#fff;
+  }
+  .hero-photo{
+    position:absolute;inset:0;
+    background-image:url("https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=2000&q=85&auto=format&fit=crop");
+    background-size:cover;background-position:center;
+    transform:scale(1.08);
+    animation:zoomIn 2s cubic-bezier(.22,1,.36,1) .4s forwards;
+    opacity:0;
+  }
+  @keyframes zoomIn{
+    0%{opacity:0;transform:scale(1.15)}
+    100%{opacity:1;transform:scale(1)}
+  }
+  .hero-overlay{
+    position:absolute;inset:0;
+    background:
+      linear-gradient(180deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.3) 30%,rgba(0,0,0,.4) 60%,rgba(0,0,0,.85) 100%),
+      linear-gradient(90deg,rgba(217,79,42,.15) 0%,transparent 50%);
   }
   .hero-meta{
+    position:relative;z-index:2;
     display:flex;justify-content:space-between;
     font-family:'JetBrains Mono',monospace;
     font-size:11px;letter-spacing:.15em;
-    text-transform:uppercase;opacity:.6;
+    text-transform:uppercase;opacity:.7;
     padding-bottom:20px;
   }
   .hero-meta-r{text-align:right;line-height:1.6}
+  .hero-center{position:relative;z-index:2;padding:60px 0}
   .hero-title{
     font-family:'Fraunces',serif;font-weight:900;
     font-size:clamp(72px,16vw,260px);line-height:.82;
     letter-spacing:-.05em;
     font-feature-settings:'ss01';
   }
-  .hero-title .line{
-    display:block;overflow:hidden;
-  }
+  .hero-title .line{display:block;overflow:hidden}
   .hero-title .line span{
     display:inline-block;
     transform:translateY(110%);
@@ -156,18 +172,17 @@
   .hero-title .line:nth-child(3) span{animation-delay:.3s}
   @keyframes rise{to{transform:translateY(0)}}
   .hero-title em{
-    font-style:italic;font-weight:400;color:var(--gold);
+    font-style:italic;font-weight:400;color:var(--red);
     font-family:'Fraunces',serif;
   }
   .hero-title .out{
-    display:inline-block;
-    -webkit-text-stroke:1.5px var(--ink);
-    color:transparent;
+    -webkit-text-stroke:1.5px #fff;color:transparent;
   }
   .hero-foot{
+    position:relative;z-index:2;
     display:grid;grid-template-columns:1fr 1fr 1fr 1fr;
     gap:40px;padding-top:40px;
-    border-top:1px solid var(--line);
+    border-top:1px solid rgba(255,255,255,.2);
   }
   .hero-foot-item{
     opacity:0;animation:fade-up .8s ease .8s forwards;
@@ -179,19 +194,41 @@
   .hero-foot-label{
     font-family:'JetBrains Mono',monospace;
     font-size:10px;letter-spacing:.15em;
-    text-transform:uppercase;opacity:.5;margin-bottom:10px;
+    text-transform:uppercase;opacity:.6;margin-bottom:10px;
   }
   .hero-foot-value{
     font-family:'Fraunces',serif;font-weight:900;
-    font-size:28px;line-height:1;letter-spacing:-.02em;
+    font-size:32px;line-height:1;letter-spacing:-.02em;
   }
-  .hero-foot-value em{font-style:italic;font-weight:400;color:var(--gold)}
+  .hero-foot-value em{font-style:italic;font-weight:400;color:var(--red)}
 
-  /* ========== MARQUEE ========== */
+  .hero-tag{
+    position:absolute;bottom:140px;right:40px;z-index:3;
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+    border:1px solid rgba(255,255,255,.15);
+    padding:18px 22px;border-radius:4px;
+    color:#fff;max-width:280px;
+    animation:fade-up .8s ease 1.5s both;
+  }
+  .hero-tag-label{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--red);
+    margin-bottom:10px;
+  }
+  .hero-tag-name{font-size:14px;font-weight:600;margin-bottom:4px}
+  .hero-tag-meta{font-size:12px;opacity:.6;margin-bottom:12px}
+  .hero-tag-price{
+    font-family:'Fraunces',serif;font-weight:900;
+    font-size:24px;color:var(--red);
+  }
+
+  /* ===== MARQUEE ===== */
   .marquee{
-    background:var(--ink);color:var(--bg);
-    padding:32px 0;overflow:hidden;
-    position:relative;
+    background:var(--red);color:#fff;
+    padding:32px 0;overflow:hidden;position:relative;
   }
   .marquee-track{
     display:flex;gap:60px;white-space:nowrap;
@@ -203,12 +240,12 @@
   .marquee-track span{display:flex;align-items:center;gap:60px}
   .marquee-track .dot{
     width:18px;height:18px;border-radius:50%;
-    background:var(--gold);display:inline-block;
+    background:#fff;display:inline-block;
   }
-  .marquee-track em{font-style:italic;color:var(--gold);font-weight:400}
+  .marquee-track em{font-style:italic;font-weight:400;color:#0a0a0a}
   @keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
-  /* ========== SECTION COMMON ========== */
+  /* ===== SECTION COMMON ===== */
   section{padding:140px 40px;position:relative}
   .section-tag{
     font-family:'JetBrains Mono',monospace;
@@ -218,7 +255,7 @@
     margin-bottom:40px;
   }
   .section-tag::before{
-    content:'';width:40px;height:1px;background:var(--ink);opacity:.4;
+    content:'';width:40px;height:1px;background:currentColor;opacity:.4;
   }
   h2{
     font-family:'Fraunces',serif;font-weight:900;
@@ -226,29 +263,26 @@
     letter-spacing:-.04em;
     font-feature-settings:'ss01';
   }
-  h2 em{font-style:italic;font-weight:400;color:var(--gold)}
-  h2 .out{
-    -webkit-text-stroke:1.5px var(--ink);color:transparent;
-  }
+  h2 em{font-style:italic;font-weight:400;color:var(--red)}
+  h2 .out{-webkit-text-stroke:1.5px var(--ink);color:transparent}
   .reveal{
     opacity:0;transform:translateY(40px);
     transition:opacity 1s cubic-bezier(.22,1,.36,1),transform 1s cubic-bezier(.22,1,.36,1);
   }
   .reveal.in{opacity:1;transform:translateY(0)}
 
-  /* ========== INTRO ========== */
+  /* ===== INTRO ===== */
   .intro{
     display:grid;grid-template-columns:1fr 1fr;gap:120px;align-items:start;
   }
   .intro-left{position:sticky;top:120px}
-  .intro h2{margin-bottom:0}
   .intro-right p{
     font-family:'Fraunces',serif;
     font-size:clamp(20px,2.2vw,32px);line-height:1.35;
     font-weight:400;letter-spacing:-.01em;
     margin-bottom:40px;
   }
-  .intro-right p em{font-style:italic;color:var(--mute)}
+  .intro-right p em{font-style:italic;color:var(--red)}
   .intro-signature{
     display:flex;align-items:center;gap:20px;
     margin-top:60px;padding-top:30px;
@@ -256,7 +290,7 @@
   }
   .signature-img{
     font-family:'Fraunces',serif;font-style:italic;font-weight:900;
-    font-size:42px;color:var(--gold);
+    font-size:42px;color:var(--red);
     transform:rotate(-4deg);
   }
   .signature-meta{
@@ -265,7 +299,7 @@
     text-transform:uppercase;opacity:.6;line-height:1.6;
   }
 
-  /* ========== GARAGE / FLEET ========== */
+  /* ===== GARAGE ===== */
   .garage-head{
     display:flex;justify-content:space-between;align-items:flex-end;
     margin-bottom:60px;gap:60px;flex-wrap:wrap;
@@ -277,17 +311,20 @@
   }
   .filter{
     padding:10px 18px;border:1px solid var(--ink);
-    border-radius:0;font-size:11px;font-weight:500;
+    font-size:11px;font-weight:500;
     letter-spacing:.15em;text-transform:uppercase;
     background:transparent;transition:all .25s;
   }
-  .filter:hover{background:var(--ink);color:var(--bg)}
-  .filter.active{background:var(--ink);color:var(--bg)}
-  .fleet{display:flex;flex-direction:column;border-top:1px solid var(--ink)}
+  .filter:hover,.filter.active{background:var(--ink);color:var(--bg)}
+
+  .fleet{
+    display:flex;flex-direction:column;
+    border-top:1px solid var(--ink);
+  }
   .car-row{
     display:grid;
-    grid-template-columns:80px 1fr 1fr 120px 140px 60px;
-    gap:24px;padding:32px 0;
+    grid-template-columns:140px 80px 1fr 1fr 120px 140px 60px;
+    gap:24px;padding:20px 0;
     border-bottom:1px solid var(--line);
     align-items:center;cursor:none;
     transition:padding .3s,background .3s;
@@ -302,6 +339,24 @@
   .car-row:hover::before{width:100%}
   .car-row:hover{color:var(--bg);padding-left:24px;padding-right:24px}
   .car-row > *{position:relative;z-index:1}
+  .car-thumb{
+    width:140px;height:88px;overflow:hidden;
+    border-radius:2px;background:#1a1a1a;
+    position:relative;
+  }
+  .car-thumb img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform .6s cubic-bezier(.22,1,.36,1);
+  }
+  .car-row:hover .car-thumb img{transform:scale(1.08)}
+  .car-thumb-tag{
+    position:absolute;top:8px;left:8px;
+    background:var(--red);color:#fff;
+    font-family:'JetBrains Mono',monospace;
+    font-size:9px;letter-spacing:.1em;
+    padding:3px 8px;text-transform:uppercase;
+    border-radius:2px;
+  }
   .car-num{
     font-family:'JetBrains Mono',monospace;
     font-size:12px;opacity:.5;letter-spacing:.1em;
@@ -314,7 +369,7 @@
   }
   .car-name{
     font-family:'Fraunces',serif;font-weight:700;
-    font-size:clamp(20px,2.4vw,32px);line-height:1;
+    font-size:clamp(18px,2vw,26px);line-height:1.05;
     letter-spacing:-.02em;
   }
   .car-specs{
@@ -328,34 +383,84 @@
   }
   .car-price{
     font-family:'Fraunces',serif;font-weight:900;
-    font-size:clamp(22px,2.6vw,36px);
+    font-size:clamp(20px,2.2vw,30px);
     letter-spacing:-.02em;text-align:right;
   }
   .car-arrow{
-    width:50px;height:50px;border-radius:50%;
+    width:48px;height:48px;border-radius:50%;
     border:1px solid currentColor;
     display:flex;align-items:center;justify-content:center;
-    transition:transform .4s;
+    transition:transform .4s,background .3s;
   }
-  .car-row:hover .car-arrow{transform:rotate(-45deg) scale(1.1)}
+  .car-row:hover .car-arrow{
+    transform:rotate(-45deg) scale(1.1);
+    background:var(--red);border-color:var(--red);color:#fff;
+  }
 
   .fleet-preview{
     position:fixed;top:50%;left:50%;
-    transform:translate(-50%,-50%) scale(.5);
-    width:480px;aspect-ratio:16/10;
+    transform:translate(-50%,-50%) scale(.85);
+    width:520px;aspect-ratio:16/10;
     pointer-events:none;z-index:50;
-    opacity:0;transition:opacity .3s,transform .3s;
+    opacity:0;transition:opacity .3s,transform .4s cubic-bezier(.22,1,.36,1);
+    border-radius:4px;overflow:hidden;
+    box-shadow:0 40px 80px rgba(0,0,0,.5);
   }
   .fleet-preview.show{opacity:1;transform:translate(-50%,-50%) scale(1)}
-  .fleet-preview svg{width:100%;height:100%;filter:drop-shadow(0 30px 60px rgba(0,0,0,.4))}
+  .fleet-preview img{width:100%;height:100%;object-fit:cover}
 
-  /* ========== HORIZONTAL SCROLL — METHOD ========== */
+  /* ===== SHOWROOM ===== */
+  .showroom{
+    padding:0;background:var(--ink);color:#fff;
+    overflow:hidden;
+  }
+  .showroom-inner{
+    display:grid;grid-template-columns:1fr 1fr;
+    min-height:90vh;align-items:stretch;
+  }
+  .showroom-img{
+    background-image:url("https://images.unsplash.com/photo-1542362567-b07e54358753?w=1600&q=85&auto=format&fit=crop");
+    background-size:cover;background-position:center;
+    position:relative;
+  }
+  .showroom-img::after{
+    content:'';position:absolute;inset:0;
+    background:linear-gradient(90deg,transparent 0%,rgba(10,10,10,.4) 100%);
+  }
+  .showroom-text{
+    padding:120px 60px;display:flex;flex-direction:column;justify-content:center;
+  }
+  .showroom-text .section-tag{opacity:.6;color:#fff}
+  .showroom-text h2{color:#fff;margin-bottom:32px}
+  .showroom-text h2 .out{-webkit-text-stroke:1.5px #fff}
+  .showroom-text p{
+    font-family:'Fraunces',serif;
+    font-size:22px;line-height:1.4;font-weight:400;
+    opacity:.7;margin-bottom:40px;letter-spacing:-.01em;
+  }
+  .showroom-text p em{font-style:italic;color:var(--red)}
+  .showroom-locs{
+    display:flex;flex-direction:column;gap:24px;
+    padding-top:40px;border-top:1px solid rgba(255,255,255,.15);
+  }
+  .showroom-loc-name{
+    font-family:'JetBrains Mono',monospace;
+    font-size:10px;letter-spacing:.15em;
+    text-transform:uppercase;color:var(--red);
+    margin-bottom:6px;
+  }
+  .showroom-loc-addr{
+    font-family:'Fraunces',serif;font-weight:700;
+    font-size:22px;letter-spacing:-.01em;
+  }
+  .showroom-loc-meta{font-size:13px;opacity:.5;margin-top:6px}
+
+  /* ===== METHOD ===== */
   .method{
-    background:var(--ink);color:var(--bg);
-    padding:0;overflow:hidden;
+    background:var(--blue);color:#fff;padding:0;overflow:hidden;
   }
   .method-inner{padding:140px 40px}
-  .method h2 .out{-webkit-text-stroke:1.5px var(--bg)}
+  .method h2 .out{-webkit-text-stroke:1.5px #fff}
   .method-grid{
     display:grid;grid-template-columns:repeat(4,1fr);
     gap:40px;margin-top:80px;
@@ -367,7 +472,7 @@
   .method-step-num{
     font-family:'Fraunces',serif;font-weight:900;
     font-size:120px;line-height:.85;
-    color:var(--gold);letter-spacing:-.04em;
+    color:var(--red);letter-spacing:-.04em;
     margin-bottom:20px;
     font-feature-settings:'ss01';
   }
@@ -376,20 +481,19 @@
     font-size:28px;line-height:1.1;
     letter-spacing:-.02em;margin-bottom:14px;
   }
-  .method-step p{
-    font-size:14px;opacity:.6;line-height:1.6;
-  }
+  .method-step p{font-size:14px;opacity:.65;line-height:1.6}
 
-  /* ========== STORY 37 ========== */
+  /* ===== STORY 37 ===== */
   .story-37{
     padding:0;position:relative;overflow:hidden;
+    background:var(--bg);
   }
   .story-37-num{
     font-family:'Fraunces',serif;font-weight:900;
     font-size:clamp(280px,46vw,720px);
     line-height:.78;letter-spacing:-.06em;
     text-align:center;
-    background:linear-gradient(180deg,var(--ink) 0%,var(--ink) 50%,transparent 100%);
+    background:linear-gradient(180deg,var(--red) 0%,var(--ink) 50%,transparent 100%);
     -webkit-background-clip:text;background-clip:text;
     -webkit-text-fill-color:transparent;
     font-feature-settings:'ss01';
@@ -404,7 +508,7 @@
     font-family:'Fraunces',serif;font-size:clamp(22px,2.4vw,34px);
     line-height:1.3;font-weight:400;letter-spacing:-.01em;
   }
-  .story-37-text em{font-style:italic;color:var(--gold)}
+  .story-37-text em{font-style:italic;color:var(--red)}
   .story-37-list{display:flex;flex-direction:column;gap:32px}
   .story-37-item{
     display:grid;grid-template-columns:60px 1fr;gap:24px;
@@ -422,24 +526,22 @@
   }
   .story-37-item p{font-size:14px;color:var(--mute);line-height:1.6}
 
-  /* ========== TESTIMONIALS ========== */
+  /* ===== VOICES ===== */
   .voices{background:var(--paper);position:relative;overflow:hidden}
   .voices-head{
     display:flex;justify-content:space-between;align-items:flex-end;
     margin-bottom:80px;gap:60px;flex-wrap:wrap;
   }
-  .voices-rating{
-    display:flex;align-items:flex-end;gap:24px;
-  }
+  .voices-rating{display:flex;align-items:flex-end;gap:24px}
   .voices-rating-num{
     font-family:'Fraunces',serif;font-weight:900;
     font-size:120px;line-height:.85;
-    letter-spacing:-.04em;color:var(--gold);
+    letter-spacing:-.04em;color:var(--red);
     font-feature-settings:'ss01';
   }
   .voices-rating-meta{padding-bottom:16px}
   .voices-rating-stars{
-    color:var(--gold);font-size:18px;
+    color:var(--red);font-size:18px;
     letter-spacing:3px;margin-bottom:6px;
   }
   .voices-rating-info{
@@ -456,10 +558,12 @@
     border-right:1px solid var(--line);
     border-bottom:1px solid var(--line);
     display:flex;flex-direction:column;
+    transition:background .3s;
   }
+  .voice:hover{background:#fff}
   .voice:last-child{border-right:none}
   .voice-stars{
-    color:var(--gold);font-size:14px;
+    color:var(--red);font-size:14px;
     letter-spacing:2px;margin-bottom:24px;
   }
   .voice-text{
@@ -468,7 +572,7 @@
     font-weight:400;letter-spacing:-.01em;
     flex:1;margin-bottom:32px;
   }
-  .voice-text em{font-style:italic;color:var(--gold)}
+  .voice-text em{font-style:italic;color:var(--red)}
   .voice-meta{
     display:flex;justify-content:space-between;align-items:center;
     font-family:'JetBrains Mono',monospace;
@@ -482,14 +586,13 @@
     text-transform:none;opacity:1;
   }
 
-  /* ========== CTA BLOCK ========== */
+  /* ===== CTA BLOCK ===== */
   .cta-block{
     padding:160px 40px;text-align:center;
     position:relative;overflow:hidden;
+    background:var(--bg);
   }
-  .cta-block h2{
-    margin:0 auto 60px;max-width:1400px;
-  }
+  .cta-block h2{margin:0 auto 60px;max-width:1400px}
   .cta-actions{
     display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center;
   }
@@ -499,16 +602,15 @@
     font-size:14px;font-weight:600;letter-spacing:.05em;
     text-transform:uppercase;
     transition:all .3s;
-    position:relative;overflow:hidden;
   }
-  .btn-fill{background:var(--ink);color:var(--bg)}
-  .btn-fill:hover{background:var(--gold);color:var(--ink);transform:translateY(-3px)}
+  .btn-fill{background:var(--red);color:#fff}
+  .btn-fill:hover{background:var(--ink);color:#fff;transform:translateY(-3px)}
   .btn-line{border:1px solid var(--ink);color:var(--ink)}
   .btn-line:hover{background:var(--ink);color:var(--bg);transform:translateY(-3px)}
   .btn svg{transition:transform .3s}
   .btn:hover svg{transform:rotate(-45deg)}
 
-  /* ========== FOOTER ========== */
+  /* ===== FOOTER ===== */
   footer{
     background:var(--ink);color:var(--bg);
     padding:120px 40px 40px;position:relative;
@@ -519,10 +621,10 @@
     letter-spacing:-.05em;margin-bottom:80px;
     font-feature-settings:'ss01';
   }
-  .footer-mega em{font-style:italic;color:var(--gold);font-weight:400}
+  .footer-mega em{font-style:italic;color:var(--red);font-weight:400}
   .footer-mega .out{-webkit-text-stroke:1.5px var(--bg);color:transparent}
   .footer-grid{
-    display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+    display:grid;grid-template-columns:2fr 1fr 1fr;
     gap:60px;padding-top:60px;
     border-top:1px solid rgba(255,255,255,.15);
     margin-bottom:80px;
@@ -533,20 +635,8 @@
     text-transform:uppercase;opacity:.5;margin-bottom:20px;
   }
   .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:10px}
-  .footer-col a{font-size:14px;opacity:.85;transition:opacity .2s,padding .3s}
-  .footer-col a:hover{opacity:1;padding-left:8px;color:var(--gold)}
-  .footer-locs{display:flex;flex-direction:column;gap:24px}
-  .footer-loc-name{
-    font-family:'JetBrains Mono',monospace;
-    font-size:10px;letter-spacing:.15em;
-    text-transform:uppercase;color:var(--gold);
-    margin-bottom:6px;
-  }
-  .footer-loc-addr{
-    font-family:'Fraunces',serif;font-weight:700;
-    font-size:18px;letter-spacing:-.01em;
-  }
-  .footer-loc-meta{font-size:12px;opacity:.5;margin-top:4px}
+  .footer-col a{font-size:14px;opacity:.85;transition:opacity .2s,padding .3s,color .3s}
+  .footer-col a:hover{opacity:1;padding-left:8px;color:var(--red)}
   .footer-bottom{
     padding-top:32px;border-top:1px solid rgba(255,255,255,.15);
     display:flex;justify-content:space-between;align-items:center;
@@ -556,32 +646,39 @@
     text-transform:uppercase;opacity:.5;
   }
 
-  /* ========== WHATSAPP ========== */
+  /* ===== WHATSAPP ===== */
   .wa{
     position:fixed;bottom:32px;right:32px;z-index:90;
     width:64px;height:64px;border-radius:50%;
-    background:var(--gold);color:var(--ink);
+    background:var(--red);color:#fff;
     display:flex;align-items:center;justify-content:center;
     transition:transform .3s,background .3s;
+    box-shadow:0 12px 30px rgba(217,79,42,.4);
   }
-  .wa:hover{transform:scale(1.1);background:var(--ink);color:var(--gold)}
+  .wa:hover{transform:scale(1.1);background:var(--ink)}
 
-  /* ========== RESPONSIVE ========== */
+  /* ===== RESPONSIVE ===== */
   @media (max-width:980px){
     nav{padding:20px 24px}
     .nav-links{display:none}
     .hero{padding:100px 24px 32px}
     .hero-foot{grid-template-columns:1fr 1fr;gap:24px}
+    .hero-foot-value{font-size:24px}
+    .hero-tag{display:none}
     section{padding:80px 24px}
     .intro{grid-template-columns:1fr;gap:40px}
     .intro-left{position:static}
     .car-row{
-      grid-template-columns:1fr;gap:8px;padding:20px 0;
+      grid-template-columns:120px 1fr 100px;gap:14px;padding:16px 0;
     }
     .car-row:hover{padding-left:16px;padding-right:16px}
-    .car-num,.car-year,.car-arrow{display:none}
-    .car-specs{font-size:11px}
-    .car-price{text-align:left;font-size:24px}
+    .car-num,.car-year,.car-arrow,.car-specs{display:none}
+    .car-thumb{width:120px;height:76px}
+    .car-name{font-size:16px}
+    .car-price{text-align:right;font-size:20px}
+    .showroom-inner{grid-template-columns:1fr}
+    .showroom-img{min-height:50vh}
+    .showroom-text{padding:80px 24px}
     .method-grid{grid-template-columns:1fr;gap:32px}
     .method-step-num{font-size:80px}
     .story-37-grid{grid-template-columns:1fr;gap:40px;padding-bottom:80px}
@@ -601,48 +698,56 @@
 </head>
 <body>
 
-<!-- ===== CUSTOM CURSOR ===== -->
 <div class="cursor"></div>
 <div class="cursor-ring"></div>
 
-<!-- ===== LOADER ===== -->
+<!-- LOADER -->
 <div class="loader" id="loader">
   <div class="loader-num"><span id="counter">0</span></div>
   <div class="loader-meta">
-    Autos Sarriko®<br>
-    Bilbao · ES<br>
-    Est. 1988<br>
-    <br>
-    Loading inventory...
+    Autos Sarriko®<br>Bilbao · ES<br>Est. 1988<br><br>Loading inventory...
   </div>
   <div class="loader-bar" id="loaderBar"></div>
 </div>
 
-<!-- ===== NAV ===== -->
+<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">Autos Sarriko<sup>®</sup></a>
   <ul class="nav-links">
-    <li><a href="#fleet" data-h="link">Garage</a></li>
-    <li><a href="#method" data-h="link">Method</a></li>
-    <li><a href="#story" data-h="link">Story</a></li>
-    <li><a href="#voices" data-h="link">Voices</a></li>
-    <li><a href="#contact" data-h="link">Contact</a></li>
+    <li><a href="#fleet">Garage</a></li>
+    <li><a href="#showroom">Showroom</a></li>
+    <li><a href="#method">Method</a></li>
+    <li><a href="#story">Story</a></li>
+    <li><a href="#voices">Voices</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
   <div class="nav-time" id="navTime">BILBAO · 00:00</div>
 </nav>
 
-<!-- ===== HERO ===== -->
+<!-- HERO -->
 <section class="hero">
+  <div class="hero-photo"></div>
+  <div class="hero-overlay"></div>
+
   <div class="hero-meta">
     <div>(01) / Bilbao, ES<br>43.2627° N, 2.9253° W</div>
     <div class="hero-meta-r">Independent garage<br>Selected vehicles · 2026</div>
   </div>
 
-  <h1 class="hero-title">
-    <span class="line"><span>Coches</span></span>
-    <span class="line"><span><em>elegidos</em>, no</span></span>
-    <span class="line"><span><span class="out">vendidos.</span></span></span>
-  </h1>
+  <div class="hero-center">
+    <h1 class="hero-title">
+      <span class="line"><span>Coches</span></span>
+      <span class="line"><span><em>elegidos</em>, no</span></span>
+      <span class="line"><span><span class="out">vendidos.</span></span></span>
+    </h1>
+  </div>
+
+  <div class="hero-tag">
+    <div class="hero-tag-label">★ Featured · in stock</div>
+    <div class="hero-tag-name">Range Rover Sport HSE</div>
+    <div class="hero-tag-meta">2021 · 52.000 km · Diésel · Auto</div>
+    <div class="hero-tag-price">58.500€</div>
+  </div>
 
   <div class="hero-foot">
     <div class="hero-foot-item">
@@ -664,7 +769,7 @@
   </div>
 </section>
 
-<!-- ===== MARQUEE ===== -->
+<!-- MARQUEE -->
 <div class="marquee">
   <div class="marquee-track">
     <span>Audi <span class="dot"></span> Mercedes-Benz <span class="dot"></span> BMW <span class="dot"></span> <em>Volvo</em> <span class="dot"></span> Land Rover <span class="dot"></span> Porsche <span class="dot"></span> <em>Lexus</em> <span class="dot"></span> Volkswagen <span class="dot"></span></span>
@@ -672,26 +777,23 @@
   </div>
 </div>
 
-<!-- ===== INTRO ===== -->
+<!-- INTRO -->
 <section class="intro">
   <div class="intro-left">
     <div class="section-tag">(02) Manifesto</div>
     <h2 class="reveal">No vendemos. <em>Elegimos.</em></h2>
   </div>
   <div class="intro-right reveal">
-    <p>Llevamos <em>treinta y siete años</em> revisando coches uno a uno en el corazón de Bilbao. Empezamos antes que la mayoría de las webs que comparan precios.</p>
+    <p>Llevamos <em>treinta y siete años</em> revisando coches uno a uno en el corazón de Bilbao. Empezamos antes que la mayoría de webs que comparan precios.</p>
     <p>Cada vehículo que sale de aquí ha pasado por una inspección de 100 puntos. <em>Si no lo compraríamos para casa, no lo vendemos.</em> Es así de simple, y así de raro.</p>
     <div class="intro-signature">
       <div class="signature-img">Familia Sarriko</div>
-      <div class="signature-meta">
-        Fundadores<br>
-        Bilbao, 1988 — hoy
-      </div>
+      <div class="signature-meta">Fundadores<br>Bilbao, 1988 — hoy</div>
     </div>
   </div>
 </section>
 
-<!-- ===== GARAGE / FLEET ===== -->
+<!-- GARAGE / FLEET -->
 <section id="fleet">
   <div class="section-tag">(03) Garage · Now available</div>
   <div class="garage-head">
@@ -711,12 +813,35 @@
   <div class="fleet-preview" id="preview"></div>
 </section>
 
-<!-- ===== METHOD ===== -->
+<!-- SHOWROOM -->
+<section class="showroom" id="showroom">
+  <div class="showroom-inner">
+    <div class="showroom-img"></div>
+    <div class="showroom-text">
+      <div class="section-tag">(04) Showroom · Bilbao</div>
+      <h2 class="reveal">Ven a verlos.<br><span class="out">Tócalos.</span> <em>Pruébalos.</em></h2>
+      <p>Tenemos <em>dos exposiciones</em> en Bilbao. Sin cita previa, sin presión comercial. Conduces los que quieras y nos cuentas lo que buscas.</p>
+      <div class="showroom-locs">
+        <div>
+          <div class="showroom-loc-name">★ Exposición principal</div>
+          <div class="showroom-loc-addr">C/ Simón Bolívar, 23-25</div>
+          <div class="showroom-loc-meta">48013 Bilbao · L-V 09:30-14 / 16-20 · S 10:30-13:30</div>
+        </div>
+        <div>
+          <div class="showroom-loc-name">Exposición & taller</div>
+          <div class="showroom-loc-addr">Avda. Sabino Arana, 23 (Bajo)</div>
+          <div class="showroom-loc-meta">48013 Bilbao</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
 <section class="method" id="method">
   <div class="method-inner">
-    <div class="section-tag" style="opacity:.6">(04) Method</div>
+    <div class="section-tag" style="opacity:.6">(05) Method</div>
     <h2 class="reveal">El protocolo. <em>Cuatro pasos.</em><br><span class="out">Cero atajos.</span></h2>
-
     <div class="method-grid">
       <div class="method-step reveal">
         <div class="method-step-num">01</div>
@@ -742,9 +867,9 @@
   </div>
 </section>
 
-<!-- ===== STORY 37 ===== -->
+<!-- STORY 37 -->
 <section class="story-37" id="story">
-  <div class="section-tag" style="padding:0 40px;margin-bottom:0">(05) Since 1988</div>
+  <div class="section-tag" style="padding:0 40px;margin-bottom:0">(06) Since 1988</div>
   <div class="story-37-num">37</div>
   <div class="story-37-grid">
     <div class="story-37-text reveal">
@@ -775,17 +900,17 @@
       <div class="story-37-item reveal">
         <div class="story-37-item-num">[04]</div>
         <div>
-          <h5>2026 — Siguen siendo nuestros padres</h5>
-          <p>Hoy seguimos siendo una empresa familiar. Sin cadenas, sin fondos. Solo nosotros.</p>
+          <h5>2026 — Sigue siendo familia</h5>
+          <p>Sin cadenas, sin fondos. Solo nosotros y los coches que firmamos uno a uno.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===== VOICES ===== -->
+<!-- VOICES -->
 <section class="voices" id="voices">
-  <div class="section-tag">(06) Voices · Google verified</div>
+  <div class="section-tag">(07) Voices · Google verified</div>
   <div class="voices-head">
     <h2 class="reveal">442 personas <em>lo cuentan</em><br>mejor que nosotros.</h2>
     <div class="voices-rating reveal">
@@ -796,42 +921,29 @@
       </div>
     </div>
   </div>
-
   <div class="voices-grid">
     <div class="voice reveal">
       <div class="voice-stars">★★★★★</div>
       <p class="voice-text">"Compré un <em>Audi A4</em> hace 6 meses. Me explicaron cada detalle con una honestidad que no había visto antes. Cero presión, todo claro. El coche llegó impecable."</p>
-      <div class="voice-meta">
-        <b>Javier Mendizabal</b>
-        <span>05.2026</span>
-      </div>
+      <div class="voice-meta"><b>Javier Mendizabal</b><span>05.2026</span></div>
     </div>
     <div class="voice reveal">
       <div class="voice-stars">★★★★★</div>
       <p class="voice-text">"Vendí mi coche y compré uno nuevo <em>el mismo día.</em> Sin papeleos imposibles, sin esperar semanas. Profesionales de los que ya no quedan."</p>
-      <div class="voice-meta">
-        <b>Ane Gallardo</b>
-        <span>04.2026</span>
-      </div>
+      <div class="voice-meta"><b>Ane Gallardo</b><span>04.2026</span></div>
     </div>
     <div class="voice reveal">
       <div class="voice-stars">★★★★★</div>
       <p class="voice-text">"<em>37 años en el sector</em> se notan. Te tratan como persona, no como cliente. Ya he recomendado Sarriko a mi hermano y a un compañero."</p>
-      <div class="voice-meta">
-        <b>Iker Rodríguez</b>
-        <span>04.2026</span>
-      </div>
+      <div class="voice-meta"><b>Iker Rodríguez</b><span>04.2026</span></div>
     </div>
   </div>
 </section>
 
-<!-- ===== CTA BLOCK ===== -->
+<!-- CTA -->
 <section class="cta-block" id="contact">
-  <div class="section-tag" style="justify-content:center">(07) Get in touch</div>
-  <h2 class="reveal">
-    Ven a verlos.<br>
-    <em>O escríbenos.</em>
-  </h2>
+  <div class="section-tag" style="justify-content:center">(08) Get in touch</div>
+  <h2 class="reveal">Ven a verlos.<br><em>O escríbenos.</em></h2>
   <div class="cta-actions reveal">
     <a href="tel:+34944270100" class="btn btn-fill">
       944 270 100
@@ -848,48 +960,33 @@
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
+<!-- FOOTER -->
 <footer>
   <div class="footer-mega">
-    Autos<br>
-    <em>Sarriko</em><br>
-    <span class="out">Bilbao.</span>
+    Autos<br><em>Sarriko</em><br><span class="out">Bilbao.</span>
   </div>
   <div class="footer-grid">
     <div class="footer-col">
       <h5>Locations</h5>
-      <div class="footer-locs">
+      <div style="display:flex;flex-direction:column;gap:24px">
         <div>
-          <div class="footer-loc-name">★ Main showroom</div>
-          <div class="footer-loc-addr">C/ Simón Bolívar, 23-25</div>
-          <div class="footer-loc-meta">48013 Bilbao · L-V 09:30-14 / 16-20 · S 10:30-13:30</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:6px">★ Main showroom</div>
+          <div style="font-family:'Fraunces',serif;font-weight:700;font-size:18px">C/ Simón Bolívar, 23-25</div>
+          <div style="font-size:12px;opacity:.5;margin-top:4px">48013 Bilbao · L-V 09:30-14 / 16-20 · S 10:30-13:30</div>
         </div>
         <div>
-          <div class="footer-loc-name">Showroom & workshop</div>
-          <div class="footer-loc-addr">Avda. Sabino Arana, 23 (Bajo)</div>
-          <div class="footer-loc-meta">48013 Bilbao</div>
+          <div style="font-family:'JetBrains Mono',monospace;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--red);margin-bottom:6px">Showroom & workshop</div>
+          <div style="font-family:'Fraunces',serif;font-weight:700;font-size:18px">Avda. Sabino Arana, 23 (Bajo)</div>
+          <div style="font-size:12px;opacity:.5;margin-top:4px">48013 Bilbao</div>
         </div>
       </div>
     </div>
     <div class="footer-col">
       <h5>Garage</h5>
       <ul>
-        <li><a href="#">SUV</a></li>
-        <li><a href="#">Sedan</a></li>
-        <li><a href="#">Compact</a></li>
-        <li><a href="#">Family</a></li>
-        <li><a href="#">Cabrio</a></li>
-        <li><a href="#">Van</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Services</h5>
-      <ul>
-        <li><a href="#">Free appraisal</a></li>
-        <li><a href="#">We buy your car</a></li>
-        <li><a href="#">Financing</a></li>
-        <li><a href="#">Excellence warranty</a></li>
-        <li><a href="#">Blog</a></li>
+        <li><a href="#">SUV</a></li><li><a href="#">Sedan</a></li>
+        <li><a href="#">Compact</a></li><li><a href="#">Family</a></li>
+        <li><a href="#">Cabrio</a></li><li><a href="#">Van</a></li>
       </ul>
     </div>
     <div class="footer-col">
@@ -909,13 +1006,12 @@
   </div>
 </footer>
 
-<!-- ===== WHATSAPP ===== -->
 <a href="https://wa.me/34650714428" class="wa" aria-label="WhatsApp">
   <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
 </a>
 
 <script>
-  /* ===== LOADER ===== */
+  /* LOADER */
   let counter = 0;
   const counterEl = document.getElementById('counter');
   const loaderBar = document.getElementById('loaderBar');
@@ -930,7 +1026,7 @@
   };
   setTimeout(tick, 200);
 
-  /* ===== CURSOR ===== */
+  /* CURSOR */
   const cursor = document.querySelector('.cursor');
   const ring = document.querySelector('.cursor-ring');
   let mx = 0, my = 0, rx = 0, ry = 0;
@@ -939,88 +1035,62 @@
     cursor.style.left = mx + 'px';
     cursor.style.top = my + 'px';
   });
-  const ringLoop = () => {
+  (function loop(){
     rx += (mx - rx) * 0.18;
     ry += (my - ry) * 0.18;
     ring.style.left = rx + 'px';
     ring.style.top = ry + 'px';
-    requestAnimationFrame(ringLoop);
-  };
-  ringLoop();
-  document.querySelectorAll('a,button,.car-row').forEach(el => {
-    el.addEventListener('mouseenter', () => {
-      cursor.classList.add('grow');
-      ring.classList.add('grow');
+    requestAnimationFrame(loop);
+  })();
+  function attachHover(){
+    document.querySelectorAll('a,button,.car-row').forEach(el => {
+      el.addEventListener('mouseenter', () => { cursor.classList.add('grow'); ring.classList.add('grow'); });
+      el.addEventListener('mouseleave', () => { cursor.classList.remove('grow'); ring.classList.remove('grow'); });
     });
-    el.addEventListener('mouseleave', () => {
-      cursor.classList.remove('grow');
-      ring.classList.remove('grow');
-    });
-  });
+  }
 
-  /* ===== TIME ===== */
+  /* TIME */
   const navTime = document.getElementById('navTime');
   const updateTime = () => {
     const d = new Date();
-    const h = String(d.getHours()).padStart(2,'0');
-    const m = String(d.getMinutes()).padStart(2,'0');
-    navTime.textContent = `BILBAO · ${h}:${m}`;
+    navTime.textContent = `BILBAO · ${String(d.getHours()).padStart(2,'0')}:${String(d.getMinutes()).padStart(2,'0')}`;
   };
   updateTime(); setInterval(updateTime, 30000);
 
-  /* ===== SCROLL REVEAL ===== */
+  /* REVEAL */
   const io = new IntersectionObserver(entries => {
     entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  /* ===== FLEET ===== */
-  const cars = [
-    {brand:'Audi',name:'Q5 40 TDI Quattro',year:2022,specs:'38.500 km · Diésel · Automático',price:'42.900',cat:'suv',color:'#1a1a1a'},
-    {brand:'Land Rover',name:'Range Rover Sport HSE',year:2021,specs:'52.000 km · Diésel · Automático',price:'58.500',cat:'suv',color:'#2a3a4a'},
-    {brand:'Audi',name:'A7 Sportback 50 TDI',year:2020,specs:'67.300 km · Diésel · Automático',price:'44.900',cat:'berlina',color:'#0a0a0a'},
-    {brand:'Mercedes-Benz',name:'GLC 300 4Matic',year:2023,specs:'22.100 km · Híbrido · Automático',price:'56.800',cat:'suv',color:'#1a2a3a'},
-    {brand:'Audi',name:'Q8 55 TFSI Quattro',year:2022,specs:'41.800 km · Gasolina · Automático',price:'72.500',cat:'suv',color:'#3a2a1a'},
-    {brand:'Volvo',name:'XC60 B4 Inscription',year:2022,specs:'34.200 km · Híbrido · Automático',price:'39.900',cat:'suv',color:'#1a3a2a'},
-    {brand:'BMW',name:'Serie 3 320d Sport',year:2021,specs:'58.000 km · Diésel · Automático',price:'29.800',cat:'berlina',color:'#0a0a0a'},
-    {brand:'Mercedes-Benz',name:'Clase A 200 AMG Line',year:2022,specs:'29.500 km · Gasolina · Automático',price:'32.500',cat:'compacto',color:'#2a2a2a'},
-    {brand:'Volkswagen',name:'Passat Variant 2.0 TDI',year:2021,specs:'72.000 km · Diésel · Manual',price:'24.900',cat:'familiar',color:'#1a1a2a'},
-    {brand:'BMW',name:'Z4 sDrive 20i',year:2020,specs:'31.000 km · Gasolina · Automático',price:'41.500',cat:'cabrio',color:'#a02020'},
-    {brand:'Volkswagen',name:'Transporter 2.0 TDI',year:2022,specs:'44.000 km · Diésel · Manual',price:'31.900',cat:'furgoneta',color:'#1a3a4a'},
-    {brand:'Audi',name:'A3 Sportback 35 TDI',year:2023,specs:'18.500 km · Diésel · Automático',price:'27.900',cat:'compacto',color:'#0a1a2a'},
-  ];
+  /* FLEET */
+  const U = id => `https://images.unsplash.com/${id}?w=600&q=80&auto=format&fit=crop`;
+  const UL = id => `https://images.unsplash.com/${id}?w=1400&q=85&auto=format&fit=crop`;
 
-  function carSVG(color){
-    const id = 'g' + color.replace('#','');
-    return `<svg viewBox="0 0 400 200" xmlns="http://www.w3.org/2000/svg">
-      <defs>
-        <linearGradient id="${id}" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0%" stop-color="${color}" stop-opacity=".95"/>
-          <stop offset="100%" stop-color="${color}" stop-opacity="1"/>
-        </linearGradient>
-      </defs>
-      <rect width="400" height="200" fill="#ebe8e2"/>
-      <ellipse cx="200" cy="170" rx="160" ry="6" fill="#000" opacity=".3"/>
-      <path d="M 50,150 Q 55,100 110,90 L 150,75 Q 180,65 220,65 L 270,65 Q 310,68 340,88 L 360,100 Q 365,120 360,150 L 350,155 Q 348,165 335,165 L 320,165 Q 318,158 308,158 Q 298,158 295,165 L 130,165 Q 127,158 117,158 Q 107,158 105,165 L 65,165 Q 53,165 50,155 Z" fill="url(#${id})" stroke="#000" stroke-width=".5"/>
-      <path d="M 125,92 L 162,75 Q 188,68 220,68 L 268,68 Q 298,70 325,87 L 325,108 Q 280,105 220,105 Q 160,105 125,108 Z" fill="#3a4a5a" opacity=".9"/>
-      <line x1="220" y1="68" x2="220" y2="106" stroke="#000" stroke-width="1"/>
-      <ellipse cx="62" cy="128" rx="10" ry="5" fill="#fffae0"/>
-      <ellipse cx="350" cy="128" rx="7" ry="4" fill="#c9a557"/>
-      <circle cx="105" cy="165" r="22" fill="#0a0a0a"/>
-      <circle cx="105" cy="165" r="11" fill="#444"/>
-      <circle cx="105" cy="165" r="3" fill="#c9a557"/>
-      <circle cx="308" cy="165" r="22" fill="#0a0a0a"/>
-      <circle cx="308" cy="165" r="11" fill="#444"/>
-      <circle cx="308" cy="165" r="3" fill="#c9a557"/>
-      <path d="M 140,90 Q 170,78 220,78" stroke="#fff" stroke-width="1.5" opacity=".3" fill="none"/>
-    </svg>`;
-  }
+  const cars = [
+    {brand:'Audi',name:'Q5 40 TDI Quattro',year:2022,specs:'38.500 km · Diésel · Automático',price:'42.900',cat:'suv',img:'photo-1606664515524-ed2f786a0bd6',tag:'Premium'},
+    {brand:'Land Rover',name:'Range Rover Sport HSE',year:2021,specs:'52.000 km · Diésel · Automático',price:'58.500',cat:'suv',img:'photo-1494976388531-d1058494cdd8',tag:'Featured'},
+    {brand:'Audi',name:'A7 Sportback 50 TDI',year:2020,specs:'67.300 km · Diésel · Automático',price:'44.900',cat:'berlina',img:'photo-1606220588913-b3aacb4d2f46',tag:'Sportback'},
+    {brand:'Mercedes-Benz',name:'GLC 300 4Matic',year:2023,specs:'22.100 km · Híbrido · Automático',price:'56.800',cat:'suv',img:'photo-1617531653332-bd46c24f2068',tag:'Híbrido'},
+    {brand:'Audi',name:'Q8 55 TFSI Quattro',year:2022,specs:'41.800 km · Gasolina · Automático',price:'72.500',cat:'suv',img:'photo-1606152421802-db97b9c7a11b',tag:'Top'},
+    {brand:'Volvo',name:'XC60 B4 Inscription',year:2022,specs:'34.200 km · Híbrido · Automático',price:'39.900',cat:'suv',img:'photo-1611016186353-9af58c69a533',tag:'Híbrido'},
+    {brand:'BMW',name:'Serie 3 320d Sport',year:2021,specs:'58.000 km · Diésel · Automático',price:'29.800',cat:'berlina',img:'photo-1503376780353-7e6692767b70',tag:'Sport'},
+    {brand:'Mercedes-Benz',name:'Clase A 200 AMG Line',year:2022,specs:'29.500 km · Gasolina · Automático',price:'32.500',cat:'compacto',img:'photo-1544636331-e26879cd4d9b',tag:'AMG'},
+    {brand:'Volkswagen',name:'Passat Variant 2.0 TDI',year:2021,specs:'72.000 km · Diésel · Manual',price:'24.900',cat:'familiar',img:'photo-1502877338535-766e1452684a',tag:'Family'},
+    {brand:'BMW',name:'Z4 sDrive 20i',year:2020,specs:'31.000 km · Gasolina · Automático',price:'41.500',cat:'cabrio',img:'photo-1492144534655-ae79c964c9d7',tag:'Cabrio'},
+    {brand:'Volkswagen',name:'Transporter 2.0 TDI',year:2022,specs:'44.000 km · Diésel · Manual',price:'31.900',cat:'furgoneta',img:'photo-1503736334956-4c8f8e92946d',tag:'Pro'},
+    {brand:'Audi',name:'A3 Sportback 35 TDI',year:2023,specs:'18.500 km · Diésel · Automático',price:'27.900',cat:'compacto',img:'photo-1583121274602-3e2820c69888',tag:'Nuevo'},
+  ];
 
   function renderFleet(filter='todos'){
     const fleet = document.getElementById('fleet');
     const list = filter==='todos' ? cars : cars.filter(c => c.cat===filter);
     fleet.innerHTML = list.map((c,i) => `
-      <div class="car-row" data-color="${c.color}" data-brand="${c.brand}" data-name="${c.name}">
+      <div class="car-row" data-img="${c.img}">
+        <div class="car-thumb">
+          <img src="${U(c.img)}" alt="${c.brand} ${c.name}" loading="lazy">
+          <span class="car-thumb-tag">${c.tag}</span>
+        </div>
         <div class="car-num">N°${String(i+1).padStart(2,'0')}</div>
         <div class="car-brand-name">
           <div class="car-brand">${c.brand}</div>
@@ -1035,15 +1105,15 @@
       </div>
     `).join('') || '<div style="padding:60px 0;text-align:center;opacity:.5">Sin vehículos en esta categoría</div>';
 
-    /* preview on hover */
     const preview = document.getElementById('preview');
     document.querySelectorAll('.car-row').forEach(row => {
       row.addEventListener('mouseenter', () => {
-        preview.innerHTML = carSVG(row.dataset.color);
+        preview.innerHTML = `<img src="${UL(row.dataset.img)}" alt="">`;
         preview.classList.add('show');
       });
       row.addEventListener('mouseleave', () => preview.classList.remove('show'));
     });
+    attachHover();
   }
   renderFleet();
 
@@ -1053,6 +1123,8 @@
     e.target.classList.add('active');
     renderFleet(e.target.dataset.cat);
   });
+
+  attachHover();
 </script>
 
 </body>
