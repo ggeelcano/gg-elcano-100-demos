@@ -130,7 +130,7 @@
   }
   .hero-photo{
     position:absolute;inset:0;
-    background-image:url("https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=2000&q=85&auto=format&fit=crop");
+    background-image:url("https://autossarriko.com/wp-content/uploads/autossarriko-vehiculos-ocasion-bilbao-S5.jpg");
     background-size:cover;background-position:center;
     transform:scale(1.08);
     animation:zoomIn 2s cubic-bezier(.22,1,.36,1) .4s forwards;
@@ -419,7 +419,7 @@
     min-height:90vh;align-items:stretch;
   }
   .showroom-img{
-    background-image:url("https://images.unsplash.com/photo-1542362567-b07e54358753?w=1600&q=85&auto=format&fit=crop");
+    background-image:url("https://autossarriko.com/wp-content/uploads/autossarriko-vehiculos-ocasion-bilbao-S3.jpg");
     background-size:cover;background-position:center;
     position:relative;
   }
@@ -744,9 +744,9 @@
 
   <div class="hero-tag">
     <div class="hero-tag-label">★ Featured · in stock</div>
-    <div class="hero-tag-name">Range Rover Sport HSE</div>
-    <div class="hero-tag-meta">2021 · 52.000 km · Diésel · Auto</div>
-    <div class="hero-tag-price">58.500€</div>
+    <div class="hero-tag-name">Range Rover Sport HSE Dynamic</div>
+    <div class="hero-tag-meta">2.0 SI4 PHEV · 404 CV · 2022</div>
+    <div class="hero-tag-price">68.500€</div>
   </div>
 
   <div class="hero-foot">
@@ -1063,23 +1063,22 @@
   }, { threshold: 0.15 });
   document.querySelectorAll('.reveal').forEach(el => io.observe(el));
 
-  /* FLEET */
-  const U = id => `https://images.unsplash.com/${id}?w=600&q=80&auto=format&fit=crop`;
-  const UL = id => `https://images.unsplash.com/${id}?w=1400&q=85&auto=format&fit=crop`;
+  /* FLEET - fotos reales del concesionario Autos Sarriko */
+  const BASE = 'https://autossarriko.com/wp-content/uploads/';
 
   const cars = [
-    {brand:'Audi',name:'Q5 40 TDI Quattro',year:2022,specs:'38.500 km · Diésel · Automático',price:'42.900',cat:'suv',img:'photo-1606664515524-ed2f786a0bd6',tag:'Premium'},
-    {brand:'Land Rover',name:'Range Rover Sport HSE',year:2021,specs:'52.000 km · Diésel · Automático',price:'58.500',cat:'suv',img:'photo-1494976388531-d1058494cdd8',tag:'Featured'},
-    {brand:'Audi',name:'A7 Sportback 50 TDI',year:2020,specs:'67.300 km · Diésel · Automático',price:'44.900',cat:'berlina',img:'photo-1606220588913-b3aacb4d2f46',tag:'Sportback'},
-    {brand:'Mercedes-Benz',name:'GLC 300 4Matic',year:2023,specs:'22.100 km · Híbrido · Automático',price:'56.800',cat:'suv',img:'photo-1617531653332-bd46c24f2068',tag:'Híbrido'},
-    {brand:'Audi',name:'Q8 55 TFSI Quattro',year:2022,specs:'41.800 km · Gasolina · Automático',price:'72.500',cat:'suv',img:'photo-1606152421802-db97b9c7a11b',tag:'Top'},
-    {brand:'Volvo',name:'XC60 B4 Inscription',year:2022,specs:'34.200 km · Híbrido · Automático',price:'39.900',cat:'suv',img:'photo-1611016186353-9af58c69a533',tag:'Híbrido'},
-    {brand:'BMW',name:'Serie 3 320d Sport',year:2021,specs:'58.000 km · Diésel · Automático',price:'29.800',cat:'berlina',img:'photo-1503376780353-7e6692767b70',tag:'Sport'},
-    {brand:'Mercedes-Benz',name:'Clase A 200 AMG Line',year:2022,specs:'29.500 km · Gasolina · Automático',price:'32.500',cat:'compacto',img:'photo-1544636331-e26879cd4d9b',tag:'AMG'},
-    {brand:'Volkswagen',name:'Passat Variant 2.0 TDI',year:2021,specs:'72.000 km · Diésel · Manual',price:'24.900',cat:'familiar',img:'photo-1502877338535-766e1452684a',tag:'Family'},
-    {brand:'BMW',name:'Z4 sDrive 20i',year:2020,specs:'31.000 km · Gasolina · Automático',price:'41.500',cat:'cabrio',img:'photo-1492144534655-ae79c964c9d7',tag:'Cabrio'},
-    {brand:'Volkswagen',name:'Transporter 2.0 TDI',year:2022,specs:'44.000 km · Diésel · Manual',price:'31.900',cat:'furgoneta',img:'photo-1503736334956-4c8f8e92946d',tag:'Pro'},
-    {brand:'Audi',name:'A3 Sportback 35 TDI',year:2023,specs:'18.500 km · Diésel · Automático',price:'27.900',cat:'compacto',img:'photo-1583121274602-3e2820c69888',tag:'Nuevo'},
+    {brand:'Audi',name:'Q5 Sportback 45 TFSI Quattro',year:2023,specs:'265 CV · S Tronic · S Line',price:'52.900',cat:'suv',img:'Audi-Q5-ocasion-Sportback-45TFSI-265CV-Quattro-S-Tronic-S-Line_1-scaled.jpg',tag:'S Line'},
+    {brand:'Land Rover',name:'Range Rover Sport HSE Dynamic',year:2022,specs:'2.0 SI4 PHEV · 404 CV',price:'68.500',cat:'suv',img:'Land-Rover-Sport-ocasion-2.0-SI4-PHEV-404CV-HSE-Dynamic_1-scaled.jpg',tag:'Featured'},
+    {brand:'Audi',name:'A7 Sportback 50 TFSIe',year:2022,specs:'S Line Quattro · Híbrido',price:'56.900',cat:'berlina',img:'Audi-A7-ocasion-SportBack-50-TFSIe-S-Line-Quattro-scaled.jpg',tag:'Híbrido'},
+    {brand:'Mercedes-Benz',name:'GLC 300 Coupé AMG Line',year:2022,specs:'Híbrido Enchufable · 4Matic',price:'58.800',cat:'suv',img:'Mercedes-GLC300-ocasion-Coupe-de-AMG-Line-Hibrido-Enchufable_1-scaled.jpg',tag:'AMG'},
+    {brand:'Audi',name:'Q8 55 TFSIe Quattro',year:2022,specs:'381 CV · S Line Plus · PHEV',price:'78.500',cat:'suv',img:'Audi-Q8-ocasion-55-TFSIe-381-CV-Quattro-S-Line-Plus-Hibrido-Enchufable_46-1-scaled.jpg',tag:'Top'},
+    {brand:'Volvo',name:'XC60 T6 AWD Recharge',year:2022,specs:'R-Design · Híbrido Enchufable',price:'46.900',cat:'suv',img:'Volvo-XC60-ocasion-2.0-T6-AWD-Recharge-R-Desing41-scaled.jpg',tag:'R-Design'},
+    {brand:'BMW',name:'Z3 1.8i Cabrio',year:2000,specs:'Clásico · Coleccionista',price:'18.900',cat:'cabrio',img:'BMW-Z3-ocasion-1.8-i-Cabrio_4-scaled.jpg',tag:'Clásico'},
+    {brand:'Volvo',name:'XC90 T8 AWD R-Design',year:2021,specs:'390 CV · Híbrido Enchufable · 7p',price:'59.500',cat:'suv',img:'Volvo-XC90-ocasion-T8-390CV-AWD-R-Desing_1-scaled.jpg',tag:'R-Design'},
+    {brand:'Mazda',name:'CX-60e Skyactive PHEV',year:2023,specs:'Takumi · Híbrido Enchufable',price:'48.900',cat:'suv',img:'Mazda-CX60e-ocasion-Skyactive-PHEV-Takumi_3-scaled.jpg',tag:'Takumi'},
+    {brand:'BMW',name:'420d Coupé M Sport',year:2021,specs:'190 CV · Diésel · Automático',price:'38.500',cat:'berlina',img:'BMW-420D-ocasion-Coupe-_M_-190CV_1-scaled.jpg',tag:'M Sport'},
+    {brand:'Seat',name:'Ibiza FR 1.0 TSI',year:2022,specs:'110 CV · Gasolina · Manual',price:'17.900',cat:'compacto',img:'Seat-Ibiza-ocasion-1.0-110-CV-TSI-FR_39-scaled.jpg',tag:'FR'},
+    {brand:'Skoda',name:'Superb Combi 2.0 TSI SportLine',year:2022,specs:'270 CV · 4X4 · DSG',price:'39.900',cat:'familiar',img:'Skoda-Superb-Combi-ocasion-2.0-TSI-270-CV-4X4-SportLine-DSG_39-scaled.jpg',tag:'SportLine'},
   ];
 
   function renderFleet(filter='todos'){
@@ -1088,7 +1087,7 @@
     fleet.innerHTML = list.map((c,i) => `
       <div class="car-row" data-img="${c.img}">
         <div class="car-thumb">
-          <img src="${U(c.img)}" alt="${c.brand} ${c.name}" loading="lazy">
+          <img src="${BASE}${c.img}" alt="${c.brand} ${c.name}" loading="lazy">
           <span class="car-thumb-tag">${c.tag}</span>
         </div>
         <div class="car-num">N°${String(i+1).padStart(2,'0')}</div>
@@ -1108,7 +1107,7 @@
     const preview = document.getElementById('preview');
     document.querySelectorAll('.car-row').forEach(row => {
       row.addEventListener('mouseenter', () => {
-        preview.innerHTML = `<img src="${UL(row.dataset.img)}" alt="">`;
+        preview.innerHTML = `<img src="${BASE}${row.dataset.img}" alt="">`;
         preview.classList.add('show');
       });
       row.addEventListener('mouseleave', () => preview.classList.remove('show'));
