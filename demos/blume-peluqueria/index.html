@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>BLUME Peluquería Profesional · Ciudad Lineal, Madrid</title>
+<meta name="description" content="Peluquería profesional en Ciudad Lineal, Madrid. Color, mechas satush, taninoplastia y corte personalizado con Andrés, Paola y Sol. Valoración 5★ con 404 reseñas."/>
+<meta property="og:title" content="BLUME Peluquería Profesional · Madrid"/>
+<meta property="og:description" content="Color, mechas y tratamientos en Ciudad Lineal. 5★ con más de 400 reseñas reales."/>
+<meta property="og:image" content="img/foto-1.jpg"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<style>
+:root{
+  --bg:#faf8f5;
+  --bg-dark:#0e0c0a;
+  --ink:#1a1612;
+  --ink-soft:#5a4f44;
+  --gold:#b08968;
+  --gold-soft:#d4b896;
+  --line:rgba(26,22,18,0.08);
+  --line-dark:rgba(255,255,255,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden;background:var(--bg);color:var(--ink);font-family:'Inter',sans-serif;min-height:100vh;line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%;display:block}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:4px}
+.skip-link{position:absolute;left:-9999px;top:0;background:var(--gold);color:#fff;padding:12px 22px;z-index:9999;text-decoration:none;font-weight:600}
+.skip-link:focus{left:0}
+
+/* ====== NAV ====== */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:24px 48px;display:flex;justify-content:space-between;align-items:center;background:rgba(250,248,245,0.85);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid var(--line);transition:all 0.3s}
+nav.scrolled{padding:16px 48px;background:rgba(250,248,245,0.95)}
+.brand{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;letter-spacing:6px;color:var(--ink)}
+.brand small{font-size:10px;letter-spacing:3px;display:block;margin-top:-4px;opacity:0.55;text-transform:uppercase;font-family:'Inter',sans-serif;font-weight:500}
+.nav-links{display:flex;gap:38px;align-items:center;font-size:13px;letter-spacing:1px;text-transform:uppercase;font-weight:500}
+.nav-links a{text-decoration:none;color:var(--ink-soft);transition:color 0.2s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{background:var(--ink);color:#fff;padding:12px 24px;border-radius:0;font-weight:500;text-decoration:none;font-size:12px;letter-spacing:2px;text-transform:uppercase;transition:all 0.25s}
+.nav-cta:hover,.nav-cta:focus-visible{background:var(--gold);transform:translateY(-1px)}
+.menu-btn{display:none;background:none;border:none;cursor:pointer;font-size:24px;color:var(--ink)}
+
+/* ====== HERO ====== */
+.hero{position:relative;min-height:100vh;display:flex;align-items:flex-end;padding:0;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:#000}
+.hero-bg img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.85;transform:scale(1.08);transition:transform 8s ease}
+.hero.loaded .hero-bg img{transform:scale(1)}
+.hero-bg::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,0.45) 0%,rgba(0,0,0,0.2) 40%,rgba(14,12,10,0.85) 100%)}
+.hero-content{position:relative;z-index:2;max-width:1400px;margin:0 auto;width:100%;padding:0 48px 100px;color:#fff}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:12px;letter-spacing:3px;text-transform:uppercase;opacity:0.9;margin-bottom:32px;font-weight:500}
+.hero-eyebrow::before{content:'';width:40px;height:1px;background:var(--gold-soft)}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(58px,9vw,140px);font-weight:400;line-height:0.92;letter-spacing:-2px;margin-bottom:32px;max-width:1100px}
+h1 i{font-style:italic;color:var(--gold-soft);font-weight:500}
+.hero-sub{font-size:19px;line-height:1.65;opacity:0.85;max-width:540px;margin-bottom:44px;font-weight:300}
+.hero-actions{display:flex;gap:14px;flex-wrap:wrap;align-items:center}
+.btn-primary{background:var(--gold);color:#fff;padding:18px 36px;font-weight:500;font-size:13px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;display:inline-flex;gap:10px;align-items:center;transition:all 0.3s;border:none;cursor:pointer}
+.btn-primary:hover,.btn-primary:focus-visible{background:#fff;color:var(--ink);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:#fff;padding:18px 30px;font-weight:500;font-size:13px;letter-spacing:2px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,0.4);transition:all 0.3s;display:inline-flex;gap:10px;align-items:center}
+.btn-ghost:hover,.btn-ghost:focus-visible{background:#fff;color:var(--ink);border-color:#fff}
+.hero-meta{position:absolute;bottom:50px;right:48px;z-index:2;color:#fff;text-align:right;font-size:12px;letter-spacing:2px;text-transform:uppercase;opacity:0.85;line-height:1.8}
+.hero-meta .stars{font-size:14px;letter-spacing:3px;color:var(--gold-soft);margin-bottom:4px}
+
+/* ====== SECTIONS ====== */
+section{padding:140px 48px;position:relative}
+.container{max-width:1400px;margin:0 auto}
+.section-label{display:inline-flex;align-items:center;gap:14px;font-size:11px;font-weight:600;color:var(--gold);text-transform:uppercase;letter-spacing:3px;margin-bottom:28px}
+.section-label::before{content:'';width:30px;height:1px;background:var(--gold)}
+h2{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,5.5vw,76px);font-weight:400;line-height:1.05;letter-spacing:-1.5px;margin-bottom:32px;max-width:900px}
+h2 i{font-style:italic;color:var(--gold);font-weight:500}
+.lead{font-size:19px;opacity:0.7;max-width:680px;line-height:1.7;margin-bottom:80px;font-weight:300}
+
+/* ====== INTRO 2-COL ====== */
+.intro-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center}
+@media(max-width:900px){.intro-grid{grid-template-columns:1fr;gap:50px}}
+.intro-image{aspect-ratio:4/5;background:#eee;overflow:hidden;position:relative}
+.intro-image img{width:100%;height:100%;object-fit:cover;transition:transform 1s ease}
+.intro-image:hover img{transform:scale(1.05)}
+.intro-text p{font-size:17px;line-height:1.8;margin-bottom:20px;color:var(--ink-soft);font-weight:400}
+.intro-text p:first-of-type{font-family:'Cormorant Garamond',serif;font-size:24px;color:var(--ink);line-height:1.5;font-style:italic;font-weight:500;margin-bottom:28px}
+
+/* ====== SERVICIOS ====== */
+.servicios{background:var(--bg-dark);color:#fff}
+.servicios h2{color:#fff}
+.servicios .lead{color:rgba(255,255,255,0.7)}
+.servicios .section-label{color:var(--gold-soft)}
+.servicios-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--line-dark);margin-top:40px}
+@media(max-width:700px){.servicios-grid{grid-template-columns:1fr}}
+.servicio{padding:48px 0;border-bottom:1px solid var(--line-dark);position:relative;display:grid;grid-template-columns:60px 1fr auto;gap:30px;align-items:center}
+.servicio:nth-child(odd){padding-right:40px}
+.servicio:nth-child(even){padding-left:40px;border-left:1px solid var(--line-dark)}
+@media(max-width:700px){.servicio:nth-child(odd),.servicio:nth-child(even){padding:36px 0;border-left:0}}
+.servicio-num{font-family:'Cormorant Garamond',serif;font-size:36px;color:var(--gold-soft);font-style:italic;font-weight:500;line-height:1}
+.servicio h3{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:500;margin-bottom:6px;letter-spacing:-0.5px}
+.servicio p{font-size:14px;opacity:0.7;line-height:1.55}
+.servicio-arrow{font-size:22px;opacity:0.4;transition:all 0.3s}
+.servicio:hover .servicio-arrow{opacity:1;color:var(--gold-soft);transform:translateX(6px)}
+
+/* ====== EQUIPO ====== */
+.equipo-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin-top:20px}
+@media(max-width:800px){.equipo-grid{grid-template-columns:1fr}}
+.persona{text-align:center}
+.persona-photo{aspect-ratio:3/4;background:linear-gradient(180deg,#e8dcc8,#c5a584);overflow:hidden;position:relative;margin-bottom:24px}
+.persona-photo img{width:100%;height:100%;object-fit:cover}
+.persona-initial{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:120px;color:rgba(255,255,255,0.4);font-style:italic;font-weight:500}
+.persona h3{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:500;margin-bottom:6px;letter-spacing:-0.5px}
+.persona .rol{font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--gold);font-weight:500}
+
+/* ====== GALLERY ====== */
+.galeria{padding:140px 48px}
+.galeria-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:60px}
+@media(max-width:900px){.galeria-grid{grid-template-columns:repeat(2,1fr)}}
+.gal-item{aspect-ratio:1/1;overflow:hidden;background:#eee}
+.gal-item.tall{aspect-ratio:1/1.4}
+.gal-item.wide{grid-column:span 2}
+.gal-item img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s ease,filter 0.6s ease;filter:saturate(1)}
+.gal-item:hover img{transform:scale(1.06);filter:saturate(1.15)}
+@media(max-width:900px){.gal-item.wide{grid-column:span 2}}
+
+/* ====== REVIEWS ====== */
+.reviews{background:#f1ece5}
+.reviews-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:32px;margin-top:50px}
+@media(max-width:900px){.reviews-grid{grid-template-columns:1fr}}
+.review{padding:42px 38px;background:#fff;position:relative;border-left:2px solid var(--gold)}
+.review::before{content:'\201C';position:absolute;top:6px;left:24px;font-family:'Cormorant Garamond',serif;font-size:90px;color:var(--gold-soft);line-height:1;opacity:0.4}
+.review-stars{color:var(--gold);letter-spacing:3px;margin-bottom:18px;font-size:14px}
+.review-text{font-size:16px;line-height:1.75;color:var(--ink-soft);margin-bottom:24px;position:relative;z-index:2}
+.review-author{font-family:'Cormorant Garamond',serif;font-size:18px;font-style:italic;color:var(--ink);font-weight:500;display:flex;align-items:center;gap:12px}
+.review-author::before{content:'';width:30px;height:1px;background:var(--gold)}
+
+/* ====== CONTACT ====== */
+.contact{background:var(--bg-dark);color:#fff}
+.contact h2{color:#fff}
+.contact .lead{color:rgba(255,255,255,0.7)}
+.contact .section-label{color:var(--gold-soft)}
+.contact-grid{display:grid;grid-template-columns:1.1fr 1fr;gap:60px;align-items:start;margin-top:40px}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr;gap:40px}}
+.contact-info{display:flex;flex-direction:column;gap:28px}
+.info-row{display:grid;grid-template-columns:120px 1fr;gap:24px;padding-bottom:28px;border-bottom:1px solid var(--line-dark)}
+.info-row:last-of-type{border-bottom:0}
+.info-row .lbl{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--gold-soft);font-weight:500;padding-top:4px}
+.info-row .val{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;line-height:1.5}
+.info-row .val a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(212,184,150,0.4);transition:border-color 0.2s}
+.info-row .val a:hover{border-color:var(--gold-soft)}
+.hours-list{font-family:'Inter',sans-serif;font-size:15px;font-weight:400;line-height:2;opacity:0.85}
+.hours-list b{font-weight:500;display:inline-block;width:130px}
+.hours-list .closed{opacity:0.5}
+.map-frame{width:100%;aspect-ratio:4/5;border:0;filter:grayscale(0.4) contrast(1.05)}
+
+/* ====== CTA ====== */
+.cta-final{text-align:center;padding:180px 48px;background:#fff}
+.cta-final h2{margin:0 auto 28px}
+.cta-final .lead{margin:0 auto 56px}
+.cta-big{display:inline-flex;align-items:center;gap:14px;background:var(--ink);color:#fff;padding:22px 50px;font-size:14px;font-weight:500;letter-spacing:3px;text-transform:uppercase;text-decoration:none;transition:all 0.3s}
+.cta-big:hover,.cta-big:focus-visible{background:var(--gold);transform:translateY(-3px)}
+
+/* ====== FOOTER ====== */
+footer{background:var(--bg-dark);color:#fff;padding:60px 48px 36px;border-top:1px solid var(--line-dark)}
+.footer-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:40px;padding-bottom:40px;border-bottom:1px solid var(--line-dark)}
+@media(max-width:700px){.footer-grid{grid-template-columns:1fr}}
+.footer-grid h4{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:500;margin-bottom:18px;color:#fff}
+.footer-grid p{font-size:14px;line-height:1.7;opacity:0.7}
+.footer-grid a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.2);transition:border-color 0.2s}
+.footer-grid a:hover{border-color:var(--gold-soft)}
+.footer-copy{max-width:1400px;margin:30px auto 0;font-size:12px;opacity:0.5;text-align:center;letter-spacing:1px}
+
+.reveal{opacity:0;transform:translateY(40px)}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.001s !important;transition-duration:0.001s !important}
+  .reveal{opacity:1;transform:none}
+}
+
+@media(max-width:900px){
+  nav{padding:18px 22px}
+  nav.scrolled{padding:14px 22px}
+  .nav-links{display:none}
+  .hero-content{padding:0 22px 70px}
+  .hero-meta{right:22px;bottom:30px}
+  section{padding:90px 22px}
+  .galeria{padding:90px 22px}
+  .cta-final{padding:110px 22px}
+  footer{padding:50px 22px 30px}
+}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Saltar al contenido principal</a>
+
+<nav id="nav" aria-label="Navegación principal">
+  <div class="brand">BLUME<small>Peluquería</small></div>
+  <div class="nav-links">
+    <a href="#nosotros">Nosotros</a>
+    <a href="#servicios">Servicios</a>
+    <a href="#equipo">Equipo</a>
+    <a href="#galeria">Galería</a>
+    <a href="#contacto">Contacto</a>
+  </div>
+  <a href="tel:+34623521089" class="nav-cta">Pedir cita</a>
+</nav>
+
+<main id="main">
+
+<section class="hero" id="hero">
+  <div class="hero-bg"><img src="img/foto-1.jpg" alt="Interior de BLUME Peluquería Profesional"/></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Ciudad Lineal · Madrid</div>
+    <h1>El detalle <i>está</i><br/>en cada hebra.</h1>
+    <p class="hero-sub">Peluquería profesional especializada en color, tratamientos avanzados y corte personalizado. Andrés, Paola y Sol trabajan para que salgas exactamente como quieres.</p>
+    <div class="hero-actions">
+      <a href="tel:+34623521089" class="btn-primary">Pedir cita</a>
+      <a href="https://wa.me/34623521089" class="btn-ghost">WhatsApp</a>
+    </div>
+  </div>
+  <div class="hero-meta">
+    <div class="stars">★★★★★</div>
+    <div>5,0 · 404 reseñas Google</div>
+  </div>
+</section>
+
+<section id="nosotros">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-image reveal">
+        <img src="img/foto-7.jpg" alt="Ambiente del salón BLUME"/>
+      </div>
+      <div class="intro-text">
+        <div class="section-label reveal">Sobre BLUME</div>
+        <h2 class="reveal">Un salón pensado <i>para ti</i>.</h2>
+        <p class="reveal">Donde se escucha primero y se corta después.</p>
+        <p class="reveal">Cuando entras en BLUME hay tiempo. Tiempo para mirar tu pelo, entender cómo lo cuidas y a dónde quieres llegar. Antes de coger las tijeras o preparar un color, hablamos.</p>
+        <p class="reveal">Trabajamos con técnicas actuales —mechas <em>satush</em>, taninoplastia, color personalizado— pero el verdadero lujo es la atención: profesional, cercana, sin prisas. Y eso lo cuentan nuestras 404 reseñas mejor que nosotros.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios" class="servicios">
+  <div class="container">
+    <div class="section-label reveal">Servicios</div>
+    <h2 class="reveal">Cada cabeza, <i>un tratamiento</i> distinto.</h2>
+    <p class="lead reveal">Color, tratamientos, corte y peinado. Todo personalizado al tipo de pelo y al resultado que buscas — no aplicamos recetas.</p>
+    <div class="servicios-grid">
+      <div class="servicio reveal">
+        <div class="servicio-num">01</div>
+        <div><h3>Mechas Satush</h3><p>Técnica de iluminación natural y luminosa. Aspecto vivido, sin línea de raíz marcada.</p></div>
+        <div class="servicio-arrow">→</div>
+      </div>
+      <div class="servicio reveal">
+        <div class="servicio-num">02</div>
+        <div><h3>Taninoplastia</h3><p>Tratamiento de regeneración profunda. Cabello suave, brillante y manejable durante meses.</p></div>
+        <div class="servicio-arrow">→</div>
+      </div>
+      <div class="servicio reveal">
+        <div class="servicio-num">03</div>
+        <div><h3>Color personalizado</h3><p>De los tonos más naturales a los cambios atrevidos. Diseñamos el color contigo, no por catálogo.</p></div>
+        <div class="servicio-arrow">→</div>
+      </div>
+      <div class="servicio reveal">
+        <div class="servicio-num">04</div>
+        <div><h3>Corte y peinado</h3><p>Cortes pensados para tu rostro, tu estilo y el día a día. Que se mantenga bonito también cuando lo peinas tú.</p></div>
+        <div class="servicio-arrow">→</div>
+      </div>
+      <div class="servicio reveal">
+        <div class="servicio-num">05</div>
+        <div><h3>Tratamientos capilares</h3><p>Diagnóstico previo del cabello y plan de cuidado adaptado a su estado real.</p></div>
+        <div class="servicio-arrow">→</div>
+      </div>
+      <div class="servicio reveal">
+        <div class="servicio-num">06</div>
+        <div><h3>Peinados de evento</h3><p>Recogidos, semirrecogidos y peinados para bodas, comuniones o cualquier día que importa.</p></div>
+        <div class="servicio-arrow">→</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="equipo">
+  <div class="container">
+    <div class="section-label reveal">El equipo</div>
+    <h2 class="reveal">Las manos <i>detrás</i> del salón.</h2>
+    <p class="lead reveal">Quienes te atienden, por orden de aparición en las reseñas. Profesionales, cercanos y con muchos años haciendo de la peluquería un oficio cuidado.</p>
+    <div class="equipo-grid">
+      <article class="persona reveal">
+        <div class="persona-photo"><div class="persona-initial">A</div></div>
+        <h3>Andrés</h3>
+        <div class="rol">Estilista · Color · Corte</div>
+      </article>
+      <article class="persona reveal">
+        <div class="persona-photo"><div class="persona-initial">P</div></div>
+        <h3>Paola</h3>
+        <div class="rol">Estilista · Tratamientos · Mechas</div>
+      </article>
+      <article class="persona reveal">
+        <div class="persona-photo"><div class="persona-initial">S</div></div>
+        <h3>Sol</h3>
+        <div class="rol">Atención · Estilismo</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" class="galeria">
+  <div class="container">
+    <div class="section-label reveal">Galería</div>
+    <h2 class="reveal">El trabajo <i>en imágenes</i>.</h2>
+    <p class="lead reveal">Detalles del salón, momentos de trabajo y resultados reales.</p>
+    <div class="galeria-grid">
+      <div class="gal-item tall reveal"><img src="img/foto-2.jpg" alt="Detalle del salón BLUME"/></div>
+      <div class="gal-item reveal"><img src="img/foto-3.jpg" alt="Trabajo realizado en BLUME"/></div>
+      <div class="gal-item wide reveal"><img src="img/foto-4.jpg" alt="Espacio del salón"/></div>
+      <div class="gal-item reveal"><img src="img/foto-5.jpg" alt="Detalle de color"/></div>
+      <div class="gal-item reveal"><img src="img/foto-6.jpg" alt="Resultado de tratamiento"/></div>
+      <div class="gal-item tall reveal"><img src="img/foto-8.jpg" alt="Interior del salón"/></div>
+      <div class="gal-item reveal"><img src="img/foto-9.jpg" alt="Detalle del trabajo"/></div>
+      <div class="gal-item reveal"><img src="img/foto-10.jpg" alt="Espacio BLUME"/></div>
+    </div>
+  </div>
+</section>
+
+<section class="reviews">
+  <div class="container">
+    <div class="section-label reveal">Lo que dicen las clientas</div>
+    <h2 class="reveal">5,0 ★ · <i>404</i> reseñas reales.</h2>
+    <p class="lead reveal">Cinco testimonios verbatim de Google. Sin retocar.</p>
+    <div class="reviews-grid">
+      <article class="review reveal">
+        <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <p class="review-text">Paola fue super amable y profesional. Logró que mi cabello volviera a verse lleno de vida. Yo quería un cambio bastante natural, y ella entendió perfectamente lo que buscaba, logrando un resultado súper lindo.</p>
+        <div class="review-author">Nadja Farhat</div>
+      </article>
+      <article class="review reveal">
+        <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <p class="review-text">Quiero recomendar esta peluquería por la excelente calidad de su trabajo, la atención tan cuidada y la gran profesionalidad de todo el equipo. Desde el primer momento, Andrés, Paola y Sol me hicieron sentir en buenas manos. En mi caso, me realicé taninoplastia y el resultado fue impecable: cabello suave, brillante y perfectamente trabajado. Un equipo humano y profesional que marca la diferencia.</p>
+        <div class="review-author">Sara García</div>
+      </article>
+      <article class="review reveal">
+        <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <p class="review-text">Fui a la peluquería y quedé encantada con el trato de Andrés y Paola. Desde que entré me hicieron sentir cómoda, me escucharon con paciencia y entendieron exactamente lo que quería. El ambiente es agradable, trabajan con mucho cuidado y se nota que les gusta lo que hacen. Salí con el cabello precioso.</p>
+        <div class="review-author">Claudia Rodríguez</div>
+      </article>
+      <article class="review reveal">
+        <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <p class="review-text">Se ha convertido en mi peluquería de confianza. Andrés es un gran profesional y súper simpático, ha conseguido exactamente lo que quería y mi pelo necesitaba, que no era un trabajo fácil. Muy contenta con ellos.</p>
+        <div class="review-author">Andrea Frutos</div>
+      </article>
+      <article class="review reveal">
+        <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <p class="review-text">Fui a la peluquería para hacerme mechas satush, corte y peinado, y quedé encantada con el resultado. Paola y Andrés fueron quienes me atendieron y ambos demostraron muchísima profesionalidad y cuidado en cada paso. Sol estuvo por allí y fue igual de agradable. El ambiente es muy cercano, limpio y moderno. Sin duda volveré.</p>
+        <div class="review-author">Carolina Pillado</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="contact">
+  <div class="container">
+    <div class="section-label reveal">Visítanos</div>
+    <h2 class="reveal">Ven, te <i>esperamos</i>.</h2>
+    <p class="lead reveal">Estamos en el barrio de Ciudad Lineal, en Arturo Soria. Pide cita por teléfono o WhatsApp y te buscamos hueco.</p>
+    <div class="contact-grid">
+      <div class="contact-info">
+        <div class="info-row reveal">
+          <div class="lbl">Teléfono</div>
+          <div class="val"><a href="tel:+34623521089">623 52 10 89</a></div>
+        </div>
+        <div class="info-row reveal">
+          <div class="lbl">WhatsApp</div>
+          <div class="val"><a href="https://wa.me/34623521089">Enviar mensaje</a></div>
+        </div>
+        <div class="info-row reveal">
+          <div class="lbl">Instagram</div>
+          <div class="val"><a href="https://instagram.com/blume_prohair" rel="noopener">@blume_prohair</a></div>
+        </div>
+        <div class="info-row reveal">
+          <div class="lbl">Dirección</div>
+          <div class="val">C. de Arturo Soria, 21<br/>28027 Madrid · Ciudad Lineal</div>
+        </div>
+        <div class="info-row reveal">
+          <div class="lbl">Horario</div>
+          <div class="val">
+            <div class="hours-list">
+              <div><b>Lunes – Viernes</b>10:00 – 20:00</div>
+              <div><b>Sábado</b>10:00 – 16:00</div>
+              <div class="closed"><b>Domingo</b>Cerrado</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal">
+        <iframe class="map-frame" title="Ubicación de BLUME Peluquería" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=40.4405036,-3.6405039&hl=es&z=16&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final">
+  <div class="container">
+    <div class="section-label" style="justify-content:center">BLUME · Madrid</div>
+    <h2 class="reveal">¿Reservamos <i>tu cita</i>?</h2>
+    <p class="lead reveal">Llámanos al 623 52 10 89 o escríbenos por WhatsApp. Te respondemos en el día.</p>
+    <a href="https://wa.me/34623521089" class="cta-big">Escribir por WhatsApp</a>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <h4>BLUME</h4>
+      <p>Peluquería profesional en Ciudad Lineal, Madrid. Color, mechas satush, taninoplastia y corte personalizado.</p>
+    </div>
+    <div>
+      <h4>Contacto</h4>
+      <p>
+        <a href="tel:+34623521089">623 52 10 89</a><br/>
+        <a href="https://wa.me/34623521089">WhatsApp</a><br/>
+        <a href="https://instagram.com/blume_prohair" rel="noopener">@blume_prohair</a>
+      </p>
+    </div>
+    <div>
+      <h4>Horario</h4>
+      <p>Lunes – Viernes: 10:00 – 20:00<br/>Sábado: 10:00 – 16:00<br/>Domingo: cerrado</p>
+    </div>
+  </div>
+  <div class="footer-copy">© BLUME Peluquería Profesional · Madrid</div>
+</footer>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+
+// Hero loaded
+window.addEventListener('load', () => {
+  document.getElementById('hero').classList.add('loaded');
+});
+
+// Nav scroll
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 60) nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+});
+
+// Hero reveal
+gsap.timeline().to('.hero-content > *, .hero-meta', {
+  opacity:1, y:0, duration:1, stagger:0.12, ease:'power3.out', delay:0.3,
+  onStart: () => {
+    document.querySelectorAll('.hero-content > *, .hero-meta').forEach(el => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(30px)';
+    });
+  }
+});
+
+// Scroll reveals
+gsap.utils.toArray('.reveal').forEach(el => {
+  gsap.fromTo(el, {opacity:0, y:40}, {opacity:1, y:0, duration:1, ease:'power3.out', scrollTrigger:{trigger:el, start:'top 88%', once:true}});
+});
+
+// Parallax hero
+gsap.to('.hero-bg img', {
+  yPercent:18, ease:'none',
+  scrollTrigger:{trigger:'.hero', start:'top top', end:'bottom top', scrub:true}
+});
+</script>
+</body>
+</html>
