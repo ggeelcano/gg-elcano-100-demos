@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Taller Leioa Car · Taller mecánico de confianza en Leioa, Bizkaia</title>
+<meta name="description" content="Taller mecánico multimarca en el Polígono Ibarrabarri de Leioa. Reparación honesta, presupuestos claros y explicación detallada del trabajo. Valorados 4,9★ con 184 reseñas reales en Google."/>
+<meta property="og:title" content="Taller Leioa Car · Reparación de vehículos en Leioa"/>
+<meta property="og:description" content="Taller mecánico multimarca en Leioa. 4,9★ con 184 reseñas. Honestidad, transparencia y trabajo bien hecho."/>
+<meta property="og:image" content="img/hero.jpg"/>
+<meta property="og:type" content="website"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+html,body{overflow-x:hidden;background:linear-gradient(180deg,#0a1929,#000814);color:#fff;font-family:'Inter',sans-serif;min-height:100vh;line-height:1.5}
+a{color:inherit}
+:focus-visible{outline:3px solid #ff8a3d;outline-offset:3px;border-radius:6px}
+.skip-link{position:absolute;left:-9999px;top:0;background:#ff6b00;color:#fff;padding:12px 22px;z-index:9999;text-decoration:none;font-weight:600;border-radius:0 0 12px 0}
+.skip-link:focus{left:0}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:22px 42px;display:flex;justify-content:space-between;align-items:center;background:rgba(0,0,0,0.55);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,255,255,0.08)}
+.logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:19px;letter-spacing:-0.5px;display:flex;align-items:center;gap:10px}
+.logo-dot{width:10px;height:10px;background:#ff6b00;border-radius:50%;animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{transform:scale(1);opacity:1}50%{transform:scale(1.4);opacity:0.6}}
+.nav-cta{background:#ff6b00;color:#fff;padding:10px 22px;border-radius:40px;font-weight:600;text-decoration:none;font-size:14px;transition:all 0.2s;border:none;cursor:pointer}
+.nav-cta:hover,.nav-cta:focus-visible{transform:translateY(-1px);filter:brightness(1.1)}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 42px 80px;overflow:hidden}
+#hero-canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:1}
+.hero::before{content:'';position:absolute;inset:0;background:linear-gradient(110deg,rgba(0,0,0,0.78) 0%,rgba(10,25,41,0.6) 55%,rgba(10,25,41,0.4) 100%),url('img/hero.jpg') center/cover;z-index:0;filter:saturate(1.1)}
+.hero-content{position:relative;z-index:2;max-width:1200px;margin:0 auto;width:100%}
+.trust{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;background:rgba(0,0,0,0.5);border:1px solid rgba(255,255,255,0.18);border-radius:40px;font-size:13px;margin-bottom:28px;backdrop-filter:blur(8px)}
+.trust .dot{width:6px;height:6px;background:#22c55e;border-radius:50%;box-shadow:0 0 12px #22c55e}
+h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(44px,7vw,92px);font-weight:700;line-height:0.95;letter-spacing:-3px;margin-bottom:28px;max-width:900px;text-shadow:0 4px 30px rgba(0,0,0,0.6)}
+h1 i{color:#ff8a3d;font-style:italic;font-weight:500}
+.hero-sub{font-size:19px;line-height:1.55;opacity:0.9;max-width:600px;margin-bottom:40px;text-shadow:0 2px 12px rgba(0,0,0,0.5)}
+.ctas{display:flex;gap:14px;margin-bottom:56px;flex-wrap:wrap}
+.btn-p{background:#ff6b00;color:#fff;padding:17px 32px;border-radius:40px;font-weight:600;font-size:15px;text-decoration:none;display:inline-flex;gap:10px;align-items:center;transition:all 0.25s;border:none;cursor:pointer}
+.btn-p:hover,.btn-p:focus-visible{transform:translateY(-2px);filter:brightness(1.1);box-shadow:0 15px 35px #ff6b0066}
+.btn-g{background:rgba(0,0,0,0.4);color:#fff;padding:17px 28px;border-radius:40px;font-weight:500;font-size:15px;text-decoration:none;border:1px solid rgba(255,255,255,0.18);transition:all 0.25s;backdrop-filter:blur(6px)}
+.btn-g:hover,.btn-g:focus-visible{background:rgba(255,255,255,0.08)}
+.hero-stats{display:flex;gap:48px;padding-top:32px;border-top:1px solid rgba(255,255,255,0.18);flex-wrap:wrap}
+.stat-num{font-family:'Space Grotesk',sans-serif;font-size:36px;font-weight:700;line-height:1;margin-bottom:6px}
+.stat-num b{color:#ff8a3d}
+.stat-label{font-size:13px;opacity:0.75}
+section{padding:120px 42px;position:relative}
+.container{max-width:1200px;margin:0 auto}
+.section-label{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:600;color:#ff8a3d;text-transform:uppercase;letter-spacing:2px;margin-bottom:20px}
+.section-label::before{content:'';width:30px;height:1px;background:#ff8a3d}
+h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(32px,5vw,62px);font-weight:700;line-height:1.05;letter-spacing:-1.5px;margin-bottom:24px;max-width:900px}
+h2 i{color:#ff8a3d;font-style:italic;font-weight:500}
+.section-sub{font-size:18px;opacity:0.78;max-width:640px;line-height:1.6;margin-bottom:60px}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px}
+.card{padding:32px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:20px;transition:all 0.3s}
+.card:hover{transform:translateY(-4px);border-color:#ff6b0066;background:rgba(255,255,255,0.05)}
+.card .num{font-family:'Space Grotesk',sans-serif;font-size:13px;color:#ff8a3d;margin-bottom:16px;letter-spacing:1px;font-weight:600}
+.card h3{font-family:'Space Grotesk',sans-serif;font-size:22px;margin-bottom:14px;letter-spacing:-0.5px;font-weight:600}
+.card p{opacity:0.78;line-height:1.6;font-size:15px}
+.reviews-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;margin-top:60px}
+.review{padding:28px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:20px;display:flex;flex-direction:column;gap:18px}
+.review-stars{color:#ff8a3d;font-size:18px;letter-spacing:2px;line-height:1}
+.review-text{font-size:15px;line-height:1.65;opacity:0.88}
+.review-author{font-family:'Space Grotesk',sans-serif;font-size:14px;font-weight:600;opacity:0.7;display:flex;align-items:center;gap:10px;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08)}
+.review-avatar{width:34px;height:34px;border-radius:50%;background:linear-gradient(135deg,#ff6b00,#ff8a3d);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0}
+.contact-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;margin-top:40px;align-items:start}
+@media(max-width:900px){.contact-grid{grid-template-columns:1fr}}
+.contact-block{display:flex;flex-direction:column;gap:14px}
+.contact-item{padding:24px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:16px}
+.contact-item .label{font-size:12px;opacity:0.6;margin-bottom:8px;text-transform:uppercase;letter-spacing:1px}
+.contact-item .value{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:500;color:#fff;line-height:1.4}
+.contact-item a{color:#fff;text-decoration:none;border-bottom:1px solid rgba(255,138,61,0.4);transition:border-color 0.2s}
+.contact-item a:hover{border-color:#ff8a3d}
+.hours{display:flex;flex-direction:column;gap:8px;font-size:15px}
+.hours-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid rgba(255,255,255,0.06)}
+.hours-row:last-child{border-bottom:0}
+.hours-row .day{opacity:0.78}
+.hours-row .time{font-weight:500}
+.hours-row.closed .time{opacity:0.5}
+.map-frame{width:100%;aspect-ratio:4/3;border:none;border-radius:20px;border:1px solid rgba(255,255,255,0.1)}
+footer{padding:48px 42px;text-align:center;border-top:1px solid rgba(255,255,255,0.08);opacity:0.55;font-size:13px;line-height:1.7}
+.cta-final{text-align:center;padding:140px 42px}
+.cta-final h2{margin:0 auto 24px}
+.cta-final .section-sub{margin:0 auto 40px}
+.cta-big{display:inline-flex;align-items:center;gap:14px;background:#ff6b00;color:#fff;padding:22px 44px;border-radius:60px;font-size:17px;font-weight:600;text-decoration:none;transition:all 0.3s;box-shadow:0 20px 50px #ff6b0055}
+.cta-big:hover,.cta-big:focus-visible{transform:translateY(-3px) scale(1.02);filter:brightness(1.1)}
+.reveal{opacity:0;transform:translateY(40px)}
+.alt-bg{background:linear-gradient(180deg,#000814,#0a1929)}
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation-duration:0.001s !important;transition-duration:0.001s !important}
+  .reveal{opacity:1;transform:none}
+  #hero-canvas{display:none}
+}
+@media(max-width:900px){nav{padding:16px 20px}section{padding:80px 22px}.hero{padding:100px 22px 60px}.hero-stats{gap:24px}.ctas{flex-direction:column;align-items:stretch}.btn-p,.btn-g{justify-content:center}}
+</style>
+</head>
+<body>
+<a href="#main" class="skip-link">Saltar al contenido principal</a>
+<nav aria-label="Navegación principal">
+  <div class="logo"><span class="logo-dot" aria-hidden="true"></span>Taller Leioa Car</div>
+  <a href="#contacto" class="nav-cta">Pedir cita</a>
+</nav>
+
+<main id="main">
+<section class="hero" aria-labelledby="hero-title">
+  <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <div class="hero-content">
+    <div class="trust reveal"><span class="dot" aria-hidden="true"></span>⭐ 4,9 · 184 reseñas reales en Google · Leioa, Bizkaia</div>
+    <h1 id="hero-title" class="reveal">Tu coche, en <i>las mejores manos</i> de Leioa.</h1>
+    <p class="hero-sub reveal">Taller mecánico multimarca en el Polígono Ibarrabarri. Te explicamos cada pieza que cambiamos, te enseñamos el trabajo y te damos un presupuesto claro antes de empezar.</p>
+    <div class="ctas reveal">
+      <a href="tel:+34662336692" class="btn-p" aria-label="Llamar al teléfono 662 33 66 92">📞 Llamar — 662 33 66 92</a>
+      <a href="#servicios" class="btn-g">Ver servicios</a>
+    </div>
+    <div class="hero-stats reveal" role="list">
+      <div role="listitem"><div class="stat-num"><b>4,9</b> ★</div><div class="stat-label">Valoración Google</div></div>
+      <div role="listitem"><div class="stat-num"><b>184</b></div><div class="stat-label">Reseñas verificadas</div></div>
+      <div role="listitem"><div class="stat-num"><b>+15</b></div><div class="stat-label">Años en Leioa</div></div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios" class="alt-bg" aria-labelledby="services-title">
+  <div class="container">
+    <div class="section-label">Servicios</div>
+    <h2 id="services-title" class="reveal">Mecánica <i>honesta</i>, completa y multimarca.</h2>
+    <p class="section-sub reveal">Diagnóstico, mantenimiento y reparación de cualquier marca. Si no hace falta cambiarlo, no se cambia. Y si hace falta, te lo enseñamos antes.</p>
+    <div class="cards">
+      <article class="card reveal"><div class="num">01</div><h3>Diagnóstico y electrónica</h3><p>Localizamos el problema con equipos de diagnóstico actuales y te explicamos qué está fallando con palabras claras, sin tecnicismos.</p></article>
+      <article class="card reveal"><div class="num">02</div><h3>Mantenimiento periódico</h3><p>Cambios de aceite, filtros, correa de distribución, frenos, suspensión, neumáticos. El mantenimiento al día es lo que más alarga la vida del coche.</p></article>
+      <article class="card reveal"><div class="num">03</div><h3>Reparación mecánica</h3><p>Motor, embrague, transmisión, caja de cambios, refrigeración. Reparamos lo que se pueda reparar antes de pedirte que cambies piezas caras.</p></article>
+      <article class="card reveal"><div class="num">04</div><h3>Pre-ITV y revisiones</h3><p>Revisamos tu coche antes de pasar la ITV para que no te lleves sorpresas. Si hay algo que arreglar, lo dejamos listo.</p></article>
+      <article class="card reveal"><div class="num">05</div><h3>Presupuestos claros</h3><p>Sin letra pequeña. Antes de tocar nada te decimos qué cuesta y cuánto tarda. Si aparece algo más por el camino, te llamamos primero.</p></article>
+      <article class="card reveal"><div class="num">06</div><h3>Asesoramiento honesto</h3><p>Te aconsejamos qué hacer en cada caso, mirando por tu bolsillo. Si tu coche ya no merece la pena arreglar, también te lo decimos.</p></article>
+    </div>
+  </div>
+</section>
+
+<section aria-labelledby="reviews-title">
+  <div class="container">
+    <div class="section-label">Reseñas reales · Google</div>
+    <h2 id="reviews-title" class="reveal">Lo que dicen los <i>clientes de César</i>.</h2>
+    <p class="section-sub reveal">184 reseñas verificadas en Google con 4,9 ★ de media. Estas son cinco de ellas, palabra por palabra.</p>
+    <div class="reviews-grid">
+      <article class="review reveal">
+        <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <p class="review-text">Es la primera vez que vengo a este taller aunque ya lo tenía fichado por sus buenas reseñas. He salido encantado, me han enseñado todas las piezas cambiadas y me han explicado con detalle por qué hay que cambiarlas. Lo han hecho en una mañana. Para mí muy profesionales.</p>
+        <div class="review-author"><span class="review-avatar" aria-hidden="true">J</span>J.M. Domínguez</div>
+      </article>
+      <article class="review reveal">
+        <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <p class="review-text">Auténticos profesionales, tanto los mecánicos como la administrativa son un encanto. Taller Leioa Car es 100% recomendable, gente honesta y sincera. Cada vez que alguna persona, harta de malas experiencias con otros talleres, me pregunta por un taller de confianza les remito aquí.</p>
+        <div class="review-author"><span class="review-avatar" aria-hidden="true">A</span>Antonio Fernández López</div>
+      </article>
+      <article class="review reveal">
+        <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <p class="review-text">Mi experiencia es totalmente positiva. La información por parte de César, tanto sobre las intervenciones realizadas en el coche como aquellas otras que debieran realizarse más adelante, son claras y comprensibles aún para personas no expertas en mecánica. Tiempos y precios ajustados al trabajo realizado.</p>
+        <div class="review-author"><span class="review-avatar" aria-hidden="true">L</span>Luis María Barainca</div>
+      </article>
+      <article class="review reveal">
+        <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <p class="review-text">Sin duda mi taller de confianza. Siempre me han aconsejado con reparaciones y posibles consecuencias inoportunas. Saben arreglar coches y aciertan con el diagnóstico, así que no marean a lo tonto. A mí siempre me ha ido bien. Llevar las cosas al día es clave.</p>
+        <div class="review-author"><span class="review-avatar" aria-hidden="true">R</span>Rubén Alegre</div>
+      </article>
+      <article class="review reveal">
+        <div class="review-stars" aria-label="5 de 5 estrellas">★★★★★</div>
+        <p class="review-text">El mejor taller mecánico. Tu coche jamás estará en mejores manos que con César y su equipo. Además, te aconsejan y asesoran qué hacer en caso de alternativas o diversas soluciones, siempre mirando por el bolsillo del cliente. Te explican y te enseñan todo lo que han hecho con pelos y señales.</p>
+        <div class="review-author"><span class="review-avatar" aria-hidden="true">I</span>Ion R.R.</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section id="contacto" class="alt-bg" aria-labelledby="contact-title">
+  <div class="container">
+    <div class="section-label">Visítanos</div>
+    <h2 id="contact-title" class="reveal">¿Necesitas <i>una cita</i>? Estamos aquí.</h2>
+    <p class="section-sub reveal">Polígono Ibarrabarri, Pabellón 24C. Llámanos o pásate por el taller y te atendemos sin compromiso.</p>
+    <div class="contact-grid">
+      <div class="contact-block">
+        <div class="contact-item reveal">
+          <div class="label">Teléfono</div>
+          <div class="value"><a href="tel:+34662336692">662 33 66 92</a></div>
+        </div>
+        <div class="contact-item reveal">
+          <div class="label">Dirección</div>
+          <div class="value">P.A.E. Ibarrabarri, Pabellón 24C<br/>Iturriondo Kalea, 18<br/>48940 Leioa, Bizkaia</div>
+        </div>
+        <div class="contact-item reveal">
+          <div class="label">Horario</div>
+          <div class="value" style="font-size:15px">
+            <div class="hours">
+              <div class="hours-row"><span class="day">Lunes a jueves</span><span class="time">8:00 – 15:30</span></div>
+              <div class="hours-row"><span class="day">Viernes</span><span class="time">8:00 – 13:00</span></div>
+              <div class="hours-row closed"><span class="day">Sábado y domingo</span><span class="time">Cerrado</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <iframe class="map-frame reveal" title="Mapa de ubicación de Taller Leioa Car" loading="lazy" referrerpolicy="no-referrer-when-downgrade" src="https://www.google.com/maps?q=43.318372,-2.9883147&hl=es&z=16&output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cta-final" aria-labelledby="cta-title">
+  <div class="container">
+    <div class="section-label" style="justify-content:center">Taller Leioa Car · Leioa</div>
+    <h2 id="cta-title" class="reveal">¿Pedimos <i>cita</i>?</h2>
+    <p class="section-sub reveal">Llámanos al 662 33 66 92 y te buscamos hueco esta misma semana. Presupuesto sin compromiso.</p>
+    <a href="tel:+34662336692" class="cta-big reveal">📞 Llamar al 662 33 66 92</a>
+  </div>
+</section>
+</main>
+
+<footer>
+  Taller Leioa Car · P.A.E. Ibarrabarri, Pab. 24C · 48940 Leioa, Bizkaia<br/>
+  Tel. 662 33 66 92 · L–J 8:00–15:30 · V 8:00–13:00
+</footer>
+
+<script>
+gsap.registerPlugin(ScrollTrigger);
+const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const animHooks = [];
+if (!reducedMotion) {
+  (() => {
+    const canvas = document.getElementById('hero-canvas');
+    if (!canvas) return;
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(55, window.innerWidth/window.innerHeight, 0.1, 200);
+    camera.position.z = 22;
+    const renderer = new THREE.WebGLRenderer({canvas, alpha: true, antialias: true});
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+    renderer.setSize(window.innerWidth, window.innerHeight);
+
+    // Engranajes 3D + chispas (sector taller)
+    const gears = [];
+    function makeGear(teeth, r, color){
+      const shape = new THREE.Shape();
+      const inner = r*0.7, outer = r;
+      for(let i=0;i<teeth*2;i++){
+        const angle = (i/(teeth*2))*Math.PI*2;
+        const rad = i%2===0 ? outer : inner;
+        const x = Math.cos(angle)*rad, y = Math.sin(angle)*rad;
+        if(i===0) shape.moveTo(x,y); else shape.lineTo(x,y);
+      }
+      const hole = new THREE.Path();
+      hole.absarc(0,0,r*0.22,0,Math.PI*2,true);
+      shape.holes.push(hole);
+      const geo = new THREE.ExtrudeGeometry(shape, {depth:0.18, bevelEnabled:true, bevelSize:0.04, bevelThickness:0.04});
+      return new THREE.Mesh(geo, new THREE.MeshStandardMaterial({color, metalness:0.92, roughness:0.28}));
+    }
+    for(let i=0;i<6;i++){
+      const gear = makeGear(8+Math.floor(Math.random()*6), 0.9+Math.random()*0.8, [0xff6b00, 0x64748b, 0xffbe0b, 0xff8a3d][i%4]);
+      gear.position.set((Math.random()-0.5)*26, (Math.random()-0.5)*14, -2-Math.random()*10);
+      gear.userData = {speed: (Math.random()-0.5)*0.018 + 0.005, baseY: gear.position.y, phase: Math.random()*6};
+      scene.add(gear); gears.push(gear);
+    }
+    // Chispas
+    const sparkCount = 80;
+    const sparkPos = new Float32Array(sparkCount*3);
+    const sparkVel = [];
+    for(let i=0;i<sparkCount;i++){
+      sparkPos[i*3]=(Math.random()-0.5)*30;sparkPos[i*3+1]=(Math.random()-0.5)*18;sparkPos[i*3+2]=(Math.random()-0.5)*10;
+      sparkVel.push({x:(Math.random()-0.5)*0.25,y:(Math.random())*0.18+0.04,z:(Math.random()-0.5)*0.1});
+    }
+    const sparkGeo = new THREE.BufferGeometry();
+    sparkGeo.setAttribute('position', new THREE.BufferAttribute(sparkPos,3));
+    const sparks = new THREE.Points(sparkGeo, new THREE.PointsMaterial({color:0xff8a3d,size:0.1,transparent:true,opacity:0.75,blending:THREE.AdditiveBlending}));
+    scene.add(sparks);
+    scene.add(new THREE.AmbientLight(0x6688aa,0.4));
+    const pl = new THREE.PointLight(0xff6b00, 3.2, 40); pl.position.set(0,0,10); scene.add(pl);
+    animHooks.push((t)=>{
+      gears.forEach(g=>{g.rotation.z += g.userData.speed; g.position.y = g.userData.baseY + Math.sin(t*0.5+g.userData.phase)*0.2;});
+      const sp = sparkGeo.attributes.position.array;
+      for(let i=0;i<sparkCount;i++){sp[i*3]+=sparkVel[i].x;sp[i*3+1]+=sparkVel[i].y;sp[i*3+2]+=sparkVel[i].z; if(sp[i*3+1]>12){sp[i*3]=(Math.random()-0.5)*30;sp[i*3+1]=-12;sp[i*3+2]=(Math.random()-0.5)*10;}}
+      sparkGeo.attributes.position.needsUpdate = true;
+    });
+
+    const mouse = {x:0, y:0};
+    window.addEventListener('mousemove', e => {mouse.x=(e.clientX/window.innerWidth-0.5)*2; mouse.y=-(e.clientY/window.innerHeight-0.5)*2;});
+    let t=0;
+    function loop(){
+      requestAnimationFrame(loop);
+      t += 0.015;
+      animHooks.forEach(h => h(t));
+      camera.position.x += (mouse.x*1.2 - camera.position.x)*0.025;
+      camera.position.y += (mouse.y*0.8 - camera.position.y)*0.025;
+      camera.lookAt(0,0,0);
+      renderer.render(scene, camera);
+    }
+    loop();
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth/window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  })();
+}
+gsap.utils.toArray('.reveal').forEach(el => {
+  gsap.to(el, {opacity:1, y:0, duration:0.9, ease:'power3.out', scrollTrigger:{trigger:el, start:'top 88%', once:true}});
+});
+gsap.timeline().to('.hero .reveal', {opacity:1, y:0, duration:0.9, stagger:0.1, ease:'power3.out', delay:0.2});
+</script>
+</body>
+</html>
