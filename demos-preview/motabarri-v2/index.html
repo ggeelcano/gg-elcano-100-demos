@@ -497,6 +497,17 @@ footer{background:#15100C;color:var(--crema);padding:70px 28px 30px}
 .menu-fixed-footer b{color:var(--tierra);font-weight:600;font-style:normal;font-family:'Inter',sans-serif;font-size:11.5px;letter-spacing:.04em}
 .menu-fixed-footer a{color:var(--brasa-2);font-weight:600}
 
+.allergens-intro{text-align:center;max-width:720px;margin:0 auto 48px;font-size:15px;color:var(--gris);line-height:1.7}
+.allergens-intro b{color:var(--tierra)}
+.allergens-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:42px 24px;max-width:960px;margin:0 auto;padding:10px 0}
+.alg{text-align:center;position:relative}
+.alg-circle{width:96px;height:96px;border-radius:50%;display:grid;place-items:center;margin:0 auto 14px;position:relative;box-shadow:0 4px 14px rgba(42,31,24,.12)}
+.alg-num{position:absolute;top:-2px;left:50%;transform:translateX(-50%) translateY(-90%);background:var(--hueso);color:var(--tierra);width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-weight:700;font-size:16px;border:1.5px solid var(--linea)}
+.alg-icon{font-size:46px;line-height:1;filter:drop-shadow(0 1px 2px rgba(0,0,0,.18))}
+.alg-name{font-family:'Inter',sans-serif;font-weight:600;font-size:13px;color:var(--tinta);letter-spacing:.02em;text-transform:uppercase;line-height:1.3}
+.allergens-foot{max-width:720px;margin:54px auto 0;padding:22px 26px;background:var(--crema);border-left:3px solid var(--brasa);font-size:13.5px;color:var(--gris);line-height:1.7;font-style:italic;text-align:center}
+.allergens-foot b{color:var(--tierra);font-style:normal;font-weight:600}
+
 @media(max-width:1024px){
   .carta-home{padding:70px 0 0}
   .carta-grid{grid-template-columns:1fr;gap:24px}
@@ -507,12 +518,17 @@ footer{background:#15100C;color:var(--crema);padding:70px 28px 30px}
   .menu-fixed{padding:32px 26px;min-height:520px}
   .menu-fixed-head h4{font-size:24px}
   .menu-fixed-price{font-size:36px}
+  .allergens-grid{grid-template-columns:repeat(4,1fr);gap:36px 16px}
 }
 @media(max-width:560px){
   .carta-tab{padding:14px 14px;font-size:15px}
   .carta-main{padding:40px 18px 70px}
   .menus-home{padding:55px 18px 65px}
   .menu-fixed{min-height:560px}
+  .allergens-grid{grid-template-columns:repeat(3,1fr);gap:32px 8px}
+  .alg-circle{width:82px;height:82px}
+  .alg-icon{font-size:38px}
+  .alg-name{font-size:11.5px}
 }
 </style>
 </head>
@@ -538,7 +554,7 @@ window.addEventListener('load',()=>setTimeout(hideLoader,400));
 setTimeout(hideLoader,4000);
 </script>
 
-<div class="topbar"><span>CASERÍO DEL <b>SIGLO XIX</b></span><span>·</span><span>BRASA &amp; TXULETÓN</span><span>·</span><span>MENÚ <b>15€</b> · FINDE <b>18€</b></span></div>
+<div class="topbar"><span>CASERÍO DEL <b>SIGLO XIX</b></span><span>·</span><span>BRASA &amp; TXULETÓN</span><span>·</span><span>ALUBIADA <b>22€</b> · MENÚ MOTABARRI <b>38€</b></span></div>
 
 <nav>
   <div class="nav-inner">
@@ -581,7 +597,7 @@ setTimeout(hideLoader,4000);
   <div class="hero-frame"></div>
   <div class="hero-meta">
     <span>★ <b>3.7</b> · 16K+ RESEÑAS</span>
-    <span>MENÚ <b>15€</b></span>
+    <span>ALUBIADA <b>22€</b></span>
     <span>KM 32 · LEIOA-UNBE</span>
   </div>
   <div class="hero-tag">Caserío del XIX</div>
@@ -603,7 +619,7 @@ setTimeout(hideLoader,4000);
     <div class="stat"><b>1992</b><span>caserío rehabilitado</span></div>
     <div class="stat"><b>16K+</b><span>reseñas</span></div>
     <div class="stat"><b>200</b><span>comensales</span></div>
-    <div class="stat"><b>20€</b><span>menú del día</span></div>
+    <div class="stat"><b>38€</b><span>menú Motabarri</span></div>
   </div>
 </div>
 
@@ -723,6 +739,7 @@ setTimeout(hideLoader,4000);
     <button class="carta-tab" data-carta="noche">Viernes &amp; sábado noche</button>
     <button class="carta-tab" data-carta="postres">Postres</button>
     <button class="carta-tab" data-carta="bodega">Bodega</button>
+    <button class="carta-tab" data-carta="alergenos">Alérgenos</button>
   </div>
 
   <div class="carta-main">
@@ -965,9 +982,48 @@ setTimeout(hideLoader,4000);
             <div class="dish"><div class="dish-head"><span class="dish-name">Moët &amp; Chandon</span><span class="dish-price">45,00 €</span></div></div>
           </div>
         </div>
+
+        <div class="carta-section">
+          <h2>Aguas, pan y extras</h2>
+          <div class="carta-grid">
+            <div class="dish"><div class="dish-head"><span class="dish-name">Agua 1 litro</span><span class="dish-price">2,50 €</span></div></div>
+            <div class="dish"><div class="dish-head"><span class="dish-name">Agua 1/2 litro</span><span class="dish-price">1,80 €</span></div></div>
+            <div class="dish"><div class="dish-head"><span class="dish-name">Pan</span><span class="dish-price">1,60 €</span></div></div>
+            <div class="dish"><div class="dish-head"><span class="dish-name">Envase para llevar</span><span class="dish-price">0,50 €</span></div></div>
+            <div class="dish"><div class="dish-head"><span class="dish-name">Bolsa</span><span class="dish-price">0,50 €</span></div></div>
+          </div>
+        </div>
       </div>
 
-      <p class="carta-note">Precios con IVA incluido · Carta sujeta a disponibilidad de mercado · Para alérgenos consulta a tu camarero/a</p>
+      <div class="carta-panel" data-carta-panel="alergenos">
+        <div class="carta-section">
+          <h2>Tabla de alérgenos</h2>
+          <p class="allergens-intro">Cumplimos con el Reglamento <b>UE 1169/2011</b> sobre información alimentaria al consumidor. Si tienes alguna alergia o intolerancia, <b>avisa a tu camarero/a</b> antes de pedir y te indicaremos qué platos contienen cada alérgeno.</p>
+
+          <div class="allergens-grid">
+            <div class="alg"><div class="alg-circle" style="background:#F2C84B"><span class="alg-num">1</span><span class="alg-icon">🌾</span></div><div class="alg-name">Cereales<br>con gluten</div></div>
+            <div class="alg"><div class="alg-circle" style="background:#B36540"><span class="alg-num">2</span><span class="alg-icon">🦀</span></div><div class="alg-name">Crustáceos</div></div>
+            <div class="alg"><div class="alg-circle" style="background:#F0E36C"><span class="alg-num">3</span><span class="alg-icon">🥚</span></div><div class="alg-name">Huevos</div></div>
+            <div class="alg"><div class="alg-circle" style="background:#9CC6E0"><span class="alg-num">4</span><span class="alg-icon">🐟</span></div><div class="alg-name">Pescado</div></div>
+            <div class="alg"><div class="alg-circle" style="background:#7D7E3A"><span class="alg-num">5</span><span class="alg-icon">🥜</span></div><div class="alg-name">Cacahuetes</div></div>
+
+            <div class="alg"><div class="alg-circle" style="background:#BCD9E6"><span class="alg-num">6</span><span class="alg-icon">🥛</span></div><div class="alg-name">Leche</div></div>
+            <div class="alg"><div class="alg-circle" style="background:#9C7A2A"><span class="alg-num">7</span><span class="alg-icon">🌰</span></div><div class="alg-name">Frutos secos</div></div>
+            <div class="alg"><div class="alg-circle" style="background:#5FA83D"><span class="alg-num">8</span><span class="alg-icon">🌿</span></div><div class="alg-name">Apio</div></div>
+            <div class="alg"><div class="alg-circle" style="background:#ECD440"><span class="alg-num">9</span><span class="alg-icon">🟡</span></div><div class="alg-name">Mostaza</div></div>
+            <div class="alg"><div class="alg-circle" style="background:#4A4424"><span class="alg-num">10</span><span class="alg-icon">🫘</span></div><div class="alg-name">Altramuces</div></div>
+
+            <div class="alg"><div class="alg-circle" style="background:#94975A"><span class="alg-num">11</span><span class="alg-icon">🐚</span></div><div class="alg-name">Moluscos</div></div>
+            <div class="alg"><div class="alg-circle" style="background:#C2D860"><span class="alg-num">12</span><span class="alg-icon">⚪</span></div><div class="alg-name">Semillas<br>de sésamo</div></div>
+            <div class="alg"><div class="alg-circle" style="background:#7A4E7E"><span class="alg-num">13</span><span class="alg-icon">⚗️</span></div><div class="alg-name">Dióxido<br>de azufre</div></div>
+            <div class="alg"><div class="alg-circle" style="background:#86C94A"><span class="alg-num">14</span><span class="alg-icon">🫛</span></div><div class="alg-name">Soja</div></div>
+          </div>
+
+          <div class="allergens-foot"><b>Importante:</b> los 14 alérgenos de declaración obligatoria están identificados según la normativa europea. Para detalles por plato, pregunta a tu camarero/a. Disponemos también de información de trazas y contaminación cruzada bajo petición.</div>
+        </div>
+      </div>
+
+      <p class="carta-note">Precios con IVA incluido · Carta sujeta a disponibilidad de mercado · <a href="#" onclick="document.querySelector('.carta-tab[data-carta=alergenos]').click();return false;" style="color:var(--brasa-2);font-weight:600">Ver tabla de alérgenos</a></p>
 
     </div>
   </div>
@@ -978,7 +1034,7 @@ setTimeout(hideLoader,4000);
   <div class="menus-home-head">
     <span class="eyebrow">— menús cerrados —</span>
     <h3>Menús del <em>Motabarri</em>.</h3>
-    <p>Menú del día, alubiada, menús de pescado o chuletón para la pareja y menús concertados para grupos. Para venir sin pensar mucho y comer bien.</p>
+    <p>Menú niños, alubiada, menú Motabarri para grupos, menús de pescado o chuletón para la pareja y menús concertados. Para venir sin pensar mucho y comer bien.</p>
   </div>
 
   <div class="menus-grid">
@@ -1000,7 +1056,7 @@ setTimeout(hideLoader,4000);
 
     <div class="menu-fixed">
       <div class="menu-fixed-head">
-        <h4>Menú del día<em>mediodía</em></h4>
+        <h4>Menú niño<em>mediodía</em></h4>
         <span class="menu-fixed-price">20 €</span>
       </div>
       <h5>Para compartir</h5>
@@ -1029,6 +1085,28 @@ setTimeout(hideLoader,4000);
         <li>Postre</li>
       </ul>
       <div class="menu-fixed-footer"><b>Bebida:</b> agua, pan y vino crianza, verdejo, txakoli o cava. Cervezas y refrescos no incluidos. IVA incluido.</div>
+    </div>
+
+    <div class="menu-fixed">
+      <div class="menu-fixed-head">
+        <h4>Menú Motabarri<em>mínimo 4 personas</em></h4>
+        <span class="menu-fixed-price">38 €</span>
+      </div>
+      <h5>Para compartir</h5>
+      <ul>
+        <li>Ensalada de ventresca</li>
+        <li>Revuelto de setas y gambas</li>
+        <li>Croquetas de jamón <small>3 por persona</small></li>
+      </ul>
+      <h5>Segundo (a elegir)</h5>
+      <ul>
+        <li>Lubina con patata panadera</li>
+        <li>Pimientos rellenos de txangurro</li>
+        <li>Entrecot con guarnición</li>
+      </ul>
+      <h5>Postre</h5>
+      <ul><li>Postre a elegir</li></ul>
+      <div class="menu-fixed-footer"><b>Incluye:</b> agua, pan y vino crianza. Cervezas y refrescos no incluidos. IVA incluido. <b>Mínimo 4 personas.</b></div>
     </div>
 
     <div class="menu-fixed">
