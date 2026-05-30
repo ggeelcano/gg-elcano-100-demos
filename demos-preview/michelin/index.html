@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="es"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Restaurantes Michelin Euskadi · Demos G&G Elcano</title>
+<meta name="description" content="Demos de webs para los 10 restaurantes con estrella Michelin en Euskadi. Propuesta G&G Elcano.">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Inter',sans-serif;background:#0F140F;color:#F4EDE0;min-height:100vh;line-height:1.6}
+.hero{text-align:center;padding:80px 28px 50px;border-bottom:1px solid rgba(255,255,255,.1);background:linear-gradient(180deg,#1A2418,#0F140F)}
+.hero h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,6vw,72px);line-height:1.05;letter-spacing:-.01em;margin-bottom:16px}
+.hero h1 em{font-style:italic;color:#A88652;font-weight:600}
+.hero p{font-size:16px;opacity:.7;max-width:600px;margin:0 auto;font-weight:300}
+.hero .tag{display:inline-block;background:#A88652;color:#0F140F;padding:6px 14px;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-bottom:24px}
+.grid{max-width:1400px;margin:0 auto;padding:50px 28px 100px;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:24px}
+.card{display:flex;flex-direction:column;background:#1A2418;border:1px solid rgba(255,255,255,.06);text-decoration:none;color:inherit;transition:.3s;overflow:hidden}
+.card:hover{transform:translateY(-4px);border-color:var(--b);box-shadow:0 20px 50px rgba(0,0,0,.5)}
+.card-img{position:relative;aspect-ratio:3/2;background:var(--c);background-size:cover;background-position:center}
+.card-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.7))}
+.card-stars{position:absolute;top:14px;right:14px;background:var(--b);color:var(--c);padding:5px 10px;font-size:12px;font-weight:700;letter-spacing:.1em;z-index:2}
+.card-body{padding:22px 24px}
+.card-name{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;margin-bottom:4px;color:#F4EDE0}
+.card-meta{font-size:13px;opacity:.65;margin-bottom:14px}
+.card-cta{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--b)}
+.note{text-align:center;padding:30px 28px;font-size:12px;opacity:.5;border-top:1px solid rgba(255,255,255,.08);max-width:800px;margin:0 auto;line-height:1.6}
+.note b{color:#A88652;font-weight:600}
+</style>
+</head><body>
+<div class="hero">
+  <div class="tag">Demos G&G Elcano · 2026</div>
+  <h1>Restaurantes <em>Michelin</em><br>de Euskadi.</h1>
+  <p>10 propuestas web para los restaurantes con estrella Michelin del País Vasco. Click en cualquiera para ver la demo.</p>
+</div>
+<div class="grid">
+    <a href="../boroa/" class="card" style="--c:#1F2A22;--b:#A88652">
+      <div class="card-img" style="background-image:url('https://www.boroa.com/wp-content/uploads/sites/184/2018/10/exterior-nocturna1.jpg')"><div class="card-overlay"></div><div class="card-stars">★</div></div>
+      <div class="card-body">
+        <div class="card-name">Boroa Jatetxea</div>
+        <div class="card-meta">Amorebieta-Etxano · Caserío s. XV</div>
+        <div class="card-cta">Ver web →</div>
+      </div>
+    </a>
+    <a href="./akelarre/" class="card" style="--c:#1A2438;--b:#BFA260">
+      <div class="card-img" style="background-image:url('https://akelarre.net/wp-content/uploads/2021/05/AKELARRE-RESERVAR-RESTUARANTE.jpg')"><div class="card-overlay"></div><div class="card-stars">★★★</div></div>
+      <div class="card-body">
+        <div class="card-name">Akelarre</div>
+        <div class="card-meta">Donostia-San Sebastián · Pedro Subijana</div>
+        <div class="card-cta">Ver web →</div>
+      </div>
+    </a>
+    <a href="./arzak/" class="card" style="--c:#3A1A1A;--b:#C09858">
+      <div class="card-img" style="background-image:url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%233A1A1A'/%3E%3Ctext x='300' y='220' font-family='Cormorant,Georgia,serif' font-style='italic' font-size='180' font-weight='700' fill='%23C09858' fill-opacity='0.25' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E')"><div class="card-overlay"></div><div class="card-stars">★★★</div></div>
+      <div class="card-body">
+        <div class="card-name">Arzak</div>
+        <div class="card-meta">Donostia-San Sebastián · Juan Mari y Elena Arzak</div>
+        <div class="card-cta">Ver web →</div>
+      </div>
+    </a>
+    <a href="./azurmendi/" class="card" style="--c:#2E3221;--b:#B47148">
+      <div class="card-img" style="background-image:url('https://azurmendi.restaurant/wp-content/uploads/2023/09/Azurmendi2_3.jpg')"><div class="card-overlay"></div><div class="card-stars">★★★</div></div>
+      <div class="card-body">
+        <div class="card-name">Azurmendi</div>
+        <div class="card-meta">Larrabetzu · Eneko Atxa</div>
+        <div class="card-cta">Ver web →</div>
+      </div>
+    </a>
+    <a href="./martin-berasategui/" class="card" style="--c:#1E2C1E;--b:#C19A4A">
+      <div class="card-img" style="background-image:url('https://www.martinberasategui.com/documentos/fotos/mb-13-w-bpmr.jpg')"><div class="card-overlay"></div><div class="card-stars">★★★</div></div>
+      <div class="card-body">
+        <div class="card-name">Martín Berasategui</div>
+        <div class="card-meta">Lasarte-Oria · Martín Berasategui</div>
+        <div class="card-cta">Ver web →</div>
+      </div>
+    </a>
+    <a href="./mugaritz/" class="card" style="--c:#2D2E26;--b:#A89968">
+      <div class="card-img" style="background-image:url('https://www.mugaritz.com/wp-content/uploads/2024/08/Home-Restaurante-1-1024x585.webp')"><div class="card-overlay"></div><div class="card-stars">★★</div></div>
+      <div class="card-body">
+        <div class="card-name">Mugaritz</div>
+        <div class="card-meta">Errenteria · Andoni Luis Aduriz</div>
+        <div class="card-cta">Ver web →</div>
+      </div>
+    </a>
+    <a href="./amelia/" class="card" style="--c:#1B1614;--b:#C8A35B">
+      <div class="card-img" style="background-image:url('https://www.ameliarestaurant.com/wp-content/uploads/2024/03/amelia-restaurant-san-sebastian-3.jpg')"><div class="card-overlay"></div><div class="card-stars">★★</div></div>
+      <div class="card-body">
+        <div class="card-name">Amelia</div>
+        <div class="card-meta">Donostia-San Sebastián · Paulo Airaudo</div>
+        <div class="card-cta">Ver web →</div>
+      </div>
+    </a>
+    <a href="./etxebarri/" class="card" style="--c:#1A1614;--b:#C8632A">
+      <div class="card-img" style="background-image:url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 600 400'%3E%3Crect width='600' height='400' fill='%231A1614'/%3E%3Ctext x='300' y='220' font-family='Cormorant,Georgia,serif' font-style='italic' font-size='180' font-weight='700' fill='%23C8632A' fill-opacity='0.25' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E')"><div class="card-overlay"></div><div class="card-stars">★</div></div>
+      <div class="card-body">
+        <div class="card-name">Etxebarri</div>
+        <div class="card-meta">Atxondo · Axpe · Bittor Arginzoniz</div>
+        <div class="card-cta">Ver web →</div>
+      </div>
+    </a>
+    <a href="./nerua/" class="card" style="--c:#2D3438;--b:#B07E51">
+      <div class="card-img" style="background-image:url('https://www.neruaguggenheimbilbao.com/wp-content/uploads/2024/03/B_35944-scaled.jpg')"><div class="card-overlay"></div><div class="card-stars">★</div></div>
+      <div class="card-body">
+        <div class="card-name">Nerua</div>
+        <div class="card-meta">Bilbao · Josean Alija</div>
+        <div class="card-cta">Ver web →</div>
+      </div>
+    </a>
+    <a href="./la-revelia/" class="card" style="--c:#232E22;--b:#B89865">
+      <div class="card-img" style="background-image:url('https://larevelia.com/wp-content/uploads/LaRevelia-Azkarraga-Exterior6.jpg')"><div class="card-overlay"></div><div class="card-stars">★</div></div>
+      <div class="card-body">
+        <div class="card-name">La Revelía</div>
+        <div class="card-meta">Amorebieta-Etxano · Fernando González</div>
+        <div class="card-cta">Ver web →</div>
+      </div>
+    </a>
+</div>
+<div class="note">Webs <b>demo no oficiales</b> creadas como propuesta comercial por G&G Elcano. Imágenes y datos extraídos de las webs oficiales de cada restaurante. Para uso interno · 2026</div>
+</body></html>

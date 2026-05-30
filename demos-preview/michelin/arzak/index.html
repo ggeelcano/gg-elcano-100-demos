@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Arzak · Donostia-San Sebastián · Michelin</title>
+<meta name="description" content="Casa centenaria en el Alto de Miracruz donde Juan Mari y Elena Arzak firman una cocina vasca de autor abierta al mundo. Cuatro generaciones, tres estrellas Michelin y un laboratorio de investigación gastronómica.">
+<meta name="theme-color" content="#3A1A1A">
+<meta property="og:type" content="restaurant">
+<meta property="og:title" content="Arzak · Donostia-San Sebastián">
+<meta property="og:description" content="Casa centenaria en el Alto de Miracruz donde Juan Mari y Elena Arzak firman una cocina vasca de autor abierta al mundo. Cuatro generaciones, tres estrellas Michelin y un laboratorio de investigación gastronómica.">
+<meta property="og:image" content="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%233A1A1A'/%3E%3Ctext x='400' y='280' font-family='Cormorant,Georgia,serif' font-style='italic' font-size='240' font-weight='700' fill='%23C09858' fill-opacity='0.18' text-anchor='middle'%3EA%3C/text%3E%3Ctext x='400' y='420' font-family='Inter,Arial,sans-serif' font-size='20' letter-spacing='4' font-weight='700' fill='%23C09858' text-anchor='middle'%3EFOTO%20PENDIENTE%20%C2%B7%20ARZAK%3C/text%3E%3C/svg%3E">
+<meta property="og:url" content="https://www.arzak.es">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' rx='28' fill='%233A1A1A'/%3E%3Ctext x='90' y='118' font-family='Cormorant,Georgia,serif' font-style='italic' font-size='100' font-weight='700' fill='%23C09858' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='10' fill='%233A1A1A'/%3E%3Ctext x='32' y='44' font-family='Cormorant,Georgia,serif' font-style='italic' font-size='38' font-weight='700' fill='%23C09858' text-anchor='middle'%3EA%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%233A1A1A'/%3E%3Ctext x='400' y='280' font-family='Cormorant,Georgia,serif' font-style='italic' font-size='240' font-weight='700' fill='%23C09858' fill-opacity='0.18' text-anchor='middle'%3EA%3C/text%3E%3Ctext x='400' y='420' font-family='Inter,Arial,sans-serif' font-size='20' letter-spacing='4' font-weight='700' fill='%23C09858' text-anchor='middle'%3EFOTO%20PENDIENTE%20%C2%B7%20ARZAK%3C/text%3E%3C/svg%3E" fetchpriority="high">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Restaurant","name":"Arzak","servesCuisine":["Vasca","Autor"],"priceRange":"€€€€","telephone":"+34943278465","address":{"@type":"PostalAddress","streetAddress":"Avenida Alcalde Elósegui 273","addressLocality":"Donostia-San Sebastián","postalCode":"","addressCountry":"ES"}}
+</script>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --crema:#F4EDE0;--hueso:#FBF7EF;
+  --tierra:#3A1A1A;--tierra-2:#241010;
+  --carbon:#180808;--tinta:#1A1410;
+  --gris:#6E5F58;--linea:#D8CFC2;
+  --brasa:#C09858;--brasa-2:#8E6E3E;
+}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:'Inter',sans-serif;background:var(--hueso);color:var(--tinta);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;font-weight:400}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit;text-decoration:none}
+
+.topbar{background:var(--tierra-2);color:var(--crema);font-size:11.5px;letter-spacing:.18em;text-transform:uppercase;padding:9px 0;text-align:center;font-weight:500}
+.topbar b{color:var(--brasa);font-weight:700}
+.topbar span{margin:0 14px}
+
+nav{position:sticky;top:0;background:rgba(251,247,239,.96);backdrop-filter:blur(10px);border-bottom:1px solid var(--linea);z-index:100}
+.nav-inner{max-width:1280px;margin:0 auto;padding:18px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand-mark{width:48px;height:48px;border:1.5px solid var(--tierra);color:var(--tierra);display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:28px}
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.brand-text b{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--tierra)}
+.brand-text small{font-size:9.5px;letter-spacing:.36em;color:var(--gris);margin-top:5px;text-transform:uppercase;font-weight:500}
+.nav-links{display:flex;gap:26px;font-size:13px;letter-spacing:.04em;font-weight:500;color:var(--tierra)}
+.nav-links a{padding:6px 0;transition:.2s;border-bottom:1px solid transparent}
+.nav-links a:hover{color:var(--brasa-2);border-bottom-color:var(--brasa)}
+.nav-cta{background:var(--tierra);color:var(--crema);padding:12px 24px;font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;transition:.25s;border:1.5px solid var(--tierra);cursor:pointer;font-family:inherit}
+.nav-cta:hover{background:var(--brasa);border-color:var(--brasa);color:var(--tierra-2)}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:10px;margin-left:8px}
+.hamburger span{width:22px;height:1.5px;background:var(--tierra);transition:.3s;display:block}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{display:none;position:fixed;inset:0;background:var(--tierra-2);background-image:url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%233A1A1A'/%3E%3Ctext x='400' y='280' font-family='Cormorant,Georgia,serif' font-style='italic' font-size='240' font-weight='700' fill='%23C09858' fill-opacity='0.18' text-anchor='middle'%3EA%3C/text%3E%3Ctext x='400' y='420' font-family='Inter,Arial,sans-serif' font-size='20' letter-spacing='4' font-weight='700' fill='%23C09858' text-anchor='middle'%3EFOTO%20PENDIENTE%20%C2%B7%20ARZAK%3C/text%3E%3C/svg%3E');background-size:cover;background-position:center;z-index:200;flex-direction:column;align-items:center;justify-content:center;gap:18px;padding:30px}
+.mobile-menu::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.8) 0%,rgba(0,0,0,.92) 100%)}
+.mobile-menu.open{display:flex}
+.mobile-menu a{position:relative;color:var(--crema);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:32px;font-weight:500;padding:6px 0;text-shadow:0 2px 14px rgba(0,0,0,.6)}
+.mobile-menu a:hover{color:var(--brasa)}
+.mobile-menu a.mm-cta{background:var(--brasa);color:var(--tierra-2);padding:14px 32px;font-family:'Inter',sans-serif;font-style:normal;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;margin-top:18px;text-shadow:none}
+
+.hero{position:relative;height:100vh;min-height:680px;overflow:hidden;background:linear-gradient(135deg,var(--tierra),var(--tierra-2) 50%,var(--carbon));display:flex;flex-direction:column;justify-content:flex-end}
+.hero-bg-radial{position:absolute;inset:0;background:radial-gradient(circle at 30% 30%,rgba(255,255,255,.08),transparent 60%);z-index:0}
+.hero-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;animation:heroBreath 16s ease-in-out infinite alternate;z-index:1}
+.hero-img-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05) 0%,rgba(0,0,0,.1) 45%,rgba(0,0,0,.55) 78%,rgba(0,0,0,.95) 100%);z-index:2}
+@keyframes heroBreath{from{transform:scale(1)}to{transform:scale(1.06)}}
+.hero-frame{position:absolute;top:30px;left:30px;right:30px;bottom:30px;border:1px solid rgba(244,237,224,.22);pointer-events:none;z-index:2}
+.hero-meta{position:absolute;top:30px;right:30px;left:30px;display:flex;justify-content:flex-end;gap:14px;z-index:4;flex-wrap:wrap;padding:18px 28px}
+.hero-meta span{font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--crema);background:rgba(0,0,0,.55);backdrop-filter:blur(6px);padding:8px 16px;border:1px solid rgba(244,237,224,.18);font-weight:600}
+.hero-meta b{color:var(--brasa);font-weight:700}
+.hero-tag{position:absolute;top:130px;left:80px;z-index:3;background:var(--brasa);color:var(--tierra-2);padding:9px 18px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:14px;letter-spacing:.04em;box-shadow:0 14px 36px rgba(0,0,0,.4)}
+.hero-content{position:relative;z-index:3;color:var(--crema);padding:0 80px 90px;max-width:1280px;margin:0 auto;width:100%}
+.hero-eye{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:24px;color:var(--brasa);margin-bottom:6px;display:block;font-weight:500}
+.hero h1{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(54px,9vw,128px);line-height:.92;letter-spacing:-.015em;margin-bottom:24px;text-shadow:0 8px 40px rgba(0,0,0,.5)}
+.hero h1 em{font-style:italic;color:var(--brasa);font-weight:600;display:block}
+.hero p{font-size:clamp(15px,1.7vw,18px);max-width:580px;margin:0 0 36px;opacity:.92;font-weight:300;line-height:1.6}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap}
+.btn{padding:15px 32px;font-size:12.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;transition:.25s;display:inline-flex;align-items:center;gap:10px;min-height:48px;cursor:pointer;border:1.5px solid transparent;font-family:inherit}
+.btn-primary{background:var(--brasa);color:var(--tierra-2);border-color:var(--brasa)}
+.btn-primary:hover{background:transparent;color:var(--brasa);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--crema);border-color:rgba(244,237,224,.4)}
+.btn-ghost:hover{background:var(--crema);color:var(--tierra-2)}
+
+.stats{background:var(--tierra-2);color:var(--crema);padding:36px 28px;border-top:1px solid var(--brasa)}
+.stats-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:24px;text-align:center}
+.stat b{display:block;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:42px;color:var(--brasa);line-height:1;margin-bottom:6px}
+.stat span{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;opacity:.85;font-weight:600}
+
+section{padding:130px 28px;position:relative}
+.wrap{max-width:1280px;margin:0 auto}
+.head{margin-bottom:80px;max-width:780px}
+.eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--brasa-2);display:block;margin-bottom:14px;font-weight:500}
+.section-title{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(40px,5.4vw,72px);line-height:1.02;letter-spacing:-.018em;color:var(--tierra);margin-bottom:24px}
+.section-title em{font-style:italic;font-weight:600;color:var(--brasa-2)}
+.section-lead{font-size:17px;color:var(--gris);font-weight:400;line-height:1.65;max-width:620px}
+
+.pull{background:var(--crema);padding:130px 28px;border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.pull-inner{max-width:920px;margin:0 auto;text-align:center}
+.pull-mark{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--brasa);font-size:88px;line-height:1;margin-bottom:-30px}
+.pull blockquote{font-family:'Cormorant Garamond',serif;font-weight:400;font-style:italic;font-size:clamp(28px,3.6vw,46px);line-height:1.18;color:var(--tierra);margin-bottom:36px}
+.pull blockquote b{font-style:normal;font-weight:600;color:var(--brasa-2)}
+.pull-author{font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--gris);font-weight:600}
+.pull-author::before{content:"";display:inline-block;width:30px;height:1px;background:var(--brasa);vertical-align:middle;margin-right:14px}
+
+.cocina{background:var(--hueso)}
+.cocina-feature{max-width:1100px;margin:0 auto 80px;position:relative;aspect-ratio:21/9;overflow:hidden;box-shadow:0 30px 80px rgba(0,0,0,.22)}
+.cocina-feature img{width:100%;height:100%;object-fit:cover}
+.cocina-feature::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.6) 100%)}
+.cocina-feature .cf-tag{position:absolute;bottom:30px;left:36px;color:var(--crema);font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:30px;text-shadow:0 2px 14px rgba(0,0,0,.6);z-index:2}
+.cocina-feature .cf-tag::before{content:"";display:block;width:40px;height:1.5px;background:var(--brasa);margin-bottom:10px}
+.cocina-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:60px 80px;margin-top:50px}
+.dish-card{display:flex;flex-direction:column;gap:8px}
+.dish-num{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:500;color:var(--brasa);font-size:14px}
+.dish-card h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:32px;color:var(--tierra);line-height:1.05}
+.dish-card h3 em{font-style:italic;color:var(--brasa-2);font-weight:600}
+.dish-card p{font-size:15px;color:var(--gris);line-height:1.65;margin-top:4px}
+
+.espacios{background:var(--crema)}
+.espacios-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:80px;align-items:center}
+.espacios-pic{aspect-ratio:4/5;overflow:hidden;position:relative;box-shadow:0 30px 80px rgba(0,0,0,.22)}
+.espacios-pic img{width:100%;height:100%;object-fit:cover}
+.espacios-pic::before{content:"";position:absolute;inset:18px;border:1px solid rgba(244,237,224,.4);pointer-events:none;z-index:2}
+.espacios-pic-tag{position:absolute;bottom:30px;left:30px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;color:var(--crema);font-size:24px;text-shadow:0 2px 14px rgba(0,0,0,.7);z-index:3}
+.espacios-pic-tag::before{content:"";display:block;width:40px;height:1.5px;background:var(--brasa);margin-bottom:8px}
+.espacios-text h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,4.4vw,52px);color:var(--tierra);margin-bottom:14px;line-height:1.05;letter-spacing:-.015em}
+.espacios-text h3 em{font-style:italic;font-weight:600;color:var(--brasa-2)}
+.espacios-text p{font-size:16px;color:var(--gris);margin-bottom:16px;line-height:1.7}
+.espacios-text strong{color:var(--tierra);font-weight:600}
+.espacios-list{margin-top:28px;display:flex;flex-direction:column}
+.espacios-list-item{display:flex;justify-content:space-between;padding:16px 0;border-top:1px solid var(--linea);align-items:center}
+.espacios-list-item:last-child{border-bottom:1px solid var(--linea)}
+.espacios-list-item b{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:20px;color:var(--tierra)}
+.espacios-list-item span{font-size:13px;color:var(--gris);text-align:right;font-weight:500}
+
+.galeria{background:var(--hueso);padding:100px 28px 110px}
+.galeria-head{text-align:center;max-width:760px;margin:0 auto 60px}
+.galeria-head .eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--brasa-2);display:block;margin-bottom:8px;font-weight:500}
+.galeria-head h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,4.4vw,52px);color:var(--tierra);line-height:1.05;letter-spacing:-.015em}
+.galeria-head h3 em{font-style:italic;font-weight:600;color:var(--brasa-2)}
+.galeria-head p{font-size:16px;color:var(--gris);margin-top:14px}
+.galeria-grid{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:240px;gap:14px}
+.galeria-item{position:relative;overflow:hidden;cursor:pointer;background:var(--linea)}
+.galeria-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.galeria-item:hover img{transform:scale(1.06)}
+.galeria-item::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(0,0,0,.78) 100%);opacity:0;transition:.3s}
+.galeria-item:hover::after{opacity:1}
+.galeria-tag{position:absolute;bottom:18px;left:20px;right:20px;color:var(--crema);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:19px;font-weight:600;z-index:2;text-shadow:0 2px 8px rgba(0,0,0,.5);opacity:0;transition:.3s}
+.galeria-item:hover .galeria-tag{opacity:1}
+.galeria-item.big{grid-column:span 2;grid-row:span 2}
+.galeria-item.wide{grid-column:span 2}
+.gal-ph{background:linear-gradient(135deg,var(--tierra),var(--tierra-2))}
+.gal-ph .ph-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Cormorant Garamond',serif;font-style:italic;font-size:90px;color:rgba(255,255,255,.15);z-index:1}
+.gal-ph .ph-title{position:absolute;bottom:24px;left:24px;right:24px;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;color:var(--crema);font-size:22px;z-index:2}
+.gal-ph .ph-title::before{content:"";display:block;width:36px;height:1px;background:var(--brasa);margin-bottom:8px}
+
+.menus-home{background:var(--tierra);color:var(--crema);padding:100px 28px 110px;position:relative;overflow:hidden}
+.menus-home::before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 30%,rgba(255,255,255,.06),transparent 60%)}
+.menus-home-head{text-align:center;max-width:760px;margin:0 auto 60px;position:relative}
+.menus-home-head .eyebrow{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:22px;color:var(--brasa);display:block;margin-bottom:8px;font-weight:500}
+.menus-home-head h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(34px,4.4vw,52px);color:var(--crema);line-height:1.05;letter-spacing:-.015em}
+.menus-home-head h3 em{font-style:italic;font-weight:600;color:var(--brasa)}
+.menus-home-head p{font-size:16px;color:rgba(244,237,224,.75);margin-top:14px}
+.menus-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:30px;max-width:1200px;margin:0 auto;position:relative}
+.menu-fixed{background:var(--crema);color:var(--tinta);padding:42px 38px;border:1px solid var(--linea);border-top:3px solid var(--brasa);box-shadow:0 18px 50px rgba(0,0,0,.25);display:flex;flex-direction:column}
+.menu-fixed.featured{border-top-width:4px}
+.menu-fixed-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;padding-bottom:18px;border-bottom:1px dashed var(--linea);flex-wrap:wrap;gap:12px}
+.menu-fixed-head h4{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;color:var(--tierra);font-size:28px;line-height:1.05}
+.menu-fixed-head h4 em{font-style:italic;font-weight:600;color:var(--brasa-2);display:block;font-size:14px;letter-spacing:.04em;margin-top:4px}
+.menu-fixed-price{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:36px;color:var(--brasa);line-height:1;white-space:nowrap}
+.menu-fixed h5{font-family:'Inter',sans-serif;font-weight:700;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--brasa-2);margin:18px 0 10px}
+.menu-fixed ul{list-style:none;margin-bottom:6px}
+.menu-fixed li{font-family:'Cormorant Garamond',serif;font-size:17px;color:var(--tierra);font-weight:500;padding:5px 0;line-height:1.4}
+.menu-fixed-footer{margin-top:auto;padding-top:14px;border-top:1px dashed var(--linea);font-size:12.5px;color:var(--gris);line-height:1.6;font-style:italic;font-family:'Cormorant Garamond',serif}
+
+.booking{background:linear-gradient(180deg,var(--crema),var(--hueso));border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+.booking-grid{display:flex;flex-direction:column;align-items:center;gap:50px;max-width:680px;margin:0 auto}
+.booking-head{text-align:center}
+.booking-head h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(38px,5vw,60px);line-height:1.04;color:var(--tierra);letter-spacing:-.015em}
+.booking-head h2 em{font-style:italic;font-weight:600;color:var(--brasa-2)}
+.booking-form{width:100%;background:#fff;padding:48px 44px;box-shadow:0 30px 80px rgba(0,0,0,.15);border-top:3px solid var(--brasa)}
+.booking-form-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid var(--linea)}
+.booking-form-head h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:26px;color:var(--tierra)}
+.booking-form-head span{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--brasa-2);font-size:15px}
+.bf-row{display:grid;gap:14px;margin-bottom:14px}
+.bf-row.cols-2{grid-template-columns:1fr 1fr}
+.bf-field{display:flex;flex-direction:column;gap:6px}
+.bf-field label{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--gris);font-weight:600}
+.bf-field input,.bf-field select,.bf-field textarea{font-family:'Inter',sans-serif;font-size:15px;padding:12px 14px;border:1px solid var(--linea);background:var(--hueso);color:var(--tinta);outline:none;transition:.2s}
+.bf-field input:focus,.bf-field select:focus,.bf-field textarea:focus{border-color:var(--brasa);background:#fff;box-shadow:0 0 0 3px rgba(0,0,0,.05)}
+.bf-field textarea{resize:vertical;min-height:80px}
+.bf-submit{width:100%;background:var(--brasa);color:var(--tierra-2);padding:16px;font-family:'Inter',sans-serif;font-size:13px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;border:1.5px solid var(--brasa);cursor:pointer;transition:.25s;margin-top:14px}
+.bf-submit:hover:not(:disabled){background:transparent;color:var(--brasa)}
+.bf-status{padding:14px 18px;font-size:14px;border:1px solid;margin-bottom:18px;display:none;font-weight:500;line-height:1.5}
+.bf-status.show{display:block}
+.bf-status.success{background:rgba(63,82,54,.06);border-color:#3F7A4A;color:#3F7A4A}
+.bf-status.error{background:rgba(125,98,56,.08);border-color:var(--brasa-2);color:var(--brasa-2)}
+.bf-legal{font-size:11.5px;color:var(--gris);margin-top:14px;line-height:1.5;text-align:center}
+.bf-legal a{color:var(--brasa-2);text-decoration:underline}
+
+.contact{padding:0;background:var(--tierra-2)}
+.contact-wrap{display:grid;grid-template-columns:1fr 1.3fr;min-height:560px}
+.contact-side{padding:80px 60px;color:var(--crema);background:var(--tierra);display:flex;flex-direction:column;justify-content:center}
+.contact-side .eyebrow{color:var(--brasa)}
+.contact-side h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:clamp(38px,4.5vw,56px);line-height:1.05;margin-bottom:24px;color:var(--crema)}
+.contact-side h2 em{font-style:italic;font-weight:600;color:var(--brasa)}
+.contact-info{margin-top:14px;padding-top:32px;border-top:1px solid rgba(244,237,224,.18);display:flex;flex-direction:column;gap:18px}
+.contact-row{display:flex;gap:18px;align-items:flex-start}
+.contact-row .ico{width:42px;height:42px;border:1.5px solid var(--brasa);color:var(--brasa);display:grid;place-items:center;font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:700;font-size:18px;flex-shrink:0}
+.contact-row b{display:block;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--brasa);margin-bottom:4px;font-weight:700}
+.contact-row span,.contact-row a{font-size:15px;color:var(--crema);line-height:1.5}
+.contact-row a:hover{color:var(--brasa)}
+.contact-map iframe{width:100%;height:100%;border:0;min-height:560px}
+
+footer{background:rgba(0,0,0,.9);color:var(--crema);padding:70px 28px 30px}
+.foot-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:40px;margin-bottom:36px}
+.foot-brand .brand-mark{margin-bottom:16px;border-color:var(--brasa);color:var(--brasa)}
+.foot-brand p{font-size:14px;opacity:.65;line-height:1.7;margin-top:14px;max-width:320px}
+.foot-col h5{font-family:'Cormorant Garamond',serif;font-style:italic;font-weight:600;font-size:20px;color:var(--brasa);margin-bottom:16px}
+.foot-col ul{list-style:none}
+.foot-col li{font-size:14px;opacity:.7;margin-bottom:9px}
+.foot-col a:hover{color:var(--brasa);opacity:1}
+.foot-bottom{max-width:1280px;margin:0 auto;padding-top:30px;border-top:1px solid rgba(244,237,224,.1);display:flex;justify-content:space-between;flex-wrap:wrap;gap:14px;font-size:12px;opacity:.5}
+.foot-disclaimer{max-width:1280px;margin:0 auto 20px;font-size:11px;opacity:.45;font-style:italic;text-align:center;line-height:1.5;border:1px dashed rgba(244,237,224,.2);padding:14px 18px;background:rgba(255,255,255,.02)}
+
+.loader{position:fixed;inset:0;z-index:99999;background:var(--tierra-2) url('data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%233A1A1A'/%3E%3Ctext x='400' y='280' font-family='Cormorant,Georgia,serif' font-style='italic' font-size='240' font-weight='700' fill='%23C09858' fill-opacity='0.18' text-anchor='middle'%3EA%3C/text%3E%3Ctext x='400' y='420' font-family='Inter,Arial,sans-serif' font-size='20' letter-spacing='4' font-weight='700' fill='%23C09858' text-anchor='middle'%3EFOTO%20PENDIENTE%20%C2%B7%20ARZAK%3C/text%3E%3C/svg%3E') center/cover no-repeat;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;transition:.6s}
+.loader::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.55),rgba(0,0,0,.7))}
+.loader.hidden{opacity:0;visibility:hidden;pointer-events:none}
+.loader-logo{position:relative;font-family:'Cormorant Garamond',serif;font-style:italic;font-size:clamp(40px,6vw,72px);color:var(--crema);font-weight:500;text-shadow:0 4px 28px rgba(0,0,0,.7);z-index:2}
+.loader-logo em{font-style:italic;color:var(--brasa);font-weight:600}
+.loader-bar{position:relative;width:200px;height:1px;background:rgba(244,237,224,.25);overflow:hidden;z-index:2}
+.loader-bar::after{content:"";position:absolute;inset:0;background:var(--brasa);transform:translateX(-100%);animation:loaderBar 1.4s cubic-bezier(.7,0,.3,1) infinite}
+@keyframes loaderBar{0%{transform:translateX(-100%)}55%,100%{transform:translateX(100%)}}
+
+.modal-back{position:fixed;inset:0;background:rgba(0,0,0,.78);backdrop-filter:blur(6px);z-index:9998;opacity:0;visibility:hidden;transition:.25s}
+.modal-back.open{opacity:1;visibility:visible}
+.modal{position:fixed;top:50%;left:50%;transform:translate(-50%,-48%) scale(.96);background:#fff;width:min(620px,92vw);max-height:92vh;overflow-y:auto;z-index:9999;box-shadow:0 40px 100px rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:.3s}
+.modal.open{opacity:1;visibility:visible;transform:translate(-50%,-50%) scale(1)}
+.modal-head{padding:32px 36px 18px;border-bottom:1px solid var(--linea);display:flex;justify-content:space-between;align-items:flex-start;gap:18px;background:var(--tierra);color:var(--crema)}
+.modal-head h3{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:28px;color:var(--crema)}
+.modal-head h3 em{font-style:italic;color:var(--brasa);font-weight:600}
+.modal-head p{font-size:13px;opacity:.8;margin-top:4px}
+.modal-close{background:transparent;border:1px solid rgba(244,237,224,.4);color:var(--crema);width:36px;height:36px;font-size:18px;cursor:pointer;flex-shrink:0;transition:.2s}
+.modal-close:hover{background:var(--brasa);border-color:var(--brasa);color:var(--tierra-2)}
+.modal-body{padding:32px 36px 36px}
+
+@media(max-width:1024px){
+  .nav-links,.nav-cta{display:none}
+  .hamburger{display:flex}
+  .hero-content{padding:0 32px 70px}
+  .hero-tag{left:32px;top:120px;font-size:13px;padding:7px 14px}
+  .hero-frame{inset:14px}
+  .stats-inner{grid-template-columns:repeat(2,1fr);gap:32px}
+  section{padding:90px 22px}
+  .head{margin-bottom:60px}
+  .cocina-grid{grid-template-columns:1fr;gap:40px}
+  .menus-grid{grid-template-columns:1fr;gap:24px;grid-auto-rows:auto}
+  .menu-fixed{padding:32px 26px}
+  .menu-fixed-head h4{font-size:24px}
+  .menu-fixed-price{font-size:34px}
+  .booking-form{padding:36px 26px}
+  .contact-wrap{grid-template-columns:1fr;min-height:auto}
+  .contact-side{padding:54px 32px}
+  .contact-map iframe{min-height:380px}
+  .foot-inner{grid-template-columns:1fr 1fr;gap:34px}
+  .pull{padding:90px 22px}
+  .cocina-feature{aspect-ratio:16/10;margin-bottom:50px}
+  .cocina-feature .cf-tag{font-size:22px;left:24px;bottom:24px}
+  .espacios-grid{grid-template-columns:1fr;gap:50px}
+  .espacios-pic{max-width:500px;margin:0 auto;aspect-ratio:4/3}
+  .galeria-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:200px}
+  .galeria-item.big,.galeria-item.wide{grid-column:span 2}
+}
+@media(max-width:480px){
+  .topbar{font-size:10px;padding:8px 0}
+  .topbar span{margin:0 7px}
+  .hero{min-height:88vh}
+  .hero-content{padding:0 22px 60px}
+  .hero h1{font-size:46px}
+  .hero-tag{display:none}
+  .hero-meta{padding:10px 18px;gap:6px}
+  .hero-meta span{padding:6px 10px;font-size:9px;letter-spacing:.14em}
+  .stats{padding:28px 18px}
+  .stat b{font-size:32px}
+  section{padding:70px 18px}
+  .pull{padding:70px 18px}
+  .head{margin-bottom:42px}
+  .menus-home{padding:50px 18px 60px}
+  .booking-form{padding:28px 22px}
+  .contact-side{padding:42px 22px}
+  .foot-inner{grid-template-columns:1fr;gap:30px}
+  .foot-bottom{flex-direction:column;text-align:center}
+  .btn{padding:13px 22px;font-size:11px;letter-spacing:.14em}
+  .bf-row.cols-2{grid-template-columns:1fr}
+  .galeria-grid{grid-template-columns:1fr;grid-auto-rows:260px}
+  .galeria-item.big,.galeria-item.wide{grid-column:span 1;grid-row:span 1}
+  .galeria-tag{opacity:1}
+}
+</style>
+</head>
+<body>
+
+<div class="loader" id="loader"><div class="loader-logo">Arzak <em>Casa familiar</em></div><div class="loader-bar"></div></div>
+<script>document.body.style.overflow='hidden';function hideLoader(){document.body.style.overflow='';const l=document.getElementById('loader');if(l){l.classList.add('hidden');setTimeout(()=>l.remove(),700)}}window.addEventListener('load',()=>setTimeout(hideLoader,400));setTimeout(hideLoader,4000);</script>
+
+<div class="topbar"><span>★★★</span><span>·</span><span>Michelin</span><span>·</span><span>Donostia-San Sebastián · <b>Gipuzkoa</b></span></div>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="brand">
+      <div class="brand-mark">A</div>
+      <div class="brand-text"><b>Arzak</b><small>Casa familiar · Donostia</small></div>
+    </a>
+    <div class="nav-links">
+      <a href="#cocina">La cocina</a>
+      <a href="#espacios">El espacio</a>
+      <a href="#galeria">Galería</a>
+      <a href="#menus">Menús</a>
+      <a href="#reservar">Reservar</a>
+      <a href="#mapa">Cómo llegar</a>
+    </div>
+    <button type="button" class="nav-cta" data-open-booking>Reservar</button>
+    <button type="button" class="hamburger" id="hamburger" aria-label="Abrir menú"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#cocina" data-mm-close>La cocina</a>
+  <a href="#espacios" data-mm-close>El espacio</a>
+  <a href="#galeria" data-mm-close>Galería</a>
+  <a href="#menus" data-mm-close>Menús</a>
+  <a href="#mapa" data-mm-close>Cómo llegar</a>
+  <a href="#reservar" class="mm-cta" data-mm-close>Reservar mesa</a>
+</div>
+
+<header class="hero">
+  <div class="hero-bg-radial"></div>
+  <img class="hero-photo" src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%233A1A1A'/%3E%3Ctext x='400' y='280' font-family='Cormorant,Georgia,serif' font-style='italic' font-size='240' font-weight='700' fill='%23C09858' fill-opacity='0.18' text-anchor='middle'%3EA%3C/text%3E%3Ctext x='400' y='420' font-family='Inter,Arial,sans-serif' font-size='20' letter-spacing='4' font-weight='700' fill='%23C09858' text-anchor='middle'%3EFOTO%20PENDIENTE%20%C2%B7%20ARZAK%3C/text%3E%3C/svg%3E" alt="Arzak Donostia-San Sebastián">
+  <div class="hero-img-overlay"></div>
+  <div class="hero-frame"></div>
+  <div class="hero-meta">
+    <span>★★★ <b>3</b></span>
+    <span>CASA FUNDADA <b>1897</b></span>
+    <span>DONOSTIA-SAN SEBASTIÁN</span>
+  </div>
+  <div class="hero-tag">Michelin</div>
+  <div class="hero-content">
+    <span class="hero-eye">cuatro generaciones en el alto de miracruz</span>
+    <h1>Arzak.<em>Desde 1897.</em></h1>
+    <p>Casa centenaria en el Alto de Miracruz donde Juan Mari y Elena Arzak firman una cocina vasca de autor abierta al mundo. Cuatro generaciones, tres estrellas Michelin y un laboratorio de investigación gastronómica.</p>
+    <div class="hero-ctas">
+      <button type="button" class="btn btn-primary" data-open-booking>Reservar mesa</button>
+      <a href="tel:+34943278465" class="btn btn-ghost">Llamar al restaurante</a>
+    </div>
+  </div>
+</header>
+
+<div class="stats">
+  <div class="stats-inner">
+    <div class="stat"><b>1897</b><span>casa fundada</span></div>
+    <div class="stat"><b>★★★</b><span>Michelin</span></div>
+    <div class="stat"><b>315€</b><span>menú firma</span></div>
+    <div class="stat"><b>Juan</b><span>chef · cocina</span></div>
+  </div>
+</div>
+
+<div class="pull">
+  <div class="pull-inner">
+    <div class="pull-mark">"</div>
+    <blockquote>Una cocina vasca <b>pura con la materia prima, intensa en la elaboración.</b></blockquote>
+    <div class="pull-author">Familia Arzak · Donostia</div>
+  </div>
+</div>
+
+<section id="cocina" class="cocina">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">— la cocina</span>
+      <h2 class="section-title">Cuatro<br>generaciones de <em>cocina vasca</em>.</h2>
+      <p class="section-lead">Lo que empezó como casa de comidas en 1897 es hoy una de las cocinas más influyentes de Europa. Producto vasco, técnica abierta y un banco de sabores único.</p>
+    </div>
+    <div class="cocina-feature">
+      <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%233A1A1A'/%3E%3Ctext x='400' y='280' font-family='Cormorant,Georgia,serif' font-style='italic' font-size='240' font-weight='700' fill='%23C09858' fill-opacity='0.18' text-anchor='middle'%3EA%3C/text%3E%3Ctext x='400' y='420' font-family='Inter,Arial,sans-serif' font-size='20' letter-spacing='4' font-weight='700' fill='%23C09858' text-anchor='middle'%3ECOCINA%20%C2%B7%20ARZAK%3C/text%3E%3C/svg%3E" alt="Arzak cocina" loading="lazy">
+      <div class="cf-tag">Cocina abierta al mundo</div>
+    </div>
+    <div class="cocina-grid">
+      <div class="dish-card"><span class="dish-num">— 01</span><h3>Tres <em>estrellas</em> Michelin</h3><p>Sostenidas durante más de tres décadas. Una de las cocinas que cambió la manera de entender la gastronomía vasca.</p></div>
+      <div class="dish-card"><span class="dish-num">— 02</span><h3>Laboratorio <em>de investigación</em></h3><p>Banco de sabores con más de mil ingredientes y un equipo dedicado a investigación gastronómica permanente.</p></div>
+      <div class="dish-card"><span class="dish-num">— 03</span><h3>Padre <em>e hija</em></h3><p>Juan Mari Arzak y Elena Arzak comparten cocina y firma. Cuarta generación al frente de la casa familiar.</p></div>
+      <div class="dish-card"><span class="dish-num">— 04</span><h3>Producto <em>vasco</em></h3><p>Pescados del Cantábrico, huerta de Gipuzkoa, carnes del país. Materia prima que dialoga con técnica de vanguardia.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="espacios" class="espacios">
+  <div class="wrap">
+    <div class="espacios-grid">
+      <div class="espacios-pic">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 500'%3E%3Crect width='800' height='500' fill='%233A1A1A'/%3E%3Ctext x='400' y='280' font-family='Cormorant,Georgia,serif' font-style='italic' font-size='240' font-weight='700' fill='%23C09858' fill-opacity='0.18' text-anchor='middle'%3EA%3C/text%3E%3Ctext x='400' y='420' font-family='Inter,Arial,sans-serif' font-size='20' letter-spacing='4' font-weight='700' fill='%23C09858' text-anchor='middle'%3ECOMEDOR%20%C2%B7%20ARZAK%3C/text%3E%3C/svg%3E" alt="Arzak comedor" loading="lazy">
+        <div class="espacios-pic-tag">Comedor principal</div>
+      </div>
+      <div class="espacios-text">
+        <span class="eyebrow">— la casa</span>
+        <h3>Casa centenaria<br>en el <em>Alto de Miracruz</em>.</h3>
+        <p>El edificio original es de <strong>1897</strong> y ha sido cuidadosamente preservado. Comedor con la mesa central, salas privadas y la bodega histórica.</p>
+        <p>El laboratorio de I+D está en la planta superior. Cada plato pasa por allí antes de llegar a sala.</p>
+        <div class="espacios-list">
+          <div class="espacios-list-item"><b>Comedor principal</b><span>Casa histórica</span></div>
+          <div class="espacios-list-item"><b>Salas privadas</b><span>Grupos íntimos</span></div>
+          <div class="espacios-list-item"><b>Bodega</b><span>Carta histórica</span></div>
+          <div class="espacios-list-item"><b>Laboratorio</b><span>Banco de sabores</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="galeria" class="galeria">
+  <div class="galeria-head">
+    <span class="eyebrow">— la casa por dentro —</span>
+    <h3>El <em>Arzak</em> en imágenes.</h3>
+    <p>La casa centenaria, comedores, el banco de sabores y los platos firma de la familia Arzak.</p>
+  </div>
+  <div class="galeria-grid">
+    <div class="galeria-item big gal-ph"><span class="ph-icon">A</span><span class="ph-title">Casa Arzak · fachada</span></div>
+    <div class="galeria-item wide gal-ph"><span class="ph-icon">A</span><span class="ph-title">Comedor principal</span></div>
+    <div class="galeria-item tall gal-ph"><span class="ph-icon">A</span><span class="ph-title">Banco de sabores</span></div>
+    <div class="galeria-item small gal-ph"><span class="ph-icon">A</span><span class="ph-title">Plato firma</span></div>
+  </div>
+</section>
+
+<section id="menus" class="menus-home">
+  <div class="menus-home-head">
+    <span class="eyebrow">— la mesa</span>
+    <h3>Menús del <em>Arzak</em>.</h3>
+    <p>A la carta o menú degustación. Bodega con referencias históricas y maridajes a cargo de la sommellerie.</p>
+  </div>
+  <div class="menus-grid">
+    <div class="menu-fixed">
+      <div class="menu-fixed-head"><h4>A la carta<em>Mesa libre</em></h4><div class="menu-fixed-price">285€</div></div>
+      <h5>Carta abierta</h5>
+      <ul><li>Entrantes de temporada</li><li>Pescados del Cantábrico</li><li>Carnes del país</li><li>Postres firma</li><li>Selección de quesos</li></ul>
+      <div class="menu-fixed-footer">Ticket medio orientativo. Carta de temporada.</div>
+    </div>
+    <div class="menu-fixed featured">
+      <div class="menu-fixed-head"><h4>Degustación<em>Menú firma</em></h4><div class="menu-fixed-price">315€</div></div>
+      <h5>El degustación</h5>
+      <ul><li>Aperitivos firma</li><li>Cuatro entrantes</li><li>Pescado del día</li><li>Carne seleccionada</li><li>Pre-postre y postre</li><li>Petit fours</li></ul>
+      <div class="menu-fixed-footer">Menú degustación con los platos firma de la casa.</div>
+    </div>
+    <div class="menu-fixed">
+      <div class="menu-fixed-head"><h4>Bodega<em>·</em></h4><div class="menu-fixed-price">Histórica</div></div>
+      <h5>Más de 100.000 botellas</h5>
+      <ul><li>Vinos históricos</li><li>Riojas con guarda</li><li>Champagne de añada</li><li>Pequeñas bodegas</li><li>Maridajes a medida</li></ul>
+      <div class="menu-fixed-footer">Una de las bodegas más completas del país.</div>
+    </div>
+  </div>
+</section>
+
+<section id="reservar" class="booking">
+  <div class="wrap">
+    <div class="booking-grid">
+      <div class="booking-head">
+        <span class="eyebrow">— reservas</span>
+        <h2>Reserva tu mesa<br>en <em>Arzak</em>.</h2>
+      </div>
+      <form id="booking-form" class="booking-form" novalidate>
+        <div class="booking-form-head"><h3>Mesa en Arzak</h3><span>Confirmación</span></div>
+        <div class="bf-status" id="booking-status"></div>
+        <div class="bf-row cols-2">
+          <div class="bf-field"><label for="bf-date">Fecha</label><input id="bf-date" name="fecha" type="date" required></div>
+          <div class="bf-field"><label for="bf-time">Hora</label><select id="bf-time" name="hora" required><option value="">Elige hora</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>15:00</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option></select></div>
+        </div>
+        <div class="bf-field" style="margin-bottom:14px"><label for="bf-people">Comensales</label><select id="bf-people" name="comensales" required><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="7">7</option><option value="8">8</option></select></div>
+        <div class="bf-field" style="margin-bottom:14px"><label for="bf-name">Nombre</label><input id="bf-name" name="nombre" type="text" required></div>
+        <div class="bf-row cols-2">
+          <div class="bf-field"><label for="bf-phone">Teléfono</label><input id="bf-phone" name="telefono" type="tel" required></div>
+          <div class="bf-field"><label for="bf-email">Email</label><input id="bf-email" name="email" type="email" required></div>
+        </div>
+        <div class="bf-field"><label for="bf-notes">Notas (alergias, menú, celebración…)</label><textarea id="bf-notes" name="notas"></textarea></div>
+        <button type="submit" class="bf-submit" id="bf-submit-btn">Confirmar reserva</button>
+        <p class="bf-legal">Al enviar aceptas la <a href="#">política de privacidad</a>.</p>
+      </form>
+    </div>
+  </div>
+</section>
+
+<section id="mapa" class="contact">
+  <div class="contact-wrap">
+    <div class="contact-side">
+      <span class="eyebrow">— cómo llegar</span>
+      <h2>En el <em>Alto de Miracruz</em>.</h2>
+      <div class="contact-info">
+        <div class="contact-row"><div class="ico">@</div><div><b>Dirección</b><span>Avenida Alcalde Elósegui 273<br>20015 Donostia-San Sebastián · Gipuzkoa</span></div></div>
+        <div class="contact-row"><div class="ico">☏</div><div><b>Teléfono</b><a href="tel:+34943278465">943 27 84 65</a><span><a href="mailto:informacion@arzak.es">informacion@arzak.es</a></span></div></div>
+        <div class="contact-row"><div class="ico">⏱</div><div><b>Horario</b><span>M-S · 13:15-15:00 y 20:45-22:30<br>Cerrado domingo y lunes<br>Reserva con antelación recomendada</span></div></div>
+        <div class="contact-row"><div class="ico">★</div><div><b>Servicios</b><span>Salas privadas · Bodega histórica · Eventos · Reserva online</span></div></div>
+      </div>
+      <div style="margin-top:30px"><a href="https://www.google.com/maps/dir/?api=1&destination=Arzak+Donostia+San+Sebastian" target="_blank" rel="noopener" class="btn btn-primary">Abrir en Google Maps</a></div>
+    </div>
+    <div class="contact-map"><iframe src="https://www.google.com/maps?q=Arzak+Donostia+San+Sebastian&z=15&output=embed" loading="lazy" title="Ubicación Arzak"></iframe></div>
+  </div>
+</section>
+
+<footer>
+  <div class="foot-disclaimer">Demo no oficial · Propuesta web G&amp;G Elcano para uso interno · Imágenes utilizadas con fines ilustrativos de propiedad del restaurante original</div>
+  <div class="foot-inner">
+    <div class="foot-brand">
+      <div class="brand-mark">A</div>
+      <div style="font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;color:var(--brasa);margin-bottom:4px">Arzak</div>
+      <div style="font-size:10px;letter-spacing:.36em;text-transform:uppercase;color:rgba(244,237,224,.55);font-weight:600">Casa familiar · Donostia</div>
+      <p>Tres estrellas Michelin. Casa familiar de Juan Mari y Elena Arzak en el Alto de Miracruz de Donostia desde 1897.</p>
+    </div>
+    <div class="foot-col">
+      <h5>La casa</h5>
+      <ul>
+        <li><a href="#cocina">La cocina</a></li>
+        <li><a href="#espacios">El espacio</a></li>
+        <li><a href="#menus">Menús</a></li>
+        <li><a href="#reservar">Reservar</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Reservas</h5>
+      <ul>
+        <li>Avenida Alcalde Elósegui 273<br>20015 Donostia-San Sebastián · Gipuzkoa</li>
+        <li><a href="tel:+34943278465">943 27 84 65</a></li>
+        <li><a href="mailto:informacion@arzak.es">informacion@arzak.es</a></li>
+        <li><a href="https://www.arzak.es" target="_blank" rel="noopener">Web oficial →</a></li>
+      </ul>
+    </div>
+    <div class="foot-col">
+      <h5>Demo</h5>
+      <ul>
+        <li>Propuesta G&amp;G Elcano</li>
+        <li><a href="https://ggelcano.com" target="_blank" rel="noopener">ggelcano.com</a></li>
+        <li>Bizkaia · 2026</li>
+      </ul>
+    </div>
+  </div>
+  <div class="foot-bottom">
+    <span>© 2026 Arzak · Michelin</span>
+    <span>Donostia-San Sebastián · Gipuzkoa</span>
+  </div>
+</footer>
+
+<div class="modal-back" id="modal-back"></div>
+<div class="modal" id="modal" role="dialog" aria-modal="true">
+  <div class="modal-head"><div><h3>Reservar <em>en Arzak</em></h3><p>Confirmación por email</p></div><button type="button" class="modal-close" id="modal-close">×</button></div>
+  <div class="modal-body">
+    <form id="booking-form-modal" novalidate>
+      <div class="bf-status" id="booking-status-modal"></div>
+      <div class="bf-row cols-2">
+        <div class="bf-field"><label>Fecha</label><input name="fecha" type="date" required></div>
+        <div class="bf-field"><label>Hora</label><select name="hora" required><option value="">Elige</option><option>13:00</option><option>13:30</option><option>14:00</option><option>14:30</option><option>20:00</option><option>20:30</option><option>21:00</option><option>21:30</option></select></div>
+      </div>
+      <div class="bf-field" style="margin-bottom:14px"><label>Comensales</label><select name="comensales" required><option value="2" selected>2</option><option value="3">3</option><option value="4">4</option><option value="5">5</option><option value="6">6</option><option value="8">8</option></select></div>
+      <div class="bf-field" style="margin-bottom:14px"><label>Nombre</label><input name="nombre" type="text" required></div>
+      <div class="bf-row cols-2">
+        <div class="bf-field"><label>Teléfono</label><input name="telefono" type="tel" required></div>
+        <div class="bf-field"><label>Email</label><input name="email" type="email" required></div>
+      </div>
+      <div class="bf-field"><label>Notas</label><textarea name="notas"></textarea></div>
+      <button type="submit" class="bf-submit">Confirmar reserva</button>
+    </form>
+  </div>
+</div>
+
+<script>
+const hamburger=document.getElementById('hamburger'),mobileMenu=document.getElementById('mobileMenu');
+function toggleMobile(open){const isOpen=open!==undefined?open:!mobileMenu.classList.contains('open');mobileMenu.classList.toggle('open',isOpen);hamburger.classList.toggle('active',isOpen);document.body.style.overflow=isOpen?'hidden':''}
+hamburger?.addEventListener('click',()=>toggleMobile());
+document.querySelectorAll('.mobile-menu [data-mm-close]').forEach(a=>a.addEventListener('click',()=>toggleMobile(false)));
+
+const modal=document.getElementById('modal'),modalBack=document.getElementById('modal-back');
+const openModal=()=>{modal.classList.add('open');modalBack.classList.add('open');document.body.style.overflow='hidden'};
+const closeModal=()=>{modal.classList.remove('open');modalBack.classList.remove('open');document.body.style.overflow=''};
+document.querySelectorAll('[data-open-booking]').forEach(b=>b.addEventListener('click',openModal));
+document.getElementById('modal-close').addEventListener('click',closeModal);
+modalBack.addEventListener('click',closeModal);
+document.addEventListener('keydown',e=>{if(e.key==='Escape')closeModal()});
+
+const tomorrow=new Date();tomorrow.setDate(tomorrow.getDate()+1);
+document.querySelectorAll('input[type="date"]').forEach(i=>{i.min=new Date().toISOString().slice(0,10);i.value=tomorrow.toISOString().slice(0,10)});
+
+const ERP_ENDPOINT='https://gg-reservas-erp.josugarciandia.workers.dev/api/reservas';
+const RESTAURANT_ID='arzak';
+const CRM_KEY='gg_reservas';
+function saveLocal(data){try{const all=JSON.parse(localStorage.getItem(CRM_KEY)||'[]');all.unshift(data);localStorage.setItem(CRM_KEY,JSON.stringify(all))}catch(e){}}
+
+async function submitBooking(form,statusEl,btn,closeAfter){
+  const data=Object.fromEntries(new FormData(form).entries());
+  data.restaurante=RESTAURANT_ID;
+  data.restaurante_nombre='Arzak';
+  data.origen='web-demo';
+  if(!data.fecha||!data.hora||!data.nombre||!data.telefono||!data.email){statusEl.className='bf-status show error';statusEl.textContent='Faltan campos.';return}
+  btn.disabled=true;const original=btn.textContent;btn.textContent='Enviando…';statusEl.classList.remove('show');
+  let id=null,saved=false;
+  try{const r=await fetch(ERP_ENDPOINT,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(data),mode:'cors'});if(r.ok){const j=await r.json();id=j.id||(j.reserva&&j.reserva.id);saved=true}}catch(err){}
+  if(!saved){const ymd=new Date().toISOString().slice(0,10).replace(/-/g,'');const all=(()=>{try{return JSON.parse(localStorage.getItem(CRM_KEY)||'[]')}catch{return[]}})();id='RES-'+ymd+'-'+String(all.length+1).padStart(3,'0');saveLocal({...data,id,estado:'pendiente',created_at:new Date().toISOString(),_offline:true})}
+  const fechaTxt=new Date(data.fecha+'T00:00:00').toLocaleDateString('es-ES',{weekday:'long',day:'numeric',month:'long'});
+  statusEl.className='bf-status show success';
+  statusEl.innerHTML='<b>¡Reserva recibida!</b> Confirmación a <b>'+data.email+'</b>.<br><br>📌 Reserva <b>'+(id||'—')+'</b> · Mesa para <b>'+data.comensales+'</b> el <b>'+fechaTxt+' a las '+data.hora+'</b>.<br>Si necesitas cambiar algo, llámanos al <a href="tel:+34943278465" style="color:inherit;text-decoration:underline;font-weight:600">943 27 84 65</a>.';
+  form.reset();
+  if(closeAfter)setTimeout(closeModal,5500);
+  btn.disabled=false;btn.textContent=original;
+}
+document.getElementById('booking-form').addEventListener('submit',e=>{e.preventDefault();submitBooking(e.target,document.getElementById('booking-status'),document.getElementById('bf-submit-btn'),false)});
+document.getElementById('booking-form-modal').addEventListener('submit',e=>{e.preventDefault();submitBooking(e.target,document.getElementById('booking-status-modal'),e.target.querySelector('.bf-submit'),true)});
+
+(function(){
+  var items=[].slice.call(document.querySelectorAll('.galeria-item[data-gx]'));
+  if(!items.length)return;
+  items.forEach(function(el){el.addEventListener('click',function(){window.open(el.dataset.gx,'_blank')})});
+})();
+(function(){function eq(){var cards=document.querySelectorAll('#menus .menu-fixed');if(!cards.length)return;cards.forEach(function(c){c.style.minHeight=''});var max=0;cards.forEach(function(c){if(c.offsetHeight>max)max=c.offsetHeight});cards.forEach(function(c){c.style.minHeight=max+'px'})}if(document.readyState!=='loading')eq();else document.addEventListener('DOMContentLoaded',eq);window.addEventListener('load',eq);var t;window.addEventListener('resize',function(){clearTimeout(t);t=setTimeout(eq,150)})})();
+</script>
+</body>
+</html>
