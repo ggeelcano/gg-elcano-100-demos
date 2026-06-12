@@ -12,7 +12,7 @@
   h1{font-size:1.5rem;margin-bottom:4px}
   .sub{color:#9aa4ad;margin-bottom:6px;font-size:.95rem}
   .aviso{background:#3a2e10;border:1px solid #8a6d1d;color:#ffd76e;border-radius:10px;padding:10px 14px;margin:14px 0;font-size:.9rem}
-  .filtros{display:flex;gap:8px;margin-bottom:18px}
+  .filtros{display:flex;gap:8px;margin-bottom:18px;flex-wrap:wrap}
   .filtros button{background:#1c2530;color:#e8e6e3;border:1px solid #2e3b48;border-radius:20px;padding:7px 16px;cursor:pointer;font-size:.9rem}
   .filtros button.on{background:#25d366;color:#0f1419;border-color:#25d366;font-weight:700}
   .card{display:flex;align-items:center;justify-content:space-between;gap:12px;background:#1c2530;border:1px solid #2e3b48;border-radius:12px;padding:14px 16px;margin-bottom:10px}
@@ -23,6 +23,7 @@
   h2{font-size:1rem;line-height:1.25}
   .meta{color:#9aa4ad;font-size:.83rem;margin-top:2px}
   .prob{color:#ff8484}
+  .prob2{color:#ffb45e}
   .wa{display:flex;align-items:center;gap:8px;background:#25d366;color:#0c1a12;font-weight:700;text-decoration:none;border-radius:10px;padding:10px 16px;white-space:nowrap;font-size:.9rem}
   .wa:hover{background:#1fb858}
   @media(max-width:560px){.card{flex-direction:column;align-items:stretch}.wa{justify-content:center}}
@@ -31,15 +32,19 @@
 <body>
 <div class="wrap">
   <h1>📲 Envío WhatsApp — Agroturismos</h1>
-  <p class="sub">Andalucía + Extremadura · 40 alojamientos con web caída y 4,7-5★ en Google · mensaje personalizado precargado</p>
-  <div class="aviso">⚠️ Máximo 20-30 envíos/día y espaciados (nada de 20 en una hora). Día 1 → del 1 al 20 · Día 2 → del 21 al 40. El botón se marca con ✓ al usarlo.</div>
+  <p class="sub">Andalucía + Extremadura · 80 alojamientos (40 web caída 🔴 + 40 web anticuada 🟠) · mensaje personalizado precargado</p>
+  <div class="aviso">⚠️ Máximo 20-30 envíos/día y espaciados (nada de 20 en una hora). 4 días: 20 por día siguiendo la numeración. El ✓ se guarda aunque cierres la página.</div>
   <div class="filtros">
-    <button class="on" data-f="all">Todos</button>
-    <button data-f="1">Día 1 (1-20)</button>
-    <button data-f="2">Día 2 (21-40)</button>
+    <button class="on" data-f="all" data-t="f">Todos</button>
+    <button data-f="caida" data-t="cat">🔴 Caídas</button>
+    <button data-f="mala" data-t="cat">🟠 Anticuadas</button>
+    <button data-f="1" data-t="dia">Día 1</button>
+    <button data-f="2" data-t="dia">Día 2</button>
+    <button data-f="3" data-t="dia">Día 3</button>
+    <button data-f="4" data-t="dia">Día 4</button>
   </div>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">1</span>
       <div>
@@ -47,13 +52,13 @@
         <p class="meta">Iznatoraf · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34687411639?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20Iznatoraf%20encontr%C3%A9%20SG%20Alojamientos.%20Casa%20Rinc%C3%B3n%20%E2%80%94%20con%20un%205%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34687411639?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20Iznatoraf%20encontr%C3%A9%20SG%20Alojamientos.%20Casa%20Rinc%C3%B3n%20%E2%80%94%20con%20un%205%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'1')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">2</span>
       <div>
@@ -61,13 +66,13 @@
         <p class="meta">Fontanar · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34653813799?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Alojamiento%20Casas%20Cuevas%20El%20Mirador%20en%20Google%20Maps%20%E2%80%94%205%E2%98%85%2C%20de%20lo%20mejor%20de%20Fontanar%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34653813799?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Alojamiento%20Casas%20Cuevas%20El%20Mirador%20en%20Google%20Maps%20%E2%80%94%205%E2%98%85%2C%20de%20lo%20mejor%20de%20Fontanar%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'2')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">3</span>
       <div>
@@ -75,13 +80,13 @@
         <p class="meta">Hinojares · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34638570056?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20La%20Rosita%20Alojamiento%20Rural%20buscando%20escapadas%20por%20Hinojares%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%205%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34638570056?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20La%20Rosita%20Alojamiento%20Rural%20buscando%20escapadas%20por%20Hinojares%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%205%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'3')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">4</span>
       <div>
@@ -89,13 +94,13 @@
         <p class="meta">Torrox · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34678229529?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20Casa%20Blue%20(la%20vi%20en%20Google%2C%205%E2%98%85%20en%20Torrox%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34678229529?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20Casa%20Blue%20(la%20vi%20en%20Google%2C%205%E2%98%85%20en%20Torrox%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'4')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">5</span>
       <div>
@@ -103,13 +108,13 @@
         <p class="meta">El Real de la Jara · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34619980161?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20El%20Real%20de%20la%20Jara%20encontr%C3%A9%20Villamada%20Casa%20Rural%20%E2%80%94%20con%20un%205%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34619980161?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20El%20Real%20de%20la%20Jara%20encontr%C3%A9%20Villamada%20Casa%20Rural%20%E2%80%94%20con%20un%205%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'5')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">6</span>
       <div>
@@ -117,13 +122,13 @@
         <p class="meta">Yunquera · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34636172664?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Casa%20Rural%20Sierra%20de%20las%20Nieves%2C%20Yunquera%20en%20Google%20Maps%20%E2%80%94%205%E2%98%85%2C%20de%20lo%20mejor%20de%20Yunquera%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34636172664?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Casa%20Rural%20Sierra%20de%20las%20Nieves%2C%20Yunquera%20en%20Google%20Maps%20%E2%80%94%205%E2%98%85%2C%20de%20lo%20mejor%20de%20Yunquera%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'6')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">7</span>
       <div>
@@ -131,13 +136,13 @@
         <p class="meta">Andalucía · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34667765341?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Casa%20rural%20Villa%20Tirado%20buscando%20escapadas%20por%20Andaluc%C3%ADa%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%205%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34667765341?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Casa%20rural%20Villa%20Tirado%20buscando%20escapadas%20por%20Andaluc%C3%ADa%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%205%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'7')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">8</span>
       <div>
@@ -145,13 +150,13 @@
         <p class="meta">Alhaurín el Grande · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34647566861?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20Cortijo%20Don%20Juan%20(la%20vi%20en%20Google%2C%205%E2%98%85%20en%20Alhaur%C3%ADn%20el%20Grande%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34647566861?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20Cortijo%20Don%20Juan%20(la%20vi%20en%20Google%2C%205%E2%98%85%20en%20Alhaur%C3%ADn%20el%20Grande%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'8')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">9</span>
       <div>
@@ -159,13 +164,13 @@
         <p class="meta">Córdoba · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34650521753?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20C%C3%B3rdoba%20encontr%C3%A9%20Casa%20Rural%20Los%20Juncos%20de%20la%20Encantada%20%E2%80%94%20con%20un%205%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34650521753?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20C%C3%B3rdoba%20encontr%C3%A9%20Casa%20Rural%20Los%20Juncos%20de%20la%20Encantada%20%E2%80%94%20con%20un%205%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'9')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">10</span>
       <div>
@@ -173,13 +178,13 @@
         <p class="meta">Medina-Sidonia · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34663967340?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Casa%20Rural%20Casa%20del%20Museo-Agua%20en%20Google%20Maps%20%E2%80%94%205%E2%98%85%2C%20de%20lo%20mejor%20de%20Medina-Sidonia%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34663967340?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Casa%20Rural%20Casa%20del%20Museo-Agua%20en%20Google%20Maps%20%E2%80%94%205%E2%98%85%2C%20de%20lo%20mejor%20de%20Medina-Sidonia%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'10')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">11</span>
       <div>
@@ -187,13 +192,13 @@
         <p class="meta">Chercos · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34620801026?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Alojamiento%20rural%20Cortijo%20El%20Marqu%C3%A9s%20buscando%20escapadas%20por%20Chercos%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%205%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34620801026?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Alojamiento%20rural%20Cortijo%20El%20Marqu%C3%A9s%20buscando%20escapadas%20por%20Chercos%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%205%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'11')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">12</span>
       <div>
@@ -201,13 +206,13 @@
         <p class="meta">Júzcar · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34600954935?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20CASA%20BARRANCO%20(la%20vi%20en%20Google%2C%205%E2%98%85%20en%20J%C3%BAzcar%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34600954935?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20CASA%20BARRANCO%20(la%20vi%20en%20Google%2C%205%E2%98%85%20en%20J%C3%BAzcar%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'12')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">13</span>
       <div>
@@ -215,13 +220,13 @@
         <p class="meta">Carcabuey · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34619227739?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20Carcabuey%20encontr%C3%A9%20Casa%20Rural%20Cortijo%20La%20Torna%20%E2%80%94%20con%20un%205%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34619227739?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20Carcabuey%20encontr%C3%A9%20Casa%20Rural%20Cortijo%20La%20Torna%20%E2%80%94%20con%20un%205%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'13')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">14</span>
       <div>
@@ -229,13 +234,13 @@
         <p class="meta">Almuñécar · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34644538644?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Villa%20El%20Cortijo%20en%20Google%20Maps%20%E2%80%94%205%E2%98%85%2C%20de%20lo%20mejor%20de%20Almu%C3%B1%C3%A9car%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34644538644?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Villa%20El%20Cortijo%20en%20Google%20Maps%20%E2%80%94%205%E2%98%85%2C%20de%20lo%20mejor%20de%20Almu%C3%B1%C3%A9car%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'14')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">15</span>
       <div>
@@ -243,13 +248,13 @@
         <p class="meta">Malpartida de Plasencia · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34652905592?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Apartamentos%20Rurales%20Cielo%20de%20Monfrag%C3%BCe%20buscando%20escapadas%20por%20Malpartida%20de%20Plasencia%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%205%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34652905592?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Apartamentos%20Rurales%20Cielo%20de%20Monfrag%C3%BCe%20buscando%20escapadas%20por%20Malpartida%20de%20Plasencia%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%205%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'15')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">16</span>
       <div>
@@ -257,13 +262,13 @@
         <p class="meta">Perales del Puerto · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34620996014?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20La%20Casina%20De%20Micaela%20(la%20vi%20en%20Google%2C%205%E2%98%85%20en%20Perales%20del%20Puerto%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34620996014?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20La%20Casina%20De%20Micaela%20(la%20vi%20en%20Google%2C%205%E2%98%85%20en%20Perales%20del%20Puerto%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'16')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">17</span>
       <div>
@@ -271,13 +276,13 @@
         <p class="meta">Ovejuela · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34676702422?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20Ovejuela%20encontr%C3%A9%20Casa%20Rural%20La%20Chocita%20de%20T%C3%ADo%20Castor%20%E2%80%94%20con%20un%205%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34676702422?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20Ovejuela%20encontr%C3%A9%20Casa%20Rural%20La%20Chocita%20de%20T%C3%ADo%20Castor%20%E2%80%94%20con%20un%205%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'17')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">18</span>
       <div>
@@ -285,13 +290,13 @@
         <p class="meta">Casares de las Hurdes · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34671051310?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Casa%20Rural%20La%20T%C3%ADa%20Nita%20en%20Google%20Maps%20%E2%80%94%205%E2%98%85%2C%20de%20lo%20mejor%20de%20Casares%20de%20las%20Hurdes%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34671051310?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Casa%20Rural%20La%20T%C3%ADa%20Nita%20en%20Google%20Maps%20%E2%80%94%205%E2%98%85%2C%20de%20lo%20mejor%20de%20Casares%20de%20las%20Hurdes%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'18')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">19</span>
       <div>
@@ -299,13 +304,13 @@
         <p class="meta">Torrejón el Rubio · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34661873902?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Un%20lugar%20llamado%20descanso%20en%20Monfrague%20buscando%20escapadas%20por%20Torrej%C3%B3n%20el%20Rubio%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%205%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34661873902?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Un%20lugar%20llamado%20descanso%20en%20Monfrague%20buscando%20escapadas%20por%20Torrej%C3%B3n%20el%20Rubio%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%205%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'19')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="1">
+  <article class="card" data-dia="1" data-cat="caida">
     <div class="info">
       <span class="num">20</span>
       <div>
@@ -313,13 +318,13 @@
         <p class="meta">Trujillo · ⭐ 5 · <span class="prob">web caída</span> · día 1</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34629076316?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20CASA%20RURAL%20LA%20SERENA%20(la%20vi%20en%20Google%2C%205%E2%98%85%20en%20Trujillo%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34629076316?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20CASA%20RURAL%20LA%20SERENA%20(la%20vi%20en%20Google%2C%205%E2%98%85%20en%20Trujillo%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'20')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">21</span>
       <div>
@@ -327,13 +332,13 @@
         <p class="meta">Casas de Reina · ⭐ 5 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34655541420?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20Casas%20de%20Reina%20encontr%C3%A9%20Casa%20Rural%20La%20Besana%20**%20%E2%80%94%20con%20un%205%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34655541420?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20Casas%20de%20Reina%20encontr%C3%A9%20Casa%20Rural%20La%20Besana%20**%20%E2%80%94%20con%20un%205%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'21')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">22</span>
       <div>
@@ -341,13 +346,13 @@
         <p class="meta">Aldeanueva del Camino · ⭐ 5 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34619324439?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Apartamento%20Rural%20'La%20Luna'%20en%20Google%20Maps%20%E2%80%94%205%E2%98%85%2C%20de%20lo%20mejor%20de%20Aldeanueva%20del%20Camino%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34619324439?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Apartamento%20Rural%20'La%20Luna'%20en%20Google%20Maps%20%E2%80%94%205%E2%98%85%2C%20de%20lo%20mejor%20de%20Aldeanueva%20del%20Camino%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'22')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">23</span>
       <div>
@@ -355,13 +360,13 @@
         <p class="meta">Setenil de las Bodegas · ⭐ 4,9 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34623445222?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20La%20casa%20de%20La%20Lela%20buscando%20escapadas%20por%20Setenil%20de%20las%20Bodegas%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%204%2C9%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34623445222?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20La%20casa%20de%20La%20Lela%20buscando%20escapadas%20por%20Setenil%20de%20las%20Bodegas%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%204%2C9%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'23')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">24</span>
       <div>
@@ -369,13 +374,13 @@
         <p class="meta">Capileira · ⭐ 4,9 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34654359924?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20Hotel%20Rural%20Alfaj%C3%ADa%20De%20Antonio%20(la%20vi%20en%20Google%2C%204%2C9%E2%98%85%20en%20Capileira%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34654359924?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20Hotel%20Rural%20Alfaj%C3%ADa%20De%20Antonio%20(la%20vi%20en%20Google%2C%204%2C9%E2%98%85%20en%20Capileira%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'24')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">25</span>
       <div>
@@ -383,13 +388,13 @@
         <p class="meta">Andalucía · ⭐ 4,9 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34687867991?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20Andaluc%C3%ADa%20encontr%C3%A9%20Viviendas%20rurales%20-%20Cortijo%20Los%20Garridos%20%E2%80%94%20con%20un%204%2C9%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34687867991?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20Andaluc%C3%ADa%20encontr%C3%A9%20Viviendas%20rurales%20-%20Cortijo%20Los%20Garridos%20%E2%80%94%20con%20un%204%2C9%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'25')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">26</span>
       <div>
@@ -397,13 +402,13 @@
         <p class="meta">Osuna · ⭐ 4,9 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34647504276?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Casa%20Rural%20Migolla%20en%20Google%20Maps%20%E2%80%94%204%2C9%E2%98%85%2C%20de%20lo%20mejor%20de%20Osuna%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34647504276?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Casa%20Rural%20Migolla%20en%20Google%20Maps%20%E2%80%94%204%2C9%E2%98%85%2C%20de%20lo%20mejor%20de%20Osuna%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'26')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">27</span>
       <div>
@@ -411,13 +416,13 @@
         <p class="meta">Prado del Rey · ⭐ 4,9 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34653794864?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Cortijo%20el%20borboll%C3%B3n%20buscando%20escapadas%20por%20Prado%20del%20Rey%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%204%2C9%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34653794864?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Cortijo%20el%20borboll%C3%B3n%20buscando%20escapadas%20por%20Prado%20del%20Rey%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%204%2C9%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'27')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">28</span>
       <div>
@@ -425,13 +430,13 @@
         <p class="meta">Puente de Salia · ⭐ 4,9 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34637774066?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20Alojamiento%20Rural%20Cortijo%20El%20Puente%20(la%20vi%20en%20Google%2C%204%2C9%E2%98%85%20en%20Puente%20de%20Salia%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34637774066?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20Alojamiento%20Rural%20Cortijo%20El%20Puente%20(la%20vi%20en%20Google%2C%204%2C9%E2%98%85%20en%20Puente%20de%20Salia%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'28')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">29</span>
       <div>
@@ -439,13 +444,13 @@
         <p class="meta">Córdoba · ⭐ 4,9 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34626632730?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20C%C3%B3rdoba%20encontr%C3%A9%20Aljubea%2C%20tu%20casa%20rural%20en%20Cordoba%20%E2%80%94%20con%20un%204%2C9%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34626632730?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20C%C3%B3rdoba%20encontr%C3%A9%20Aljubea%2C%20tu%20casa%20rural%20en%20Cordoba%20%E2%80%94%20con%20un%204%2C9%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'29')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">30</span>
       <div>
@@ -453,13 +458,13 @@
         <p class="meta">Bayacas · ⭐ 4,9 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34638466848?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Alojamiento%20Rural%20Al%20sur%20de%20Granada%20en%20Google%20Maps%20%E2%80%94%204%2C9%E2%98%85%2C%20de%20lo%20mejor%20de%20Bayacas%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34638466848?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Alojamiento%20Rural%20Al%20sur%20de%20Granada%20en%20Google%20Maps%20%E2%80%94%204%2C9%E2%98%85%2C%20de%20lo%20mejor%20de%20Bayacas%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'30')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">31</span>
       <div>
@@ -467,13 +472,13 @@
         <p class="meta">Chirivel · ⭐ 4,9 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34635401080?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Cortijo%20El%20Ciruelo%20buscando%20escapadas%20por%20Chirivel%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%204%2C9%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34635401080?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Cortijo%20El%20Ciruelo%20buscando%20escapadas%20por%20Chirivel%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%204%2C9%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'31')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">32</span>
       <div>
@@ -481,13 +486,13 @@
         <p class="meta">Montefrío · ⭐ 4,9 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34622491117?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20Casa%20Rural%20Cortijo%20La%20Solana%20Montefr%C3%ADo%20(la%20vi%20en%20Google%2C%204%2C9%E2%98%85%20en%20Montefr%C3%ADo%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34622491117?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20Casa%20Rural%20Cortijo%20La%20Solana%20Montefr%C3%ADo%20(la%20vi%20en%20Google%2C%204%2C9%E2%98%85%20en%20Montefr%C3%ADo%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'32')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">33</span>
       <div>
@@ -495,13 +500,13 @@
         <p class="meta">Pedroso de Acim · ⭐ 4,9 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34620210167?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20Pedroso%20de%20Acim%20encontr%C3%A9%20EL%20RINC%C3%93N%20DEL%20CAMINANTE%20CASA%20RURAL%20%E2%80%94%20con%20un%204%2C9%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34620210167?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20Pedroso%20de%20Acim%20encontr%C3%A9%20EL%20RINC%C3%93N%20DEL%20CAMINANTE%20CASA%20RURAL%20%E2%80%94%20con%20un%204%2C9%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'33')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">34</span>
       <div>
@@ -509,13 +514,13 @@
         <p class="meta">Hoyos · ⭐ 4,9 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34639475216?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20CASA%20RURAL%20TERRACEA%20en%20Google%20Maps%20%E2%80%94%204%2C9%E2%98%85%2C%20de%20lo%20mejor%20de%20Hoyos%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34639475216?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20CASA%20RURAL%20TERRACEA%20en%20Google%20Maps%20%E2%80%94%204%2C9%E2%98%85%2C%20de%20lo%20mejor%20de%20Hoyos%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'34')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">35</span>
       <div>
@@ -523,13 +528,13 @@
         <p class="meta">Zufre · ⭐ 4,8 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34687202061?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Dehesa%20El%20Tejar%20buscando%20escapadas%20por%20Zufre%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%204%2C8%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34687202061?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Dehesa%20El%20Tejar%20buscando%20escapadas%20por%20Zufre%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%204%2C8%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'35')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">36</span>
       <div>
@@ -537,13 +542,13 @@
         <p class="meta">Benaoján · ⭐ 4,8 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34675593989?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20Casas%20Rurales%20En%20Benaoj%C3%A1n%20%7C%20Casa%20Rural%20El%20Nacimiento%20(la%20vi%20en%20Google%2C%204%2C8%E2%98%85%20en%20Benaoj%C3%A1n%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34675593989?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20Casas%20Rurales%20En%20Benaoj%C3%A1n%20%7C%20Casa%20Rural%20El%20Nacimiento%20(la%20vi%20en%20Google%2C%204%2C8%E2%98%85%20en%20Benaoj%C3%A1n%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'36')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">37</span>
       <div>
@@ -551,13 +556,13 @@
         <p class="meta">Cuacos de Yuste · ⭐ 4,8 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34609071623?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20Cuacos%20de%20Yuste%20encontr%C3%A9%20Casa%20la%20Ciega%20%E2%80%94%20con%20un%204%2C8%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34609071623?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Buscando%20alojamiento%20rural%20por%20la%20zona%20de%20Cuacos%20de%20Yuste%20encontr%C3%A9%20Casa%20la%20Ciega%20%E2%80%94%20con%20un%204%2C8%E2%98%85%20en%20Google%2C%20una%20pasada.%20Pero%20al%20entrar%20en%20vuestra%20web...%20no%20carga%20%F0%9F%98%95%0A%0AMe%20dedico%20justo%20a%20esto%3A%20webs%20para%20alojamientos%20rurales.%20Si%20quer%C3%A9is%2C%20os%20preparo%20una%20versi%C3%B3n%20nueva%20gratis%20y%20sin%20compromiso%2C%20con%20vuestras%20fotos%2C%20vuestras%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones%20de%20Booking).%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'37')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">38</span>
       <div>
@@ -565,13 +570,13 @@
         <p class="meta">Esparragosa de Lares · ⭐ 4,7 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34677458175?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Casa%20Rural%20A%20C%C3%A1ntaros%20en%20Google%20Maps%20%E2%80%94%204%2C7%E2%98%85%2C%20de%20lo%20mejor%20de%20Esparragosa%20de%20Lares%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34677458175?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Os%20escribo%20porque%20he%20visto%20Casa%20Rural%20A%20C%C3%A1ntaros%20en%20Google%20Maps%20%E2%80%94%204%2C7%E2%98%85%2C%20de%20lo%20mejor%20de%20Esparragosa%20de%20Lares%20%E2%80%94%20y%20al%20querer%20ver%20m%C3%A1s%2C%20vuestra%20web%20no%20funciona.%0A%0ACada%20d%C3%ADa%20que%20est%C3%A1%20ca%C3%ADda%20son%20reservas%20que%20se%20van%20a%20Booking%20o%20a%20otra%20casa.%20Hago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%3A%20fotos%20grandes%2C%20vuestras%20opiniones%20de%20Google%20y%20reserva%20directa%20por%20WhatsApp.%0A%0ASi%20os%20interesa%20verla%2C%20me%20dec%C3%ADs%20y%20os%20paso%20el%20enlace%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'38')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">39</span>
       <div>
@@ -579,13 +584,13 @@
         <p class="meta">Ruanes · ⭐ 4,7 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34656811720?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Casa%20Rural%20El%20Portalino%20buscando%20escapadas%20por%20Ruanes%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%204%2C7%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34656811720?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Encontr%C3%A9%20Casa%20Rural%20El%20Portalino%20buscando%20escapadas%20por%20Ruanes%20y%20me%20llam%C3%B3%20la%20atenci%C3%B3n%20el%204%2C7%E2%98%85%20que%20ten%C3%A9is%20en%20Google.%20Lo%20malo%3A%20vuestra%20web%20est%C3%A1%20ca%C3%ADda%20y%20no%20se%20puede%20ni%20ver%20el%20alojamiento%20%F0%9F%98%9E%0A%0AJusto%20me%20dedico%20a%20hacer%20webs%20para%20casas%20rurales.%20Os%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20quedar%C3%ADa%20%E2%80%94%20pantalla%20completa%2C%20rese%C3%B1as%20reales%20y%20bot%C3%B3n%20de%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20sin%20problema.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'39')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 
-  <article class="card" data-dia="2">
+  <article class="card" data-dia="2" data-cat="caida">
     <div class="info">
       <span class="num">40</span>
       <div>
@@ -593,18 +598,590 @@
         <p class="meta">Valencia del Mombuey · ⭐ 4,7 · <span class="prob">web caída</span> · día 2</p>
       </div>
     </div>
-    <a class="wa" href="https://wa.me/34697643462?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20Complejo%20Rural%20Rinc%C3%B3n%20del%20para%C3%ADso%20(la%20vi%20en%20Google%2C%204%2C7%E2%98%85%20en%20Valencia%20del%20Mombuey%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="this.closest('.card').classList.add('enviado')">
+    <a class="wa" href="https://wa.me/34697643462?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20He%20intentado%20entrar%20en%20la%20web%20de%20Complejo%20Rural%20Rinc%C3%B3n%20del%20para%C3%ADso%20(la%20vi%20en%20Google%2C%204%2C7%E2%98%85%20en%20Valencia%20del%20Mombuey%2C%20enhorabuena)%20y%20da%20error.%0A%0ACon%20esas%20rese%C3%B1as%2C%20tener%20la%20web%20rota%20es%20dejar%20dinero%20en%20la%20mesa%3A%20la%20gente%20acaba%20reservando%20por%20Booking%20y%20pag%C3%A1is%20comisi%C3%B3n.%20Os%20monto%20gratis%20y%20sin%20compromiso%20una%20web%20de%20muestra%20con%20vuestras%20fotos%20y%20reserva%20directa%20por%20WhatsApp%2C%20para%20que%20ve%C3%A1is%20la%20diferencia.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'40')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">41</span>
+      <div>
+        <h2>Cortijos La Yeguada</h2>
+        <p class="meta">Conil de la Frontera · ⭐ 5 · <span class="prob2">no adaptada a movil · diseno anos 2000</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34617707113?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20He%20visto%20Cortijos%20La%20Yeguada%20en%20Google%20(5%E2%98%85%20en%20Conil%20de%20la%20Frontera%2C%20enhorabuena)%20y%20entr%C3%A9%20en%20vuestra%20web%20desde%20el%20m%C3%B3vil...%20y%20la%20verdad%2C%20no%20le%20hace%20justicia%20al%20sitio%3A%20se%20ve%20antigua%20y%20cuesta%20navegarla%20desde%20el%20tel%C3%A9fono%2C%20que%20es%20desde%20donde%20reserva%20hoy%20casi%20todo%20el%20mundo.%0A%0AMe%20dedico%20a%20webs%20para%20alojamientos%20rurales.%20Os%20preparo%20gratis%20y%20sin%20compromiso%20una%20versi%C3%B3n%20nueva%20%E2%80%94%20fotos%20a%20pantalla%20completa%2C%20vuestras%20rese%C3%B1as%20reales%20y%20reserva%20directa%20por%20WhatsApp%20%E2%80%94%20para%20que%20compar%C3%A9is.%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'41')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">42</span>
+      <div>
+        <h2>Casa Rural Manantial De Las Jaras</h2>
+        <p class="meta">Istán · ⭐ 5 · <span class="prob2">no adaptada a movil · web casi vacia</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34654302959?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Encontr%C3%A9%20Casa%20Rural%20Manantial%20De%20Las%20Jaras%20buscando%20escapadas%20por%20Ist%C3%A1n%20%E2%80%94%205%E2%98%85%20en%20Google%2C%20top.%20Pero%20al%20abrir%20vuestra%20web%20desde%20el%20m%C3%B3vil%20se%20descuadra%20y%20no%20transmite%20lo%20que%20es%20el%20sitio%20de%20verdad.%0A%0AHago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%2C%20moderna%20y%20pensada%20para%20el%20m%C3%B3vil%2C%20con%20vuestras%20opiniones%20de%20Google%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones).%0A%0ASi%20quer%C3%A9is%20verla%2C%20me%20dec%C3%ADs%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'42')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">43</span>
+      <div>
+        <h2>Casa Esmeralda Ronda</h2>
+        <p class="meta">Ronda · ⭐ 5 · <span class="prob2">Flash · copyright 2014</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34654603856?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Casa%20Esmeralda%20Ronda%20tiene%20un%205%E2%98%85%20en%20Google%20que%20ya%20lo%20quisieran%20muchos%20hoteles%20de%20Ronda...%20pero%20vuestra%20web%20se%20ha%20quedado%20anticuada%20y%20eso%20resta%20reservas%20directas%3A%20la%20gente%20desconf%C3%ADa%20o%20se%20va%20a%20Booking.%0A%0AOs%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20podr%C3%ADa%20lucir%3A%20dise%C3%B1o%20actual%2C%20fotos%20grandes%2C%20rese%C3%B1as%20reales%20y%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20os%20qued%C3%A1is%20con%20la%20idea.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'43')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">44</span>
+      <div>
+        <h2>Casa Apartamento Rural U Penafrol</h2>
+        <p class="meta">Eljas · ⭐ 5 · <span class="prob2">sin HTTPS · copyright 2017</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34664013904?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20Estuve%20viendo%20la%20web%20de%20Casa%20Apartamento%20Rural%20U%20Penafrol%20(os%20encontr%C3%A9%20en%20Google%2C%205%E2%98%85%20en%20Eljas)%20y%20creo%20que%20os%20est%C3%A1%20frenando%3A%20dise%C3%B1o%20antiguo%20y%20mal%20adaptada%20al%20m%C3%B3vil.%0A%0ACon%20vuestras%20rese%C3%B1as%2C%20una%20web%20moderna%20con%20reserva%20directa%20por%20WhatsApp%20os%20quitar%C3%ADa%20dependencia%20de%20Booking%20y%20sus%20comisiones.%20Os%20monto%20una%20de%20muestra%20gratis%20y%20sin%20compromiso%20para%20que%20ve%C3%A1is%20la%20diferencia%20con%20vuestras%20propias%20fotos.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'44')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">45</span>
+      <div>
+        <h2>CASA RURAL NIJATA</h2>
+        <p class="meta">Valencia del Mombuey · ⭐ 5 · <span class="prob2">sin HTTPS · web casi vacia</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34699090813?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20He%20visto%20CASA%20RURAL%20NIJATA%20en%20Google%20(5%E2%98%85%20en%20Valencia%20del%20Mombuey%2C%20enhorabuena)%20y%20entr%C3%A9%20en%20vuestra%20web%20desde%20el%20m%C3%B3vil...%20y%20la%20verdad%2C%20no%20le%20hace%20justicia%20al%20sitio%3A%20se%20ve%20antigua%20y%20cuesta%20navegarla%20desde%20el%20tel%C3%A9fono%2C%20que%20es%20desde%20donde%20reserva%20hoy%20casi%20todo%20el%20mundo.%0A%0AMe%20dedico%20a%20webs%20para%20alojamientos%20rurales.%20Os%20preparo%20gratis%20y%20sin%20compromiso%20una%20versi%C3%B3n%20nueva%20%E2%80%94%20fotos%20a%20pantalla%20completa%2C%20vuestras%20rese%C3%B1as%20reales%20y%20reserva%20directa%20por%20WhatsApp%20%E2%80%94%20para%20que%20compar%C3%A9is.%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'45')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">46</span>
+      <div>
+        <h2>Monte Naturivo</h2>
+        <p class="meta">Andalucía · ⭐ 5 · <span class="prob2">no adaptada a movil</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34646217422?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Encontr%C3%A9%20Monte%20Naturivo%20buscando%20escapadas%20por%20Andaluc%C3%ADa%20%E2%80%94%205%E2%98%85%20en%20Google%2C%20top.%20Pero%20al%20abrir%20vuestra%20web%20desde%20el%20m%C3%B3vil%20se%20descuadra%20y%20no%20transmite%20lo%20que%20es%20el%20sitio%20de%20verdad.%0A%0AHago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%2C%20moderna%20y%20pensada%20para%20el%20m%C3%B3vil%2C%20con%20vuestras%20opiniones%20de%20Google%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones).%0A%0ASi%20quer%C3%A9is%20verla%2C%20me%20dec%C3%ADs%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'46')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">47</span>
+      <div>
+        <h2>LA PARIERA, Espacio Rural</h2>
+        <p class="meta">El Cerezo · ⭐ 5 · <span class="prob2">no adaptada a movil</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34676080031?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20LA%20PARIERA%2C%20Espacio%20Rural%20tiene%20un%205%E2%98%85%20en%20Google%20que%20ya%20lo%20quisieran%20muchos%20hoteles%20de%20El%20Cerezo...%20pero%20vuestra%20web%20se%20ha%20quedado%20anticuada%20y%20eso%20resta%20reservas%20directas%3A%20la%20gente%20desconf%C3%ADa%20o%20se%20va%20a%20Booking.%0A%0AOs%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20podr%C3%ADa%20lucir%3A%20dise%C3%B1o%20actual%2C%20fotos%20grandes%2C%20rese%C3%B1as%20reales%20y%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20os%20qued%C3%A1is%20con%20la%20idea.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'47')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">48</span>
+      <div>
+        <h2>Casa María</h2>
+        <p class="meta">Quesada · ⭐ 4,9 · <span class="prob2">sin HTTPS · no adaptada a movil</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34629404737?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20Estuve%20viendo%20la%20web%20de%20Casa%20Mar%C3%ADa%20(os%20encontr%C3%A9%20en%20Google%2C%204%2C9%E2%98%85%20en%20Quesada)%20y%20creo%20que%20os%20est%C3%A1%20frenando%3A%20dise%C3%B1o%20antiguo%20y%20mal%20adaptada%20al%20m%C3%B3vil.%0A%0ACon%20vuestras%20rese%C3%B1as%2C%20una%20web%20moderna%20con%20reserva%20directa%20por%20WhatsApp%20os%20quitar%C3%ADa%20dependencia%20de%20Booking%20y%20sus%20comisiones.%20Os%20monto%20una%20de%20muestra%20gratis%20y%20sin%20compromiso%20para%20que%20ve%C3%A1is%20la%20diferencia%20con%20vuestras%20propias%20fotos.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'48')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">49</span>
+      <div>
+        <h2>La Mimbre Rural</h2>
+        <p class="meta">Zagrilla Baja · ⭐ 4,9 · <span class="prob2">sin HTTPS · no adaptada a movil</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34635658827?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20He%20visto%20La%20Mimbre%20Rural%20en%20Google%20(4%2C9%E2%98%85%20en%20Zagrilla%20Baja%2C%20enhorabuena)%20y%20entr%C3%A9%20en%20vuestra%20web%20desde%20el%20m%C3%B3vil...%20y%20la%20verdad%2C%20no%20le%20hace%20justicia%20al%20sitio%3A%20se%20ve%20antigua%20y%20cuesta%20navegarla%20desde%20el%20tel%C3%A9fono%2C%20que%20es%20desde%20donde%20reserva%20hoy%20casi%20todo%20el%20mundo.%0A%0AMe%20dedico%20a%20webs%20para%20alojamientos%20rurales.%20Os%20preparo%20gratis%20y%20sin%20compromiso%20una%20versi%C3%B3n%20nueva%20%E2%80%94%20fotos%20a%20pantalla%20completa%2C%20vuestras%20rese%C3%B1as%20reales%20y%20reserva%20directa%20por%20WhatsApp%20%E2%80%94%20para%20que%20compar%C3%A9is.%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'49')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">50</span>
+      <div>
+        <h2>Casa Rural La Cañada del Valle del Jerte</h2>
+        <p class="meta">Navaconcejo · ⭐ 4,9 · <span class="prob2">sin HTTPS · no adaptada a movil</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34652321782?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Encontr%C3%A9%20Casa%20Rural%20La%20Ca%C3%B1ada%20del%20Valle%20del%20Jerte%20buscando%20escapadas%20por%20Navaconcejo%20%E2%80%94%204%2C9%E2%98%85%20en%20Google%2C%20top.%20Pero%20al%20abrir%20vuestra%20web%20desde%20el%20m%C3%B3vil%20se%20descuadra%20y%20no%20transmite%20lo%20que%20es%20el%20sitio%20de%20verdad.%0A%0AHago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%2C%20moderna%20y%20pensada%20para%20el%20m%C3%B3vil%2C%20con%20vuestras%20opiniones%20de%20Google%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones).%0A%0ASi%20quer%C3%A9is%20verla%2C%20me%20dec%C3%ADs%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'50')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">51</span>
+      <div>
+        <h2>Casa Hilario</h2>
+        <p class="meta">Los Caños de Meca · ⭐ 4,9 · <span class="prob2">no adaptada a movil · copyright 2013</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34666994545?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Casa%20Hilario%20tiene%20un%204%2C9%E2%98%85%20en%20Google%20que%20ya%20lo%20quisieran%20muchos%20hoteles%20de%20Los%20Ca%C3%B1os%20de%20Meca...%20pero%20vuestra%20web%20se%20ha%20quedado%20anticuada%20y%20eso%20resta%20reservas%20directas%3A%20la%20gente%20desconf%C3%ADa%20o%20se%20va%20a%20Booking.%0A%0AOs%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20podr%C3%ADa%20lucir%3A%20dise%C3%B1o%20actual%2C%20fotos%20grandes%2C%20rese%C3%B1as%20reales%20y%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20os%20qued%C3%A1is%20con%20la%20idea.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'51')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">52</span>
+      <div>
+        <h2>Casa Rural Cortijo Los Llanos</h2>
+        <p class="meta">Monachil · ⭐ 4,9 · <span class="prob2">sin HTTPS · copyright 2017</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34652591934?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20Estuve%20viendo%20la%20web%20de%20Casa%20Rural%20Cortijo%20Los%20Llanos%20(os%20encontr%C3%A9%20en%20Google%2C%204%2C9%E2%98%85%20en%20Monachil)%20y%20creo%20que%20os%20est%C3%A1%20frenando%3A%20dise%C3%B1o%20antiguo%20y%20mal%20adaptada%20al%20m%C3%B3vil.%0A%0ACon%20vuestras%20rese%C3%B1as%2C%20una%20web%20moderna%20con%20reserva%20directa%20por%20WhatsApp%20os%20quitar%C3%ADa%20dependencia%20de%20Booking%20y%20sus%20comisiones.%20Os%20monto%20una%20de%20muestra%20gratis%20y%20sin%20compromiso%20para%20que%20ve%C3%A1is%20la%20diferencia%20con%20vuestras%20propias%20fotos.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'52')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">53</span>
+      <div>
+        <h2>Cortijo el Chaparro</h2>
+        <p class="meta">Fuentes de Cesna · ⭐ 4,9 · <span class="prob2">sin HTTPS · copyright 2016</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34711018048?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20He%20visto%20Cortijo%20el%20Chaparro%20en%20Google%20(4%2C9%E2%98%85%20en%20Fuentes%20de%20Cesna%2C%20enhorabuena)%20y%20entr%C3%A9%20en%20vuestra%20web%20desde%20el%20m%C3%B3vil...%20y%20la%20verdad%2C%20no%20le%20hace%20justicia%20al%20sitio%3A%20se%20ve%20antigua%20y%20cuesta%20navegarla%20desde%20el%20tel%C3%A9fono%2C%20que%20es%20desde%20donde%20reserva%20hoy%20casi%20todo%20el%20mundo.%0A%0AMe%20dedico%20a%20webs%20para%20alojamientos%20rurales.%20Os%20preparo%20gratis%20y%20sin%20compromiso%20una%20versi%C3%B3n%20nueva%20%E2%80%94%20fotos%20a%20pantalla%20completa%2C%20vuestras%20rese%C3%B1as%20reales%20y%20reserva%20directa%20por%20WhatsApp%20%E2%80%94%20para%20que%20compar%C3%A9is.%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'53')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">54</span>
+      <div>
+        <h2>Apartamentos rurales Natura</h2>
+        <p class="meta">Torrejón el Rubio · ⭐ 4,9 · <span class="prob2">no adaptada a movil</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34606953203?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Encontr%C3%A9%20Apartamentos%20rurales%20Natura%20buscando%20escapadas%20por%20Torrej%C3%B3n%20el%20Rubio%20%E2%80%94%204%2C9%E2%98%85%20en%20Google%2C%20top.%20Pero%20al%20abrir%20vuestra%20web%20desde%20el%20m%C3%B3vil%20se%20descuadra%20y%20no%20transmite%20lo%20que%20es%20el%20sitio%20de%20verdad.%0A%0AHago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%2C%20moderna%20y%20pensada%20para%20el%20m%C3%B3vil%2C%20con%20vuestras%20opiniones%20de%20Google%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones).%0A%0ASi%20quer%C3%A9is%20verla%2C%20me%20dec%C3%ADs%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'54')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">55</span>
+      <div>
+        <h2>Apartamentos Rurales Finca Las Abubillas</h2>
+        <p class="meta">Jaraicejo · ⭐ 4,9 · <span class="prob2">no adaptada a movil</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34608311286?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Apartamentos%20Rurales%20Finca%20Las%20Abubillas%20tiene%20un%204%2C9%E2%98%85%20en%20Google%20que%20ya%20lo%20quisieran%20muchos%20hoteles%20de%20Jaraicejo...%20pero%20vuestra%20web%20se%20ha%20quedado%20anticuada%20y%20eso%20resta%20reservas%20directas%3A%20la%20gente%20desconf%C3%ADa%20o%20se%20va%20a%20Booking.%0A%0AOs%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20podr%C3%ADa%20lucir%3A%20dise%C3%B1o%20actual%2C%20fotos%20grandes%2C%20rese%C3%B1as%20reales%20y%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20os%20qued%C3%A1is%20con%20la%20idea.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'55')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">56</span>
+      <div>
+        <h2>Casas El Molino</h2>
+        <p class="meta">Vejer de la Frontera · ⭐ 4,8 · <span class="prob2">sin HTTPS · no adaptada a movil</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34646218729?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20Estuve%20viendo%20la%20web%20de%20Casas%20El%20Molino%20(os%20encontr%C3%A9%20en%20Google%2C%204%2C8%E2%98%85%20en%20Vejer%20de%20la%20Frontera)%20y%20creo%20que%20os%20est%C3%A1%20frenando%3A%20dise%C3%B1o%20antiguo%20y%20mal%20adaptada%20al%20m%C3%B3vil.%0A%0ACon%20vuestras%20rese%C3%B1as%2C%20una%20web%20moderna%20con%20reserva%20directa%20por%20WhatsApp%20os%20quitar%C3%ADa%20dependencia%20de%20Booking%20y%20sus%20comisiones.%20Os%20monto%20una%20de%20muestra%20gratis%20y%20sin%20compromiso%20para%20que%20ve%C3%A1is%20la%20diferencia%20con%20vuestras%20propias%20fotos.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'56')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">57</span>
+      <div>
+        <h2>Casa Rural la Casita de Piedra</h2>
+        <p class="meta">Ronda · ⭐ 4,8 · <span class="prob2">no adaptada a movil · web casi vacia</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34699712283?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20He%20visto%20Casa%20Rural%20la%20Casita%20de%20Piedra%20en%20Google%20(4%2C8%E2%98%85%20en%20Ronda%2C%20enhorabuena)%20y%20entr%C3%A9%20en%20vuestra%20web%20desde%20el%20m%C3%B3vil...%20y%20la%20verdad%2C%20no%20le%20hace%20justicia%20al%20sitio%3A%20se%20ve%20antigua%20y%20cuesta%20navegarla%20desde%20el%20tel%C3%A9fono%2C%20que%20es%20desde%20donde%20reserva%20hoy%20casi%20todo%20el%20mundo.%0A%0AMe%20dedico%20a%20webs%20para%20alojamientos%20rurales.%20Os%20preparo%20gratis%20y%20sin%20compromiso%20una%20versi%C3%B3n%20nueva%20%E2%80%94%20fotos%20a%20pantalla%20completa%2C%20vuestras%20rese%C3%B1as%20reales%20y%20reserva%20directa%20por%20WhatsApp%20%E2%80%94%20para%20que%20compar%C3%A9is.%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'57')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">58</span>
+      <div>
+        <h2>Yurtas La Veleta</h2>
+        <p class="meta">Vejer de la Frontera · ⭐ 4,8 · <span class="prob2">no adaptada a movil · web casi vacia</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34667792400?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Encontr%C3%A9%20Yurtas%20La%20Veleta%20buscando%20escapadas%20por%20Vejer%20de%20la%20Frontera%20%E2%80%94%204%2C8%E2%98%85%20en%20Google%2C%20top.%20Pero%20al%20abrir%20vuestra%20web%20desde%20el%20m%C3%B3vil%20se%20descuadra%20y%20no%20transmite%20lo%20que%20es%20el%20sitio%20de%20verdad.%0A%0AHago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%2C%20moderna%20y%20pensada%20para%20el%20m%C3%B3vil%2C%20con%20vuestras%20opiniones%20de%20Google%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones).%0A%0ASi%20quer%C3%A9is%20verla%2C%20me%20dec%C3%ADs%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'58')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">59</span>
+      <div>
+        <h2>Palacio El Trasquilón</h2>
+        <p class="meta">Cáceres · ⭐ 4,8 · <span class="prob2">no adaptada a movil · web casi vacia</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34615377045?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Palacio%20El%20Trasquil%C3%B3n%20tiene%20un%204%2C8%E2%98%85%20en%20Google%20que%20ya%20lo%20quisieran%20muchos%20hoteles%20de%20C%C3%A1ceres...%20pero%20vuestra%20web%20se%20ha%20quedado%20anticuada%20y%20eso%20resta%20reservas%20directas%3A%20la%20gente%20desconf%C3%ADa%20o%20se%20va%20a%20Booking.%0A%0AOs%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20podr%C3%ADa%20lucir%3A%20dise%C3%B1o%20actual%2C%20fotos%20grandes%2C%20rese%C3%B1as%20reales%20y%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20os%20qued%C3%A1is%20con%20la%20idea.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'59')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="3" data-cat="mala">
+    <div class="info">
+      <span class="num">60</span>
+      <div>
+        <h2>Casa Aire de Lecrín</h2>
+        <p class="meta">Pinos del Valle · ⭐ 4,8 · <span class="prob2">sin HTTPS · copyright 2018</span> · día 3</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34683514428?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20Estuve%20viendo%20la%20web%20de%20Casa%20Aire%20de%20Lecr%C3%ADn%20(os%20encontr%C3%A9%20en%20Google%2C%204%2C8%E2%98%85%20en%20Pinos%20del%20Valle)%20y%20creo%20que%20os%20est%C3%A1%20frenando%3A%20dise%C3%B1o%20antiguo%20y%20mal%20adaptada%20al%20m%C3%B3vil.%0A%0ACon%20vuestras%20rese%C3%B1as%2C%20una%20web%20moderna%20con%20reserva%20directa%20por%20WhatsApp%20os%20quitar%C3%ADa%20dependencia%20de%20Booking%20y%20sus%20comisiones.%20Os%20monto%20una%20de%20muestra%20gratis%20y%20sin%20compromiso%20para%20que%20ve%C3%A1is%20la%20diferencia%20con%20vuestras%20propias%20fotos.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'60')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">61</span>
+      <div>
+        <h2>Casas Cueva Cazorla</h2>
+        <p class="meta">Hinojares · ⭐ 4,8 · <span class="prob2">sin HTTPS · copyright 2016</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34678312321?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20He%20visto%20Casas%20Cueva%20Cazorla%20en%20Google%20(4%2C8%E2%98%85%20en%20Hinojares%2C%20enhorabuena)%20y%20entr%C3%A9%20en%20vuestra%20web%20desde%20el%20m%C3%B3vil...%20y%20la%20verdad%2C%20no%20le%20hace%20justicia%20al%20sitio%3A%20se%20ve%20antigua%20y%20cuesta%20navegarla%20desde%20el%20tel%C3%A9fono%2C%20que%20es%20desde%20donde%20reserva%20hoy%20casi%20todo%20el%20mundo.%0A%0AMe%20dedico%20a%20webs%20para%20alojamientos%20rurales.%20Os%20preparo%20gratis%20y%20sin%20compromiso%20una%20versi%C3%B3n%20nueva%20%E2%80%94%20fotos%20a%20pantalla%20completa%2C%20vuestras%20rese%C3%B1as%20reales%20y%20reserva%20directa%20por%20WhatsApp%20%E2%80%94%20para%20que%20compar%C3%A9is.%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'61')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">62</span>
+      <div>
+        <h2>Complejo Rural Cortijo Garcés</h2>
+        <p class="meta">Alhama de Granada · ⭐ 4,8 · <span class="prob2">diseno anos 2000 · copyright 2015</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34635589488?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Encontr%C3%A9%20Complejo%20Rural%20Cortijo%20Garc%C3%A9s%20buscando%20escapadas%20por%20Alhama%20de%20Granada%20%E2%80%94%204%2C8%E2%98%85%20en%20Google%2C%20top.%20Pero%20al%20abrir%20vuestra%20web%20desde%20el%20m%C3%B3vil%20se%20descuadra%20y%20no%20transmite%20lo%20que%20es%20el%20sitio%20de%20verdad.%0A%0AHago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%2C%20moderna%20y%20pensada%20para%20el%20m%C3%B3vil%2C%20con%20vuestras%20opiniones%20de%20Google%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones).%0A%0ASi%20quer%C3%A9is%20verla%2C%20me%20dec%C3%ADs%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'62')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">63</span>
+      <div>
+        <h2>Apartamentos El Madroñal</h2>
+        <p class="meta">Coto-Ríos · ⭐ 4,8 · <span class="prob2">sin HTTPS · copyright 2016</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34656400931?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Apartamentos%20El%20Madro%C3%B1al%20tiene%20un%204%2C8%E2%98%85%20en%20Google%20que%20ya%20lo%20quisieran%20muchos%20hoteles%20de%20Coto-R%C3%ADos...%20pero%20vuestra%20web%20se%20ha%20quedado%20anticuada%20y%20eso%20resta%20reservas%20directas%3A%20la%20gente%20desconf%C3%ADa%20o%20se%20va%20a%20Booking.%0A%0AOs%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20podr%C3%ADa%20lucir%3A%20dise%C3%B1o%20actual%2C%20fotos%20grandes%2C%20rese%C3%B1as%20reales%20y%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20os%20qued%C3%A1is%20con%20la%20idea.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'63')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">64</span>
+      <div>
+        <h2>Apartamento La Casita de Vejer</h2>
+        <p class="meta">Vejer de la Frontera · ⭐ 4,8 · <span class="prob2">sin HTTPS · copyright 2011</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34617076370?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20Estuve%20viendo%20la%20web%20de%20Apartamento%20La%20Casita%20de%20Vejer%20(os%20encontr%C3%A9%20en%20Google%2C%204%2C8%E2%98%85%20en%20Vejer%20de%20la%20Frontera)%20y%20creo%20que%20os%20est%C3%A1%20frenando%3A%20dise%C3%B1o%20antiguo%20y%20mal%20adaptada%20al%20m%C3%B3vil.%0A%0ACon%20vuestras%20rese%C3%B1as%2C%20una%20web%20moderna%20con%20reserva%20directa%20por%20WhatsApp%20os%20quitar%C3%ADa%20dependencia%20de%20Booking%20y%20sus%20comisiones.%20Os%20monto%20una%20de%20muestra%20gratis%20y%20sin%20compromiso%20para%20que%20ve%C3%A1is%20la%20diferencia%20con%20vuestras%20propias%20fotos.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'64')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">65</span>
+      <div>
+        <h2>Casa rural en Almoharín Finca Flores Amarillas</h2>
+        <p class="meta">Almoharín · ⭐ 4,8 · <span class="prob2">diseno anos 2000 · copyright 2015</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34660128931?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20He%20visto%20Casa%20rural%20en%20Almohar%C3%ADn%20Finca%20Flores%20Amarillas%20en%20Google%20(4%2C8%E2%98%85%20en%20Almohar%C3%ADn%2C%20enhorabuena)%20y%20entr%C3%A9%20en%20vuestra%20web%20desde%20el%20m%C3%B3vil...%20y%20la%20verdad%2C%20no%20le%20hace%20justicia%20al%20sitio%3A%20se%20ve%20antigua%20y%20cuesta%20navegarla%20desde%20el%20tel%C3%A9fono%2C%20que%20es%20desde%20donde%20reserva%20hoy%20casi%20todo%20el%20mundo.%0A%0AMe%20dedico%20a%20webs%20para%20alojamientos%20rurales.%20Os%20preparo%20gratis%20y%20sin%20compromiso%20una%20versi%C3%B3n%20nueva%20%E2%80%94%20fotos%20a%20pantalla%20completa%2C%20vuestras%20rese%C3%B1as%20reales%20y%20reserva%20directa%20por%20WhatsApp%20%E2%80%94%20para%20que%20compar%C3%A9is.%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'65')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">66</span>
+      <div>
+        <h2>Casa de la Higuera</h2>
+        <p class="meta">Priego de Córdoba · ⭐ 4,8 · <span class="prob2">no adaptada a movil</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34696662788?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Encontr%C3%A9%20Casa%20de%20la%20Higuera%20buscando%20escapadas%20por%20Priego%20de%20C%C3%B3rdoba%20%E2%80%94%204%2C8%E2%98%85%20en%20Google%2C%20top.%20Pero%20al%20abrir%20vuestra%20web%20desde%20el%20m%C3%B3vil%20se%20descuadra%20y%20no%20transmite%20lo%20que%20es%20el%20sitio%20de%20verdad.%0A%0AHago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%2C%20moderna%20y%20pensada%20para%20el%20m%C3%B3vil%2C%20con%20vuestras%20opiniones%20de%20Google%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones).%0A%0ASi%20quer%C3%A9is%20verla%2C%20me%20dec%C3%ADs%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'66')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">67</span>
+      <div>
+        <h2>Cortijo la Loma de La Alpujarra</h2>
+        <p class="meta">Pórtugos · ⭐ 4,8 · <span class="prob2">no adaptada a movil</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34650497980?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Cortijo%20la%20Loma%20de%20La%20Alpujarra%20tiene%20un%204%2C8%E2%98%85%20en%20Google%20que%20ya%20lo%20quisieran%20muchos%20hoteles%20de%20P%C3%B3rtugos...%20pero%20vuestra%20web%20se%20ha%20quedado%20anticuada%20y%20eso%20resta%20reservas%20directas%3A%20la%20gente%20desconf%C3%ADa%20o%20se%20va%20a%20Booking.%0A%0AOs%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20podr%C3%ADa%20lucir%3A%20dise%C3%B1o%20actual%2C%20fotos%20grandes%2C%20rese%C3%B1as%20reales%20y%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20os%20qued%C3%A1is%20con%20la%20idea.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'67')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">68</span>
+      <div>
+        <h2>La Colegiata de Ronda</h2>
+        <p class="meta">Ronda · ⭐ 4,8 · <span class="prob2">no adaptada a movil</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34651772148?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20Estuve%20viendo%20la%20web%20de%20La%20Colegiata%20de%20Ronda%20(os%20encontr%C3%A9%20en%20Google%2C%204%2C8%E2%98%85%20en%20Ronda)%20y%20creo%20que%20os%20est%C3%A1%20frenando%3A%20dise%C3%B1o%20antiguo%20y%20mal%20adaptada%20al%20m%C3%B3vil.%0A%0ACon%20vuestras%20rese%C3%B1as%2C%20una%20web%20moderna%20con%20reserva%20directa%20por%20WhatsApp%20os%20quitar%C3%ADa%20dependencia%20de%20Booking%20y%20sus%20comisiones.%20Os%20monto%20una%20de%20muestra%20gratis%20y%20sin%20compromiso%20para%20que%20ve%C3%A1is%20la%20diferencia%20con%20vuestras%20propias%20fotos.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'68')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">69</span>
+      <div>
+        <h2>Las mellis alojamientos Antequera</h2>
+        <p class="meta">Antequera · ⭐ 4,8 · <span class="prob2">no adaptada a movil</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34632468172?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20He%20visto%20Las%20mellis%20alojamientos%20Antequera%20en%20Google%20(4%2C8%E2%98%85%20en%20Antequera%2C%20enhorabuena)%20y%20entr%C3%A9%20en%20vuestra%20web%20desde%20el%20m%C3%B3vil...%20y%20la%20verdad%2C%20no%20le%20hace%20justicia%20al%20sitio%3A%20se%20ve%20antigua%20y%20cuesta%20navegarla%20desde%20el%20tel%C3%A9fono%2C%20que%20es%20desde%20donde%20reserva%20hoy%20casi%20todo%20el%20mundo.%0A%0AMe%20dedico%20a%20webs%20para%20alojamientos%20rurales.%20Os%20preparo%20gratis%20y%20sin%20compromiso%20una%20versi%C3%B3n%20nueva%20%E2%80%94%20fotos%20a%20pantalla%20completa%2C%20vuestras%20rese%C3%B1as%20reales%20y%20reserva%20directa%20por%20WhatsApp%20%E2%80%94%20para%20que%20compar%C3%A9is.%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'69')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">70</span>
+      <div>
+        <h2>Apartamentos rurales El Cortijo</h2>
+        <p class="meta">Conil de la Frontera · ⭐ 4,7 · <span class="prob2">sin HTTPS · no adaptada a movil</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34650089739?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Encontr%C3%A9%20Apartamentos%20rurales%20El%20Cortijo%20buscando%20escapadas%20por%20Conil%20de%20la%20Frontera%20%E2%80%94%204%2C7%E2%98%85%20en%20Google%2C%20top.%20Pero%20al%20abrir%20vuestra%20web%20desde%20el%20m%C3%B3vil%20se%20descuadra%20y%20no%20transmite%20lo%20que%20es%20el%20sitio%20de%20verdad.%0A%0AHago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%2C%20moderna%20y%20pensada%20para%20el%20m%C3%B3vil%2C%20con%20vuestras%20opiniones%20de%20Google%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones).%0A%0ASi%20quer%C3%A9is%20verla%2C%20me%20dec%C3%ADs%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'70')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">71</span>
+      <div>
+        <h2>Alojamiento Rural Vacaciones SANSAN Chiclana</h2>
+        <p class="meta">Chiclana de la Frontera · ⭐ 4,7 · <span class="prob2">sin HTTPS · no adaptada a movil</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34645642519?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Alojamiento%20Rural%20Vacaciones%20SANSAN%20Chiclana%20tiene%20un%204%2C7%E2%98%85%20en%20Google%20que%20ya%20lo%20quisieran%20muchos%20hoteles%20de%20Chiclana%20de%20la%20Frontera...%20pero%20vuestra%20web%20se%20ha%20quedado%20anticuada%20y%20eso%20resta%20reservas%20directas%3A%20la%20gente%20desconf%C3%ADa%20o%20se%20va%20a%20Booking.%0A%0AOs%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20podr%C3%ADa%20lucir%3A%20dise%C3%B1o%20actual%2C%20fotos%20grandes%2C%20rese%C3%B1as%20reales%20y%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20os%20qued%C3%A1is%20con%20la%20idea.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'71')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">72</span>
+      <div>
+        <h2>Casa Rural Pousada Manhega</h2>
+        <p class="meta">San Martín de Trevejo · ⭐ 4,7 · <span class="prob2">no adaptada a movil · diseno anos 2000</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34678616444?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20Estuve%20viendo%20la%20web%20de%20Casa%20Rural%20Pousada%20Manhega%20(os%20encontr%C3%A9%20en%20Google%2C%204%2C7%E2%98%85%20en%20San%20Mart%C3%ADn%20de%20Trevejo)%20y%20creo%20que%20os%20est%C3%A1%20frenando%3A%20dise%C3%B1o%20antiguo%20y%20mal%20adaptada%20al%20m%C3%B3vil.%0A%0ACon%20vuestras%20rese%C3%B1as%2C%20una%20web%20moderna%20con%20reserva%20directa%20por%20WhatsApp%20os%20quitar%C3%ADa%20dependencia%20de%20Booking%20y%20sus%20comisiones.%20Os%20monto%20una%20de%20muestra%20gratis%20y%20sin%20compromiso%20para%20que%20ve%C3%A1is%20la%20diferencia%20con%20vuestras%20propias%20fotos.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'72')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">73</span>
+      <div>
+        <h2>La Casa de mi Abuela - Casa Mansilla</h2>
+        <p class="meta">Úbeda · ⭐ 4,7 · <span class="prob2">no adaptada a movil · web casi vacia</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34613088854?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20He%20visto%20La%20Casa%20de%20mi%20Abuela%20-%20Casa%20Mansilla%20en%20Google%20(4%2C7%E2%98%85%20en%20%C3%9Abeda%2C%20enhorabuena)%20y%20entr%C3%A9%20en%20vuestra%20web%20desde%20el%20m%C3%B3vil...%20y%20la%20verdad%2C%20no%20le%20hace%20justicia%20al%20sitio%3A%20se%20ve%20antigua%20y%20cuesta%20navegarla%20desde%20el%20tel%C3%A9fono%2C%20que%20es%20desde%20donde%20reserva%20hoy%20casi%20todo%20el%20mundo.%0A%0AMe%20dedico%20a%20webs%20para%20alojamientos%20rurales.%20Os%20preparo%20gratis%20y%20sin%20compromiso%20una%20versi%C3%B3n%20nueva%20%E2%80%94%20fotos%20a%20pantalla%20completa%2C%20vuestras%20rese%C3%B1as%20reales%20y%20reserva%20directa%20por%20WhatsApp%20%E2%80%94%20para%20que%20compar%C3%A9is.%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'73')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">74</span>
+      <div>
+        <h2>La Villa Rural</h2>
+        <p class="meta">Castilblanco de los Arroyos · ⭐ 4,7 · <span class="prob2">sin HTTPS · copyright 2018</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34616143218?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Encontr%C3%A9%20La%20Villa%20Rural%20buscando%20escapadas%20por%20Castilblanco%20de%20los%20Arroyos%20%E2%80%94%204%2C7%E2%98%85%20en%20Google%2C%20top.%20Pero%20al%20abrir%20vuestra%20web%20desde%20el%20m%C3%B3vil%20se%20descuadra%20y%20no%20transmite%20lo%20que%20es%20el%20sitio%20de%20verdad.%0A%0AHago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%2C%20moderna%20y%20pensada%20para%20el%20m%C3%B3vil%2C%20con%20vuestras%20opiniones%20de%20Google%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones).%0A%0ASi%20quer%C3%A9is%20verla%2C%20me%20dec%C3%ADs%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'74')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">75</span>
+      <div>
+        <h2>Plaza Sandra</h2>
+        <p class="meta">Trujillo · ⭐ 4,7 · <span class="prob2">sin HTTPS · copyright 2017</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34609953118?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Plaza%20Sandra%20tiene%20un%204%2C7%E2%98%85%20en%20Google%20que%20ya%20lo%20quisieran%20muchos%20hoteles%20de%20Trujillo...%20pero%20vuestra%20web%20se%20ha%20quedado%20anticuada%20y%20eso%20resta%20reservas%20directas%3A%20la%20gente%20desconf%C3%ADa%20o%20se%20va%20a%20Booking.%0A%0AOs%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20podr%C3%ADa%20lucir%3A%20dise%C3%B1o%20actual%2C%20fotos%20grandes%2C%20rese%C3%B1as%20reales%20y%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20os%20qued%C3%A1is%20con%20la%20idea.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'75')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">76</span>
+      <div>
+        <h2>Cortijo Miguelín</h2>
+        <p class="meta">Zahora · ⭐ 4,7 · <span class="prob2">no adaptada a movil</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34660223336?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20Estuve%20viendo%20la%20web%20de%20Cortijo%20Miguel%C3%ADn%20(os%20encontr%C3%A9%20en%20Google%2C%204%2C7%E2%98%85%20en%20Zahora)%20y%20creo%20que%20os%20est%C3%A1%20frenando%3A%20dise%C3%B1o%20antiguo%20y%20mal%20adaptada%20al%20m%C3%B3vil.%0A%0ACon%20vuestras%20rese%C3%B1as%2C%20una%20web%20moderna%20con%20reserva%20directa%20por%20WhatsApp%20os%20quitar%C3%ADa%20dependencia%20de%20Booking%20y%20sus%20comisiones.%20Os%20monto%20una%20de%20muestra%20gratis%20y%20sin%20compromiso%20para%20que%20ve%C3%A1is%20la%20diferencia%20con%20vuestras%20propias%20fotos.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'76')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">77</span>
+      <div>
+        <h2>Cortijo Rio Madera</h2>
+        <p class="meta">Segura de la Sierra · ⭐ 4,6 · <span class="prob2">sin HTTPS · no adaptada a movil</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34667588334?text=Hola!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20He%20visto%20Cortijo%20Rio%20Madera%20en%20Google%20(4%2C6%E2%98%85%20en%20Segura%20de%20la%20Sierra%2C%20enhorabuena)%20y%20entr%C3%A9%20en%20vuestra%20web%20desde%20el%20m%C3%B3vil...%20y%20la%20verdad%2C%20no%20le%20hace%20justicia%20al%20sitio%3A%20se%20ve%20antigua%20y%20cuesta%20navegarla%20desde%20el%20tel%C3%A9fono%2C%20que%20es%20desde%20donde%20reserva%20hoy%20casi%20todo%20el%20mundo.%0A%0AMe%20dedico%20a%20webs%20para%20alojamientos%20rurales.%20Os%20preparo%20gratis%20y%20sin%20compromiso%20una%20versi%C3%B3n%20nueva%20%E2%80%94%20fotos%20a%20pantalla%20completa%2C%20vuestras%20rese%C3%B1as%20reales%20y%20reserva%20directa%20por%20WhatsApp%20%E2%80%94%20para%20que%20compar%C3%A9is.%0A%0A%C2%BFOs%20la%20ense%C3%B1o%3F%20Un%20saludo!" target="_blank" rel="noopener" onclick="marca(this,'77')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">78</span>
+      <div>
+        <h2>Casas rurales Conil Villa Nueva</h2>
+        <p class="meta">Roche Conil · ⭐ 4,6 · <span class="prob2">no adaptada a movil · diseno anos 2000</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34629885681?text=Buenas!%20%F0%9F%91%8B%20Me%20llamo%20Josu%20(G%26G%20Elcano).%20Encontr%C3%A9%20Casas%20rurales%20Conil%20Villa%20Nueva%20buscando%20escapadas%20por%20Roche%20Conil%20%E2%80%94%204%2C6%E2%98%85%20en%20Google%2C%20top.%20Pero%20al%20abrir%20vuestra%20web%20desde%20el%20m%C3%B3vil%20se%20descuadra%20y%20no%20transmite%20lo%20que%20es%20el%20sitio%20de%20verdad.%0A%0AHago%20webs%20para%20turismo%20rural%20y%20os%20puedo%20montar%20una%20de%20muestra%20gratis%2C%20sin%20ning%C3%BAn%20compromiso%2C%20moderna%20y%20pensada%20para%20el%20m%C3%B3vil%2C%20con%20vuestras%20opiniones%20de%20Google%20y%20bot%C3%B3n%20de%20reserva%20directa%20por%20WhatsApp%20(sin%20comisiones).%0A%0ASi%20quer%C3%A9is%20verla%2C%20me%20dec%C3%ADs%20%F0%9F%98%8A" target="_blank" rel="noopener" onclick="marca(this,'78')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">79</span>
+      <div>
+        <h2>Cortijo Relente</h2>
+        <p class="meta">El Arteal · ⭐ 4,6 · <span class="prob2">no adaptada a movil · copyright 2014</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34678276253?text=Hola%2C%20qu%C3%A9%20tal!%20%F0%9F%91%8B%20Soy%20Josu%2C%20de%20G%26G%20Elcano.%20Cortijo%20Relente%20tiene%20un%204%2C6%E2%98%85%20en%20Google%20que%20ya%20lo%20quisieran%20muchos%20hoteles%20de%20El%20Arteal...%20pero%20vuestra%20web%20se%20ha%20quedado%20anticuada%20y%20eso%20resta%20reservas%20directas%3A%20la%20gente%20desconf%C3%ADa%20o%20se%20va%20a%20Booking.%0A%0AOs%20preparo%20una%20propuesta%20nueva%20gratis%20para%20que%20ve%C3%A1is%20c%C3%B3mo%20podr%C3%ADa%20lucir%3A%20dise%C3%B1o%20actual%2C%20fotos%20grandes%2C%20rese%C3%B1as%20reales%20y%20reserva%20por%20WhatsApp.%20Si%20os%20gusta%20hablamos%2C%20y%20si%20no%2C%20os%20qued%C3%A1is%20con%20la%20idea.%0A%0A%C2%BFLe%20ech%C3%A1is%20un%20ojo%3F" target="_blank" rel="noopener" onclick="marca(this,'79')">
+      <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
+      Enviar WhatsApp
+    </a>
+  </article>
+
+  <article class="card" data-dia="4" data-cat="mala">
+    <div class="info">
+      <span class="num">80</span>
+      <div>
+        <h2>Casa del Agua Spa de Castaño del Robledo</h2>
+        <p class="meta">Aracena · ⭐ 4,6 · <span class="prob2">sin HTTPS · copyright 2017</span> · día 4</p>
+      </div>
+    </div>
+    <a class="wa" href="https://wa.me/34627940658?text=Buenas!%20Soy%20Josu%2C%20de%20la%20agencia%20G%26G%20Elcano%20%F0%9F%91%8B%20Estuve%20viendo%20la%20web%20de%20Casa%20del%20Agua%20Spa%20de%20Casta%C3%B1o%20del%20Robledo%20(os%20encontr%C3%A9%20en%20Google%2C%204%2C6%E2%98%85%20en%20Aracena)%20y%20creo%20que%20os%20est%C3%A1%20frenando%3A%20dise%C3%B1o%20antiguo%20y%20mal%20adaptada%20al%20m%C3%B3vil.%0A%0ACon%20vuestras%20rese%C3%B1as%2C%20una%20web%20moderna%20con%20reserva%20directa%20por%20WhatsApp%20os%20quitar%C3%ADa%20dependencia%20de%20Booking%20y%20sus%20comisiones.%20Os%20monto%20una%20de%20muestra%20gratis%20y%20sin%20compromiso%20para%20que%20ve%C3%A1is%20la%20diferencia%20con%20vuestras%20propias%20fotos.%0A%0A%C2%BFOs%20la%20paso%20cuando%20la%20tenga%3F%20Un%20saludo%20desde%20Bizkaia!" target="_blank" rel="noopener" onclick="marca(this,'80')">
       <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor"><path d="M17.5 14.4l-2.2-1c-.3-.1-.5-.1-.7.1l-1 1.2c-.2.2-.4.2-.6.1-.8-.4-2.4-1.4-3.4-3.2-.1-.2-.1-.4.1-.6l.9-1.1c.2-.2.2-.5.1-.7l-1-2.3c-.2-.4-.6-.5-1-.4-1 .4-2 1.4-2 2.7 0 .6.1 1.3.5 2.1 1 2.3 3 4.4 5.6 5.5.9.4 1.6.6 2.2.6 1.3 0 2.4-.9 2.8-2 .2-.4 0-.8-.3-1zM12 2C6.5 2 2 6.5 2 12c0 1.8.5 3.5 1.3 5L2 22l5.1-1.3c1.5.8 3.1 1.3 4.9 1.3 5.5 0 10-4.5 10-10S17.5 2 12 2zm0 18.2c-1.6 0-3.2-.4-4.5-1.2l-.3-.2-3 .8.8-3-.2-.3c-.9-1.4-1.3-3-1.3-4.5 0-4.5 3.7-8.2 8.2-8.2s8.2 3.7 8.2 8.2-3.4 8.4-7.9 8.4z"/></svg>
       Enviar WhatsApp
     </a>
   </article>
 </div>
 <script>
-  document.querySelectorAll('.filtros button').forEach(b=>b.addEventListener('click',()=>{
-    document.querySelectorAll('.filtros button').forEach(x=>x.classList.remove('on'));
+  function marca(el, num) {
+    el.closest('.card').classList.add('enviado');
+    try { const s = JSON.parse(localStorage.getItem('enviados-agro') || '[]'); if (!s.includes(num)) { s.push(num); localStorage.setItem('enviados-agro', JSON.stringify(s)); } } catch (e) {}
+  }
+  try {
+    JSON.parse(localStorage.getItem('enviados-agro') || '[]').forEach(n => {
+      const el = document.querySelector('.card .num') && [...document.querySelectorAll('.card')].find(c => c.querySelector('.num').textContent === n);
+      if (el) el.classList.add('enviado');
+    });
+  } catch (e) {}
+  document.querySelectorAll('.filtros button').forEach(b => b.addEventListener('click', () => {
+    document.querySelectorAll('.filtros button').forEach(x => x.classList.remove('on'));
     b.classList.add('on');
-    const f=b.dataset.f;
-    document.querySelectorAll('.card').forEach(c=>c.style.display=(f==='all'||c.dataset.dia===f)?'':'none');
+    const f = b.dataset.f, t = b.dataset.t;
+    document.querySelectorAll('.card').forEach(c => {
+      c.style.display = (f === 'all' || (t === 'cat' && c.dataset.cat === f) || (t === 'dia' && c.dataset.dia === f)) ? '' : 'none';
+    });
   }));
 </script>
 </body>
